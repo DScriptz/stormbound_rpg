@@ -12,13 +12,13 @@ import time
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, cooldown):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10):
         self.name = player_name
         self.player_class = player_class
         self.health = health
         self.max_health = max_health
         self.attack = attack
-        self.cooldown = cooldown
+        self.cooldown = 0
         self.level = 1
         self.inventory = {}
         self.stormmarks = 0
