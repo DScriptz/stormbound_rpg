@@ -12,12 +12,13 @@ import time
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, cooldown):
         self.name = player_name
         self.player_class = player_class
         self.health = health
         self.max_health = max_health
         self.attack = attack
+        self.cooldown = cooldown
         self.level = 1
         self.inventory = {}
         self.stormmarks = 0
@@ -53,7 +54,21 @@ class Player:
             time.sleep(0.95)
 
     def player_attack(self, enemy):
-
         damage = random.randint(self.attack - 5, self.attack + 5)
         print(f"\n{self.name} attacks {enemy.name} for {damage} damage!")
         enemy.take_damage(damage)
+
+    def use_ability(self, enemy):
+        if self.cooldown > 0:
+            print(f"{self.special_ability} is on cooldown for {self.cooldown} more turn(s)!")
+            return
+
+
+        if self.player_class == "Aethermancer":
+            extra_damage = random.randint(2, 4)
+            print(f"You unleash {self.special_ability}, strucking the enemy with arcane energy!")
+            enemy.take_damage(self.attack + extra_damage)
+        else:
+            print(f"{self.special_ability} is on cooldown! You lost your turn.")
+            time.sleep(1.1)
+

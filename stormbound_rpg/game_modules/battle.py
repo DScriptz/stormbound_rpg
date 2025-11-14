@@ -26,63 +26,56 @@ class Battle:
         self.player.take_damage(damage)
 
     def fight(self):
+        while True:
+            self.player.health = self.player.max_health
+            self.enemy.health = self.enemy.max_health
+            while self.player.health > 0 and self.enemy.is_alive():
 
-        while self.player.health > 0 and self.enemy.is_alive():
+                print(f"\n-[Your Health: {self.player.health}/{self.player.max_health} | {self.enemy.name}'s Health: {self.enemy.health}/{self.enemy.max_health}]-")
+                print("==============-BATTLE CHOICES-==============")
+                print(f"\n[A] - {Fore.RED + Style.DIM}Attack{Style.RESET_ALL} | [D] - {Fore.BLUE + Style.BRIGHT}Defend{Style.RESET_ALL}")
+                print(f"[S] - {Fore.LIGHTGREEN_EX + Style.BRIGHT}Special Ability{Style.RESET_ALL}: '{self.player.special_ability}'")
+                action = input("\n>> ").lower().strip()
 
-            print(f"\n-[Your Health: {self.player.health}/{self.player.max_health} | {self.enemy.name}'s Health: {self.enemy.health}/{self.enemy.max_health}]-")
-            print("==============-BATTLE CHOICES-==============")
-            print(f"\n[A] - {Fore.RED + Style.DIM}Attack{Style.RESET_ALL} | [D] - {Fore.BLUE + Style.BRIGHT}Defend{Style.RESET_ALL}")
-            print(f"[S] - {Fore.LIGHTGREEN_EX + Style.BRIGHT}Special Ability{Style.RESET_ALL}: '{self.player.special_ability}'")
-            action = input("\n>> ").lower().strip()
+                """ THIS HANDLES HOW THE BATTLES GOES """
 
-            """ THIS HANDLES HOW THE BATTLES GOES """
+                if action == "a":
+                    self.player.player_attack(self.enemy)
+                    time.sleep(1.3)
 
-            if action == "a":
-                self.player.player_attack(self.enemy)
-                time.sleep(1.3)
+                elif action == "d":
+                    damage = random.randint(self.enemy.attack - 3, self.enemy.attack + 3) // 2
+                    print(f"{self.enemy.name} attacks you for {damage} damage!")
+                    time.sleep(1.5)
+                    self.player.take_damage(damage)
+                    continue
 
-            elif action == "d":
-                damage = random.randint(self.enemy.attack - 3, self.enemy.attack + 3) // 2
-                print(f"{self.enemy.name} attacks you for {damage} damage!")
-                time.sleep(1.5)
-                self.player.take_damage(damage)
-                continue
+                elif action == "s":
 
-            elif action == "s":
-                if self.player.player_class == "Aethermancer":
-                    if self.player.special_ability:
-                        extra_damage = random.randint(2, 4)
-                        print(f"You used {self.player.special_ability} strucking the enemy with might!")
-                        self.enemy.take_damage(self.player.attack + extra_damage)
-                    else:
-                        print("You dont have a special ability! Turn lost.")
 
+                else:
+                    print("\nYou stumbled and lost your turn!")
+                    time.sleep(1)
+
+                """ ENEMY'S TURN """
+
+                if self.enemy.is_alive():
+                    self.enemy.enemy_attack(self.player)
+                    time.sleep(1.3)
+
+            """ PLAYER GETS DEFEATED BUT HAS A CHOICE TO RESTART """
+            if self.player.health <= 0:
+                print("\nYou have been defeated...")
+                choice = input("Try again?: ").lower().strip()
+
+                if choice =="y" or choice == "yes":
+                    continue
+                else:
+                    return
             else:
-                print("\nYou stumbled and lost your turn!")
-                time.sleep(1)
-
-            """ ENEMY'S TURN """
-
-            if self.enemy.is_alive():
-                self.enemy.enemy_attack(self.player)
-                time.sleep(1.3)
-
-        """ PLAYER GETS DEFEATED BUT HAS A CHOICE TO RESTART """
-        if self.player.health <= 0:
-            print("\nYou have been defeated...")
-            choice = input("Try again?: ").lower().strip()
-
-            if choice =="y" or "yes":
-                self.player.health = self.player.max_health
-                self.enemy.health = self.enemy.max_health
-
-
-
-
-
-
-        else:
-            print(f"\nYou defeated {self.enemy.name}!")
+                print(f"\nYou defeated the {self.enemy.name}!")
+                time.sleep(1.1)
+                return
 
 
 
