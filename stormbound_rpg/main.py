@@ -7,7 +7,7 @@ from chapters.chapter2 import chapter2
 def main():
     player = chapter1()
     chapter2(player)
-    try
+
 
 
 
