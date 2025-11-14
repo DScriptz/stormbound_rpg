@@ -1,18 +1,22 @@
 
+""" IMPORTS """
 import random
+import time
+
+
 """
    THIS HANDLES THE PLAYER'S DATA
 
    This handles the name choosing of the player and the way they introduce themselves
 
-
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, attack= 20):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10):
         self.name = player_name
         self.player_class = player_class
         self.health = health
+        self.max_health = max_health
         self.attack = attack
         self.level = 1
         self.inventory = {}
@@ -29,7 +33,7 @@ class Player:
                 
     """
     def introduce(self):
-        print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health} | Attack: {self.attack}")
+        print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health}/{self.max_health}  | Attack: {self.attack}")
         print(f"\nStormmarks: {self.stormmarks} | Level: {self.level}")
         print(f"\nInventory: {self.inventory}")
 
@@ -38,16 +42,15 @@ class Player:
     def take_damage(self, damage):
         self.health -= damage
 
-
         """ ENSURES THE PLAYER'S HEALTH DONT BECOME NEGATIVE """
 
         if self.health <= 0:
             self.health = 0
 
-        print(f"\nYou got hit for {damage}!")
 
         if self.health == 0:
             print("\nYou died... your vision blurs...")
+            time.sleep(0.95)
 
     def player_attack(self, enemy):
 

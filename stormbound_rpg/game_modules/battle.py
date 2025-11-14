@@ -1,3 +1,6 @@
+""" IMPORTS """
+from colorama import Fore, Style, init
+init(autoreset=True)
 
 import random
 import time
@@ -17,7 +20,7 @@ class Battle:
         self.enemy.take_damage(damage)
 
     def enemy_attack(self):
-        damage = random.randint(self.enemy.attack - 3, self.enemy.attack + 3)
+        damage = random.randint(self.enemy.attack - 3, self.enemy.attack + 2)
         print(f"\nThe {self.enemy.name} attacks {self.player.name} for {damage} damage!")
         time.sleep(1.1)
         self.player.take_damage(damage)
@@ -26,10 +29,10 @@ class Battle:
 
         while self.player.health > 0 and self.enemy.is_alive():
 
-            print(f"\n-[Your Health: {self.player.health} | {self.enemy.name}'s Health: {self.enemy.health}]-")
+            print(f"\n-[Your Health: {self.player.health}/{self.player.max_health} | {self.enemy.name}'s Health: {self.enemy.health}/{self.enemy.max_health}]-")
             print("==============-BATTLE CHOICES-==============")
-            print("\n[A] - Attack | [D] - Defend")
-            print(f"[S] - Special Ability: '{self.player.special_ability}'")
+            print(f"\n[A] - {Fore.RED + Style.DIM}Attack{Style.RESET_ALL} | [D] - {Fore.BLUE + Style.BRIGHT}Defend{Style.RESET_ALL}")
+            print(f"[S] - {Fore.LIGHTGREEN_EX + Style.BRIGHT}Special Ability{Style.RESET_ALL}: '{self.player.special_ability}'")
             action = input("\n>> ").lower().strip()
 
             """ THIS HANDLES HOW THE BATTLES GOES """
@@ -43,14 +46,16 @@ class Battle:
                 print(f"{self.enemy.name} attacks you for {damage} damage!")
                 time.sleep(1.5)
                 self.player.take_damage(damage)
+                continue
 
             elif action == "s":
-                if self.player.special_ability:
-                    extra_damage = random.randint(8, 13)
-                    print(f"You used {self.player.special_ability} for {extra_damage} damage!")
-                    self.enemy.take_damage(self.player.attack + extra_damage)
-                else:
-                    print("You dont have a special ability! Turn lost.")
+                if self.player.player_class == "Aethermancer":
+                    if self.player.special_ability:
+                        extra_damage = random.randint(2, 4)
+                        print(f"You used {self.player.special_ability} strucking the enemy with might!")
+                        self.enemy.take_damage(self.player.attack + extra_damage)
+                    else:
+                        print("You dont have a special ability! Turn lost.")
 
             else:
                 print("\nYou stumbled and lost your turn!")
@@ -62,12 +67,18 @@ class Battle:
                 self.enemy.enemy_attack(self.player)
                 time.sleep(1.3)
 
-
+        """ PLAYER GETS DEFEATED BUT HAS A CHOICE TO RESTART """
         if self.player.health <= 0:
             print("\nYou have been defeated...")
             choice = input("Try again?: ").lower().strip()
 
-            if choice == "y" or "yes":
+            if choice =="y" or "yes":
+                self.player.health = self.player.max_health
+                self.enemy.health = self.enemy.max_health
+
+
+
+
 
 
         else:

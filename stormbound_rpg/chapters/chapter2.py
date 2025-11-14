@@ -1,6 +1,6 @@
 import time
-from enemy import *
-from game_modules import Battle
+from stormbound_rpg.enemy import *
+from stormbound_rpg.game_modules import Battle
 
 """ HANDLES CHAPTER 2 OF THE GAME """
 def intro(player):
@@ -49,7 +49,13 @@ def chapter2(player):
     battle.fight()
 
     """ WHEN PLAYER KILLS WOLF """
+    print("\nAs you defeat the wolf, Kael Rowan claps his hand and walks slowly towards you..")
+    time.sleep(1.5)
     print("\nKael Rowan: 'Well well, you got some guts huh?'")
+    time.sleep(1.3)
     print("Kael Rowan: 'As promised, come with me *signals for you to follow him to the hideout*'")
+    time.sleep(1.5)
+    player.level += 1
+    print(f"\nYou leveled up! Level is now: {player.level}")
 
 

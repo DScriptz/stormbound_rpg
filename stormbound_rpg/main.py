@@ -1,5 +1,5 @@
-from chapters.chapter1 import chapter1
-from chapters.chapter2 import chapter2
+""" IMPORTS """
+from chapters import chapter1, chapter2, chapter3
 # import time
 
 """  MAIN STORY  """
@@ -7,6 +7,7 @@ from chapters.chapter2 import chapter2
 def main():
     player = chapter1()
     chapter2(player)
+    chapter3(player)
 
 
 
