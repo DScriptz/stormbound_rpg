@@ -8,7 +8,7 @@ enemies = {
     "Ravager Wolf": {"health": 55, "max_health": 55, "attack": 8, "ability": "Bite"},
     "Haven Marauder": {"health": 85, "max_health": 85, "attack": 13, "ability": "Slam"},
     "Ironclad Beetle": {"health": 90, "max_health": 90, "attack": 15, "ability": "Shell Block"},
-    "Thief": {"health": 40, "max_health": 40, "attack": 12, "ability": None}
+    "Thief": {"health": 60, "max_health": 60, "attack": 12, "ability": None}
 }
 
 
@@ -20,6 +20,7 @@ class Enemy:
         self.max_health = max_health
         self.attack = attack
         self.ability = ability
+        self.stunned = False
 
     """ THIS HANDLES THE PART WHEN THEY GET HIT OR DAMAGED """
 
@@ -30,10 +31,17 @@ class Enemy:
     def is_alive(self):
         return self.health > 0
 
-    def enemy_attack(self, enemy):
-        damage = random.randint(self.attack - 3, self.attack + 2)
-        print(f"\n{self.name} attacks {enemy.name} for {damage} damage!")
-        enemy.take_damage(damage)
+    def enemy_attack(self, target):
+        if target.dodging:
+            print(f"\n{self.name} dodged {target.name}'s attack")
+            target.dodging = False
+            damage = 0
+        else:
+            damage = random.randint(self.attack - 3, self.attack + 2)
+            print(f"\n{self.name} attacks {target.name} for {damage} damage!")
+
+        target.take_damage(damage)
+        return
 
 """ 
     THIS HANDLES THE SPAWNING OF THE ENEMY

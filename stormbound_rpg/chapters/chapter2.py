@@ -4,12 +4,12 @@ from stormbound_rpg.game_modules import Battle
 
 """ HANDLES CHAPTER 2 OF THE GAME """
 def intro(player):
-    skip_choice = input("Do you want to skip the dialogue? (Y/N): ").lower().strip()
+    skip_choice = input("\nDo you want to skip the dialogue? (Y/N): ").lower().strip()
     match skip_choice:
         case "n":
             print("---------------------- Chapter 2: The Encounter... ----------------------")
             time.sleep(0.8)
-            print(f"{player.name}: *prepares their bag* 'Hmm, this should be good.'")
+            print(f"\n{player.name}: *prepares their bag* 'Hmm, this should be good.'")
             time.sleep(1.5)
             print("You walked out, the door creaks as you open, and you step out into this seemingly vast, broken world...")
             time.sleep(1.56)
@@ -18,11 +18,11 @@ def intro(player):
             print("A man suddenly steps forward from the shadows, pointing a gun at you...")
             time.sleep(1.2)
             print("\nStranger: 'And who might you be...?'")
-            time.sleep(0.9)
+            time.sleep(1.5)
             print("\nYou put your hands up and told him, ")
             time.sleep(0.7)
             print(f"\n{player.name}: 'My name is {player.name}, I wish to just seek supplies for survival...'")
-            time.sleep(0.8)
+            time.sleep(1.6)
         case _:
             print("You skipped the dialogue!")
 
@@ -31,7 +31,7 @@ def intro(player):
 def chapter2(player):
     intro(player)
     print("Stranger: 'Hmm, alright. I am Kael Rowan. The leader of the Ironwind Outpost.'")
-    time.sleep(1.2)
+    time.sleep(1.3)
     print(f"Kael Rowan: 'So then {player.name}, I will lend you supplies if you prove you're trustworthy.'")
     time.sleep(1.4)
     print(f"Kael Rowan: 'I want you to kill a Ravager Wolf for me'")
@@ -55,7 +55,10 @@ def chapter2(player):
     time.sleep(1.3)
     print("Kael Rowan: 'As promised, come with me *signals for you to follow him to the hideout*'")
     time.sleep(1.5)
+
     player.level += 1
     print(f"\nYou leveled up! Level is now: {player.level}")
+    time.sleep(0.3)
+    input("\nPress [Enter] to continue >> ")
 
 

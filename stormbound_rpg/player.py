@@ -23,6 +23,8 @@ class Player:
         self.inventory = {}
         self.stormmarks = 0
         self.special_ability = None
+        self.dodging = False
+        self.stunned = False
 
     """ 
         PLAYER'S STATS BEING SHOWN
@@ -61,13 +63,59 @@ class Player:
     def use_ability(self, enemy):
         if self.cooldown > 0:
             print(f"{self.special_ability} is on cooldown for {self.cooldown} more turn(s)!")
+            time.sleep(1.5)
             return
 
 
-        if self.player_class == "Aethermancer":
-            extra_damage = random.randint(2, 4)
+        elif self.player_class == "aethermancer":
+            extra_damage = random.randint(3, 5)
             print(f"You unleash {self.special_ability}, strucking the enemy with arcane energy!")
+            time.sleep(1.5)
             enemy.take_damage(self.attack + extra_damage)
+
+            self.cooldown = 3
+
+        elif self.player_class == "stormwarden":
+            damage = random.randint(10, 14)
+            print(f"{self.name} unleashed Thunder Strike!! Dealing {damage} damage!")
+            time.sleep(1.5)
+            enemy.take_damage(damage)
+
+            if random.random() < 0.3:
+                enemy.stunned = True
+                print("The enemy got stunned by the impact!! ")
+                time.sleep(1.3)
+
+            self.cooldown = 4
+
+        elif self.player_class == "riftblade":
+            print(f"You swing your blade 3 times, dealing multiple damage to the enemy!")
+            time.sleep(1.5)
+            for attack in range(3):
+                enemy.take_damage(random.randint(2,5))
+
+            self.cooldown = 3
+
+        elif self.player_class == "haven scout":
+            print(f"\nYou analyzed your enemy {enemy.name} carefully... predicting his next move...")
+            time.sleep(1.5)
+            self.dodging = True
+
+            self.cooldown = 5
+
+        elif self.player_class == "ironbound sentinel":
+            heal = int(self.max_health * 0.15)
+            self.health += heal
+
+            if self.health > self.max_health:
+                self.health = self.max_health
+
+            print(f"{self.name} fortifies their defense! Restoring {heal} health!")
+            time.sleep(1.5)
+
+            self.cooldown = 4
+
+
         else:
             print(f"{self.special_ability} is on cooldown! You lost your turn.")
             time.sleep(1.1)

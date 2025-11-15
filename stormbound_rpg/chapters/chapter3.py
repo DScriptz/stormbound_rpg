@@ -24,4 +24,24 @@ def chapter3(player):
     battle = Battle(player, enemy)
     battle.fight()
 
+    """ IF PLAYER WINS, THE CHAPTER CONTINUES """
+
+    print("\nKael Rowan: 'Gahh, come help me- '")
+    time.sleep(1.2)
+    print("\nYou walked towards Kael, put his arms over your shoulders and helped him")
+    time.sleep(1.3)
+    print("So both of you walked through this hidden tunnel, 1 mile away from where you were ambushed...")
+    time.sleep(1.4)
+    print("As both of you exited the tunnel, you saw a big, busy, hidden underground base!")
+    time.sleep(1.4)
+    print(f"Kael Rowan: '*coughs*, {player.name}, Welcome to the Ironwind Outpost.'")
+    time.sleep(1.5)
+    print(f"As you were looking around, the bodyguards cautiously went near both of you but Kael told them you're friendly")
+    time.sleep(2)
+    print(f"Kael Rowan: 'I need to get my wounds checked, feel free to walk around, {player.name} you're one of us now'")
+    time.sleep(2)
+    print(f"{player.name}: 'Thanks, Kael, I'll be sure to leave when needed. *nods*'")
+    time.sleep(1.5)
+
+
 
