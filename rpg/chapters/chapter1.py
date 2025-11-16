@@ -1,10 +1,16 @@
+
 from rpg.player import Player
+
 from rpg.class_data import *
+
+from rpg.player import play_music, pygame
+
 import time
 
 """ GAME INTRO, BASICALLY JUST A PARAGRAPH EXPLAINING THE GAME'S LORE """
 
 def game_intro():
+    play_music("chapter1&2", volume=1, loop=True)
     print("[----------------------------------------------------------]")
     print("             -{ STORMBOUND HAVEN }-                      ")
     print("[----------------------------------------------------------]")
@@ -57,8 +63,8 @@ def chapter1(player=None):
             player.special_ability = stats['ability']
 
             player.introduce()
+            pygame.mixer.music.fadeout(2000)
             break
-
 
     return player
 

@@ -1,6 +1,10 @@
 """ IMPORTS """
 from colorama import Fore, Style, init
+from rpg.player import play_sound, play_music
 init(autoreset=True)
+
+import pygame
+pygame.mixer.init()
 
 import random
 import time
@@ -70,6 +74,7 @@ class Battle:
                 """
 
                 if action == "a":
+                    play_sound("attack", volume=0.8)
                     self.player.player_attack(self.enemy)
                     time.sleep(1.3)
 

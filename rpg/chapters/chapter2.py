@@ -1,9 +1,13 @@
+
+""" IMPORTS """
 import time
 from rpg.enemy import *
 from rpg.game_modules import Battle
+from rpg.player import play_music, pygame
 
 """ HANDLES CHAPTER 2 OF THE GAME """
 def intro(player):
+    play_music("chapter1&2", volume=1, loop=True)
     skip_choice = input("\nDo you want to skip the dialogue? (Y/N): ").lower().strip()
     match skip_choice:
         case "n":

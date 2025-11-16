@@ -5,6 +5,7 @@ import time
 import os
 import pygame
 
+pygame.mixer.init()
 """ SOUND HELPERS WHEN PLAYING SOUNDS OR MUSIC """
 
 def play_sound(sound_name, volume=0.6 ):
@@ -94,6 +95,7 @@ class Player:
 
 
         elif self.player_class == "aethermancer":
+            play_sound("aethermancer", volume=0.8)
             extra_damage = random.randint(3, 5)
             print(f"You unleash {self.special_ability}, strucking the enemy with arcane energy!")
             time.sleep(1.5)
@@ -102,6 +104,7 @@ class Player:
             self.cooldown = 3
 
         elif self.player_class == "stormwarden":
+            play_sound("stormwarden", volume=0.9)
             damage = random.randint(10, 14)
             print(f"{self.name} unleashed Thunder Strike!! Dealing {damage} damage!")
             time.sleep(1.5)
