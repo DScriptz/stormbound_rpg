@@ -5,7 +5,8 @@ from rpg.enemy import *
 from rpg.game_modules import Battle
 from rpg.player import play_music, pygame
 
-""" HANDLES CHAPTER 2 OF THE GAME """
+""" HANDLES CHAPTER 2 INTRO OF THE GAME """
+
 def intro(player):
     play_music("chapter1&2", volume=1, loop=True)
     skip_choice = input("\nDo you want to skip the dialogue? (Y/N): ").lower().strip()
@@ -32,6 +33,8 @@ def intro(player):
 
     return player
 
+""" CHAPTER 2 OF THE GAME """
+
 def chapter2(player):
     intro(player)
     print("Stranger: 'Hmm, alright. I am Kael Rowan. The leader of the Ironwind Outpost.'")
@@ -46,6 +49,7 @@ def chapter2(player):
     time.sleep(1.3)
     print("Suddenly a Wolf jumps out from the car, growling at you!")
     time.sleep(1.3)
+
     """ CREATES THE UPDATED ENEMY OBJECT FROM ENEMY DICTIONARY """
 
     enemy = spawn_enemy("Ravager Wolf")
@@ -68,6 +72,8 @@ def chapter2(player):
 
     print(f"\nYou leveled up! Level is now: {player.level}")
     time.sleep(0.3)
+
     input("\nPress [Enter] to continue >> ")
+    pygame.mixer.music.fadeout(2000)
 
 
