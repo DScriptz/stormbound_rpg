@@ -1,12 +1,12 @@
-from stormbound_rpg.player import Player
-from stormbound_rpg.class_data import *
+from rpg.player import Player
+from rpg.class_data import *
 import time
 
 """ GAME INTRO, BASICALLY JUST A PARAGRAPH EXPLAINING THE GAME'S LORE """
 
 def game_intro():
     print("[----------------------------------------------------------]")
-    print("                   -{ STORMBOUND HAVEN }-                      ")
+    print("             -{ STORMBOUND HAVEN }-                      ")
     print("[----------------------------------------------------------]")
 
     skip_choice = input("Do you want to skip the intro? (Y/N): ").lower().strip()

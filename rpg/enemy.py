@@ -31,16 +31,20 @@ class Enemy:
     def is_alive(self):
         return self.health > 0
 
-    def enemy_attack(self, target):
-        if target.dodging:
-            print(f"\n{self.name} dodged {target.name}'s attack")
-            target.dodging = False
+    def enemy_attack(self, player):
+        if player.dodging:
             damage = 0
+            print(f"\n{player.name} dodged {self.name}'s attack!")
         else:
             damage = random.randint(self.attack - 3, self.attack + 2)
-            print(f"\n{self.name} attacks {target.name} for {damage} damage!")
+            print(f"\n{self.name} attacks {player.name} for {damage} damage!")
 
-        target.take_damage(damage)
+        player.take_damage(damage)
+
+
+        if player.dodging:
+            player.dodging = False
+
         return
 
 """ 

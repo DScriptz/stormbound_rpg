@@ -1,6 +1,6 @@
 import time
-from stormbound_rpg.enemy import *
-from stormbound_rpg.game_modules import Battle
+from rpg.enemy import *
+from rpg.game_modules import Battle
 
 """ HANDLES CHAPTER 2 OF THE GAME """
 def intro(player):
@@ -24,7 +24,7 @@ def intro(player):
             print(f"\n{player.name}: 'My name is {player.name}, I wish to just seek supplies for survival...'")
             time.sleep(1.6)
         case _:
-            print("You skipped the dialogue!")
+            print("\nYou skipped the dialogue!")
 
     return player
 
@@ -56,7 +56,12 @@ def chapter2(player):
     print("Kael Rowan: 'As promised, come with me *signals for you to follow him to the hideout*'")
     time.sleep(1.5)
 
+    player.stormmarks += 20
+
+    print(f"Congratulations! Stormmarks + 20. Your SMK now: {player.stormmarks}")
+
     player.level += 1
+
     print(f"\nYou leveled up! Level is now: {player.level}")
     time.sleep(0.3)
     input("\nPress [Enter] to continue >> ")

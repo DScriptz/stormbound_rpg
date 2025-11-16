@@ -25,27 +25,30 @@ class Battle:
         time.sleep(1.1)
         self.player.take_damage(damage)
 
-    """ WHOLE BATTLE LOOP OF THE GAME """
+    """ MAIN BATTLE LOOP OF THE GAME """
+
     def fight(self):
         while True:
+            """ THIS ENSURES THAT IF THE GAME RESTARTS THE PLAYER AND ENEMY'S HEALTH GOES BACK TO THEIR MAX HEALTH """
             self.player.health = self.player.max_health
             self.enemy.health = self.enemy.max_health
+
             while self.player.health > 0 and self.enemy.is_alive():
+                print(f"\n            -[Your Health: {self.player.health}/{self.player.max_health} | {self.enemy.name}'s Health: {self.enemy.health}/{self.enemy.max_health}]-")
+                print("    [==============-BATTLE CHOICES-==============]z")
+                print(f"\n   [A] - {Fore.RED + Style.DIM}Attack{Style.RESET_ALL} |  [D] - {Fore.BLUE + Style.BRIGHT}Defend{Style.RESET_ALL}")
+                print(f"   [H] - {Fore.GREEN + Style.BRIGHT}Heal{Style.RESET_ALL} |  [R] - {Style.BRIGHT + Fore.LIGHTBLACK_EX}Run{Style.RESET_ALL} (-20 Stormmarks)")
 
-                print(f"\n   -[Your Health: {self.player.health}/{self.player.max_health} | {self.enemy.name}'s Health: {self.enemy.health}/{self.enemy.max_health}]-")
-                print("    ==============-BATTLE CHOICES-==============")
-                print(f"\n   [A] - {Fore.RED + Style.DIM}Attack{Style.RESET_ALL} | [D] - {Fore.BLUE + Style.BRIGHT}Defend{Style.RESET_ALL}")
-                print(f"   [H] - {Fore.GREEN + Style.BRIGHT}Heal{Style.RESET_ALL} | [R] - {Style.BRIGHT + Fore.LIGHTBLACK_EX}Run{Style.RESET_ALL} (-20 Stormmarks)")
-
-                """ THIS HANDLES THE COOLDOWN OF THE PLAYER'S ABILITY, IF IT'S IN COOLDOWN, DONT SHOW THE OPTION: 
-                    '[S] - Special Ability' 
+                """
+                    THIS HANDLES THE COOLDOWN OF THE PLAYER'S ABILITY, IF IT'S IN COOLDOWN, DONT SHOW THE OPTION: 
+                        '[S] - Special Ability'  
                 """
 
                 if self.player.cooldown == 0:
-                    print(f"   [S] - {Fore.YELLOW + Style.BRIGHT}Special Ability{Style.RESET_ALL}: '{self.player.special_ability}' | [I] - Inventory")
+                    print(f"   [S] - {Fore.YELLOW + Style.BRIGHT}Special Ability{Style.RESET_ALL}: '{self.player.special_ability}' |  [I] - Inventory")
 
                 else:
-                    print(f"   [S] - {self.player.special_ability} is on cooldown! ({self.player.cooldown} turns left) | [I] - Inventory")
+                    print(f"   (Cooldown : {self.player.cooldown}) |  [I] - Inventory")
 
 
                 action = input("\n>> ").lower().strip()
@@ -54,7 +57,7 @@ class Battle:
                     THIS HANDLES THE PLAYER'S CHOICES WITHIN THE GAME
                     
                     Example:
-                            -[Your Health: 75/75 | Ravager Wolf's Health: 55/55]-
+                                     -[Your Health: 75/75 | Ravager Wolf's Health: 55/55]-
                                 ==============-BATTLE CHOICES-==============
 
                                 [A] - Attack | [D] - Defend

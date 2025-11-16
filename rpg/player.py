@@ -2,6 +2,30 @@
 """ IMPORTS """
 import random
 import time
+import os
+import pygame
+
+""" SOUND HELPERS WHEN PLAYING SOUNDS OR MUSIC """
+
+def play_sound(sound_name, volume=0.6 ):
+    try:
+        sound_path = os.path.join("sounds", f"{sound_name}.ogg")
+        sound = pygame.mixer.Sound(sound_path)
+        sound.set_volume(volume)
+        sound.play()
+    except Exception as e:
+        print(f"[Sound Error] Couldn't play '{sound_name}': {e}")
+
+# Game long sounds/musics helper code (loop version)
+
+def play_music(music_name, volume=0.5, loop=True ):
+    try:
+        music_path = os.path.join("sounds", f"{music_name}.ogg")
+        pygame.mixer.music.load(music_path)
+        pygame.mixer.music.set_volume(volume)
+        pygame.mixer.music.play(-1 if loop else 0)
+    except Exception as e:
+        print(f"[Music Error] Couldn't play '{music_name}': {e}")
 
 
 """
@@ -37,7 +61,7 @@ class Player:
     """
     def introduce(self):
         print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health}/{self.max_health}  | Attack: {self.attack}")
-        print(f"\nStormmarks: {self.stormmarks} | Level: {self.level}")
+        print(f"\nStormmarks (SMK): {self.stormmarks} | Level: {self.level}")
         print(f"\nInventory: {self.inventory}")
 
     """ PLAYER TAKES DAMAGE """
@@ -55,10 +79,12 @@ class Player:
             print("\nYou died... your vision blurs...")
             time.sleep(0.95)
 
+
     def player_attack(self, enemy):
         damage = random.randint(self.attack - 5, self.attack + 5)
         print(f"\n{self.name} attacks {enemy.name} for {damage} damage!")
         enemy.take_damage(damage)
+
 
     def use_ability(self, enemy):
         if self.cooldown > 0:
@@ -115,8 +141,21 @@ class Player:
 
             self.cooldown = 4
 
-
         else:
             print(f"{self.special_ability} is on cooldown! You lost your turn.")
             time.sleep(1.1)
+
+    def show_inventory(self):
+        print("\n== [INVENTORY: SECURE CACHE ==")
+
+        if not self.inventory:
+            print("No stored supplies")
+            time.sleep(0.6)
+            return
+
+        for item, amount in self.inventory.items():
+            print(f"> {item} | x{amount}")
+
+    def show_status(self):
+        print(f"--[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | Health: {self.health}/{self.max_health} | Attack: {self.attack} ]--")
 
