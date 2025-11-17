@@ -47,4 +47,5 @@ Enjoy the game! If you have any suggestions, ideas or more coding guidance for m
 
 
 Developer: [DScriptz (Dwayne)]
+---
 Report bugs: If there's a bug, please open an issue on this GitHub repository.
