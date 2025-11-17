@@ -1,49 +1,55 @@
 
 """ IMPORTS """
+import time
 from rpg.shops import rusted_rifle_stock
 from rpg.tools.shop import Shop
 from rpg.shops.healing_shop import ironwind_apothecary
-import time
+from rpg.dialogues.rusty_apothecary import show_silas_dialogue
+from rpg.dialogues.rusted_rifle import show_rhys_dialogue
 
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
 
-
-
 """ SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 
 def show_shop_choices(player):
-        print("You looked around and there's 2 shops waving their offers to you...")
-        time.sleep(1.3)
-        print(f"{player.name}: 'There's a bunch of shops huh?'")
-        time.sleep(1.2)
-        while True:
 
-            print("\n[1] - Rusty Apothecary: Meds & Safety")
-            print(f"[2] - The Rusted Rifle, weapon & ammo needs")
-            print(f"[B] - Go back to the Nexus Point")
+    print("You looked around and there's 2 shops waving their offers to you...")
+    time.sleep(1.3)
+    print(f"{player.name}: 'There's a bunch of shops huh?'")
+    time.sleep(1.2)
+    while True:
 
-            choice = input("\n>> ").strip().lower()
+        print("\n[1] - Rusty Apothecary: Meds & Safety")
+        print(f"[2] - The Rusted Rifle, weapon & ammo needs")
+        print(f"[B] - Go back to the Nexus Point")
 
-            match choice:
+        choice = input("\n>> ").strip().lower()
 
-                case "1":
-                    healing_shop.open_shop(player)
+        match choice:
 
-                case "2":
-                    weapon_shop.open_shop(player)
+            case "1":
+                show_silas_dialogue()
+                time.sleep(1.7)
+                healing_shop.open_shop(player)
 
-                case "b":
-                    print(f"{player.name}: 'That was nice.'")
-                    time.sleep(1.2)
-                    break
-                case _:
-                    print(f"\n{player.name}: 'Gahh, can't decide...'")
+            case "2":
+                show_rhys_dialogue()
+                time.sleep(1.7)
+                weapon_shop.open_shop(player)
+
+            case "b":
+                print(f"{player.name}: 'That was nice.'")
+                time.sleep(1.2)
+                break
+
+            case _:
+                print(f"\n{player.name}: 'Gahh, can't decide...'")
 
 """ THIS HANDLES THE DIRECTION THE PLAYER CAN GO """
 
 def show_directions():
-    print("\n[1] - North")
+    print("\n[1] - North: 'Alley Of Remedies'")
     print("[2] - East")
     print("[3] - West")
     print("[X] - Exit Ironwind Outpost")
@@ -69,7 +75,6 @@ def chapter4(player):
             time.sleep(1.5)
             print("You catch a glimpse of a scavenger kid darting past, holding a bundle of scrap almost bigger than themselves.")
             time.sleep(1.6)
-
 
         case _:
             print("You skipped the dialogue!")

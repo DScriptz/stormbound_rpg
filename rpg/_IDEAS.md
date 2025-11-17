@@ -4,8 +4,8 @@
 
 -   [ ] **Implement Shop Logic:** Fully integrate buying/selling using the `shop.py` module.
 -   [ ] **New Enemy:** Design and create the `Iron Guard` enemy class (Health: 80, Attack: 15).
--   [ ] **Audio Transition:** Ensure music fades out (using `audio_manager.fade_music_out()`) when the player leaves the outpost area.
-
+-   [ ] **Audio Transition:** Ensure music fades out (using `audio_manager.music_fadeout()`) when the player leaves the outpost area.
+- [ ] **2 new locations**: Finish up East & West directions on Ironwind Outpost
 ---
 
 ##  Future Planned Features 
