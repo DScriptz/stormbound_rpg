@@ -1,6 +1,7 @@
 
 """ IMPORTS """
 import time
+import random
 from rpg.tools import audio_manager
 from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
@@ -66,9 +67,10 @@ def chapter2(player):
     print("Kael Rowan: 'As promised, come with me *signals for you to follow him to the hideout*'")
     time.sleep(1.5)
 
-    player.stormmarks += 20
+    stormmark_loot = random.randint(20, 25)
+    player.stormmarks += stormmark_loot
 
-    print(f"Congratulations! Stormmarks + 20. Your SMK now: {player.stormmarks}")
+    print(f"Congratulations! Stormmarks + {stormmark_loot} Your SMK now: {player.stormmarks}")
 
     player.level += 1
 

@@ -1,8 +1,10 @@
 # --- Temporary test code ---
-from shop import Shop
-from rpg.items import Item
+from rpg.shops import rusted_rifle_stock
+from rpg.tools import Shop
+from rpg.models.items import Item
 from rpg.shops.healing_shop import ironwind_apothecary
-from player import Player
+from rpg.shops.weapon_shop import rusted_rifle_stock
+from rpg.models.player import Player
 
 # Create a fake player for testing
 class FakePlayer:
@@ -21,13 +23,14 @@ player = FakePlayer()
 
 # Create the shop
 healing_shop = Shop("Ironwind Medic Bay", ironwind_apothecary)
-
+weapons_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
 # Print player stats BEFORE
 print(f"Before buying: HP {player.health}/{player.max_health}, SMK {player.stormmarks}, ATK {player.attack}")
 print(f"Inventory: {player.inventory}")
 
 # Run shop (manually type “1”, “2”, “x”, etc when prompted)
-healing_shop.open_shop(player)
+weapons_shop.open_shop(player)
+# healing_shop.open_shop(player)
 
 # Print player stats AFTER buying
 print(f"\nAfter buying: HP {player.health}/{player.max_health}, SMK {player.stormmarks}, ATK {player.attack}")

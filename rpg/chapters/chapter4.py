@@ -1,13 +1,14 @@
 
 """ IMPORTS """
+from rpg.shops import rusted_rifle_stock
 from rpg.tools.shop import Shop
 from rpg.shops.healing_shop import ironwind_apothecary
 import time
 
-
+healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
+weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
 
 """ THIS HANDLES THE DIRECTION THE PLAYER CAN GO """
-healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 
 def show_shop_choices(player):
         print("You looked around and there's 2 shops waving their offers to you...")
@@ -15,20 +16,28 @@ def show_shop_choices(player):
         print(f"{player.name}: 'There's a bunch of shops huh?'")
         time.sleep(1.2)
         while True:
+
             print("[1] - Rusty Apothecary: Meds & Safety")
             print(f"[2] - The Rusted Rifle, weapon & ammo needs")
+            print(f"[B] - Go back to the Nexus Point")
 
             choice = input("\n>> ")
 
             match choice:
                 case "1":
                     healing_shop.open_shop(player)
+                case "2":
+                    weapon_shop.open_shop(player)
+
+                case _:
+                    print(f"\n{player.name}: 'Gahh, can't decide...'")
 
 
 def show_directions():
-    print("\n[1] -  North")
+    print("\n[1] - North")
     print("[2] - East")
     print("[3] - West")
+    print("[X] - Exit Ironwind Outpost")
 
 
 """ THIS HANDLES THE CHAPTER 4 LOOP """
@@ -59,6 +68,9 @@ def chapter4(player):
             time.sleep(0.3)
 
     print(f"\n{player.name}: 'This is plenty... where should I go?'")
+    time.sleep(1.2)
+    print("You are now in The Nexus Point (center)")
+    time.sleep(1.1)
     player.show_status()
     while True:
         show_directions()

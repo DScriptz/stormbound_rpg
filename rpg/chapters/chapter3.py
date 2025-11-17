@@ -1,5 +1,6 @@
 """ IMPORTS """
 import time
+import random
 from rpg.tools import audio_manager
 from rpg.models.enemy import Enemy, spawn_enemy
 from rpg.game_modules import Battle
@@ -24,12 +25,15 @@ def chapter3(player):
     player.health = player.max_health
 
     """ SPAWNS THE ENEMY """
-    audio_manager.play_music("thief_fight", volume=0.9, loop=True)
+    audio_manager.play_music("thief_fight", volume=0.9)
     enemy = spawn_enemy("Thief")
     battle = Battle(player, enemy)
     battle.fight()
 
-    print(f"You won! Stormmarks + 15. {player.name} SMK's: {player.stormmarks}")
+    stormmarks_loot = random.randint(35, 40)
+    player.stormmarks += stormmarks_loot
+
+    print(f"You won! Stormmarks looted = {stormmarks_loot}. {player.name} SMK's: {player.stormmarks}")
     player.show_status()
     audio_manager.music_fadeout(2000)
 
@@ -52,8 +56,7 @@ def chapter3(player):
             time.sleep(1.4)
             print(f"Kael Rowan: '*coughs*, {player.name}, Welcome to the Ironwind Outpost.'")
             time.sleep(1.5)
-            print(
-                f"As you were looking around, the bodyguards cautiously went near both of you but Kael told them you're friendly")
+            print(f"As you were looking around, the bodyguards cautiously went near both of you but Kael told them you're friendly")
             time.sleep(2)
             print(f"Kael Rowan: 'I need to get my wounds checked, feel free to walk around, {player.name} you're one of us now'")
             time.sleep(2)
@@ -61,7 +64,7 @@ def chapter3(player):
         case _:
             print("You skipped the dialogue!")
 
-    print(f"{player.name}: 'Thanks, Kael, I'll be sure to leave when needed. *nods*'")
+    print(f"{player.name}: 'Appreciate it, I'll be sure to leave when needed. *nods*'")
     audio_manager.music_fadeout(1500)
     time.sleep(1.5)
 
