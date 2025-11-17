@@ -9,16 +9,18 @@ class Shop:
         self.stock = stock
 
     def open_shop(self, player):
-        print("   ==========================================================================================================================================================")
-        print(f"\n                                                                                -- Welcome to the {self.name} -- ")
-        player.show_status()
-        print()
-        for key, item in self.stock.items():
-            print(f"    [{key}] {item.name} - Price: {item.price} SMK | Heal: {item.heal} | Damage: {item.damage} | {item.description}")
-        print("    [X] - Exit menu")
-        print("   ==========================================================================================================================================================")
-
         while True:
+            print("   ==========================================================================================================================================================")
+            print(f"\n                                                                                -- Welcome to the {self.name} -- ")
+            player.show_status()
+            print()
+            for key, item in self.stock.items():
+                print(f"    [{key}] {item.name} - Price: {item.price} SMK | Heal: {item.heal} | Damage: {item.damage} | {item.description}")
+            print("    [X] - Exit menu")
+            print("   ==========================================================================================================================================================")
+
+
+
             print(f"\n{player.name}: 'Hmm what should I buy...'")
             time.sleep(1)
 

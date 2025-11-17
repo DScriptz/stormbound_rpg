@@ -19,13 +19,13 @@ def chapter3(player):
     print(f"Kael Rowan: '*grunts* {player.name}, I can't fight it's up to you!'")
     audio_manager.music_fadeout(1500)
     time.sleep(1.5)
+    audio_manager.play_music("thief_fight", volume=0.9)
 
 
     """ RESETS THE PLAYER'S HEALTH """
     player.health = player.max_health
 
     """ SPAWNS THE ENEMY """
-    audio_manager.play_music("thief_fight", volume=0.9)
     enemy = spawn_enemy("Thief")
     battle = Battle(player, enemy)
     battle.fight()
@@ -33,9 +33,11 @@ def chapter3(player):
     stormmarks_loot = random.randint(35, 40)
     player.stormmarks += stormmarks_loot
 
+    audio_manager.music_fadeout(2000)
+
     print(f"You won! Stormmarks looted = {stormmarks_loot}. {player.name} SMK's: {player.stormmarks}")
     player.show_status()
-    audio_manager.music_fadeout(2000)
+
 
     input("\nPress [Enter] to continue >> ")
 

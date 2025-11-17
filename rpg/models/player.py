@@ -134,6 +134,6 @@ class Player:
             print(f"> {item} | x{amount}")
 
     def show_status(self):
-        print(f"\n--[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | "
+        print(f"\n          --[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | "
               f"Health: {self.health}/{self.max_health} | Attack: {self.attack} ]--")
 

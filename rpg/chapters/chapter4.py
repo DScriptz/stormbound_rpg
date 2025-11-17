@@ -8,7 +8,9 @@ import time
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
 
-""" THIS HANDLES THE DIRECTION THE PLAYER CAN GO """
+
+
+""" SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 
 def show_shop_choices(player):
         print("You looked around and there's 2 shops waving their offers to you...")
@@ -17,21 +19,28 @@ def show_shop_choices(player):
         time.sleep(1.2)
         while True:
 
-            print("[1] - Rusty Apothecary: Meds & Safety")
+            print("\n[1] - Rusty Apothecary: Meds & Safety")
             print(f"[2] - The Rusted Rifle, weapon & ammo needs")
             print(f"[B] - Go back to the Nexus Point")
 
-            choice = input("\n>> ")
+            choice = input("\n>> ").strip().lower()
 
             match choice:
+
                 case "1":
                     healing_shop.open_shop(player)
+
                 case "2":
                     weapon_shop.open_shop(player)
 
+                case "b":
+                    print(f"{player.name}: 'That was nice.'")
+                    time.sleep(1.2)
+                    break
                 case _:
                     print(f"\n{player.name}: 'Gahh, can't decide...'")
 
+""" THIS HANDLES THE DIRECTION THE PLAYER CAN GO """
 
 def show_directions():
     print("\n[1] - North")
@@ -41,7 +50,6 @@ def show_directions():
 
 
 """ THIS HANDLES THE CHAPTER 4 LOOP """
-
 
 def chapter4(player):
     print("\n---------------------- Chapter 4:The Ironwind Outpost ----------------------")
@@ -71,11 +79,13 @@ def chapter4(player):
     time.sleep(1.2)
     print("You are now in The Nexus Point (center)")
     time.sleep(1.1)
-    player.show_status()
+
+
     while True:
+        player.show_status()
         show_directions()
 
-        choice = input("\n>> ")
+        choice = input("\n>> ").strip().lower()
 
         match choice:
 
@@ -90,6 +100,9 @@ def chapter4(player):
                 pass
 
             case "3":
+                pass
+
+            case "x":
                 pass
 
             case _:
