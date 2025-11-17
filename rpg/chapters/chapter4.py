@@ -21,7 +21,7 @@ def show_shop_choices(player):
     while True:
 
         print("\n[1] - Rusty Apothecary: Meds & Safety")
-        print(f"[2] - The Rusted Rifle, weapon & ammo needs")
+        print(f"[2] - The Rusted Rifle: Weapon & Ammo Needs")
         print(f"[B] - Go back to the Nexus Point")
 
         choice = input("\n>> ").strip().lower()
