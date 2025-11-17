@@ -1,13 +1,9 @@
 """ IMPORTS """
-from colorama import Fore, Style, init
-from rpg.player import play_sound, play_music
-init(autoreset=True)
-
-import pygame
-pygame.mixer.init()
-
 import random
 import time
+from colorama import Fore, Style, init
+from tools import audio_manager
+init(autoreset=True)
 
 """ THIS HANDLES THE GAME'S BATTLE MECHANIC """
 
@@ -38,7 +34,7 @@ class Battle:
             self.enemy.health = self.enemy.max_health
 
             while self.player.health > 0 and self.enemy.is_alive():
-                print(f"\n            -[Your Health: {self.player.health}/{self.player.max_health} | {self.enemy.name}'s Health: {self.enemy.health}/{self.enemy.max_health}]-")
+                print(f"\n         -[Your Health: {self.player.health}/{self.player.max_health} | {self.enemy.name}'s Health: {self.enemy.health}/{self.enemy.max_health}]-")
                 print("    [==============-BATTLE CHOICES-==============]z")
                 print(f"\n   [A] - {Fore.RED + Style.DIM}Attack{Style.RESET_ALL} |  [D] - {Fore.BLUE + Style.BRIGHT}Defend{Style.RESET_ALL}")
                 print(f"   [H] - {Fore.GREEN + Style.BRIGHT}Heal{Style.RESET_ALL} |  [R] - {Style.BRIGHT + Fore.LIGHTBLACK_EX}Run{Style.RESET_ALL} (-20 Stormmarks)")
@@ -74,7 +70,7 @@ class Battle:
                 """
 
                 if action == "a":
-                    play_sound("attack", volume=0.8)
+                    audio_manager.play_sound("attack", volume=0.8)
                     self.player.player_attack(self.enemy)
                     time.sleep(1.3)
 

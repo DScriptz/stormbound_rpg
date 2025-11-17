@@ -1,18 +1,17 @@
+""" IMPORTS """
+from tools import audio_manager
+from models.player import Player
+from class_data import Class, class_info, class_stats
 
-from rpg.player import Player
-
-from rpg.class_data import *
-
-from rpg.player import play_music, pygame
 
 import time
 
 """ GAME INTRO, BASICALLY JUST A PARAGRAPH EXPLAINING THE GAME'S LORE """
 
 def game_intro():
-    play_music("chapter1&2", volume=1, loop=True)
-    print("[----------------------------------------------------------]")
-    print("             -{ STORMBOUND HAVEN }-                      ")
+    audio_manager.play_music("chapter1&2", volume=1.1, loop=True)
+    print("\n[----------------------------------------------------------]")
+    print("                   -{ STORMBOUND HAVEN }-                      ")
     print("[----------------------------------------------------------]")
 
     skip_choice = input("Do you want to skip the intro? (Y/N): ").lower().strip()
@@ -45,26 +44,21 @@ def chapter1(player=None):
             print("\nSo you there... Introduce yourself as you venture in this world: ")
             name = input("\n>> ").strip()
 
-        while True:
-            print("\nPick your class (Type the name of the class): ")
-            class_info()
 
-            class_choice = input("\n>> ").strip().lower()
+        print("\nPick your class (Type the name of the class, if blank or not in list, stats of Riftblade is default): ")
+        class_info()
 
-            if class_choice == "":
-                print("\nPick a class from the list.")
-                time.sleep(0.4)
-                continue
+        class_choice = input("\n>> ").strip().lower()
 
-            stats = class_stats.get(class_choice, {"health": 50, "max_health": 50, "attack": 30, "ability": None})
 
-            player = Player(name, class_choice, stats['health'], stats['max_health'], stats['attack'])
+        stats = class_stats.get(class_choice, {"health": 63, "max_health": 63, "attack": 12, "ability": None})
 
-            player.special_ability = stats['ability']
+        player = Player(name, class_choice, stats['health'], stats['max_health'], stats['attack'])
 
-            player.introduce()
-            pygame.mixer.music.fadeout(2000)
-            break
+        player.special_ability = stats['ability']
+
+        player.introduce()
+
 
     return player
 

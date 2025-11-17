@@ -1,14 +1,14 @@
 
 """ IMPORTS """
 import time
-from rpg.enemy import *
-from rpg.game_modules import Battle
-from rpg.player import play_music, pygame
-
+from tools import audio_manager
+from models.enemy import Enemy, spawn_enemy
+from game_modules import Battle
+from models.player import Player
 """ HANDLES CHAPTER 2 INTRO OF THE GAME """
 
 def intro(player):
-    play_music("chapter1&2", volume=1, loop=True)
+    audio_manager.play_music("chapter1&2", volume=1, loop=True)
     skip_choice = input("\nDo you want to skip the dialogue? (Y/N): ").lower().strip()
     match skip_choice:
         case "n":
@@ -49,6 +49,7 @@ def chapter2(player):
     time.sleep(1.3)
     print("Suddenly a Wolf jumps out from the car, growling at you!")
     time.sleep(1.3)
+    audio_manager.music_fadeout(2000)
 
     """ CREATES THE UPDATED ENEMY OBJECT FROM ENEMY DICTIONARY """
 
@@ -73,7 +74,7 @@ def chapter2(player):
     print(f"\nYou leveled up! Level is now: {player.level}")
     time.sleep(0.3)
 
+    player.show_status()
     input("\nPress [Enter] to continue >> ")
-    pygame.mixer.music.fadeout(2000)
 
 

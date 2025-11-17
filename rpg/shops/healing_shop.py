@@ -1,5 +1,5 @@
 
-from rpg.items import Item
+from models.items import Item
 
 ironwind_apothecary = {
     "1": Item(

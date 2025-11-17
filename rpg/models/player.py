@@ -2,32 +2,7 @@
 """ IMPORTS """
 import random
 import time
-import os
-import pygame
-
-pygame.mixer.init()
-""" SOUND HELPERS WHEN PLAYING SOUNDS OR MUSIC """
-
-def play_sound(sound_name, volume=0.6 ):
-    try:
-        sound_path = os.path.join("sounds", f"{sound_name}.ogg")
-        sound = pygame.mixer.Sound(sound_path)
-        sound.set_volume(volume)
-        sound.play()
-    except Exception as e:
-        print(f"[Sound Error] Couldn't play '{sound_name}': {e}")
-
-# Game long sounds/musics helper code (loop version)
-
-def play_music(music_name, volume=0.5, loop=True ):
-    try:
-        music_path = os.path.join("sounds", f"{music_name}.ogg")
-        pygame.mixer.music.load(music_path)
-        pygame.mixer.music.set_volume(volume)
-        pygame.mixer.music.play(-1 if loop else 0)
-    except Exception as e:
-        print(f"[Music Error] Couldn't play '{music_name}': {e}")
-
+from tools import audio_manager
 
 """
    THIS HANDLES THE PLAYER'S DATA
@@ -95,7 +70,7 @@ class Player:
 
 
         elif self.player_class == "aethermancer":
-            play_sound("aethermancer", volume=0.8)
+            audio_manager.play_sound("aethermancer", volume=0.8)
             extra_damage = random.randint(3, 5)
             print(f"You unleash {self.special_ability}, strucking the enemy with arcane energy!")
             time.sleep(1.5)
@@ -104,7 +79,7 @@ class Player:
             self.cooldown = 3
 
         elif self.player_class == "stormwarden":
-            play_sound("stormwarden", volume=0.9)
+            audio_manager.play_sound("stormwarden", volume=0.9)
             damage = random.randint(10, 14)
             print(f"{self.name} unleashed Thunder Strike!! Dealing {damage} damage!")
             time.sleep(1.5)
@@ -160,5 +135,6 @@ class Player:
             print(f"> {item} | x{amount}")
 
     def show_status(self):
-        print(f"--[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | Health: {self.health}/{self.max_health} | Attack: {self.attack} ]--")
+        print(f"\n--[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | "
+              f"Health: {self.health}/{self.max_health} | Attack: {self.attack} ]--")
 

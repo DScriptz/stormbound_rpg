@@ -1,6 +1,7 @@
 """ IMPORTS """
+from tools import audio_manager
 from chapters import chapter1, chapter2, chapter3, chapter4
-# import time
+audio_manager.initialize_audio()
 
 """  MAIN STORY  """
 

@@ -1,7 +1,9 @@
 """ IMPORTS """
 import time
-from rpg.enemy import *
-from rpg.game_modules import Battle
+from tools import audio_manager
+from models.enemy import Enemy, spawn_enemy
+from game_modules import Battle
+
 """ HANDLES CHAPTER 3 OF THE GAME """
 
 def chapter3(player):
@@ -25,8 +27,12 @@ def chapter3(player):
     battle.fight()
 
     print(f"You won! Stormmarks + 15. {player.name} SMK's: {player.stormmarks}")
+    player.show_status()
+
+    input("\nPress [Enter] to continue >> ")
 
     """ IF PLAYER WINS, THE CHAPTER CONTINUES """
+
     skip_choice = input("Do you want to skip the dialogue? (Y/N): ").lower().strip()
 
     match skip_choice:
@@ -50,6 +56,7 @@ def chapter3(player):
 
         case _:
             print("You skipped the dialogue!")
+
     print(f"{player.name}: 'Thanks, Kael, I'll be sure to leave when needed. *nods*'")
     time.sleep(1.5)
 
