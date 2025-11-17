@@ -2,7 +2,7 @@
 import random
 import time
 from colorama import Fore, Style, init
-from tools import audio_manager
+from rpg.tools import audio_manager
 init(autoreset=True)
 
 """ THIS HANDLES THE GAME'S BATTLE MECHANIC """
@@ -34,8 +34,14 @@ class Battle:
             self.enemy.health = self.enemy.max_health
 
             while self.player.health > 0 and self.enemy.is_alive():
-                print(f"\n         -[Your Health: {self.player.health}/{self.player.max_health} | {self.enemy.name}'s Health: {self.enemy.health}/{self.enemy.max_health}]-")
-                print("    [==============-BATTLE CHOICES-==============]z")
+                print(f"\n     -[{self.player.name}'s Health: {Fore.LIGHTRED_EX}"
+                      f"{self.player.health}/{self.player.max_health}"
+                      f"{Style.RESET_ALL} "
+                      f"| {self.enemy.name}'s Health: {Fore.LIGHTRED_EX}"
+                      f"{self.enemy.health}/{self.enemy.max_health}"
+                      f"{Style.RESET_ALL}]-")
+
+                print("    [==============-BATTLE CHOICES-==============]")
                 print(f"\n   [A] - {Fore.RED + Style.DIM}Attack{Style.RESET_ALL} |  [D] - {Fore.BLUE + Style.BRIGHT}Defend{Style.RESET_ALL}")
                 print(f"   [H] - {Fore.GREEN + Style.BRIGHT}Heal{Style.RESET_ALL} |  [R] - {Style.BRIGHT + Fore.LIGHTBLACK_EX}Run{Style.RESET_ALL} (-20 Stormmarks)")
 
@@ -48,7 +54,7 @@ class Battle:
                     print(f"   [S] - {Fore.YELLOW + Style.BRIGHT}Special Ability{Style.RESET_ALL}: '{self.player.special_ability}' |  [I] - Inventory")
 
                 else:
-                    print(f"   (Cooldown : {self.player.cooldown}) |  [I] - Inventory")
+                    print(f"   [S] - (Cooldown : {self.player.cooldown}) |  [I] - Inventory")
 
 
                 action = input("\n>> ").lower().strip()
@@ -93,6 +99,7 @@ class Battle:
 
                 if self.enemy.is_alive():
 
+
                     if self.enemy.stunned:
                         print(f"The enemy is stunned and cannot move! {self.enemy.name}'s turn is lost!")
                         self.enemy.stunned = False
@@ -109,7 +116,7 @@ class Battle:
             """ PLAYER GETS DEFEATED BUT HAS A CHOICE TO RESTART """
             if self.player.health <= 0:
                 print("\nYou have been defeated...")
-                choice = input("Try again?: ").lower().strip()
+                choice = input("Try again? (Y/N): ").lower().strip()
 
                 if choice =="y" or choice == "yes":
                     continue

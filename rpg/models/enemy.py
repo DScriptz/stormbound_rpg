@@ -1,5 +1,7 @@
 
 import random
+import time
+
 
 """ LIST OF ENEMIES """
 enemies = {
@@ -25,8 +27,21 @@ class Enemy:
     """ THIS HANDLES THE PART WHEN THEY GET HIT OR DAMAGED """
 
     def take_damage(self, damage):
-        self.health -= damage
+        defense_chance = 0.2
+        damage_reduction = 0.50
+
+        final_damage = damage
+
+        if random.random() < defense_chance:
+
+            reduction_amount = damage_reduction * damage
+            final_damage = damage - reduction_amount
+
+            print(f"\n{self.name} defends your attack! Reducing your attack by half!")
+
+        self.health -= final_damage
         print(f"\nThe {self.name} takes {damage} damage!")
+        time.sleep(0.4)
 
     def is_alive(self):
         return self.health > 0

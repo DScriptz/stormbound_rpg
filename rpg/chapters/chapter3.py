@@ -1,8 +1,8 @@
 """ IMPORTS """
 import time
-from tools import audio_manager
-from models.enemy import Enemy, spawn_enemy
-from game_modules import Battle
+from rpg.tools import audio_manager
+from rpg.models.enemy import Enemy, spawn_enemy
+from rpg.game_modules import Battle
 
 """ HANDLES CHAPTER 3 OF THE GAME """
 
@@ -16,18 +16,22 @@ def chapter3(player):
     print("Suddenly, a thief jumped out from the shadows stabbing Kael!")
     time.sleep(1.3)
     print(f"Kael Rowan: '*grunts* {player.name}, I can't fight it's up to you!'")
+    audio_manager.music_fadeout(1500)
     time.sleep(1.5)
+
 
     """ RESETS THE PLAYER'S HEALTH """
     player.health = player.max_health
 
     """ SPAWNS THE ENEMY """
+    audio_manager.play_music("thief_fight", volume=0.9, loop=True)
     enemy = spawn_enemy("Thief")
     battle = Battle(player, enemy)
     battle.fight()
 
     print(f"You won! Stormmarks + 15. {player.name} SMK's: {player.stormmarks}")
     player.show_status()
+    audio_manager.music_fadeout(2000)
 
     input("\nPress [Enter] to continue >> ")
 
@@ -58,6 +62,7 @@ def chapter3(player):
             print("You skipped the dialogue!")
 
     print(f"{player.name}: 'Thanks, Kael, I'll be sure to leave when needed. *nods*'")
+    audio_manager.music_fadeout(1500)
     time.sleep(1.5)
 
 

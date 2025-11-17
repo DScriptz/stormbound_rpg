@@ -8,7 +8,7 @@ AUDIO_DIR = "sounds"
 
 
 def initialize_audio():
-    """Initializes the Pygame mixer"""
+    """ Initializes the Pygame mixer """
     try:
         pygame.mixer.init(44100, -16, 2, 4096)
         print("Audio mixer initialized.")
@@ -59,7 +59,7 @@ def music_fadeout(duration=2000):
             pygame.mixer.music.fadeout(duration)
             print(f"Music fading out in {duration} secs.")
         else:
-            print(f"No music is currently playing")
+            print()
 
     except Exception as e:
         print(f"[Audio Error] failed to fade music: {e}")

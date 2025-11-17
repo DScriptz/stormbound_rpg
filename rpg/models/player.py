@@ -2,7 +2,7 @@
 """ IMPORTS """
 import random
 import time
-from tools import audio_manager
+from rpg.tools import audio_manager
 
 """
    THIS HANDLES THE PLAYER'S DATA
@@ -69,7 +69,7 @@ class Player:
             return
 
 
-        elif self.player_class == "aethermancer":
+        elif self.player_class == "Aethermancer":
             audio_manager.play_sound("aethermancer", volume=0.8)
             extra_damage = random.randint(3, 5)
             print(f"You unleash {self.special_ability}, strucking the enemy with arcane energy!")
@@ -78,7 +78,7 @@ class Player:
 
             self.cooldown = 3
 
-        elif self.player_class == "stormwarden":
+        elif self.player_class == "Stormwarden":
             audio_manager.play_sound("stormwarden", volume=0.9)
             damage = random.randint(10, 14)
             print(f"{self.name} unleashed Thunder Strike!! Dealing {damage} damage!")
@@ -92,7 +92,7 @@ class Player:
 
             self.cooldown = 4
 
-        elif self.player_class == "riftblade":
+        elif self.player_class == "Riftblade":
             print(f"You swing your blade 3 times, dealing multiple damage to the enemy!")
             time.sleep(1.5)
             for attack in range(3):
@@ -100,17 +100,16 @@ class Player:
 
             self.cooldown = 3
 
-        elif self.player_class == "haven scout":
+        elif self.player_class == "Haven Scout":
             print(f"\nYou analyzed your enemy {enemy.name} carefully... predicting his next move...")
             time.sleep(1.5)
             self.dodging = True
 
             self.cooldown = 5
 
-        elif self.player_class == "ironbound sentinel":
+        elif self.player_class == "Ironbound Sentinel":
             heal = int(self.max_health * 0.15)
             self.health += heal
-
             if self.health > self.max_health:
                 self.health = self.max_health
 

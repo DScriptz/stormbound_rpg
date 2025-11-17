@@ -1,10 +1,11 @@
 
 """ IMPORTS """
 import time
-from tools import audio_manager
-from models.enemy import Enemy, spawn_enemy
-from game_modules import Battle
-from models.player import Player
+from rpg.tools import audio_manager
+from rpg.models.enemy import spawn_enemy
+from rpg.game_modules import Battle
+
+
 """ HANDLES CHAPTER 2 INTRO OF THE GAME """
 
 def intro(player):

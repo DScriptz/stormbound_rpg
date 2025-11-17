@@ -1,7 +1,7 @@
 
 """ IMPORTS """
-from tools.shop import Shop
-from shops.healing_shop import ironwind_apothecary
+from rpg.tools.shop import Shop
+from rpg.shops.healing_shop import ironwind_apothecary
 import time
 
 
@@ -72,7 +72,7 @@ def chapter4(player):
                 time.sleep(1.2)
                 print("You walk north, to the Alley of Remedies...")
                 time.sleep(1.1)
-                show_shop_choices()
+                show_shop_choices(player)
 
             case "2":
                 pass

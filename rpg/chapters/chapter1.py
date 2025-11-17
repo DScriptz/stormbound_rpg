@@ -1,7 +1,7 @@
 """ IMPORTS """
-from tools import audio_manager
-from models.player import Player
-from class_data import Class, class_info, class_stats
+from rpg.tools import audio_manager
+from rpg.models.player import Player
+from rpg.class_data import Class, class_info, class_stats
 
 
 import time
@@ -44,21 +44,43 @@ def chapter1(player=None):
             print("\nSo you there... Introduce yourself as you venture in this world: ")
             name = input("\n>> ").strip()
 
-
-        print("\nPick your class (Type the name of the class, if blank or not in list, stats of Riftblade is default): ")
         class_info()
+        print("\nPick your class: ")
 
         class_choice = input("\n>> ").strip().lower()
 
+        stats = class_stats.get(class_choice)
 
-        stats = class_stats.get(class_choice, {"health": 63, "max_health": 63, "attack": 12, "ability": None})
+        if stats:
+            class_name = stats['name']
 
-        player = Player(name, class_choice, stats['health'], stats['max_health'], stats['attack'])
+            player = Player(
+                name,
+                class_name,
+                stats['health'],
+                stats['max_health'],
+                stats['attack']
+            )
 
-        player.special_ability = stats['ability']
+            player.special_ability = stats.get('ability', 'None')
 
-        player.introduce()
+            player.introduce()
+        else:
+            print("\nInvalid class selection. Defaulting to Riftblade (Choice 2)")
 
+            default_stats = class_stats['2']
+
+            player = Player(
+                name,
+                default_stats['name'],
+                default_stats['health'],
+                default_stats['max_health'],
+                default_stats['attack']
+            )
+
+            player.special_ability = default_stats.get('ability', 'None')
+
+            player.introduce()
 
     return player
 
