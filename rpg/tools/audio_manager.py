@@ -63,3 +63,11 @@ def music_fadeout(duration=2000):
 
     except Exception as e:
         print(f"[Audio Error] failed to fade music: {e}")
+
+def music_stop():
+    """ STOPS CURRENT MUSIC IMMEDIATELY """
+    try:
+        pygame.mixer.music.stop()
+
+    except Exception as e:
+        print(f"[Music Error] - Music failed to stop: {e}")

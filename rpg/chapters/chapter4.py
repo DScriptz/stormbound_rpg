@@ -6,9 +6,32 @@ from rpg.tools.shop import Shop
 from rpg.shops.healing_shop import ironwind_apothecary
 from rpg.dialogues.rusty_apothecary import show_silas_dialogue
 from rpg.dialogues.rusted_rifle import show_rhys_dialogue
+from rpg.models import Location
+from rpg.game_modules.bunks import rent_room, leave_bunk
+from rpg.game_modules.mini_games import play_relic_dice
 
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
+
+
+""" THIS DEFINES THE LOCAION INSTANCE """
+coil_bunks = Location(
+    "The Coil Bunks",
+    "Rows of metallic sleeping pods. The air is stale and quiet. Wexler is running his game in the corner.",
+    {
+        '1': ("Rent a bunk (30) SMK", rent_room),
+        '2': ("Play 'The Relic Dice'", play_relic_dice),
+        '3': ("Exit The Coil Bunks", leave_bunk),
+    }
+)
+
+
+
+def show_location_choices(player):
+    print(f"{player.name}: 'Impressive. Lots of amenities.'")
+    time.sleep(1.2)
+
+
 
 """ SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 
@@ -50,7 +73,7 @@ def show_shop_choices(player):
 
 def show_directions():
     print("\n[1] - North: 'Alley Of Remedies'")
-    print("[2] - East")
+    print("[2] - East: 'The Coil Bunks'")
     print("[3] - West")
     print("[X] - Exit Ironwind Outpost")
 
@@ -102,8 +125,11 @@ def chapter4(player):
                 show_shop_choices(player)
 
             case "2":
-                pass
-
+                print(f"{player.name}: 'Huh, maybe a place to sleep?'")
+                time.sleep(1.2)
+                print("You walked towards 'The Coil Bunks'...")
+                time.sleep(1.3)
+                player = coil_bunks.enter(player)
             case "3":
                 pass
 

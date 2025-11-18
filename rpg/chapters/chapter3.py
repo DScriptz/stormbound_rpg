@@ -33,13 +33,14 @@ def chapter3(player):
     stormmarks_loot = random.randint(35, 40)
     player.stormmarks += stormmarks_loot
 
-    audio_manager.music_fadeout(2000)
 
     print(f"You won! Stormmarks looted = {stormmarks_loot}. {player.name} SMK's: {player.stormmarks}")
     player.show_status()
 
 
     input("\nPress [Enter] to continue >> ")
+    audio_manager.music_fadeout(2000)
+    time.sleep(2)
 
     """ IF PLAYER WINS, THE CHAPTER CONTINUES """
 
@@ -67,8 +68,8 @@ def chapter3(player):
             print("You skipped the dialogue!")
 
     print(f"{player.name}: 'Appreciate it, I'll be sure to leave when needed. *nods*'")
-    audio_manager.music_fadeout(1500)
-    time.sleep(1.5)
+
+    return player
 
 
 
