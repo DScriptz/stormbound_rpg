@@ -38,7 +38,7 @@ To run Stormbound, Text-based RPG locally, you need Python 3.8+ on your system (
 To start the game, simply run the main entry point file
 
 ```bash
-python main.my
+python main.py
 ```
 
 ### 3. Enjoy
