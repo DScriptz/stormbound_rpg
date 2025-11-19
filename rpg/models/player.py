@@ -3,6 +3,9 @@
 import random
 import time
 from rpg.tools import audio_manager
+from rpg.data.item_database import item_database
+from colorama import Fore, Style, init
+init(autoreset=True)
 
 """
    THIS HANDLES THE PLAYER'S DATA
@@ -20,7 +23,7 @@ class Player:
         self.attack = attack
         self.cooldown = 0
         self.level = 1
-        self.inventory = {}
+        self.inventory = {"Quick-Seal Strip": 2}
         self.stormmarks = 0
         self.special_ability = None
         self.dodging = False
@@ -40,7 +43,7 @@ class Player:
     def introduce(self):
         print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health}/{self.max_health}  | Attack: {self.attack}")
         print(f"\nStormmarks (SMK): {self.stormmarks} | Level: {self.level}")
-        print(f"\nInventory: {self.inventory}")
+        self.show_inventory()
 
     """ PLAYER TAKES DAMAGE """
 
@@ -124,6 +127,7 @@ class Player:
             print(f"{self.special_ability} is on cooldown! You lost your turn.")
             time.sleep(1.1)
 
+
     def show_inventory(self):
         print("\n== [INVENTORY: SECURE CACHE ==")
 
@@ -135,13 +139,79 @@ class Player:
         for item, amount in self.inventory.items():
             print(f"> {item} | x{amount}")
 
-        input("Press [Enter] To Close Inventory >> ")
+        input("\nPress [Enter] To Close Inventory >> ")
+
+
+    def remove_item(self, item_name, quantity=1):
+        """ DEDUCTS THE  QUANTITY OF AN ITEM FROM INVENTORY IF IT REACHES 0 """
+
+        if item_name not in self.inventory:
+            return False
+
+        current_count = self.inventory[item_name]
+
+        if current_count < quantity:
+            return False
+
+        self.inventory[item_name] -= quantity
+
+        if self.inventory[item_name] <= 0:
+            del self.inventory[item_name]
+
+        return True
+
+
 
 
     def show_status(self):
         print(f"\n          --[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | "
               f"Health: {self.health}/{self.max_health} | Attack: {self.attack} ]--")
 
+
     def level_up(self):
-        print(f"\nYou leveled up! Level is now {self.level}")
         self.level += 1
+        print(f"\nYou leveled up! Level is now {self.level}")
+
+
+    def use_item(self):
+
+        if not self.inventory:
+            print("Your Cache is empty!")
+            time.sleep(1.1)
+            return
+
+        print(f"=== [{Fore.CYAN}ITEM USAGE MENU{Style.RESET_ALL} ===")
+
+        item_menu = {}
+        menu_index = 1
+
+        for name, count in self.inventory.items():
+            item_object = item_database.get(name)
+            key = str(menu_index)
+            item_menu[key] = name
+
+            print(f"{Fore.YELLOW}{key}{Style.RESET_ALL}: {name} - Heals {item_object.heal} HP | x{count}")
+            print("[X] - Exit Menu")
+            menu_index += 1
+
+        while True:
+            choice = input(f"\n{self.name}: 'Hmm which item should I use?' >> ")
+
+            if choice == "x": return
+
+            if choice in item_menu:
+                item_name = item_menu[choice]
+                item_object = item_database[item_name]
+
+                if item_object.use(self):
+                    self.remove_item(item_name, 1)
+
+                break
+
+            print("Invalid selection")
+            time.sleep(0.5)
+
+
+
+
+

@@ -5,7 +5,7 @@ import random
 from rpg.tools import audio_manager
 from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
-
+from colorama import Style, Fore
 
 """ HANDLES CHAPTER 2 INTRO OF THE GAME """
 
@@ -51,13 +51,19 @@ def chapter2(player):
     time.sleep(1.3)
     print("Suddenly a Wolf jumps out from the car, growling at you!")
     time.sleep(1.3)
-    audio_manager.music_fadeout(2000)
 
+    audio_manager.music_fadeout(duration=2000)
+    audio_manager.music_stop()
+    print(f"\n{Fore.GREEN}Loading battle...{Style.RESET_ALL}")
+    time.sleep(2.1)
+
+
+    audio_manager.play_music("battle music", volume=0.5)
     """ CREATES THE UPDATED ENEMY OBJECT FROM ENEMY DICTIONARY """
 
     enemy = spawn_enemy("Ravager Wolf")
     battle = Battle(player, enemy)
-    battle.fight()
+    battle.fight(player)
 
     """ WHEN PLAYER KILLS WOLF """
     print("\nAs you defeat the wolf, Kael Rowan claps his hand and walks slowly towards you..")
@@ -71,13 +77,10 @@ def chapter2(player):
     player.stormmarks += stormmark_loot
 
     print(f"Congratulations! Stormmarks + {stormmark_loot} Your SMK now: {player.stormmarks}")
-
-    player.level += 1
-
-    print(f"\nYou leveled up! Level is now: {player.level}")
-    time.sleep(0.3)
-
+    player.level_up()
+    time.sleep(0.6)
     player.show_status()
+
     input("\nPress [Enter] to continue >> ")
 
 

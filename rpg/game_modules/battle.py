@@ -3,6 +3,7 @@ import random
 import time
 from colorama import Fore, Style, init
 from rpg.tools import audio_manager
+from rpg.models.player import Player
 init(autoreset=True)
 
 """ THIS HANDLES THE GAME'S BATTLE MECHANIC """
@@ -27,14 +28,14 @@ class Battle:
 
     """ MAIN BATTLE LOOP OF THE GAME """
 
-    def fight(self):
+    def fight(self, player):
         while True:
             """ THIS ENSURES THAT IF THE GAME RESTARTS THE PLAYER AND ENEMY'S HEALTH GOES BACK TO THEIR MAX HEALTH """
             self.player.health = self.player.max_health
             self.enemy.health = self.enemy.max_health
 
             while self.player.health > 0 and self.enemy.is_alive():
-                print(f"\n    -[{self.player.name}'s Health: {Fore.LIGHTRED_EX}"
+                print(f"\n    --[{self.player.name}'s Health: {Fore.LIGHTRED_EX}"
                       f"{self.player.health}/{self.player.max_health}"
                       f"{Style.RESET_ALL} "
                       f"| {self.enemy.name}'s Health: {Fore.LIGHTRED_EX}"
@@ -43,7 +44,7 @@ class Battle:
 
                 print("    [==============-BATTLE CHOICES-==============]")
                 print(f"\n   [A] - {Fore.RED + Style.DIM}Attack{Style.RESET_ALL} |  [D] - {Fore.BLUE + Style.BRIGHT}Defend{Style.RESET_ALL}")
-                print(f"   [H] - {Fore.GREEN + Style.BRIGHT}Heal{Style.RESET_ALL} |  [R] - {Style.BRIGHT + Fore.LIGHTBLACK_EX}Run{Style.RESET_ALL} (-20 Stormmarks)")
+                print(f"   [U] - {Fore.GREEN + Style.BRIGHT}Use an Item{Style.RESET_ALL} |  [R] - {Style.BRIGHT + Fore.LIGHTBLACK_EX}Run{Style.RESET_ALL} (-20 Stormmarks)")
 
                 """
                     THIS HANDLES THE COOLDOWN OF THE PLAYER'S ABILITY, IF IT'S IN COOLDOWN, DONT SHOW THE OPTION: 
@@ -88,6 +89,8 @@ class Battle:
                     self.player.take_damage(damage)
                     continue
 
+                elif action == "u":
+                    player.use_item()
                 elif action == "s":
                     self.player.use_ability(self.enemy)
 
