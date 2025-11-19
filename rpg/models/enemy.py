@@ -5,12 +5,12 @@ import time
 
 """ LIST OF ENEMIES """
 enemies = {
-    "Windling Scout": {"health": 70, "max_health": 70, "attack": 12, "ability": "Quick Strike"},
+    "Wasteland Ghoul": {"health": 70, "max_health": 70, "attack": 12, "ability": "Quick Strike"},
     "Ash Goblin": {"health": 60, "max_health": 60, "attack": 10, "ability": "Scavenge"},
-    "Ravager Wolf": {"health": 55, "max_health": 55, "attack": 8, "ability": "Bite"},
-    "Haven Marauder": {"health": 85, "max_health": 85, "attack": 13, "ability": "Slam"},
+    "Ravager Wolf": {"health": 55, "max_health": 55, "attack": 8, "ability": None},
+    "Guard Drone": {"health": 75, "max_health": 76, "attack": 12, "ability": "Electrocute"},
     "Ironclad Beetle": {"health": 90, "max_health": 90, "attack": 15, "ability": "Shell Block"},
-    "Thief": {"health": 60, "max_health": 60, "attack": 12, "ability": None}
+    "Thief": {"health": 60, "max_health": 60, "attack": 10, "ability": None}
 }
 
 

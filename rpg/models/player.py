@@ -25,6 +25,8 @@ class Player:
         self.special_ability = None
         self.dodging = False
         self.stunned = False
+        self.bounty_completed = 0
+        self.current_chapter = 0
 
     """ 
         PLAYER'S STATS BEING SHOWN
@@ -133,7 +135,13 @@ class Player:
         for item, amount in self.inventory.items():
             print(f"> {item} | x{amount}")
 
+        input("Press [Enter] To Close Inventory >> ")
+
+
     def show_status(self):
         print(f"\n          --[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | "
               f"Health: {self.health}/{self.max_health} | Attack: {self.attack} ]--")
 
+    def level_up(self):
+        print(f"\nYou leveled up! Level is now {self.level}")
+        self.level += 1

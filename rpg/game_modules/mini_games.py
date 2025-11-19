@@ -33,12 +33,14 @@ def play_relic_dice(player):
 
     if roll <= 3:
         """ THE BET WAS ALREADY DEDUCTED """
-        print("The Relic Dice short-circuits, you lost the bet!")
+        print(f"The Relic Dice short-circuits, you lost the bet! -{bet_amount} SMK.")
+        time.sleep(1.5)
 
     elif roll <= 5:
         win_amount = (bet_amount * 1.3)
         player.stormmarks += win_amount
         print(f"The dice flickers a light! You won {win_amount} SMK!!")
+        time.sleep(1.5)
 
     else:
         jackpot = bet_amount * 3

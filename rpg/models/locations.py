@@ -1,6 +1,8 @@
 import time
 from colorama import Fore, Style, init
+from rpg.game_modules.bounty_board import view_bounty_board, collect_bounty, leave_watch_post
 init(autoreset=True)
+
 
 class Location:
     def __init__(self, name, description, options):
@@ -9,7 +11,7 @@ class Location:
         self.options = options
 
     def enter(self, player):
-        """ DISPLAYS LOCATION AND STARTS THE INTERACTION """
+        """ DISPLAYS LOCATION AND STARTS THE INTERACTION WITH WHATEVER LOCATION THE PLAYER GOES"""
         print(f"\n                                          --- {self.name.upper()} ---")
         print(self.description)
         time.sleep(0.8)
@@ -37,3 +39,15 @@ class Location:
                 print(f"{player.name}: ...")
 
         return player
+
+""" DEFINES THE WATCH POST IN CHAPTER 4'S LOCATION """
+
+watch_post = Location(
+    "Ironwind Watch Post",
+    "\nA reinforced, guarded bunker near the west perimeter. Commander Thorne is watching you from behind a thick pane of security glass.",
+    {
+        "1": ('View the Bounty Board', view_bounty_board),
+        "2": ('Collect Bounty', collect_bounty),
+        "3": ('Exit the Ironwind Watch Post', leave_watch_post)
+    }
+)

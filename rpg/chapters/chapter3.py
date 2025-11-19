@@ -2,7 +2,7 @@
 import time
 import random
 from rpg.tools import audio_manager
-from rpg.models.enemy import Enemy, spawn_enemy
+from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
 
 """ HANDLES CHAPTER 3 OF THE GAME """
@@ -17,8 +17,9 @@ def chapter3(player):
     print("Suddenly, a thief jumped out from the shadows stabbing Kael!")
     time.sleep(1.3)
     print(f"Kael Rowan: '*grunts* {player.name}, I can't fight it's up to you!'")
-    audio_manager.music_fadeout(1500)
+    audio_manager.music_fadeout(duration=1500)
     time.sleep(1.5)
+    audio_manager.music_stop()
     audio_manager.play_music("thief_fight", volume=0.9)
 
 
@@ -36,11 +37,13 @@ def chapter3(player):
 
     print(f"You won! Stormmarks looted = {stormmarks_loot}. {player.name} SMK's: {player.stormmarks}")
     player.show_status()
-
+    audio_manager.music_fadeout(duration=2000)
+    print("\nLoading...")
+    time.sleep(2)
+    audio_manager.music_stop()
 
     input("\nPress [Enter] to continue >> ")
-    audio_manager.music_fadeout(2000)
-    time.sleep(2)
+
 
     """ IF PLAYER WINS, THE CHAPTER CONTINUES """
 
@@ -49,7 +52,7 @@ def chapter3(player):
     match skip_choice:
         case "n":
 
-            print("\nKael Rowan: 'Gahh, come help me- '")
+            print("\nKael Rowan: 'Gahh, come help me-'")
             time.sleep(1.2)
             print("\nYou walked towards Kael, put his arms over your shoulders and helped him")
             time.sleep(1.3)

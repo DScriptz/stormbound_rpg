@@ -9,6 +9,7 @@ from rpg.dialogues.rusted_rifle import show_rhys_dialogue
 from rpg.models import Location
 from rpg.game_modules.bunks import rent_room, leave_bunk
 from rpg.game_modules.mini_games import play_relic_dice
+from rpg.models.locations import watch_post
 
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
@@ -24,14 +25,6 @@ coil_bunks = Location(
         '3': ("Exit The Coil Bunks", leave_bunk),
     }
 )
-
-
-
-def show_location_choices(player):
-    print(f"{player.name}: 'Impressive. Lots of amenities.'")
-    time.sleep(1.2)
-
-
 
 """ SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 
@@ -74,9 +67,8 @@ def show_shop_choices(player):
 def show_directions():
     print("\n[1] - North: 'Alley Of Remedies'")
     print("[2] - East: 'The Coil Bunks'")
-    print("[3] - West")
-    print("[X] - Exit Ironwind Outpost")
-
+    print("[3] - West: 'The Watchpost'")
+    print("[X] - Exit Ironwind Outpost: Open World")
 
 """ THIS HANDLES THE CHAPTER 4 LOOP """
 
@@ -131,7 +123,12 @@ def chapter4(player):
                 time.sleep(1.3)
                 player = coil_bunks.enter(player)
             case "3":
-                pass
+                print(f"{player.name}: 'I should check the watch post. There might be opportunities there.'")
+                time.sleep(1.2)
+                print("You walked towards the Ironwind Watch Post")
+                time.sleep(1.3)
+                player = watch_post.enter(player)
+
 
             case "x":
                 pass

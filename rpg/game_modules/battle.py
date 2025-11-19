@@ -34,7 +34,7 @@ class Battle:
             self.enemy.health = self.enemy.max_health
 
             while self.player.health > 0 and self.enemy.is_alive():
-                print(f"\n     -[{self.player.name}'s Health: {Fore.LIGHTRED_EX}"
+                print(f"\n    -[{self.player.name}'s Health: {Fore.LIGHTRED_EX}"
                       f"{self.player.health}/{self.player.max_health}"
                       f"{Style.RESET_ALL} "
                       f"| {self.enemy.name}'s Health: {Fore.LIGHTRED_EX}"
