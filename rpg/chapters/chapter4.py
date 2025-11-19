@@ -26,13 +26,6 @@ coil_bunks = Location(
 )
 
 
-
-def show_location_choices(player):
-    print(f"{player.name}: 'Impressive. Lots of amenities.'")
-    time.sleep(1.2)
-
-
-
 """ SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 
 def show_shop_choices(player):
