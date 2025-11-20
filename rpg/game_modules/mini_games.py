@@ -37,7 +37,7 @@ def play_relic_dice(player):
         time.sleep(1.5)
 
     elif roll <= 5:
-        win_amount = (bet_amount * 1.3)
+        win_amount = (bet_amount * 1.5)
         player.stormmarks += win_amount
         print(f"The dice flickers a light! You won {win_amount} SMK!!")
         time.sleep(1.5)

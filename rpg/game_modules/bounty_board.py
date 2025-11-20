@@ -5,6 +5,7 @@ init(autoreset=True)
 bounty_list = {
     "A": {"name": "Guard Drone CPU Retrieval", "target_item": "Drone CPU", "required": 5 ,"prize": 500},
     "B": {"name": "Wasteland Ghoul Hunting", "target_item": "Ghoul Fingers", "required": "3", "prize": 350}
+
 }
 
 def view_bounty_board(player):
@@ -31,10 +32,11 @@ def collect_bounty(player):
     print("\nCommander Thorne: 'Hand me the proof, I don't care about your stories.'")
     time.sleep(1.2)
 
-    bounty_id = input("Which bounty ID (A, B, C...) do you want to submit?").strip().lower()
+    bounty_id = input("Which bounty ID (A, B, C...) do you want to submit? >> ").strip().lower()
 
     if bounty_id not in bounty_list:
-        print("Commander Thorne: 'That ID isn't on the board, get serious!'")
+        print("\nCommander Thorne: 'That Bounty ID isn't on the board, get serious!'")
+        time.sleep(1.3)
         return True
 
     bounty = bounty_list[bounty_id]

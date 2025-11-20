@@ -3,32 +3,74 @@ import random
 import time
 
 
-""" LIST OF ENEMIES """
+""" LIST OF ENEMIES THE PLAYER CAN ENCOUNTER/FIGHT """
 enemies = {
-    "Wasteland Ghoul": {"health": 70, "max_health": 70, "attack": 12, "ability": "Quick Strike"},
-    "Ash Goblin": {"health": 60, "max_health": 60, "attack": 10, "ability": "Scavenge"},
-    "Ravager Wolf": {"health": 55, "max_health": 55, "attack": 8, "ability": None},
-    "Guard Drone": {"health": 75, "max_health": 76, "attack": 12, "ability": "Electrocute"},
-    "Ironclad Beetle": {"health": 90, "max_health": 90, "attack": 15, "ability": "Shell Block"},
-    "Thief": {"health": 60, "max_health": 60, "attack": 10, "ability": None}
+
+    "Wasteland Ghoul": {
+        "health": 70,
+        "max_health": 70,
+        "attack": 12,
+        "ability": "Quick Strike",
+        "prize": 55
+    },
+
+    "Ash Goblin": {
+        "health": 60,
+        "max_health": 60,
+        "attack": 10,
+        "ability": "Scavenge",
+        "price": 50
+    },
+
+    "Ravager Wolf": {
+        "health": 55,
+        "max_health": 55,
+        "attack": 8,
+        "ability": None,
+        "prize": 25
+    },
+
+    "Guard Drone": {
+        "health": 75,
+        "max_health": 76,
+        "attack": 12,
+        "ability": "Electrocute",
+        "prize": 70
+    },
+    "Ironclad Beetle": {
+        "health": 90,
+        "max_health": 90,
+        "attack": 15,
+        "ability": "Shell Block",
+        "prize": 80
+    },
+    "Thief": {
+        "health": 60,
+        "max_health": 60,
+        "attack": 10,
+        "ability": None,
+        "prize": 45
+    }
 }
 
 
 
 class Enemy:
-    def __init__(self, name, health, max_health, attack, ability=None):
+    def __init__(self, name, health, max_health, attack, ability=None, loot=0):
         self.name = name
         self.health = health
         self.max_health = max_health
         self.attack = attack
         self.ability = ability
         self.stunned = False
+        self.loot = loot
+
 
     """ THIS HANDLES THE PART WHEN THEY GET HIT OR DAMAGED """
 
     def take_damage(self, damage):
-        defense_chance = 0.2
-        damage_reduction = 0.50
+        defense_chance = 0.3
+        damage_reduction = 0.5
 
         final_damage = damage
 
@@ -38,6 +80,7 @@ class Enemy:
             final_damage = damage - reduction_amount
 
             print(f"\n{self.name} defends your attack! Reducing your attack by half!")
+            time.sleep(1.3)
 
         self.health -= final_damage
         print(f"\nThe {self.name} takes {damage} damage!")
@@ -62,6 +105,11 @@ class Enemy:
 
         return
 
+    def get_loot(self):
+        """ CALCULATES AND RETURNS THE STORMMARKS PRIZE FOR DEFEATING THIS ENEMY """
+
+        return self.loot
+
 """ 
     THIS HANDLES THE SPAWNING OF THE ENEMY
     
@@ -74,4 +122,12 @@ class Enemy:
 
 def spawn_enemy(name):
     stats = enemies[name]
-    return Enemy(name, stats['health'], stats['max_health'], stats['attack'], stats['ability'])
+    return Enemy(
+        name,
+        stats['health'],
+        stats['max_health'],
+        stats['attack'],
+        stats['ability'],
+        loot = stats['prize']
+    )
+

@@ -101,7 +101,7 @@ class Player:
             print(f"You swing your blade 3 times, dealing multiple damage to the enemy!")
             time.sleep(1.5)
             for attack in range(3):
-                enemy.take_damage(random.randint(2,5))
+                enemy.take_damage(random.randint(3,7))
 
             self.cooldown = 3
 
@@ -129,15 +129,14 @@ class Player:
 
 
     def show_inventory(self):
-        print("\n== [INVENTORY: SECURE CACHE ==")
+        print("\n== [INVENTORY: SECURE CACHE] ==")
 
         if not self.inventory:
-            print("No stored supplies")
-            time.sleep(0.6)
+            print("\nNo stored supplies")
+            time.sleep(1)
             return
-
         for item, amount in self.inventory.items():
-            print(f"> {item} | x{amount}")
+            print(f"\n> {item} | x{amount}")
 
         input("\nPress [Enter] To Close Inventory >> ")
 
@@ -164,7 +163,7 @@ class Player:
 
 
     def show_status(self):
-        print(f"\n          --[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | "
+        print(f"\n                    --[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | "
               f"Health: {self.health}/{self.max_health} | Attack: {self.attack} ]--")
 
 
@@ -190,7 +189,7 @@ class Player:
             key = str(menu_index)
             item_menu[key] = name
 
-            print(f"{Fore.YELLOW}{key}{Style.RESET_ALL}: {name} - Heals {item_object.heal} HP | x{count}")
+            print(f"--> {Fore.YELLOW}[{key}]{Style.RESET_ALL}: {name} - Heals {item_object.heal} HP | x{count}")
             print("[X] - Exit Menu")
             menu_index += 1
 

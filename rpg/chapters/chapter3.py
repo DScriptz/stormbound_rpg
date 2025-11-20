@@ -1,6 +1,6 @@
 """ IMPORTS """
 import time
-import random
+# import random
 from rpg.tools import audio_manager
 from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
@@ -34,13 +34,13 @@ def chapter3(player):
     battle = Battle(player, enemy)
     battle.fight(player)
 
-    stormmarks_loot = random.randint(35, 40)
-    player.stormmarks += stormmarks_loot
+    loot = enemy.get_loot()
+    player.stormmarks += loot
 
+    print(f"You won! Stormmarks looted = {loot}. {player.name} SMK's: {player.stormmarks}")
 
-    print(f"You won! Stormmarks looted = {stormmarks_loot}. {player.name} SMK's: {player.stormmarks}")
     player.show_status()
-    print("\nLoading...")
+    print("\nLoading dialogues...")
     audio_manager.music_fadeout(duration=2000)
     time.sleep(2)
     audio_manager.music_stop()

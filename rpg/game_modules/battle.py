@@ -35,6 +35,7 @@ class Battle:
             self.enemy.health = self.enemy.max_health
 
             while self.player.health > 0 and self.enemy.is_alive():
+                """ PLAYER'S TURN """
                 print(f"\n    --[{self.player.name}'s Health: {Fore.LIGHTRED_EX}"
                       f"{self.player.health}/{self.player.max_health}"
                       f"{Style.RESET_ALL} "
@@ -57,6 +58,11 @@ class Battle:
                 else:
                     print(f"   [S] - (Cooldown : {self.player.cooldown}) |  [I] - Inventory")
 
+                if player.stunned:
+                    print(f"{player.name} got stunned and can't move!!!")
+                    time.sleep(1.2)
+                    player.stunned = False
+                    continue
 
                 action = input("\n>> ").lower().strip()
 
@@ -91,8 +97,16 @@ class Battle:
 
                 elif action == "u":
                     player.use_item()
+
+                elif action == "r":
+                    pass
+
+                elif action == "i":
+                    player.show_inventory()
+
                 elif action == "s":
                     self.player.use_ability(self.enemy)
+
 
                 else:
                     print("\nYou stumbled and lost your turn!")
@@ -102,7 +116,6 @@ class Battle:
 
                 if self.enemy.is_alive():
 
-
                     if self.enemy.stunned:
                         print(f"The enemy is stunned and cannot move! {self.enemy.name}'s turn is lost!")
                         self.enemy.stunned = False
@@ -111,10 +124,15 @@ class Battle:
                         self.enemy.enemy_attack(self.player)
                         time.sleep(1.3)
 
-                """ IF PLAYER USES THIER ABILITY , THIS MAKES IT SO THAT THE TIMER OF THEIR ABILITY COOLDOWN E.G: 3 TURNS, GETS DEDUCTED"""
+                """ 
+                    IF PLAYER USES THIER ABILITY, 
+                    
+                    THIS MAKES IT SO THAT THE TIMER OF THEIR ABILITY COOLDOWN E.G: 3 TURNS, GETS DEDUCTED
+                    
+                 """
+
                 if self.player.cooldown > 0:
                     self.player.cooldown -= 1
-
 
             """ PLAYER GETS DEFEATED BUT HAS A CHOICE TO RESTART """
             if self.player.health <= 0:
