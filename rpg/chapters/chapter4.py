@@ -15,14 +15,14 @@ healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
 
 
-""" THIS DEFINES THE LOCAION INSTANCE """
+""" THIS DEFINES THE LOCATION INSTANCE """
 coil_bunks = Location(
     "The Coil Bunks",
     "Rows of metallic sleeping pods. The air is stale and quiet. Wexler is running his game in the corner.",
     {
         '1': ("Rent a bunk (30) SMK", rent_room),
         '2': ("Play 'The Relic Dice'", play_relic_dice),
-        '3': ("Exit The Coil Bunks", leave_bunk),
+        'x': ("Exit The Coil Bunks", leave_bunk),
     }
 )
 
@@ -38,7 +38,7 @@ def show_shop_choices(player):
 
         print("\n[1] - Rusty Apothecary: Meds & Safety")
         print(f"[2] - The Rusted Rifle: Weapon & Ammo Needs")
-        print(f"[B] - Go back to the Nexus Point")
+        print(f"[X] - Go back to the Nexus Point")
 
         choice = input("\n>> ").strip().lower()
 
@@ -54,7 +54,7 @@ def show_shop_choices(player):
                 time.sleep(1.7)
                 weapon_shop.open_shop(player)
 
-            case "b":
+            case "x":
                 print(f"{player.name}: 'That was nice.'")
                 time.sleep(1.2)
                 break
@@ -90,7 +90,6 @@ def chapter4(player):
             time.sleep(1.5)
             print("You catch a glimpse of a scavenger kid darting past, holding a bundle of scrap almost bigger than themselves.")
             time.sleep(1.6)
-
         case _:
             print("You skipped the dialogue!")
             time.sleep(0.3)
@@ -99,7 +98,6 @@ def chapter4(player):
     time.sleep(1.2)
     print("You are now in The Nexus Point (center)")
     time.sleep(1.1)
-
 
     while True:
         player.show_status()

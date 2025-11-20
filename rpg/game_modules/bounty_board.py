@@ -3,8 +3,18 @@ from colorama import Fore, init, Style
 init(autoreset=True)
 
 bounty_list = {
-    "A": {"name": "Guard Drone CPU Retrieval", "target_item": "Drone CPU", "required": 5 ,"prize": 500},
-    "B": {"name": "Wasteland Ghoul Hunting", "target_item": "Ghoul Fingers", "required": "3", "prize": 350}
+    "A": {
+        "name": "Guard Drone CPU Retrieval",
+        "target_item": "Drone CPU",
+        "required": 5
+        ,"prize": 500
+    },
+    "B": {
+        "name": "Wasteland Ghoul Hunting",
+        "target_item": "Ghoul Fingers",
+        "required": "3",
+        "prize": 350
+    }
 
 }
 
@@ -17,12 +27,36 @@ def view_bounty_board(player):
 
     print("======================== BOUNTY LIST ========================")
     for i, bounty in bounty_list.items():
-        print(f"[{i}]: {bounty['name']} - Collect {bounty['required']}x '{bounty['target_item']}' for {bounty['prize']} SMK")
+        print(f"\n[{i}]: {bounty['name']} - Collect {bounty['required']}x '{bounty['target_item']}' for {bounty['prize']} SMK")
+        print("[X] - Exit Menu")
     print("=============================================================")
     time.sleep(1.3)
 
     print(f"{player.name}: 'Bounties... let's see...'")
     time.sleep(1.3)
+
+    bounty_choice = input("\n>> ").lower().strip()
+
+    if bounty_choice in bounty_list:
+        chosen_bounty = bounty_list[bounty_choice]
+
+        if player.active_bounty is None:
+            player.active_bounty = chosen_bounty
+
+            print(f"\nCommander Thorne: 'Now, your job is **{chosen_bounty['name']}**.")
+            time.sleep(1.2)
+            print(f"**Bounty Accepted!** You must collect {chosen_bounty['required']}x {chosen_bounty['target_item']}.")
+            time.sleep(1.4)
+        else:
+            print(f"\nCommander Thorne: 'You still have a bounty, {player.name}. Finish it first!'")
+            time.sleep(1.5)
+
+    elif bounty_choice == "x":
+        print("\nCommander Thorne: 'Fine, get outta here.'")
+        time.sleep(1.2)
+    else:
+        print("\nCommander Thorne: 'That is not a valid ID!'")
+        time.sleep(1.2)
 
     return True
 

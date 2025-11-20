@@ -28,7 +28,7 @@ class Player:
         self.special_ability = None
         self.dodging = False
         self.stunned = False
-        self.bounty_completed = 0
+        self.active_bounty = None
         self.current_chapter = 0
 
     """ 
