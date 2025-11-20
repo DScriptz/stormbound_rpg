@@ -1,5 +1,6 @@
 import os
 import pygame
+import time
 
 AUDIO_DIR = "sounds"
 
@@ -24,7 +25,7 @@ def play_sound(sound_name, volume=0.6):
         sound.play()
 
     except Exception as e:
-        print(f"[Sound Error] Couldn't play '{sound_name}'. Check path: {sound_path}. Error: {e}")
+        print(f"[Sound Error] Couldn't play '{sound_name}'. Check path  Error: {e}")
 
 
 
@@ -37,8 +38,8 @@ def play_music(music_name, volume=0.5, loop=True):
 
         pygame.mixer.music.load(music_path)
         pygame.mixer.music.set_volume(volume)
-
         pygame.mixer.music.play(-1 if loop else 0)
+
     except FileNotFoundError as e:
         print(f"[Music Error] {e}")
     except Exception as e:
@@ -54,10 +55,16 @@ def music_fadeout(duration=2000):
                                Default is 2000 ms (2 seconds).
     """
 
+    duration_seconds = duration / 1000.0
+
     try:
+
         if pygame.mixer.get_busy():
             pygame.mixer.music.fadeout(duration)
+            time.sleep(duration_seconds)
+
             print(f"Music fading out in {duration} secs.")
+
         else:
             print()
 

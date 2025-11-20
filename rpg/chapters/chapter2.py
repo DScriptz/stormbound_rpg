@@ -7,10 +7,11 @@ from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
 from colorama import Style, Fore
 
+audio_manager.initialize_audio()
+
 """ HANDLES CHAPTER 2 INTRO OF THE GAME """
 
 def intro(player):
-    audio_manager.play_music("chapter1&2", volume=1, loop=True)
     skip_choice = input("\nDo you want to skip the dialogue? (Y/N): ").lower().strip()
     match skip_choice:
         case "n":
@@ -51,11 +52,9 @@ def chapter2(player):
     time.sleep(1.3)
     print("Suddenly a Wolf jumps out from the car, growling at you!")
     time.sleep(1.3)
-
-    audio_manager.music_fadeout(duration=2000)
-    audio_manager.music_stop()
+    audio_manager.music_fadeout(2000)
     print(f"\n{Fore.GREEN}Loading battle...{Style.RESET_ALL}")
-    time.sleep(2.1)
+    time.sleep(2.3)
 
 
     audio_manager.play_music("battle music", volume=0.5)
