@@ -31,7 +31,7 @@ To run Stormbound, Text-based RPG locally, you need Python 3.8+ on your system (
     
 2. **Install Dependencies**
     ```bash
-    pip install r- requirements.txt
+    pip install -r requirements.txt
     ```
 ### 2. Execution
 
