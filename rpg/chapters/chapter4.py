@@ -11,6 +11,7 @@ from rpg.game_modules.bunks import rent_room, leave_bunk
 from rpg.game_modules.mini_games import play_relic_dice
 from rpg.models.location_data import watch_post
 from rpg.tools import audio_manager
+
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
 
@@ -116,8 +117,13 @@ def show_directions():
 
 def chapter4(player):
     audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
-    print("\n---------------------- Chapter 4: The Ironwind Outpost ----------------------")
-    time.sleep(0.6)
+
+    if player.current_chapter >= 4:
+        print(f"Ironwind Guard: 'Welcome back, {player.name}.'")
+        time.sleep(1.2)
+    else:
+        print("\n---------------------- Chapter 4: The Ironwind Outpost ----------------------")
+        time.sleep(0.6)
 
     skip_choice = input("Do you want to skip the dialogue? (Y/N): ").lower().strip()
 
@@ -140,6 +146,7 @@ def chapter4(player):
     print(f"\n{player.name}: 'This is plenty... where should I go?'")
     time.sleep(1.2)
     print("You are now in The Nexus Point (center)")
+    player.current_chapter = 4
     time.sleep(1.1)
 
     while True:

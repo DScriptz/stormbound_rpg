@@ -3,7 +3,6 @@ import random
 import time
 from colorama import Fore, Style, init
 from rpg.tools import audio_manager
-from rpg.models.player import Player
 init(autoreset=True)
 
 """ THIS HANDLES THE GAME'S BATTLE MECHANIC """
@@ -145,6 +144,7 @@ class Battle:
                     return
             else:
                 print(f"\nYou defeated the {self.enemy.name}!")
+                audio_manager.play_sound("victory", volume=0.8)
                 time.sleep(1.1)
                 return
 

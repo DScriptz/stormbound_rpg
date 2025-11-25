@@ -5,10 +5,11 @@ init(autoreset=True)
 
 
 class Location:
-    def __init__(self, name, description, options):
+    def __init__(self, name, description, options, is_safe=True):
         self.name = name
         self.description = description
         self.options = options
+        self.is_safe = is_safe
 
     def enter(self, player):
         """ DISPLAYS LOCATION AND STARTS THE INTERACTION WITH WHATEVER LOCATION THE PLAYER GOES"""
@@ -51,3 +52,4 @@ watch_post = Location(
         "3": ('Exit the Ironwind Watch Post', leave_watch_post)
     }
 )
+
