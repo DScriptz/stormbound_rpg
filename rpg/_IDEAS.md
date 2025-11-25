@@ -7,7 +7,7 @@
 -   [x] **Audio Transition:** Ensure music fades out (using `audio_manager.music_fadeout()`) when the player leaves the outpost area.
 -   [x] **New locations in Ironwind Outpost**: Finish up East & West directions on Ironwind Outpost.
 -   [ ] **Smooth transition**: Seamless transition to the chapter 5 open world.
--   [ ] **Lore continuation**: Continue writing the main lore for ``Chapter4`` going to ``Chapter5``
+-   [x] **Lore continuation**: Continue writing the main lore for ``Chapter4`` going to ``Chapter5``
 
 
 ##  Future Planned Features 
@@ -28,3 +28,7 @@
 ### 4. More Classes
 -   [ ] Unique types of classes.
 -   [ ] 5 More Classes relating the Dystopian Theme.
+
+### 5. Proper Game Intro
+-   [ ] A proper game menu intro for more immersion for players.
+-   [ ] Write an immersive background on the Dystopian world Stormbound has.

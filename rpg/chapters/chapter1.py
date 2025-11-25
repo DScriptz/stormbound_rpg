@@ -1,18 +1,15 @@
 """ IMPORTS """
 from rpg.tools import audio_manager
 from rpg.models.player import Player
-from rpg.class_data import Class, class_info, class_stats
-
+from rpg.class_data import class_info, class_stats
+from colorama import Fore, Style
 
 import time
 
 """ GAME INTRO, BASICALLY JUST A PARAGRAPH EXPLAINING THE GAME'S LORE """
 
-def game_intro():
+def intro():
     audio_manager.play_music("chapter1&2", volume=1.1, loop=True)
-    print("\n[----------------------------------------------------------]")
-    print("                   -{ STORMBOUND HAVEN }-                      ")
-    print("[----------------------------------------------------------]")
 
     skip_choice = input("Do you want to skip the intro? (Y/N): ").lower().strip()
 
@@ -22,7 +19,7 @@ def game_intro():
             time.sleep(0.6)
             print("You woke up in a cold wooden floor, your head hurting, and smoke still lingers in the air..")
             time.sleep(1.2)
-            print("Five years has passed since the factions tore the world apart")
+            print(f"Five years has passed since the '{Fore.WHITE + Style.DIM}Storm{Style.RESET_ALL}' tore the world apart")
             time.sleep(1.2)
             print("And now you find your self in a haven that is nowhere but safe...")
             time.sleep(0.9)
@@ -34,7 +31,7 @@ def game_intro():
 """ HANDLES THE CHAPTER 1 OF THE GAME """
 
 def chapter1(player=None):
-    game_intro()
+    intro()
     if player is None:
         print("\n---------------------- Chapter 1: Awakening ----------------------")
         print("\nSo you there... Introduce yourself as you venture in this world: ")

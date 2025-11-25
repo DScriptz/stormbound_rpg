@@ -9,8 +9,8 @@ from rpg.dialogues.rusted_rifle import show_rhys_dialogue
 from rpg.models import Location
 from rpg.game_modules.bunks import rent_room, leave_bunk
 from rpg.game_modules.mini_games import play_relic_dice
-from rpg.models.locations import watch_post
-
+from rpg.models.location_data import watch_post
+from rpg.tools import audio_manager
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
 
@@ -25,6 +25,48 @@ coil_bunks = Location(
         'x': ("Exit The Coil Bunks", leave_bunk),
     }
 )
+
+def leave_ironwind_outpost(player):
+    print("\nAs you walk towards the exit, you hear a footstep coming fast at you,")
+    time.sleep(1.5)
+    print(f"Kael Rowan: '{player.name}! Before you go, I just want to thank you for your help from the thief earlier'")
+    time.sleep(1.7)
+    print(f"Kael Rowan: 'I've got something for ya, here.'")
+    time.sleep(1.5)
+    print("Kael shows you a Faction Badge: Ironwinders")
+    time.sleep(1.5)
+    print("Kael Rowan: 'If you want, you can be one of us.'")
+    time.sleep(1.5)
+
+    while True:
+        print("\nDo you want to join this faction (Y/N)?")
+
+        choice = input("\n>> ").strip().lower()
+
+        match choice:
+            case "y":
+                print(f"{player.name}: 'Alright **shakes hands**, we got a deal'")
+                time.sleep(1.5)
+                player.faction = "Ironwinders"
+                print(f"Kael Rowan: 'Welcome to the {player.faction}, {player.name}.'")
+                time.sleep(1.5)
+                player.show_status()
+                input("Press [Enter] to continue: ")
+                break
+            case "n":
+                print(f"{player.name}: 'I think I can handle myself, thanks for the offer tho.'")
+                print("Kael Rowan: 'Got it, you can always come back here.'")
+                break
+            case _:
+                print(f"{player.name}: 'Uhh...'")
+                continue
+
+    print("Kael Rowan: 'Oh and before you go, I hope you didn't forget to visit the watchpost-'")
+    time.sleep(1.7)
+    print("Kael Rowan: 'Commander Thorne would appreciate if you could help with the bounties,'")
+    time.sleep(1.8)
+    print("anyways, come I'll drive you to The Hardpoint.")
+    time.sleep(1.5)
 
 """ SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 
@@ -73,7 +115,8 @@ def show_directions():
 """ THIS HANDLES THE CHAPTER 4 LOOP """
 
 def chapter4(player):
-    print("\n---------------------- Chapter 4:The Ironwind Outpost ----------------------")
+    audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
+    print("\n---------------------- Chapter 4: The Ironwind Outpost ----------------------")
     time.sleep(0.6)
 
     skip_choice = input("Do you want to skip the dialogue? (Y/N): ").lower().strip()
@@ -129,8 +172,10 @@ def chapter4(player):
 
 
             case "x":
-                pass
-
+                leave_ironwind_outpost(player)
+                audio_manager.music_fadeout(duration=2000)
+                audio_manager.music_stop()
+                break
             case _:
                 print(f"{player.name}: 'Hmm, can't decide..'")
                 time.sleep(0.5)

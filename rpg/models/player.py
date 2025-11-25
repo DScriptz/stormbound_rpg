@@ -23,7 +23,9 @@ class Player:
         self.attack = attack
         self.cooldown = 0
         self.level = 1
-        self.inventory = {"Quick-Seal Strip": 2}
+        self.inventory = {
+            "Quick-Seal Strip": 2
+        }
         self.stormmarks = 0
         self.special_ability = None
         self.dodging = False
@@ -31,20 +33,21 @@ class Player:
         self.active_bounty = None
         self.current_chapter = 0
         self.bounty_completed = 0
+        self.faction = None
 
     """ 
         PLAYER'S STATS BEING SHOWN
     
         Example:
                 Dwayne | Health: 100 | Attack: 50
-                Gold: 20 | Level 5
+                Gold: 20 | Level 5 | Faction: None
                 Inventory: {}
                 
     """
     def introduce(self):
         print("=========[ PLAYER DATA ]=========")
         print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health}/{self.max_health}  | Attack: {self.attack}")
-        print(f"\nStormmarks (SMK): {self.stormmarks} | Level: {self.level}")
+        print(f"\nStormmarks (SMK): {self.stormmarks} | Level: {self.level} | Faction {self.faction}")
         print("=================================\n")
         self.show_inventory()
 
@@ -132,7 +135,7 @@ class Player:
             damage = self.attack + 837
             print(f"{enemy.name} got trapped in your Domain Expansion.")
             time.sleep(9.5)
-            audio_manager.play_sound("fahh", volume=0.7)
+            audio_manager.play_sound("fahh", volume=1)
             enemy.take_damage(damage)
 
             self.cooldown = 0
@@ -179,7 +182,7 @@ class Player:
 
     def show_status(self):
         print(f"\n                    --[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | "
-              f"Health: {self.health}/{self.max_health} | Attack: {self.attack} ]--")
+              f"Health: {self.health}/{self.max_health} | Attack: {self.attack} | Faction: {self.faction} ]--")
 
 
     def level_up(self):

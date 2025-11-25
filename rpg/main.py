@@ -1,11 +1,12 @@
 """ IMPORTS """
 
-from chapters import chapter1, chapter2, chapter3, chapter4
+from chapters import chapter1, chapter2, chapter3, chapter4, game_intro
 
 
 """  MAIN STORY  """
 
 def main():
+    game_intro()
     player = chapter1()
     chapter2(player)
     chapter3(player)

@@ -1,2 +1,2 @@
 
-from .locations import Location
+from .location_data import Location
