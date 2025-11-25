@@ -30,6 +30,7 @@ class Player:
         self.stunned = False
         self.active_bounty = None
         self.current_chapter = 0
+        self.bounty_completed = 0
 
     """ 
         PLAYER'S STATS BEING SHOWN
@@ -41,8 +42,10 @@ class Player:
                 
     """
     def introduce(self):
+        print("=========[ PLAYER DATA ]=========")
         print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health}/{self.max_health}  | Attack: {self.attack}")
         print(f"\nStormmarks (SMK): {self.stormmarks} | Level: {self.level}")
+        print("=================================\n")
         self.show_inventory()
 
     """ PLAYER TAKES DAMAGE """
@@ -101,6 +104,7 @@ class Player:
             print(f"You swing your blade 3 times, dealing multiple damage to the enemy!")
             time.sleep(1.5)
             for attack in range(3):
+                audio_manager.play_sound("fahh", volume=0.7)
                 enemy.take_damage(random.randint(3,7))
 
             self.cooldown = 3
@@ -123,6 +127,16 @@ class Player:
 
             self.cooldown = 4
 
+        elif self.player_class == "dev":
+            audio_manager.play_sound("megumi_domain", volume=0.6)
+            damage = self.attack + 837
+            print(f"{enemy.name} got trapped in your Domain Expansion.")
+            time.sleep(9.5)
+            audio_manager.play_sound("fahh", volume=0.7)
+            enemy.take_damage(damage)
+
+            self.cooldown = 0
+
         else:
             print(f"{self.special_ability} is on cooldown! You lost your turn.")
             time.sleep(1.1)
@@ -137,6 +151,7 @@ class Player:
             return
         for item, amount in self.inventory.items():
             print(f"\n> {item} | x{amount}")
+        print("-----------------------------------")
 
         input("\nPress [Enter] To Close Inventory >> ")
 

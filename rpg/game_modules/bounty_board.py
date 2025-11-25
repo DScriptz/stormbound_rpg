@@ -22,20 +22,21 @@ def view_bounty_board(player):
     """ SHOW AVAILABLE BOUNTIES """
     print(f"                             -- [ {Fore.RED + Style.BRIGHT}WATCH POST BOUNTY LIST{Style.RESET_ALL} ] --")
     player.show_status()
-    print("Commander Thorne: 'Well well, choose your work, fresh meat. Don't waste my time.'")
+    print("Commander Thorne: 'Well well, choose your work, fresh meat. Don't waste my time.'\n")
     time.sleep(1.4)
+    print(f"{player.name}: 'Bounties... let's see...'")
+    time.sleep(1.3)
 
     print("======================== BOUNTY LIST ========================")
     for i, bounty in bounty_list.items():
         print(f"\n[{i}]: {bounty['name']} - Collect {bounty['required']}x '{bounty['target_item']}' for {bounty['prize']} SMK")
-        print("[X] - Exit Menu")
+    print("\n[X] - Exit Menu")
     print("=============================================================")
     time.sleep(1.3)
 
-    print(f"{player.name}: 'Bounties... let's see...'")
-    time.sleep(1.3)
 
-    bounty_choice = input("\n>> ").lower().strip()
+
+    bounty_choice = input("\n>> ").upper().strip()
 
     if bounty_choice in bounty_list:
         chosen_bounty = bounty_list[bounty_choice]
@@ -66,7 +67,7 @@ def collect_bounty(player):
     print("\nCommander Thorne: 'Hand me the proof, I don't care about your stories.'")
     time.sleep(1.2)
 
-    bounty_id = input("Which bounty ID (A, B, C...) do you want to submit? >> ").strip().lower()
+    bounty_id = input("Which bounty ID (A, B, C...) do you want to submit? >> ").strip().upper()
 
     if bounty_id not in bounty_list:
         print("\nCommander Thorne: 'That Bounty ID isn't on the board, get serious!'")

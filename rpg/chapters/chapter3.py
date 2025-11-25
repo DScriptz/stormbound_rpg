@@ -21,7 +21,7 @@ def chapter3(player):
     audio_manager.music_stop()
     print("\nLoading...")
     time.sleep(1.5)
-    audio_manager.play_music("thief_fight", volume=0.9)
+    audio_manager.play_music("thief_fight", volume=0.4)
 
 
 

@@ -57,7 +57,7 @@ def chapter2(player):
     time.sleep(2.3)
 
 
-    audio_manager.play_music("battle music", volume=0.5)
+    audio_manager.play_music("battle music", volume=0.3)
     """ CREATES THE UPDATED ENEMY OBJECT FROM ENEMY DICTIONARY """
 
     enemy = spawn_enemy("Ravager Wolf")
