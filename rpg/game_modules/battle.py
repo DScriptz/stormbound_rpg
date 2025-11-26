@@ -144,7 +144,7 @@ class Battle:
                     return
             else:
                 print(f"\nYou defeated the {self.enemy.name}!")
-                audio_manager.play_sound("victory", volume=0.8)
+                audio_manager.play_sound("victory", volume=1.3)
                 time.sleep(1.1)
                 return
 

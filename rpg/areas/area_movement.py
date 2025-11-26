@@ -23,6 +23,15 @@ def handle_data_grave_movement(player):
         player = battle.fight(player)
 
     else:
-        print("You walk forward to the Data Graves")
+        item_chance = 45
+        roll = random.randint(1, 100)
+        if roll <= item_chance:
+            print("As you walk, you found an Item")
+
+        print("You walk forward seeing nothing but dirt, metals and abandoned buildings...")
+        time.sleep(0.4)
+
+
+
     return player
 
