@@ -4,10 +4,17 @@ import time
 from rpg.tools import audio_manager
 from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
+from rpg.tools.save_load_manager import select_save_slot
 
 """ HANDLES CHAPTER 3 OF THE GAME """
 
 def chapter3(player):
+    if player.current_chapter > 3:
+        return player
+
+    if player.current_chapter < 3:
+        player.current_chapter = 3
+
     print("\n---------------------- Chapter 3: Shadows of the Ironwind. ----------------------")
     time.sleep(0.6)
     print(f"Kael Rowan: 'As you can see, the pathway to our hideout still isn't... safe'")
@@ -75,6 +82,9 @@ def chapter3(player):
 
     print(f"{player.name}: 'Appreciate it, I'll be sure to leave when needed. *nods*'")
     player.level_up()
+
+    player.current_chapter = 4
+    select_save_slot(player)
 
     return player
 

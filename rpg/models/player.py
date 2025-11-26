@@ -31,7 +31,7 @@ class Player:
         self.dodging = False
         self.stunned = False
         self.active_bounty = None
-        self.current_chapter = 0
+        self.current_chapter = 1
         self.bounty_completed = 0
         self.faction = None
 
@@ -47,7 +47,7 @@ class Player:
     def introduce(self):
         print("=========[ PLAYER DATA ]=========")
         print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health}/{self.max_health}  | Attack: {self.attack}")
-        print(f"\nStormmarks (SMK): {self.stormmarks} | Level: {self.level} | Faction {self.faction}")
+        print(f"\nStormmarks (SMK): {self.stormmarks} | Level: {self.level} | Faction: '{self.faction}'")
         print("=================================\n")
         self.show_inventory()
 

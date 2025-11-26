@@ -5,6 +5,7 @@ import time
 from rpg.tools import audio_manager
 from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
+from rpg.tools.save_load_manager import select_save_slot
 from colorama import Style, Fore
 
 audio_manager.initialize_audio()
@@ -12,6 +13,7 @@ audio_manager.initialize_audio()
 """ HANDLES CHAPTER 2 INTRO OF THE GAME """
 
 def intro(player):
+
     skip_choice = input("\nDo you want to skip the dialogue? (Y/N): ").lower().strip()
     match skip_choice:
         case "n":
@@ -39,7 +41,14 @@ def intro(player):
 """ CHAPTER 2 OF THE GAME """
 
 def chapter2(player):
+    if player.current_chapter > 2:
+        return player
+
+    if player.current_chapter < 2:
+        player.current_chapter = 2
+
     intro(player)
+
     print("Stranger: 'Hmm, alright. I am Kael Rowan. The leader of the Ironwind Outpost.'")
     time.sleep(1.3)
     print(f"Kael Rowan: 'So then {player.name}, I will lend you supplies if you prove you're trustworthy.'")
@@ -81,7 +90,10 @@ def chapter2(player):
     player.level_up()
     time.sleep(1)
     player.show_status()
-
     input("\nPress [Enter] to continue >> ")
+    player.current_chapter = 3
+    select_save_slot(player)
+
+    return player
 
 

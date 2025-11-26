@@ -1,10 +1,11 @@
 """ IMPORTS """
+import time
 from rpg.tools import audio_manager
 from rpg.models.player import Player
 from rpg.class_data import class_info, class_stats
 from colorama import Fore, Style
+from rpg.tools.save_load_manager import select_save_slot
 
-import time
 
 """ GAME INTRO, BASICALLY JUST A PARAGRAPH EXPLAINING THE GAME'S LORE """
 
@@ -30,54 +31,63 @@ def intro():
 
 """ HANDLES THE CHAPTER 1 OF THE GAME """
 
-def chapter1(player=None):
+def chapter1():
     intro()
-    if player is None:
-        print("\n---------------------- Chapter 1: Awakening ----------------------")
+    print("\n---------------------- Chapter 1: Awakening ----------------------")
+    print("\nSo you there... Introduce yourself as you venture in this world: ")
+    name = input("\n>>  ").strip()
+
+    while name == "":
         print("\nSo you there... Introduce yourself as you venture in this world: ")
-        name = input("\n>>  ").strip()
+        name = input("\n>> ").strip()
 
-        while name == "":
-            print("\nSo you there... Introduce yourself as you venture in this world: ")
-            name = input("\n>> ").strip()
+    class_info()
+    print("\nPick your class: ")
 
-        class_info()
-        print("\nPick your class: ")
+    class_choice = input("\n>> ").strip().lower()
 
-        class_choice = input("\n>> ").strip().lower()
+    stats = class_stats.get(class_choice)
 
-        stats = class_stats.get(class_choice)
+    if stats:
+        class_name = stats['name']
 
-        if stats:
-            class_name = stats['name']
+        player = Player(
+            name,
+            class_name,
+            stats['health'],
+            stats['max_health'],
+            stats['attack']
+        )
 
-            player = Player(
-                name,
-                class_name,
-                stats['health'],
-                stats['max_health'],
-                stats['attack']
-            )
+        player.special_ability = stats.get('ability', 'None')
 
-            player.special_ability = stats.get('ability', 'None')
+        player.current_chapter = 2
 
-            player.introduce()
-        else:
-            print("\nInvalid class selection. Defaulting to Riftblade (Choice 2)")
+        select_save_slot(player)
 
-            default_stats = class_stats['2']
+        player.introduce()
+    else:
+        print("\nInvalid class selection. Defaulting to Riftblade (Choice 2)")
 
-            player = Player(
-                name,
-                default_stats['name'],
-                default_stats['health'],
-                default_stats['max_health'],
-                default_stats['attack']
-            )
+        default_stats = class_stats['2']
 
-            player.special_ability = default_stats.get('ability', 'None')
+        player = Player(
+            name,
+            default_stats['name'],
+            default_stats['health'],
+            default_stats['max_health'],
+            default_stats['attack']
+        )
 
-            player.introduce()
+        player.special_ability = default_stats.get('ability', 'None')
+
+        player.current_chapter = 2
+
+        select_save_slot(player)
+
+        player.introduce()
+
+
 
     return player
 

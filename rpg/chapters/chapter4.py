@@ -117,8 +117,8 @@ def show_directions():
 
 def chapter4(player):
     audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
-
-    if player.current_chapter >= 4:
+    player.current_chapter += 1
+    if player.faction == 'Ironwinders':
         print(f"Ironwind Guard: 'Welcome back, {player.name}.'")
         time.sleep(1.2)
     else:
@@ -146,7 +146,6 @@ def chapter4(player):
     print(f"\n{player.name}: 'This is plenty... where should I go?'")
     time.sleep(1.2)
     print("You are now in The Nexus Point (center)")
-    player.current_chapter = 4
     time.sleep(1.1)
 
     while True:
@@ -182,6 +181,7 @@ def chapter4(player):
                 leave_ironwind_outpost(player)
                 audio_manager.music_fadeout(duration=2000)
                 audio_manager.music_stop()
+                player.current_chapter = 5
                 break
             case _:
                 print(f"{player.name}: 'Hmm, can't decide..'")
