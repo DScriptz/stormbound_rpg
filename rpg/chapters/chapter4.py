@@ -10,6 +10,7 @@ from rpg.models import Location
 from rpg.game_modules.bunks import rent_room, leave_bunk
 from rpg.game_modules.mini_games import play_relic_dice
 from rpg.models.location_data import watch_post
+from rpg.tools.save_load_manager import select_save_slot
 from rpg.tools import audio_manager
 
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
@@ -28,46 +29,66 @@ coil_bunks = Location(
 )
 
 def leave_ironwind_outpost(player):
-    print("\nAs you walk towards the exit, you hear a footstep coming fast at you,")
-    time.sleep(1.5)
-    print(f"Kael Rowan: '{player.name}! Before you go, I just want to thank you for your help from the thief earlier'")
-    time.sleep(1.7)
-    print(f"Kael Rowan: 'I've got something for ya, here.'")
-    time.sleep(1.5)
-    print("Kael shows you a Faction Badge: Ironwinders")
-    time.sleep(1.5)
-    print("Kael Rowan: 'If you want, you can be one of us.'")
-    time.sleep(1.5)
+    if player.faction == 'Ironwinders':
+        print("You walked towards the exit of Ironwind Outpost...")
+        time.sleep(1.5)
+        select_save_slot(player)
+    else:
+        print("\nAs you walk towards the exit, you hear a footstep coming fast at you,")
+        time.sleep(1.5)
+        print(f"Kael Rowan: '{player.name}! Before you go, I just want to thank you for your help from the thief earlier'")
+        time.sleep(1.7)
+        print(f"Kael Rowan: 'I've got something for ya, here.'")
+        time.sleep(1.5)
+        print("Kael shows you a Faction Badge: Ironwinders")
+        time.sleep(1.5)
+        print("Kael Rowan: 'If you want, you can be one of us.'")
+        time.sleep(1.5)
 
-    while True:
-        print("\nDo you want to join this faction (Y/N)?")
+        while True:
+            print("\nDo you want to join this faction (Y/N)?")
 
-        choice = input("\n>> ").strip().lower()
+            choice = input("\n>> ").strip().lower()
 
-        match choice:
-            case "y":
-                print(f"{player.name}: 'Alright **shakes hands**, we got a deal'")
-                time.sleep(1.5)
-                player.faction = "Ironwinders"
-                print(f"Kael Rowan: 'Welcome to the {player.faction}, {player.name}.'")
-                time.sleep(1.5)
-                player.show_status()
-                input("Press [Enter] to continue: ")
-                break
-            case "n":
-                print(f"{player.name}: 'I think I can handle myself, thanks for the offer tho.'")
-                print("Kael Rowan: 'Got it, you can always come back here.'")
-                break
-            case _:
-                print(f"{player.name}: 'Uhh...'")
-                continue
+            match choice:
+                case "y":
+                    print(f"{player.name}: 'Alright **shakes hands**, we got a deal'")
+                    time.sleep(1.5)
+                    player.faction = "Ironwinders"
+                    print(f"Kael Rowan: 'Welcome to the {player.faction}, {player.name}.'")
+                    time.sleep(1.5)
+                    player.show_status()
+                    input("Press [Enter] to continue: ")
+                    break
+                case "n":
+                    print(f"{player.name}: 'I think I can handle myself, thanks for the offer tho.'")
+                    print("Kael Rowan: 'Got it, you can always come back here.'")
+                    break
+                case _:
+                    print(f"{player.name}: 'Uhh...'")
+                    continue
 
-    print("Kael Rowan: 'Oh and before you go, I hope you didn't forget to visit the watchpost-'")
-    time.sleep(1.7)
-    print("Kael Rowan: 'Commander Thorne would appreciate if you could help with the bounties,'")
-    time.sleep(1.8)
-    print("anyways, come I'll drive you to The Hardpoint.")
-    time.sleep(1.5)
+        print("Kael Rowan: 'Oh and before you go, I hope you didn't forget to visit the watchpost-'")
+        time.sleep(1.7)
+        print("Kael Rowan: 'Commander Thorne would appreciate if you could help with the bounties,'")
+        time.sleep(1.8)
+        print("anyways, come I'll drive you to The Hardpoint.")
+        time.sleep(1.4)
+        print("\nAfter a few hours, You and Kael reached The Hardpoint...")
+        time.sleep(1.5)
+        print("Kael Rowan: 'Well, here it is... the place people call 'The Hardpoint'.'")
+        time.sleep(1.5)
+        print("Be careful around here, it may look safe but there's scavengers and AI S-7 Bots roaming around in here-")
+        time.sleep(1.8)
+        print(f"{player.name}: 'I'll be careful, thanks for the ride, I'll take it from here'")
+        time.sleep(1.5)
+        print("Kael nods, then gets on his jeep and drove away...")
+        time.sleep(1.5)
+        print(f"\n{player.name}: '**sighs** This used to be Manila huh...'")
+        time.sleep(1.5)
+
+        player.current_chapter = 5
+        select_save_slot(player)
 
 """ SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 
@@ -181,7 +202,6 @@ def chapter4(player):
                 leave_ironwind_outpost(player)
                 audio_manager.music_fadeout(duration=2000)
                 audio_manager.music_stop()
-                player.current_chapter = 5
                 break
             case _:
                 print(f"{player.name}: 'Hmm, can't decide..'")

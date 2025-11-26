@@ -18,7 +18,7 @@ def game_intro():
 
         print("             ============ [MENU] ============")
         print("            [1] - Start Game | [2] - Game info / Story")
-        print("            [3] - Load game file")
+        print("            [3] - Load Game File")
         print("            [4] - Credits | [5] - Quit")
 
         choice = input("-->  ")
@@ -63,7 +63,7 @@ def game_intro():
                 time.sleep(1.5)
 
             case "5":
-                print("Thanks for playing my game! Hope you try it again! ")
+                print("Thanks for playing my game! Hope you try it again!")
                 time.sleep(1.3)
                 sys.exit()
 

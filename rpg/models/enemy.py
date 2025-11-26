@@ -7,11 +7,11 @@ import time
 enemies = {
 
     "Wasteland Ghoul": {
-        "health": 70,
-        "max_health": 70,
-        "attack": 12,
+        "health": 65,
+        "max_health": 65,
+        "attack": 13,
         "ability": "Quick Strike",
-        "prize": 55
+        "prize": 65
     },
 
     "Ash Goblin": {
@@ -19,7 +19,7 @@ enemies = {
         "max_health": 60,
         "attack": 10,
         "ability": "Scavenge",
-        "price": 50
+        "prize": 70
     },
 
     "Ravager Wolf": {
@@ -31,8 +31,8 @@ enemies = {
     },
 
     "Guard Drone": {
-        "health": 75,
-        "max_health": 76,
+        "health": 70,
+        "max_health": 70,
         "attack": 12,
         "ability": "Electrocute",
         "prize": 70
@@ -50,6 +50,13 @@ enemies = {
         "attack": 10,
         "ability": None,
         "prize": 60
+    },
+    "Zero-Day Thief": {
+        "health": 72,
+        "max_health": 72,
+        "attack": 12,
+        "ability": None,
+        "prize": 65
     }
 }
 
