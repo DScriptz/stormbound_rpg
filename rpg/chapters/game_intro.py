@@ -17,7 +17,8 @@ def game_intro():
     while True:
 
         print("             ============ [MENU] ============")
-        print("            [1] - Start Game | [2] - Game info / Story | [3] -  Load game file")
+        print("            [1] - Start Game | [2] - Game info / Story")
+        print("            [3] - Load game file")
         print("            [4] - Credits | [5] - Quit")
 
         choice = input("-->  ")
@@ -39,7 +40,8 @@ def game_intro():
                 print('''\nStormbound Haven is a Dystopian text-based RPG, set in 2035 after a self-aware AI Virus the people
  called the "Storm" invaded the world. To this day, people still don't even know who spread it... Factions around the world
  consisting of different people have bonded together and it has caused many faction wars and destruction.
- Will you be able find out who's the mastermind behind all the chaos?\n''')
+ Will you be able find out who's the mastermind behind all the chaos? Or create your own faction and fight other factions?
+ The choice is yours...\n''')
                 input("-> Press [Enter] to continue: ")
 
             case "3":
@@ -58,7 +60,8 @@ def game_intro():
                       " [Myinstants]- https://www.myinstants.com/en/index/us,"
                       " [Tabletop Audio] - https://tabletopaudio.com\n")
                 print("Code: [Github] - DScriptz | Dwayne Japor\n")
-                input("-> Press [Enter] to continue: ")
+                time.sleep(1.5)
+
             case "5":
                 print("Thanks for playing my game! Hope you try it again! ")
                 time.sleep(1.3)
