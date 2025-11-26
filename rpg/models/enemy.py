@@ -27,7 +27,7 @@ enemies = {
         "max_health": 55,
         "attack": 8,
         "ability": None,
-        "prize": 25
+        "prize": 35
     },
 
     "Guard Drone": {
@@ -49,7 +49,7 @@ enemies = {
         "max_health": 60,
         "attack": 10,
         "ability": None,
-        "prize": 45
+        "prize": 60
     }
 }
 
