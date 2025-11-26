@@ -1,6 +1,6 @@
 import time
 from rpg.models.location_data import Location
-from rpg.areas.area_movement import handle_data_grave_movement
+from rpg.areas.data_grave_movement import handle_data_grave_movement_forward
 """ THESE HANDLES THE FUNCTIONS FOR EACH LOCATION """
 
 def go_to_data_grave(player):
@@ -36,7 +36,7 @@ data_grave = Location(
     " physical traps to protect their claims. The air echoes with the desperate clang of metal."
     "Area Signal Tower range: [LOW - High Danger] \n",
     {
-        "1": ('Move Forward', handle_data_grave_movement)
+        "1": ('Move Forward', handle_data_grave_movement_forward)
     },
     False
 )

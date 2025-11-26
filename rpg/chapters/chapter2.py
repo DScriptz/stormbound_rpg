@@ -6,6 +6,7 @@ from rpg.tools import audio_manager
 from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
 from rpg.tools.save_load_manager import select_save_slot
+from rpg.game_modules.loot_handler import handle_loot
 from colorama import Style, Fore
 
 audio_manager.initialize_audio()
@@ -83,10 +84,8 @@ def chapter2(player):
     print("Kael Rowan: 'As promised, come with me *signals for you to follow him to the hideout*'")
     time.sleep(1.5)
 
-    loot = enemy.get_loot()
-    player.stormmarks += loot
+    handle_loot(player, enemy)
 
-    print(f"\nYou Won! Stormmarks looted = {loot} Your SMK now: {player.stormmarks}")
     player.level_up()
     time.sleep(1)
     player.show_status()

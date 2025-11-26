@@ -22,9 +22,9 @@ coil_bunks = Location(
     "The Coil Bunks",
     "Rows of metallic sleeping pods. The air is stale and quiet. Wexler is running his game in the corner.",
     {
-        '1': ("Rent a bunk (30) SMK", rent_room),
+        '1': ("Rent a bunk:  30 SMK", rent_room),
         '2': ("Play 'The Relic Dice'", play_relic_dice),
-        'x': ("Exit The Coil Bunks", leave_bunk),
+        'X': ("Exit The Coil Bunks", leave_bunk),
     }
 )
 
@@ -138,7 +138,6 @@ def show_directions():
 
 def chapter4(player):
     audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
-    player.current_chapter += 1
     if player.faction == 'Ironwinders':
         print(f"Ironwind Guard: 'Welcome back, {player.name}.'")
         time.sleep(1.2)
@@ -197,12 +196,12 @@ def chapter4(player):
                 time.sleep(1.3)
                 player = watch_post.enter(player)
 
-
             case "x":
                 leave_ironwind_outpost(player)
                 audio_manager.music_fadeout(duration=2000)
                 audio_manager.music_stop()
                 break
+
             case _:
                 print(f"{player.name}: 'Hmm, can't decide..'")
                 time.sleep(0.5)

@@ -9,7 +9,7 @@ def main():
         player = loaded_player
 
     else:
-        print("\nStarting a new game...")
+        print("\nStarting a new game...\n")
         player = chapter1()
 
 

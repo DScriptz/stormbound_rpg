@@ -1,6 +1,7 @@
 import os
 import pickle
 import time
+from colorama import Fore, Style
 
 save_folder = "save_data"
 slot_count = 10
@@ -14,7 +15,7 @@ def select_save_slot(player):
 
 
     for slot in range(1, slot_count + 1):
-        status = "IN USE" if check_slot_status(slot) else "EMPTY"
+        status = f"{Fore.LIGHTCYAN_EX}IN USE{Style.DIM + Style.RESET_ALL}" if check_slot_status(slot) else f"{Style.BRIGHT}EMPTY{Style.RESET_ALL}"
         print(f"[{slot}] - {status}")
 
     print("[X] - Cancel Save")
@@ -22,7 +23,8 @@ def select_save_slot(player):
 
     while True:
         try:
-            choice = input(f"\nWhich save slot (1-{slot_count}) would you like to use? ([0] - Cancel): ")
+            print(f"\nWhich save slot (1-{slot_count}) would you like to use? ([0] - Cancel): ")
+            choice = input(f"\n>>  ")
             slot_number = int(choice)
 
             if slot_number == 0:
@@ -52,12 +54,13 @@ def select_load_slot():
     print("\n=== SELECT LOAD SLOT ===")
 
     for slot in range(1, slot_count + 1):
-        status = "IN USE" if check_slot_status(slot) else "EMPTY"
+        status = f"{Fore.LIGHTCYAN_EX}IN USE{Style.DIM + Style.RESET_ALL}" if check_slot_status(slot) else f"{Style.BRIGHT}EMPTY{Style.RESET_ALL}"
         print(f"[{slot}] - {status}")
 
     while True:
         try:
-            choice = input(f"\nWhich slot (1-{slot_count}) would you like to load? ([0] - Cancel): ")
+            print(f"\nWhich slot (1-{slot_count}) would you like to Load? ([0] - Cancel): ")
+            choice = input(f"\n>>  ")
             slot_number = int(choice)
 
             if slot_number == 0:

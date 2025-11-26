@@ -5,6 +5,7 @@ from rpg.tools import audio_manager
 from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
 from rpg.tools.save_load_manager import select_save_slot
+from rpg.game_modules.loot_handler import handle_loot
 
 """ HANDLES CHAPTER 3 OF THE GAME """
 
@@ -41,10 +42,7 @@ def chapter3(player):
     battle = Battle(player, enemy)
     battle.fight(player)
 
-    loot = enemy.get_loot()
-    player.stormmarks += loot
-
-    print(f"You won! Stormmarks looted = {loot}. {player.name} SMK's: {player.stormmarks}")
+    handle_loot(player, enemy)
 
     player.show_status()
     print("\nLoading dialogues...")

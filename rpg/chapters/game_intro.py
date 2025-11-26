@@ -9,17 +9,17 @@ from rpg.tools import audio_manager
 def game_intro():
     audio_manager.play_music("stormbound menu", volume=0.6, loop=True)
     print("\n[----------------------------------------------------------]")
-    print("                   -{ STORMBOUND HAVEN }-                      ")
+    print("             -{ STORMBOUND HAVEN }-                      ")
     print("[----------------------------------------------------------]\n")
 
     current_player = None
 
     while True:
 
-        print("             ============ [MENU] ============")
-        print("            [1] - Start Game | [2] - Game info / Story")
-        print("            [3] - Load Game File")
-        print("            [4] - Credits | [5] - Quit")
+        print(" ============ [MENU] ============")
+        print("[1] - Start Game |  [2] - Game info / Story")
+        print("[3] - Load Game File")
+        print(" [4] - Credits |  [5] - Quit")
 
         choice = input("-->  ")
 

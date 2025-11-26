@@ -1,6 +1,7 @@
 import time
 from colorama import Fore, Style, init
 from rpg.game_modules.bounty_board import view_bounty_board, collect_bounty, leave_watch_post
+from rpg.tools.save_load_manager import select_save_slot
 init(autoreset=True)
 
 
@@ -18,26 +19,32 @@ class Location:
         time.sleep(0.8)
 
         while True:
-            print("\nWhere do you want to go?")
+            print(f"\n====== [{self.name}] ======")
 
             for key, (label, func) in self.options.items():
                 print(f"{Fore.LIGHTYELLOW_EX}[{key}]{Style.RESET_ALL} - {label}")
-            print("[S] - Show Stats")
-
+            print(f"{Fore.LIGHTYELLOW_EX}[S] - Show Stats")
+            print(f"{Fore.LIGHTYELLOW_EX}[I]{Style.RESET_ALL} - Show Inventory")
+            print(f"{Fore.LIGHTYELLOW_EX}[C]{Style.RESET_ALL} - Save Game")
             choice = input("\n>> ").strip().lower()
 
             if choice == 's':
                 player.show_status()
                 continue
+            if choice == 'i':
+                player.show_inventory()
+                continue
+            if choice == "c":
+                select_save_slot(player)
+                continue
 
             if choice in self.options:
-
                 destination = self.options[choice][1]
 
                 if destination(player) is False:
                     break
             else:
-                print(f"{player.name}: ...")
+                print(f"{player.name}: 'Where do I go...'")
 
         return player
 

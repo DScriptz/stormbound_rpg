@@ -102,11 +102,10 @@ class Battle:
 
                 elif action == "i":
                     player.show_inventory()
+                    continue
 
                 elif action == "s":
                     self.player.use_ability(self.enemy)
-
-
                 else:
                     print("\nYou stumbled and lost your turn!")
                     time.sleep(1)
@@ -141,12 +140,12 @@ class Battle:
                 if choice =="y" or choice == "yes":
                     continue
                 else:
-                    return
+                    return player
             else:
                 print(f"\nYou defeated the {self.enemy.name}!")
                 audio_manager.play_sound("victory", volume=1.3)
                 time.sleep(1.1)
-                return
+                return player
 
 
 
