@@ -19,7 +19,7 @@ Stormbound is still in active development, expect bugs or missing features.
 
 ## How to play
 
-To run Stormbound, Text-based RPG locally, you need Python 3.8+ on your system (Windows or Mac).
+To run Stormbound, Text-based RPG locally, you need Python 3.10.7+ on your system (Windows or Mac).
 
 ### 1. Installation
 
