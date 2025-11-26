@@ -75,8 +75,8 @@ def collect_bounty(player):
         return True
 
     bounty = bounty_list[bounty_id]
-    target_item = bounty_list['target_item']
-    required_amount = bounty_list['required']
+    target_item = bounty['target_item']
+    required_amount = bounty['required']
 
     """ CHECKS THE AMOUNT OF THE REQUIRED ITEMS IN PLAYER'S INVENTORY"""
     current_amount = player.inventory.get(target_item, 0)

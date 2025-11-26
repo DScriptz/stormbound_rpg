@@ -25,6 +25,7 @@ item_database = {
         damage=0,
         description="A single-use auto-injector containing synthetic growth factors. Burns like fire, works like magic."
     ),
+
     
 }
 

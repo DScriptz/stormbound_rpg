@@ -181,8 +181,9 @@ class Player:
 
 
     def show_status(self):
-        print(f"\n                    --[ {self.name} - {self.player_class.title()} | Level: {self.level} | SMK: {self.stormmarks} | "
-              f"Health: {self.health}/{self.max_health} | Attack: {self.attack} | Faction: {self.faction} ]--")
+        print(f"\n                    --[ {self.name} - {self.player_class.title()} |  Level: {self.level} |  SMK: {self.stormmarks} | "
+              f" Health: {self.health}/{self.max_health} |  Attack: {self.attack} |  Faction: {self.faction}"
+              f"  |  Current Chapter: {self.current_chapter} ]--")
 
 
     def level_up(self):

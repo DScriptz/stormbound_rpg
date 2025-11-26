@@ -7,7 +7,7 @@ from rpg.game_modules.loot_handler import handle_loot
 
 """ DATA_GRAVE LOCATION'S MOVEMENT """
 def handle_player_ambushed(player):
-    encounter_chance = 45
+    encounter_chance = 50
 
     roll = random.randint(1, 100)
     if roll <= encounter_chance:

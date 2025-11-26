@@ -58,7 +58,7 @@ watch_post = Location(
     {
         "1": ('View the Bounty Board', view_bounty_board),
         "2": ('Collect Bounty', collect_bounty),
-        "3": ('Exit the Ironwind Watch Post', leave_watch_post)
+        "X": ('Exit the Ironwind Watch Post', leave_watch_post)
     }
 )
 

@@ -29,7 +29,7 @@ coil_bunks = Location(
 )
 
 def leave_ironwind_outpost(player):
-    if player.faction == 'Ironwinders':
+    if player.current_chapter >= 5:
         print("You walked towards the exit of Ironwind Outpost...")
         time.sleep(1.5)
         select_save_slot(player)
@@ -82,8 +82,10 @@ def leave_ironwind_outpost(player):
         time.sleep(1.8)
         print(f"{player.name}: 'I'll be careful, thanks for the ride, I'll take it from here'")
         time.sleep(1.5)
-        print("Kael nods, then gets on his jeep and drove away...")
-        time.sleep(1.5)
+        print("Kael Rowan: 'If you ever need to go back to the base, meet me here and I'll have guards pick you up'.")
+        time.sleep(1.7)
+        print("Kael goes inside his car and drives away... the car engine faints, and all you hear are wooshes of the wind and metals on the distance flying...")
+        time.sleep(1.8)
         print(f"\n{player.name}: '**sighs** This used to be Manila huh...'")
         time.sleep(1.5)
 
@@ -135,15 +137,14 @@ def show_directions():
     print("[X] - Exit Ironwind Outpost: Open World")
 
 """ THIS HANDLES THE CHAPTER 4 LOOP """
-
-def chapter4(player):
+def return_to_ironwind_outpost(player):
     audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
+
     if player.faction == 'Ironwinders':
         print(f"Ironwind Guard: 'Welcome back, {player.name}.'")
         time.sleep(1.2)
     else:
-        print("\n---------------------- Chapter 4: The Ironwind Outpost ----------------------")
-        time.sleep(0.6)
+        print("\n---------------- [Nexus Point] ------------------")
 
     skip_choice = input("Do you want to skip the dialogue? (Y/N): ").lower().strip()
 
@@ -205,6 +206,15 @@ def chapter4(player):
             case _:
                 print(f"{player.name}: 'Hmm, can't decide..'")
                 time.sleep(0.5)
+    return player
+
+def chapter4(player):
+    audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
+    if player.current_chapter <= 3:
+        print("\n---------------------- Chapter 4: The Ironwind Outpost ----------------------")
+    player = return_to_ironwind_outpost(player)
+    return player
+
 
 
 
