@@ -12,7 +12,8 @@ def check_slot_status(slot_number):
 
 def select_save_slot(player):
     print("\n=== SELECT SAVE SLOT ===")
-
+    print(f"{Fore.RED}NOTE{Style.RESET_ALL}: {Style.BRIGHT}Always remember your current save slot number to avoid"
+          f"accidental overwrite{Style.RESET_ALL}!\n")
 
     for slot in range(1, slot_count + 1):
         status = f"{Fore.LIGHTCYAN_EX}IN USE{Style.DIM + Style.RESET_ALL}" if check_slot_status(slot) else f"{Style.BRIGHT}EMPTY{Style.RESET_ALL}"

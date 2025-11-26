@@ -2,7 +2,8 @@ import time
 import sys
 from rpg.tools.save_load_manager import select_save_slot, select_load_slot
 from rpg.tools import audio_manager
-
+from rpg.dialogues.stormbound_lore import show_stormbound_lore
+from rpg.dialogues.factions import show_faction_overview
 
 
 
@@ -17,9 +18,9 @@ def game_intro():
     while True:
 
         print(" ============ [MENU] ============")
-        print("[1] - Start Game |  [2] - Game info / Story")
-        print("[3] - Load Game File")
-        print(" [4] - Credits |  [5] - Quit")
+        print("[1] - Start Game |  [2] - Stormbound Lore & Factions Overview")
+        print("[3] - Load Game File |  [4] - Credits")
+        print("                     [5] - Quit")
 
         choice = input("-->  ")
 
@@ -30,20 +31,33 @@ def game_intro():
                 time.sleep(1.4)
                 audio_manager.music_fadeout(duration=2000)
                 print("Loading game...")
+                audio_manager.music_stop()
                 time.sleep(2)
-                current_player = None
 
+                current_player = None
                 break
 
             case "2":
-                print("                    ---------- STORMBOUND LORE ----------")
-                print('''\nStormbound Haven is a Dystopian text-based RPG, set in 2035 after a self-aware AI Virus the people
- called the "Storm" invaded the world. To this day, people still don't even know who spread it... Factions around the world
- consisting of different people have bonded together and it has caused many faction wars and destruction.
- Will you be able find out who's the mastermind behind all the chaos? Or create your own faction and fight other factions?
- The choice is yours...\n''')
-                input("-> Press [Enter] to continue: ")
+                while True:
+                    print("\n--- STORMBOUND OVERVIEW --- ")
+                    print("[1] - Stormbound Lore")
+                    print("[2] - Factions Overview")
+                    print("[X] - Exit Menu")
 
+                    choice = input("\n>> ").strip().lower()
+
+                    if choice == "1":
+                        show_stormbound_lore()
+                        input("\n--> Press [Enter] to Return:  ")
+                    elif choice == "2":
+                        show_faction_overview()
+                        input("\n--> Press [Enter] To Continue:  ")
+                    elif choice == "x":
+                        print("Returning to menu...")
+                        break
+                    else:
+                        print("Invalid choice, please pick a choice from the menu!")
+                        time.sleep(1)
             case "3":
                 loaded_player = select_load_slot()
 
@@ -66,6 +80,8 @@ def game_intro():
                 print("Thanks for playing my game! Hope you try it again!")
                 time.sleep(1.3)
                 sys.exit()
+
+
 
     return current_player
 

@@ -1,8 +1,6 @@
 
 import time
 
-""" THIS HANDLES THE SHOP """
-
 class Shop:
     def __init__(self, name, stock):
         self.name = name

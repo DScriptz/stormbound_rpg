@@ -23,7 +23,7 @@ class Location:
 
             for key, (label, func) in self.options.items():
                 print(f"{Fore.LIGHTYELLOW_EX}[{key}]{Style.RESET_ALL} - {label}")
-            print(f"{Fore.LIGHTYELLOW_EX}[S] - Show Stats")
+            print(f"{Fore.LIGHTYELLOW_EX}[S]{Style.RESET_ALL} - Show Stats")
             print(f"{Fore.LIGHTYELLOW_EX}[I]{Style.RESET_ALL} - Show Inventory")
             print(f"{Fore.LIGHTYELLOW_EX}[C]{Style.RESET_ALL} - Save Game")
             choice = input("\n>> ").strip().lower()
@@ -37,6 +37,8 @@ class Location:
             if choice == "c":
                 select_save_slot(player)
                 continue
+            if choice == "x":
+                break
 
             if choice in self.options:
                 destination = self.options[choice][1]
