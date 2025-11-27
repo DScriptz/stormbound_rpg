@@ -43,7 +43,7 @@ def chapter1():
         name = input("\n>> ").strip()
 
     show_class_overview()
-    input("[Enter] - Continue:  ")
+    input("\n[Enter] - Continue:  \n")
     class_info()
 
     print("\nPick your class: ")
@@ -73,9 +73,9 @@ def chapter1():
     else:
         print("\nInvalid class selection. Defaulting to Random Class ")
 
-        random_class = class_stats['1', '2', '3', '4', '5']
+        random_class = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
         chosen_class = random.choice(random_class)
-        default_stats = chosen_class
+        default_stats = class_stats[chosen_class]
 
         player = Player(
             name,

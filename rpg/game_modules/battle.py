@@ -163,7 +163,11 @@ class Battle:
                     continue
                 else:
                     print("You ran away cowardly and dropped some of your SMK")
-                    player.stormmarks //= 2
+                    if player.stormmarks <= 0:
+                        player.stormmarks = player.stormmarks
+                    else:
+                        player.stormmarks -= 30
+                    player.health += 30
                     return player
             else:
                 print(f"\nYou defeated the {self.enemy.name}!")

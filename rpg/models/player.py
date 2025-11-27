@@ -24,7 +24,7 @@ class Player:
         self.cooldown = 0
         self.level = 1
         self.inventory = {
-            "Quick-Seal Strip": 2
+            "Quick-Seal Strip": 3
         }
         self.stormmarks = 0
         self.special_ability = None
