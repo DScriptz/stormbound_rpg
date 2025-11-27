@@ -19,7 +19,7 @@ def select_save_slot(player):
         status = f"{Fore.LIGHTCYAN_EX}IN USE{Style.DIM + Style.RESET_ALL}" if check_slot_status(slot) else f"{Style.BRIGHT}EMPTY{Style.RESET_ALL}"
         print(f"[{slot}] - {status}")
 
-    print("[X] - Cancel Save")
+    print("[0] - Cancel Save")
 
     while True:
         try:

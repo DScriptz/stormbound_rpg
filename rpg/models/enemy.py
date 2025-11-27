@@ -11,7 +11,7 @@ enemies = {
         "max_health": 65,
         "attack": 13,
         "ability": "Quick Strike",
-        "prize": 65
+        "prize": "Ghoul FIngers"
     },
 
     "Ash Goblin": {
@@ -63,7 +63,7 @@ enemies = {
 
 
 class Enemy:
-    def __init__(self, name, health, max_health, attack, ability=None, loot=0):
+    def __init__(self, name, health, max_health, attack, ability=None, loot=0, is_weakened=False):
         self.name = name
         self.health = health
         self.max_health = max_health
@@ -71,6 +71,11 @@ class Enemy:
         self.ability = ability
         self.stunned = False
         self.loot = loot
+        self.is_weakened = is_weakened
+        self.weakness_factor = 0.0
+        self.is_bleeding = False
+        self.bleed_damage = 0
+        self.bleed_turns = 0
 
 
     """ THIS HANDLES THE PART WHEN THEY GET HIT OR DAMAGED """
@@ -92,6 +97,19 @@ class Enemy:
         self.health -= final_damage
         print(f"\nThe {self.name} takes {damage} damage!")
         time.sleep(0.4)
+
+    def calculate_damage(self):
+        base_damage = self.attack + random.randint(-2, 2)  # Base randomized damage
+
+        if self.is_weakened:
+            final_damage = base_damage * (1.0 - self.weakness_factor)
+
+            self.is_weakened = False
+            self.weakness_factor = 0.0
+
+            return final_damage
+
+        return base_damage
 
     def is_alive(self):
         return self.health > 0

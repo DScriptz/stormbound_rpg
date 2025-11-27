@@ -4,6 +4,7 @@ from rpg.tools.save_load_manager import select_save_slot, select_load_slot
 from rpg.tools import audio_manager
 from rpg.dialogues.stormbound_lore import show_stormbound_lore
 from rpg.dialogues.factions import show_faction_overview
+from rpg.dialogues.class_overview import show_class_overview
 
 
 
@@ -18,7 +19,7 @@ def game_intro():
     while True:
 
         print(" ============ [MENU] ============")
-        print("[1] - Start Game |  [2] - Stormbound Lore & Factions Overview")
+        print("[1] - Start Game |  [2] - Stormbound Lore & Factions/Classes Overview")
         print("[3] - Load Game File |  [4] - Credits")
         print("                     [5] - Quit")
 
@@ -42,6 +43,7 @@ def game_intro():
                     print("\n--- STORMBOUND OVERVIEW --- ")
                     print("[1] - Stormbound Lore")
                     print("[2] - Factions Overview")
+                    print("[3] - Classes Overview")
                     print("[X] - Exit Menu")
 
                     choice = input("\n>> ").strip().lower()
@@ -49,15 +51,22 @@ def game_intro():
                     if choice == "1":
                         show_stormbound_lore()
                         input("\n--> Press [Enter] to Return:  ")
+
                     elif choice == "2":
                         show_faction_overview()
                         input("\n--> Press [Enter] To Continue:  ")
+
+                    elif choice == "3":
+                        show_class_overview()
+                        input("\n--> Press [Enter] To Continue:  ")
+
                     elif choice == "x":
                         print("Returning to menu...")
                         break
                     else:
                         print("Invalid choice, please pick a choice from the menu!")
                         time.sleep(1)
+
             case "3":
                 loaded_player = select_load_slot()
 

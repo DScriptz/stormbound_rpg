@@ -45,6 +45,43 @@ class_stats = {
         "attack": 9,
         "ability": f"{Style.BRIGHT}Iron Guard{Style.RESET_ALL}"
     },
+
+    "6": {
+            "name": "E-Warden",
+            "health": 78, "max_health": 78,
+            "attack": 10,
+            "ability": f"{Fore.CYAN + Style.BRIGHT}Static Field{Style.RESET_ALL}"
+    },
+
+    "7": {
+        "name": "Slinger",
+        "health": 65,
+        "max_health": 65,
+        "attack": 14,
+        "ability": f"{Fore.YELLOW + Style.BRIGHT}Aimed Shot{Style.RESET_ALL}"
+    },
+    "8": {
+        "name": "Data Cultist",
+        "health": 68,
+        "max_health": 68,
+        "attack": 10,
+        "ability": f"{Fore.LIGHTGREEN_EX + Style.BRIGHT}Storm's Favor{Style.RESET_ALL}"
+    },
+    "9": {
+        "name": "Vanguard Scout",
+        "health": 62,
+        "max_health": 62,
+        "attack": 12,
+        "ability": f"{Fore.WHITE + Style.BRIGHT}Vanish{Style.RESET_ALL}"
+    },
+    "10": {
+        "name": "Scrap Brawler",
+        "health": 73,
+        "max_health": 73,
+        "attack": 11,
+
+        "ability": f"{Fore.LIGHTRED_EX + Style.DIM}Scrap Shrapnel{Style.RESET_ALL}"
+    },
     "dev": {
         "name": "dev",
         "health": 837,

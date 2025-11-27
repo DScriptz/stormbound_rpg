@@ -30,6 +30,7 @@
 ### 4. More Classes
 -   [ ] Unique types of classes.
 -   [ ] 5 More Classes relating the Dystopian Theme.
+-   [ ] Proper Class overview in main menu.
 
 ### 5. Proper Game Intro
 -   [x] A proper game menu intro for more immersion for players.

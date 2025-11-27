@@ -32,7 +32,6 @@ class Battle:
             """ THIS ENSURES THAT IF THE GAME RESTARTS THE PLAYER AND ENEMY'S HEALTH GOES BACK TO THEIR MAX HEALTH """
             self.player.health = self.player.max_health
             self.enemy.health = self.enemy.max_health
-
             while self.player.health > 0 and self.enemy.is_alive():
                 """ PLAYER'S TURN """
                 print(f"\n    --[{self.player.name}'s Health: {Fore.LIGHTRED_EX}"
@@ -111,6 +110,18 @@ class Battle:
                     time.sleep(1)
 
                 """ ENEMY'S TURN """
+                if self.enemy.is_alive() and self.enemy.is_bleeding:
+                    print(f"{self.enemy.name} bleeds from {self.player.special_ability} for {self.enemy.bleed_damage} damage!")
+                    self.enemy.take_damage(self.enemy.bleed_damage)
+
+                    self.enemy.bleed_turns -= 1
+
+                    if self.enemy.bleed_turns <= 0:
+                        self.enemy.is_bleeding = False
+                        self.enemy.bleed_damage = 0
+                        print(f"The bleeding on {self.enemy.name} has stopped.")
+                    time.sleep(1.0)
+
 
                 if self.enemy.is_alive():
 
@@ -121,6 +132,17 @@ class Battle:
                     else:
                         self.enemy.enemy_attack(self.player)
                         time.sleep(1.3)
+
+                        base_damage = self.enemy.calculate_damage()
+
+                        if self.enemy.is_weakened:
+                            final_damage = base_damage * (1.0 - self.enemy.weakness_factor)
+                            self.enemy.is_weakened = False
+                            self.enemy.weakness_factor = 0.0
+                            self.player.take_damage(final_damage)
+                        else:
+                            self.player.take_damage(base_damage)
+
 
                 """ 
                     IF PLAYER USES THIER ABILITY, 

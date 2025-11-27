@@ -1,5 +1,7 @@
 """ IMPORTS """
-from chapters import chapter1, chapter2, chapter3, chapter4, game_intro, open_world
+from chapters import (chapter1, chapter2, chapter3, chapter4,
+                      game_intro,
+                      open_world)
 
 def main():
     loaded_player = game_intro()

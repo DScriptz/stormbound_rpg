@@ -14,7 +14,7 @@ class Location:
 
     def enter(self, player):
         """ DISPLAYS LOCATION AND STARTS THE INTERACTION WITH WHATEVER LOCATION THE PLAYER GOES"""
-        print(f"\n                                          --- {self.name.upper()} ---")
+        print(f"\n                                                         --- {self.name.upper()} ---")
         print(self.description)
         time.sleep(0.8)
 
@@ -26,6 +26,7 @@ class Location:
             print(f"{Fore.LIGHTYELLOW_EX}[S]{Style.RESET_ALL} - Show Stats")
             print(f"{Fore.LIGHTYELLOW_EX}[I]{Style.RESET_ALL} - Show Inventory")
             print(f"{Fore.LIGHTYELLOW_EX}[C]{Style.RESET_ALL} - Save Game")
+
             choice = input("\n>> ").strip().lower()
 
             if choice == 's':

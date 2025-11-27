@@ -145,6 +145,98 @@ class Player:
             self.cooldown = 4
             return
 
+        elif self.player_class == "E-Warden":
+            debuff_value = 0.40
+
+            print(f"The {self.special_ability} deals minor damage, stealing power from {enemy.name}'s power!")
+            time.sleep(1.5)
+
+            damage = self.attack + random.randint(3, 5)
+            enemy.take_damage(damage)
+
+            enemy.is_weakened = True
+            enemy.weakness_factor = debuff_value
+            print(f"{enemy.name} is Weakened by the Static Field and will deal 40% less damage next turn.")
+            time.sleep(1.3)
+
+            self.cooldown = 6
+
+        elif self.player_class == "Slinger":
+            crit_damage = self.attack * 1.5
+
+            print(f"\nYou aimed sharply at the enemy...")
+            time.sleep(1.4)
+            input(f"\n[Enter] - {Fore.LIGHTYELLOW_EX}Shoot{Style.RESET_ALL} \n >> ")
+            audio_manager.play_sound("slinger", volume=0.7)
+            print(f"\n{Fore.RED + Style.BRIGHT}BANG! A CRITICAL SHOT!!{Style.RESET_ALL}")
+            time.sleep(0.5)
+
+            damage = int(crit_damage)
+
+            enemy.take_damage(damage)
+
+            self.cooldown = 4
+            return
+
+        elif self.player_class == "Data Cultist":
+            sacrifice_amount = 20
+
+            if self.stormmarks < sacrifice_amount:
+                print(f"You lack the {sacrifice_amount} Stormmarks required for a {self.special_ability}!")
+                time.sleep(1.5)
+                return
+
+            self.stormmarks -= sacrifice_amount
+
+            bonus_damage = int(sacrifice_amount * 1.6)
+
+            print(f"You sacrifice {sacrifice_amount} Stormmarks to unleash {self.special_ability}!")
+            time.sleep(1.5)
+
+            enemy.take_damage(self.attack + bonus_damage)
+            print(f"Dealt {bonus_damage} bonus damage!")
+
+            self.cooldown = 3
+            return
+
+        elif self.player_class == "Echo Runner":
+            print(f"You unleashed {self.special_ability}, allowing you for a quick double tap!")
+
+            input("[Enter] - Attack")
+            audio_manager.play_sound("attack", volume=0.8)
+            damage1 =  self.attack + random.randint(1,3)
+            enemy.take_damage(damage1)
+
+            input("[Enter] - Attack")
+            audio_manager.play_sound("attack", volume=0.8)
+            damage2 = self.attack + random.randint(1, 3)
+            enemy.take_damage(damage2)
+
+            print(f"Dealt {damage1 + damage2} damage in two quick strikes.")
+
+
+            self.cooldown = 4
+            return
+
+        elif self.player_class == "Scrap Brawler":
+            bleed_turns = 3
+            bleed_damage_per_turn = int(self.attack * 0.3)
+
+            print(f"{self.name} unleashes {self.special_ability}, leaving sharp scrap wounds on {enemy.name}!")
+            time.sleep(1.5)
+
+            enemy.take_damage(self.attack)
+
+            enemy.is_bleeding = True
+            enemy.bleed_damage = bleed_damage_per_turn
+            enemy.bleed_turns = bleed_turns
+
+            print(f"{enemy.name} is Bleeding, taking {bleed_damage_per_turn} damage for {bleed_turns} turns.")
+            time.sleep(1.3)
+
+            self.cooldown = 5
+            return
+
         elif self.player_class == "dev":
             audio_manager.play_sound("megumi_domain", volume=0.6)
             damage = self.attack + 837
@@ -197,7 +289,7 @@ class Player:
 
 
     def show_status(self):
-        print(f"\n                    --[ {self.name} - {self.player_class.title()} |  Level: {self.level} |  SMK: {self.stormmarks} | "
+        print(f"\n                    --[ {self.name}:  {Style.BRIGHT + self.player_class.title() + Style.RESET_ALL} |  Level: {self.level} |  SMK: {self.stormmarks} | "
               f" Health: {self.health}/{self.max_health} |  Attack: {self.attack} |  Faction: {self.faction}"
               f"  |  Current Chapter: {self.current_chapter} ]--")
 
