@@ -1,11 +1,12 @@
 """ IMPORTS """
 import time
+import random
 from rpg.tools import audio_manager
 from rpg.models.player import Player
 from rpg.class_data import class_info, class_stats
 from colorama import Fore, Style
 from rpg.tools.save_load_manager import select_save_slot
-
+from rpg.dialogues.class_overview import show_class_overview
 
 """ GAME INTRO, BASICALLY JUST A PARAGRAPH EXPLAINING THE GAME'S LORE """
 
@@ -41,7 +42,10 @@ def chapter1():
         print("\nSo you there... Introduce yourself as you venture in this world: ")
         name = input("\n>> ").strip()
 
+    show_class_overview()
+    input("[Enter] - Continue:  ")
     class_info()
+
     print("\nPick your class: ")
 
     class_choice = input("\n>> ").strip().lower()
@@ -67,9 +71,11 @@ def chapter1():
 
         player.introduce()
     else:
-        print("\nInvalid class selection. Defaulting to Riftblade (Choice 2)")
+        print("\nInvalid class selection. Defaulting to Random Class ")
 
-        default_stats = class_stats['2']
+        random_class = class_stats['1', '2', '3', '4', '5']
+        chosen_class = random.choice(random_class)
+        default_stats = chosen_class
 
         player = Player(
             name,

@@ -93,13 +93,13 @@ class_stats = {
 
 def class_info():
     print("========================================= -CLASSES- =========================================")
+    print(f"{Fore.LIGHTGREEN_EX}Tip: Forgot what a class's special ability does? Scroll up to recheck the Class Overview!{Style.RESET_ALL}")
 
     for key, value in class_stats.items():
         print(f"\n[{key}]: {value['name']} |"
               f" Health: {value['health']}/{value['max_health']} |"
               f" Attack: {value['attack']} |"
               f" Special Ability: {value['ability']}")
-
     print("==============================================================================================")
 
 

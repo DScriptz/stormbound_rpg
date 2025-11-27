@@ -99,10 +99,10 @@ class Enemy:
         time.sleep(0.4)
 
     def calculate_damage(self):
-        base_damage = self.attack + random.randint(-2, 2)  # Base randomized damage
+        base_damage = self.attack + random.randint(-2, 2)
 
         if self.is_weakened:
-            final_damage = base_damage * (1.0 - self.weakness_factor)
+            final_damage = int(base_damage * (1.0 - self.weakness_factor))
 
             self.is_weakened = False
             self.weakness_factor = 0.0
@@ -111,8 +111,10 @@ class Enemy:
 
         return base_damage
 
+
     def is_alive(self):
         return self.health > 0
+
 
     def enemy_attack(self, player):
         if player.dodging:
