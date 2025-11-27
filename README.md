@@ -2,7 +2,7 @@
 
 **A Python Text-Based Dystopian RPG**
 
-Set in the year 2035, Stormbound takes place after a human fallout, a massive global conflict caused by wars and factions aligning. You are set out to be the last person who survived without joining a faction, staying true to yourself. Until...
+Set in the year 2035 and based on Philippines, Stormbound takes place after a self-aware AI virus attack, a massive global conflict caused by AI, wars and factions aligning. You are set out to be the last person who survived without a faction, staying true to yourself. Will you set out and survive? Or maybe create the next big faction that will make other factions tremble? Or be a lone-survivor with nothing but your ability of surviving to hold you up? The choice is yours...
 
 ---
 
