@@ -140,11 +140,14 @@ class Battle:
                 if choice =="y" or choice == "yes":
                     continue
                 else:
+                    print("You ran away cowardly and dropped some of your SMK")
+                    player.stormmarks //= 2
                     return player
             else:
                 print(f"\nYou defeated the {self.enemy.name}!")
                 audio_manager.play_sound("victory", volume=1.3)
                 time.sleep(1.1)
+                player.health = player.max_health
                 return player
 
 

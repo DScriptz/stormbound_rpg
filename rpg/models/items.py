@@ -1,3 +1,4 @@
+import time
 
 """ HANDLES THE FUNCTIONALITY OF THE ITEMS PLAYERS MAY USE """
 
@@ -19,7 +20,15 @@ class Item:
             healing_amount = min(self.heal, player.max_health - player.health)
             player.health = min(player.max_health, player.health + self.heal)
 
-            print(f"{player.name} healed for {healing_amount} HP! Current health: {player.health}")
+            print(f"\nYou used {self.name} to tend to your wounds!")
+            time.sleep(0.5)
+            print(f"\n{player.name} healed for {healing_amount} HP! Current health: {player.health}\n")
+            time.sleep(0.7)
+
+        if self.damage > 0:
+            player.attack += self.damage
+            print(f"\nYou equipped {self.name}! Increasing your total damage to {player.attack}!")
+            time.sleep(0.7)
 
             return True
 

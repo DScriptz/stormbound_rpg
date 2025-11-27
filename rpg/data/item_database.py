@@ -25,6 +25,27 @@ item_database = {
         damage=0,
         description="A single-use auto-injector containing synthetic growth factors. Burns like fire, works like magic."
     ),
+    "Drone CPU": Item(
+        name="Drone CPU",
+        price=30,
+        heal=0,
+        damage=0,
+        description="A high-tech CPU that can only be found in Drones roaming in areas outside low Signal Tower coverage."
+    ),
+    "Salvaged Pipe-Gun": Item(
+        name="Salvaged Pipe-Gun",
+        price=40,
+        heal=0,
+        damage=3,
+        description="A crudely assembled, single-shot firearm; cheap and common."
+    ),
+    "Reinforced Baton": Item(
+        name="Reinforced Baton",
+        price=52,
+        heal=0,
+        damage=5,
+        description="A heavy, weighted police baton wrapped in scavenged metal."
+    )
 
     
 }

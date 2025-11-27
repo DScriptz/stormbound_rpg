@@ -13,14 +13,13 @@ def check_slot_status(slot_number):
 def select_save_slot(player):
     print("\n=== SELECT SAVE SLOT ===")
     print(f"{Fore.RED}NOTE{Style.RESET_ALL}: {Style.BRIGHT}Always remember your current save slot number to avoid"
-          f"accidental overwrite{Style.RESET_ALL}!\n")
+          f" accidental overwrite{Style.RESET_ALL}!\n")
 
     for slot in range(1, slot_count + 1):
         status = f"{Fore.LIGHTCYAN_EX}IN USE{Style.DIM + Style.RESET_ALL}" if check_slot_status(slot) else f"{Style.BRIGHT}EMPTY{Style.RESET_ALL}"
         print(f"[{slot}] - {status}")
 
     print("[X] - Cancel Save")
-    time.sleep(1.3)
 
     while True:
         try:
@@ -68,10 +67,10 @@ def select_load_slot():
                 print("Load Cancelled")
                 return None  # Returns None if cancelled
             if 1 <= slot_number <= slot_count:
-                # Critical check: Don't let them try to load an empty slot
+
                 if not check_slot_status(slot_number):
                     print(f"\nSlot {slot_number} is EMPTY. Please choose an IN USE slot.")
-                    time.sleep(1.3)
+                    time.sleep(1)
                     continue
                 break
             else:

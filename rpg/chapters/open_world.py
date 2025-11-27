@@ -1,5 +1,5 @@
 import time
-from rpg.tools.audio_manager import *
+from rpg.tools.audio_manager import play_music
 from rpg.world_map.area_data import go_to_the_hardpoint
 
 

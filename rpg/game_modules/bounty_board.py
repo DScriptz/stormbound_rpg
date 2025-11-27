@@ -12,7 +12,7 @@ bounty_list = {
     "B": {
         "name": "Wasteland Ghoul Hunting",
         "target_item": "Ghoul Fingers",
-        "required": "3",
+        "required": 3,
         "prize": 350
     }
 

@@ -1,9 +1,9 @@
 
 """ IMPORTS """
 import time
-from rpg.shops import rusted_rifle_stock
+from rpg.shops_stocks import rusted_rifle_stock
 from rpg.tools.shop import Shop
-from rpg.shops.healing_shop import ironwind_apothecary
+from rpg.shops_stocks.healing_shop import ironwind_apothecary
 from rpg.dialogues.rusty_apothecary import show_silas_dialogue
 from rpg.dialogues.rusted_rifle import show_rhys_dialogue
 from rpg.models import Location
@@ -96,9 +96,9 @@ def leave_ironwind_outpost(player):
 
 def show_shop_choices(player):
 
-    print("You looked around and there's 2 shops waving their offers to you...")
+    print("You looked around and there's 2 shops_stocks waving their offers to you...")
     time.sleep(1.3)
-    print(f"{player.name}: 'There's a bunch of shops huh?'")
+    print(f"{player.name}: 'There's a bunch of shops_stocks huh?'")
     time.sleep(1.2)
     while True:
 

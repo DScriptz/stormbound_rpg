@@ -24,13 +24,14 @@ class Shop:
 
             if choice in self.stock:
                 item = self.stock[choice]
+
                 if player.stormmarks >= item.price:
                     player.stormmarks -= item.price
-                    player.attack += item.damage
                     player.inventory[item.name] = player.inventory.get(item.name, 0) + 1
                     print(f"\nYou bought {item.name} for {item.price} SMK!")
                     time.sleep(0.6)
                     player.show_inventory()
+
                 else:
                     print(f"\n{player.name}: 'Ehh, I don't have enough SMK's *sighs*' ")
                     time.sleep(1)

@@ -15,7 +15,7 @@ init(autoreset=True)
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, location=None):
         self.name = player_name
         self.player_class = player_class
         self.health = health
@@ -34,6 +34,7 @@ class Player:
         self.current_chapter = 1
         self.bounty_completed = 0
         self.faction = None
+        self.location = location
 
     """ 
         PLAYER'S STATS BEING SHOWN
@@ -82,35 +83,47 @@ class Player:
 
         elif self.player_class == "Aethermancer":
             audio_manager.play_sound("aethermancer", volume=0.8)
-            extra_damage = random.randint(3, 5)
+            extra_damage = random.randint(4, 6)
             print(f"You unleash {self.special_ability}, strucking the enemy with arcane energy!")
             time.sleep(1.5)
             enemy.take_damage(self.attack + extra_damage)
 
             self.cooldown = 3
+            return
 
         elif self.player_class == "Stormwarden":
             audio_manager.play_sound("stormwarden", volume=0.9)
-            damage = random.randint(10, 14)
+            damage = random.randint(11, 15)
             print(f"{self.name} unleashed Thunder Strike!! Dealing {damage} damage!")
             time.sleep(1.5)
             enemy.take_damage(damage)
 
-            if random.random() < 0.3:
+            if random.random() < 0.4:
                 enemy.stunned = True
                 print("The enemy got stunned by the impact!! ")
                 time.sleep(1.3)
 
             self.cooldown = 4
+            return
 
         elif self.player_class == "Riftblade":
             print(f"You swing your blade 3 times, dealing multiple damage to the enemy!")
             time.sleep(1.5)
-            for attack in range(3):
-                audio_manager.play_sound("fahh", volume=0.7)
-                enemy.take_damage(random.randint(3,7))
+            if self.level <= 10:
+                for attack in range(3):
+                    audio_manager.play_sound("fahh", volume=0.7)
+                    enemy.take_damage(random.randint(5,8))
+            elif self.level <= 20:
+                for attack in range (3):
+                    audio_manager.play_sound("fahh", volume=0.7)
+                    enemy.take_damage(random.randint(10,13))
 
-            self.cooldown = 3
+            if self.level <= 10:
+                self.cooldown = 3
+            elif self.level <= 20:
+                self.cooldown = 5
+
+            return
 
         elif self.player_class == "Haven Scout":
             print(f"\nYou analyzed your enemy {enemy.name} carefully... predicting his next move...")
@@ -118,6 +131,7 @@ class Player:
             self.dodging = True
 
             self.cooldown = 5
+            return
 
         elif self.player_class == "Ironbound Sentinel":
             heal = int(self.max_health * 0.15)
@@ -129,6 +143,7 @@ class Player:
             time.sleep(1.5)
 
             self.cooldown = 4
+            return
 
         elif self.player_class == "dev":
             audio_manager.play_sound("megumi_domain", volume=0.6)
@@ -139,6 +154,7 @@ class Player:
             enemy.take_damage(damage)
 
             self.cooldown = 0
+            return
 
         else:
             print(f"{self.special_ability} is on cooldown! You lost your turn.")
@@ -188,7 +204,9 @@ class Player:
 
     def level_up(self):
         self.level += 1
-        print(f"\nYou leveled up! Level is now {self.level}")
+        audio_manager.play_sound("level up", volume=1)
+        print(f"\nYou {Fore.LIGHTGREEN_EX + Style.BRIGHT}leveled up{Style.RESET_ALL}! Level is now {self.level}\n")
+        input("Press [Enter] To Continue >> ")
 
 
     def use_item(self):
@@ -205,17 +223,37 @@ class Player:
 
         for name, count in self.inventory.items():
             item_object = item_database.get(name)
-            key = str(menu_index)
-            item_menu[key] = name
 
-            print(f"--> {Fore.YELLOW}[{key}]{Style.RESET_ALL}: {name} - Heals {item_object.heal} HP | x{count}")
-            print("[X] - Exit Menu")
-            menu_index += 1
+            if not item_object:
+                continue
+
+            if item_object.heal > 0 or item_object.damage > 0:
+                key = str(menu_index)
+                item_menu[key] = name
+
+                display_text = ""
+                if item_object.heal > 0:
+                    display_text += f"Heals {item_object.heal} HP"
+                if item_object.damage > 0:
+                    if display_text:
+                        display_text += " | "
+                    display_text += f"Buffs +{item_object.damage} Total ATK"
+
+                print(f"--> {Fore.YELLOW}[{key}]{Style.RESET_ALL}: {name} ({display_text}) | x{count}")
+                menu_index += 1
+
+        print("\n[X] - Exit Menu")
+
+        if not item_menu:
+            print("You have no usable items in your inventory.")
+            time.sleep(1)
+            return
 
         while True:
             choice = input(f"\n{self.name}: 'Hmm which item should I use?' >> ")
 
-            if choice == "x": return
+            if choice == "x":
+                return
 
             if choice in item_menu:
                 item_name = item_menu[choice]
@@ -225,11 +263,6 @@ class Player:
                     self.remove_item(item_name, 1)
 
                 break
-
-            print("Invalid selection")
-            time.sleep(0.5)
-
-
-
-
-
+            else:
+                print("Invalid selection")
+                time.sleep(0.5)

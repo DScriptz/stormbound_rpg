@@ -5,19 +5,18 @@ from rpg.tools.audio_manager import music_stop, music_fadeout, play_music
 """ THESE HANDLES THE FUNCTIONS FOR EACH LOCATION """
 
 def go_to_data_grave(player):
-    play_music("open_world", volume=0.7, loop=True)
+    play_music("open world", volume=0.7, loop=True)
     print("You walked forward, to the Data Grave...")
     data_grave.enter(player)
-
     return True
 
 def go_to_the_hardpoint(player):
-    print("You walked forward into this somewhat abandoned place...")
+    play_music("the hardpoint", volume=0.7, loop=True)
+    print("You walked into this somewhat abandoned, spacious open area...")
     time.sleep(1.5)
     the_hardpoint.enter(player)
 
 def go_to_ironwind_outpost(player):
-
     from rpg.chapters.chapter4 import return_to_ironwind_outpost
 
     print("\nYou ran to the muddy, dirty road and picked up your radio, signaling the Ironwinder Guard for transport...")
@@ -48,9 +47,12 @@ data_grave = Location(
     """\nThe Data Grave. A massive, sprawling landfill where every scrap has been scavenged a hundred times.
      The main danger is competition. Rival Scrapper crews patrol the perimeter and have rigged rudimentary,
      physical traps to protect their claims. The air echoes with the desperate clang of metal.
-    Area Signal Tower Range: [FAR - High Danger] \n""",
+     
+     
+    Area Signal Tower Coverage: [LOW - High Danger] \n""",
     {
-        "1": ('Move Forward', handle_data_grave_movement_forward)
+        "1": ('Move Forward', handle_data_grave_movement_forward),
+        "4": ('Run back to the Hardpoint', go_to_the_hardpoint)
     },
     False
 )
