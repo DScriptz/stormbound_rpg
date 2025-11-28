@@ -196,7 +196,7 @@ class Player:
             self.stormmarks -= sacrifice_amount
 
             bonus_damage = int(sacrifice_amount * 1.6)
-
+            audio_manager.play_sound("data cultist", volume=0.8)
             print(f"You sacrifice {sacrifice_amount} Stormmarks to unleash {self.special_ability}!")
             time.sleep(1.5)
 
