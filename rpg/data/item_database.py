@@ -32,8 +32,8 @@ item_database = {
         damage=0,
         description="A high-tech CPU that can only be found in Drones roaming in areas outside low Signal Tower coverage."
     ),
-    "Salvaged Pipe-Gun": Item(
-        name="Salvaged Pipe-Gun",
+    "Salvaged Pipe-gun": Item(
+        name="Salvaged Pipe-gun",
         price=40,
         heal=0,
         damage=3,
@@ -45,7 +45,29 @@ item_database = {
         heal=0,
         damage=5,
         description="A heavy, weighted police baton wrapped in scavenged metal."
-    )
+    ),
+    "Jury-Rigged Laser Baton": Item(
+            "Jury-Rigged Laser Baton",
+            75,
+            0,
+            7,
+            "An unstable weapon using repurposed energy cells; risky but powerful."
+        ),
+        "Makeshift Combat Knife": Item(
+            "Makeshift Combat Knife",
+            93,
+            0,
+            10,
+            "Sharp, reliable, and easily concealed—standard fare for ground-level skirmishes."
+        ),
+        "The 'Silent-Six' Revolver": Item(
+            "The 'Silent-Six' Revolver",
+            105,
+            0,
+            12,
+            "A classic firearm known for its stopping power and surprisingly low noise signature."
+
+        )
 
     
 }

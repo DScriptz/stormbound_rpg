@@ -13,7 +13,7 @@ class Shop:
             player.show_status()
             print()
             for key, item in self.stock.items():
-                print(f"    [{key}] {item.name} - Price: {item.price} SMK | Heal: {item.heal} | Damage: {item.damage} | {item.description}")
+                print(f"    [{key}] {item.name} - Price: {item.price} SMK | Heal: {item.heal} | Damage: +{item.damage} | {item.description}")
             print("    [X] - Exit menu")
             print("   ==========================================================================================================================================================")
 

@@ -6,6 +6,35 @@ from colorama import Fore, Style
 save_folder = "save_data"
 slot_count = 10
 
+# This function helps old save player data to have the attributes of new updates
+
+def migrate_player_attributes(player):
+    missing_attributes = {
+        'location': None,
+        'location_steps': 0,
+        'max_area_steps': 0,
+        'is_bleeding': False,
+        'bleed_damage': 0,
+        'bleed_turns': 0,
+        'is_weakened': False,
+        'weakness_factor': 0.0
+    }
+
+    migrated_count = 0
+
+    for attribute, default_value in missing_attributes.items():
+        if not hasattr(player, attribute):
+            setattr(player, attribute, default_value)
+            migrated_count += 1
+
+    if migrated_count > 0:
+        print(f"MIGRATION: Added {migrated_count} new attributes to old save file.")
+
+    return player
+
+
+
+
 def check_slot_status(slot_number):
     filename = os.path.join(save_folder, f"stormbound_save_{slot_number}.dat")
     return os.path.exists(filename)
@@ -113,16 +142,18 @@ def load_game(slot_number):
     Loads and reconstructs the Player object from a specific save slot.
 
     """
-
     filename = os.path.join(save_folder, f"stormbound_save_{slot_number}.dat")
 
     if not os.path.exists(filename):
         print(f"\nError: Slot {slot_number} is empty or the file was not found.")
+
         return None
 
     try:
         with open(filename, 'rb') as file:
             loaded_player = pickle.load(file)
+
+            loaded_player = migrate_player_attributes(loaded_player)
 
         print(f"\nGame successfully loaded from Slot {slot_number}.")
         return loaded_player

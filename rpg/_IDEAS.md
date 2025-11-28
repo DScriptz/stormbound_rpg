@@ -26,7 +26,8 @@
 -   [ ] **Chapter 5 Concept:** The Ruins of Old Haven (Focus on puzzle-solving).
 -   [x] Implement a good save/load feature using JSON or Pickle.
 -   [x] Make an Open-World where the player can explore.
--   [ ] Make a feature where the player can recruit people to make a function
+-   [ ] Make a feature where the player can recruit people to make a function.
+-   [ ] Give the player a 'map' for when they're in the open world.
 
 ### 4. More Classes
 -   [x] Unique types of classes.

@@ -141,14 +141,17 @@ def return_to_ironwind_outpost(player):
     audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
 
     if player.faction == 'Ironwinders':
-        print(f"Ironwind Guard: 'Welcome back, {player.name}.'")
+        print(f"\nIronwind Guard: 'Welcome back, {player.name}.'")
         time.sleep(1.2)
+        print("\n---------------- [Nexus Point] ------------------")
+
     elif player.current_chapter <= 3:
         print("\n---------------------- Chapter 4: The Ironwind Outpost ----------------------")
+
     else:
         print("\n---------------- [Nexus Point] ------------------")
 
-    player.current_chapter = 4
+
     skip_choice = input("Do you want to skip the dialogue? (Y/N): ").lower().strip()
 
     match skip_choice:
@@ -212,6 +215,7 @@ def return_to_ironwind_outpost(player):
     return player
 
 def chapter4(player):
+    player.current_chapter = 4
     audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
     player = return_to_ironwind_outpost(player)
     return player

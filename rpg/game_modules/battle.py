@@ -4,6 +4,7 @@ import time
 import sys
 from colorama import Fore, Style, init
 from rpg.tools import audio_manager
+
 init(autoreset=True)
 
 """ THIS HANDLES THE GAME'S BATTLE MECHANIC """
@@ -101,8 +102,14 @@ class Battle:
                     player.use_item()
 
                 elif action == "r":
-                    pass
-
+                    audio_manager.play_sound("run", volume=0.9)
+                    print("You ran away like a coward! Dropping some of your SMK along the way...")
+                    time.sleep(1.3)
+                    if player.stormmarks <= 0:
+                        player.stormmarks = 0
+                    else:
+                        player.stormmarks -= 20
+                    break
                 elif action == "i":
                     player.show_inventory()
                     continue
@@ -182,6 +189,8 @@ class Battle:
                 print(f"\nYou defeated the {self.enemy.name}!")
                 audio_manager.play_sound("victory", volume=1.3)
                 time.sleep(1.1)
+                self.player.cooldown = 0
+                self.player.battles_completed += 1
                 return player
 
 

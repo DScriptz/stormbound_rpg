@@ -55,11 +55,11 @@ class_stats = {
     },
 
     "7": {
-        "name": "Slinger",
+        "name": "Rivet-Eye",
         "health": 65,
         "max_health": 65,
         "attack": 14,
-        "ability": f"{Fore.YELLOW + Style.BRIGHT}Aimed Shot{Style.RESET_ALL}"
+        "ability": f"{Fore.YELLOW + Style.BRIGHT}Final Caliber{Style.RESET_ALL}"
     },
     "8": {
         "name": "Data Cultist",

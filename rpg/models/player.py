@@ -15,7 +15,7 @@ init(autoreset=True)
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, location=None):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, location=None, battles_completed=0):
         self.name = player_name
         self.player_class = player_class
         self.health = health
@@ -35,6 +35,8 @@ class Player:
         self.bounty_completed = 0
         self.faction = None
         self.location = location
+        self.location_steps = 0
+        self.battles_completed = battles_completed
 
     """ 
         PLAYER'S STATS BEING SHOWN
@@ -165,12 +167,12 @@ class Player:
 
             self.cooldown = 6
 
-        elif self.player_class == "Slinger":
+        elif self.player_class == "Rivet-Eye":
             crit_damage = self.attack * 1.5
 
-            print(f"\nYou aimed sharply at the enemy...")
+            print(f"\nYou aimed sharply at the enemy, loading your gun with the deadliest micro-bullet known to man...")
             audio_manager.play_sound("slinger gun", volume=1)
-            time.sleep(1.4)
+            time.sleep(1.6)
             input(f"\n[Enter] - {Fore.LIGHTYELLOW_EX}Shoot{Style.RESET_ALL} \n >> ")
             audio_manager.play_sound("slinger", volume=0.7)
             print(f"\n{Fore.RED + Style.BRIGHT}BANG! A CRITICAL SHOT!!{Style.RESET_ALL}")
@@ -306,7 +308,7 @@ class Player:
 
     def level_up(self):
         self.level += 1
-        audio_manager.play_sound("level up", volume=1)
+        audio_manager.play_sound("level up", volume=0.6)
         print(f"\nYou {Fore.LIGHTGREEN_EX + Style.BRIGHT}leveled up{Style.RESET_ALL}! Level is now {self.level}\n")
         input("Press [Enter] To Continue >> ")
 
@@ -344,7 +346,7 @@ class Player:
                 print(f"--> {Fore.YELLOW}[{key}]{Style.RESET_ALL}: {name} ({display_text}) | x{count}")
                 menu_index += 1
 
-        print("\n[X] - Exit Menu")
+        print("\n--> [X] - Exit Menu")
 
         if not item_menu:
             print("You have no usable items in your inventory.")
