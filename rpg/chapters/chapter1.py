@@ -115,7 +115,7 @@ def chapter1():
         else:
             show_class_overview()
             input("\n[Enter] - Continue: ")
-            return player
+            pass
 
     return player
 
