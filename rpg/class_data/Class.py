@@ -12,7 +12,7 @@ init(autoreset=True)
 
 class_stats = {
     "1": {
-        "name": "Stormwarden",
+        "name": "Storm Warden",
         "health": 75, "max_health": 75,
         "attack": 11,
         "ability": f"{Fore.LIGHTBLUE_EX + Style.BRIGHT}Thunder Strike{Style.RESET_ALL}"
@@ -47,10 +47,11 @@ class_stats = {
     },
 
     "6": {
-            "name": "E-Warden",
-            "health": 78, "max_health": 78,
-            "attack": 10,
-            "ability": f"{Fore.CYAN + Style.BRIGHT}Static Field{Style.RESET_ALL}"
+        "name": "Zero-Pulser",
+        "health": 78,
+        "max_health": 78,
+        "attack": 10,
+        "ability": f"{Fore.CYAN + Style.BRIGHT}Static Field{Style.RESET_ALL}"
     },
 
     "7": {
@@ -68,11 +69,11 @@ class_stats = {
         "ability": f"{Fore.LIGHTGREEN_EX + Style.BRIGHT}Storm's Favor{Style.RESET_ALL}"
     },
     "9": {
-        "name": "Vanguard Scout",
+        "name": "Echo Runner",
         "health": 62,
         "max_health": 62,
         "attack": 12,
-        "ability": f"{Fore.WHITE + Style.BRIGHT}Vanish{Style.RESET_ALL}"
+        "ability": f"{Fore.WHITE + Style.BRIGHT}Dead Bolt{Style.RESET_ALL}"
     },
     "10": {
         "name": "Scrap Brawler",
@@ -93,7 +94,7 @@ class_stats = {
 
 def class_info():
     print("========================================= -CLASSES- =========================================")
-    print(f"{Fore.LIGHTGREEN_EX}Tip: Forgot what a class's special ability does? Scroll up to recheck the Class Overview!{Style.RESET_ALL}")
+    print(f"{Fore.LIGHTGREEN_EX}Tip: Forgot what a class's special ability does? Make sure to read the class overview!{Style.RESET_ALL}")
 
     for key, value in class_stats.items():
         print(f"\n[{key}]: {value['name']} |"

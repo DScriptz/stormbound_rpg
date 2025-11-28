@@ -5,6 +5,7 @@ from rpg.tools.audio_manager import music_stop, music_fadeout, play_music
 """ THESE HANDLES THE FUNCTIONS FOR EACH LOCATION """
 
 def go_to_data_grave(player):
+    player.location = "Data Grave"
     play_music("open world", volume=0.7, loop=True)
     print("You walked forward, to the Data Grave...")
     data_grave.enter(player)
@@ -34,7 +35,9 @@ the_hardpoint = Location(
     "The Hardpoint",
     """\nThe Hardpoint, covered by the 'Signal Towers'. Not a single place, but a chaotic zone. Roads are buried under dead machinery, "
     "and desperate life clings to skeletal skyscrapers. It's a loud, sprawling city of the desperate, "
-    "defined by the distant rumble of the Dead Zone. The best loot is here, and so is the worst danger.""",
+    "defined by the distant rumble of the Dead Zone. The best loot is here, and so is the worst danger.
+    
+    Area Signal Tower Coverage: [HIGH - No Danger] \n""",
     {
         "1": ('Explore the Data Grave', go_to_data_grave),
         "2": ('Radio Ironwinders and go back to Ironwind Outpost', go_to_ironwind_outpost)
@@ -49,7 +52,7 @@ data_grave = Location(
      physical traps to protect their claims. The air echoes with the desperate clang of metal.
      
      
-    Area Signal Tower Coverage: [LOW - High Danger] \n""",
+    Area Signal Tower Coverage: [LOW - Medium Danger] \n""",
     {
         "1": ('Move Forward', handle_data_grave_movement_forward),
         "4": ('Run back to the Hardpoint', go_to_the_hardpoint)

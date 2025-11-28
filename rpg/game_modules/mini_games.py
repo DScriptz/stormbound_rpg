@@ -1,5 +1,8 @@
 import random
 import time
+from rpg.tools import audio_manager
+
+
 
 def play_relic_dice(player):
     roll = random.randint(1, 6)
@@ -24,10 +27,11 @@ def play_relic_dice(player):
     player.stormmarks -= bet_amount
 
     print(f"\nYou bet {bet_amount} SMK and toss the salvaged Relic Dice...")
+    audio_manager.play_sound("dice shake", volume=0.8)
     time.sleep(1.3)
     print("\nAnd the Relic Dice settles on...")
     time.sleep(1.7)
-
+    audio_manager.play_sound("dice roll", volume=0.8)
     print(f"\n{roll}")
     time.sleep(1.5)
 

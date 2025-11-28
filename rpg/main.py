@@ -2,6 +2,8 @@
 from chapters import (chapter1, chapter2, chapter3, chapter4,
                       game_intro,
                       open_world)
+from rpg.world_map import go_to_data_grave
+
 
 def main():
     loaded_player = game_intro()
@@ -29,7 +31,15 @@ def chapter_flow(player):
         chapter4(player)
 
     if player.current_chapter >= 5:
-        open_world(player)
+        if player.location == "Data Grave":
+            go_to_data_grave(player)
+        else:
+            open_world(player)
+
+
+
+
+
 
 
 if __name__ == "__main__":

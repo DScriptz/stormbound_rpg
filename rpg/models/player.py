@@ -84,21 +84,24 @@ class Player:
         elif self.player_class == "Aethermancer":
             audio_manager.play_sound("aethermancer", volume=0.8)
             extra_damage = random.randint(4, 6)
-            print(f"You unleash {self.special_ability}, strucking the enemy with arcane energy!")
+            print(f"You unleash {self.special_ability}, stricking the enemy with arcane energy!")
             time.sleep(1.5)
             enemy.take_damage(self.attack + extra_damage)
 
             self.cooldown = 3
             return
 
-        elif self.player_class == "Stormwarden":
+        elif self.player_class == "Storm Warden":
             audio_manager.play_sound("stormwarden", volume=0.9)
             damage = random.randint(11, 15)
             print(f"{self.name} unleashed Thunder Strike!! Dealing {damage} damage!")
             time.sleep(1.5)
             enemy.take_damage(damage)
 
-            if random.random() < 0.4:
+            stun_chance = 40
+            chance = random.randint(1, 100)
+
+            if chance <= stun_chance:
                 enemy.stunned = True
                 print("The enemy got stunned by the impact!! ")
                 time.sleep(1.3)
@@ -145,13 +148,14 @@ class Player:
             self.cooldown = 4
             return
 
-        elif self.player_class == "E-Warden":
+        elif self.player_class == "Zero-Pulser":
             debuff_value = 0.40
-
-            print(f"The {self.special_ability} deals minor damage, stealing power from {enemy.name}'s power!")
+            audio_manager.play_sound("zero pulser 2", volume=1)
+            print(f"You placed a {self.special_ability}! The {self.special_ability} deals minor damage, "
+                  f"stealing power from {enemy.name}'s attacks!")
             time.sleep(1.5)
 
-            damage = self.attack + random.randint(3, 5)
+            damage = self.attack + random.randint(3, 4)
             enemy.take_damage(damage)
 
             enemy.is_weakened = True
@@ -165,6 +169,7 @@ class Player:
             crit_damage = self.attack * 1.5
 
             print(f"\nYou aimed sharply at the enemy...")
+            audio_manager.play_sound("slinger gun", volume=1)
             time.sleep(1.4)
             input(f"\n[Enter] - {Fore.LIGHTYELLOW_EX}Shoot{Style.RESET_ALL} \n >> ")
             audio_manager.play_sound("slinger", volume=0.7)
@@ -200,14 +205,19 @@ class Player:
             return
 
         elif self.player_class == "Echo Runner":
+            audio_choice = ['teleport', 'teleport 2']
+            audio = random.choice(audio_choice)
+            audio_manager.play_sound(audio, volume=0.7)
             print(f"You unleashed {self.special_ability}, allowing you for a quick double tap!")
+            audio_manager.play_sound(audio, volume=0.7)
 
-            input("[Enter] - Attack")
+            input("[Enter] - Attack  ")
             audio_manager.play_sound("attack", volume=0.8)
             damage1 =  self.attack + random.randint(1,3)
             enemy.take_damage(damage1)
 
-            input("[Enter] - Attack")
+            audio_manager.play_sound(audio, volume=0.7)
+            input("[Enter] - Attack  ")
             audio_manager.play_sound("attack", volume=0.8)
             damage2 = self.attack + random.randint(1, 3)
             enemy.take_damage(damage2)
@@ -289,7 +299,7 @@ class Player:
 
 
     def show_status(self):
-        print(f"\n                    --[ {self.name}:  {Style.BRIGHT + self.player_class.title() + Style.RESET_ALL} |  Level: {self.level} |  SMK: {self.stormmarks} | "
+        print(f"\n                    --[ {self.name} - >{Style.BRIGHT + self.player_class.title() + Style.RESET_ALL}< |  Level: {self.level} |  SMK: {self.stormmarks} | "
               f" Health: {self.health}/{self.max_health} |  Attack: {self.attack} |  Faction: {self.faction}"
               f"  |  Current Chapter: {self.current_chapter} ]--")
 

@@ -1,10 +1,9 @@
 #  Stormbound RPG - Future Development Ideas
 
-## Chapter 4: Ironwind Outpost (Top Focus)
+## Chapter 4: Ironwind Outpost (Finished)
 
 -   [x] Finish Chapter 4
 -   [x] **Implement Shop Logic:** Fully integrate buying/selling using the `shop.py` module.
--   [ ] **New Enemy:** Design and create a new enemy (Health: 80, Attack: 15).
 -   [x] **Audio Transition:** Ensure music fades out (using `audio_manager.music_fadeout()`) when the player leaves the outpost area.
 -   [x] **New locations in Ironwind Outpost**: Finish up East & West directions on Ironwind Outpost.
 -   [x] **Smooth transition**: Seamless transition to the open world.
@@ -15,7 +14,9 @@
 
 ### 1. Combat Enhancements
 -   [ ] Add a critical hit chance (**5% chance for 1.5x damage**).
--   [x] Add a healing mechanic where the player can use the healing items they may have bought or picked up.
+-   [x] **Add a healing mechanic** where the player can use the healing items they may have bought or picked up.
+-   [ ] **Add a mechanic** where the enemy for a 45% chance of using their special ability if not in cooldown.
+-   [ ] **New Enemy:** Design and create a new enemy with this stat: (Health: 80, Attack: 15, Special Ability: Still thinkin...).
 
 ### 2. UI/UX Improvements
 -   [ ] **Better Status Bar:** Use Colorama to make the health bar red and name blue for better readability.
@@ -28,9 +29,9 @@
 -   [ ] Make a feature where the player can recruit people to make a function
 
 ### 4. More Classes
--   [ ] Unique types of classes.
--   [ ] 5 More Classes relating the Dystopian Theme.
--   [ ] Proper Class overview in main menu.
+-   [x] Unique types of classes.
+-   [x] 5 More Classes relating the Dystopian Theme.
+-   [x] Proper Class overview in main menu.
 
 ### 5. Proper Game Intro
 -   [x] A proper game menu intro for more immersion for players.
@@ -40,4 +41,4 @@
 -   [ ] A feature where players can see the bounty they're currently doing.
 
 ## **Chapter 5: The Ruins of Old Haven**
--   [ ] Start writing the lore/story of how the current Stormbound Haven gets destroyed/raided
+-   [ ] Start writing the lore/story of how the current Stormbound Haven gets destroyed/raided.

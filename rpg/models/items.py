@@ -25,6 +25,8 @@ class Item:
             print(f"\n{player.name} healed for {healing_amount} HP! Current health: {player.health}\n")
             time.sleep(0.7)
 
+            return True
+
         if self.damage > 0:
             player.attack += self.damage
             print(f"\nYou equipped {self.name}! Increasing your total damage to {player.attack}!")

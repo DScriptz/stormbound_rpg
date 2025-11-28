@@ -1,6 +1,6 @@
 import time
 import sys
-from rpg.tools.save_load_manager import select_save_slot, select_load_slot
+from rpg.tools.save_load_manager import select_load_slot
 from rpg.tools import audio_manager
 from rpg.dialogues.stormbound_lore import show_stormbound_lore
 from rpg.dialogues.factions import show_faction_overview
@@ -10,13 +10,13 @@ from rpg.dialogues.class_overview import show_class_overview
 
 def game_intro():
     audio_manager.play_music("stormbound menu", volume=0.6, loop=True)
-    print("\n[----------------------------------------------------------]")
-    print("             -{ STORMBOUND HAVEN }-                      ")
-    print("[----------------------------------------------------------]\n")
-
-    current_player = None
-
     while True:
+        print("\n[----------------------------------------------------------]")
+        print("                    -{ STORMBOUND HAVEN }-                      ")
+        print("[----------------------------------------------------------]\n")
+
+        current_player = None
+
 
         print(" ============ [MENU] ============")
         print("[1] - Start Game |  [2] - Stormbound Lore & Factions/Classes Overview")
@@ -59,10 +59,11 @@ def game_intro():
                     elif choice == "3":
                         show_class_overview()
                         input("\n--> Press [Enter] To Continue:  ")
-
+                        pass
                     elif choice == "x":
                         print("Returning to menu...")
                         break
+
                     else:
                         print("Invalid choice, please pick a choice from the menu!")
                         time.sleep(1)

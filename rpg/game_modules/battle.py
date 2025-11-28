@@ -1,6 +1,7 @@
 """ IMPORTS """
 import random
 import time
+import sys
 from colorama import Fore, Style, init
 from rpg.tools import audio_manager
 init(autoreset=True)
@@ -91,6 +92,9 @@ class Battle:
                     print(f"{self.enemy.name} attacks you for {damage} damage!")
                     time.sleep(1.5)
                     self.player.take_damage(damage)
+
+                    if self.player.cooldown > 0:
+                        self.player.cooldown -= 1
                     continue
 
                 elif action == "u":
@@ -110,38 +114,46 @@ class Battle:
                     time.sleep(1)
 
                 """ ENEMY'S TURN """
-                if self.enemy.is_alive() and self.enemy.is_bleeding:
-                    print(f"{self.enemy.name} bleeds from {self.player.special_ability} for {self.enemy.bleed_damage} damage!")
-                    self.enemy.take_damage(self.enemy.bleed_damage)
-
-                    self.enemy.bleed_turns -= 1
-
-                    if self.enemy.bleed_turns <= 0:
-                        self.enemy.is_bleeding = False
-                        self.enemy.bleed_damage = 0
-                        print(f"The bleeding on {self.enemy.name} has stopped.")
-                    time.sleep(1.0)
-
 
                 if self.enemy.is_alive():
+                    if self.enemy.is_bleeding:
+                        print(f"{self.enemy.name} bleeds from {self.player.special_ability} for {self.enemy.bleed_damage} damage!")
+                        self.enemy.take_damage(self.enemy.bleed_damage)
+
+                        self.enemy.bleed_turns -= 1
+
+                        if self.enemy.bleed_turns <= 0:
+                            self.enemy.is_bleeding = False
+                            self.enemy.bleed_damage = 0
+                            print(f"The bleeding on {self.enemy.name} has stopped.")
+                        time.sleep(1.0)
+
+                    if not self.enemy.is_alive():
+                        return None
 
                     if self.enemy.stunned:
                         print(f"The enemy is stunned and cannot move! {self.enemy.name}'s turn is lost!")
                         self.enemy.stunned = False
 
-                    else:
-                        self.enemy.enemy_attack(self.player)
-                        time.sleep(1.3)
 
-                        base_damage = self.enemy.calculate_damage()
+                    else:
+
+                        raw_damage = self.enemy.calculate_damage()
 
                         if self.enemy.is_weakened:
-                            final_damage = base_damage * (1.0 - self.enemy.weakness_factor)
+                            final_damage = int(raw_damage * (1.0 - self.enemy.weakness_factor))
+
+                            print(f"[{self.enemy.name}]'s attack is weakened! Deals {final_damage} damage!")
+
                             self.enemy.is_weakened = False
                             self.enemy.weakness_factor = 0.0
-                            self.player.take_damage(final_damage)
+
                         else:
-                            self.player.take_damage(base_damage)
+                            final_damage = raw_damage
+                            print(f"\n{self.enemy.name} attacks you for {final_damage} damage!")
+
+                        self.player.take_damage(final_damage)
+                        time.sleep(1.3)
 
 
                 """ 
@@ -162,18 +174,14 @@ class Battle:
                 if choice =="y" or choice == "yes":
                     continue
                 else:
-                    print("You ran away cowardly and dropped some of your SMK")
-                    if player.stormmarks <= 0:
-                        player.stormmarks = player.stormmarks
-                    else:
-                        player.stormmarks -= 30
-                    player.health += 30
-                    return player
+                    print("Your fate leads to death...")
+                    sys.exit()
+
+
             else:
                 print(f"\nYou defeated the {self.enemy.name}!")
                 audio_manager.play_sound("victory", volume=1.3)
                 time.sleep(1.1)
-                player.health = player.max_health
                 return player
 
 

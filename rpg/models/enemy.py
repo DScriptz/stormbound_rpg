@@ -11,7 +11,7 @@ enemies = {
         "max_health": 65,
         "attack": 13,
         "ability": "Quick Strike",
-        "prize": "Ghoul FIngers"
+        "prize": "Ghoul Fingers"
     },
 
     "Ash Goblin": {
@@ -134,7 +134,6 @@ class Enemy:
 
     def get_loot(self):
         """ CALCULATES AND RETURNS THE STORMMARKS PRIZE FOR DEFEATING THIS ENEMY """
-
         return self.loot
 
 """ 

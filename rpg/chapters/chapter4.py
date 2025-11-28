@@ -84,7 +84,7 @@ def leave_ironwind_outpost(player):
         time.sleep(1.5)
         print("Kael Rowan: 'If you ever need to go back to the base, meet me here and I'll have guards pick you up'.")
         time.sleep(1.7)
-        print("Kael goes inside his car and drives away... the car engine faints, and all you hear are wooshes of the wind and metals on the distance flying...")
+        print("Kael goes inside his car and drives away... the car engine faints, and all you hear are whooshes of the wind and metals on the distance flying...")
         time.sleep(1.8)
         print(f"\n{player.name}: '**sighs** This used to be Manila huh...'")
         time.sleep(1.5)
@@ -96,9 +96,9 @@ def leave_ironwind_outpost(player):
 
 def show_shop_choices(player):
 
-    print("You looked around and there's 2 shops_stocks waving their offers to you...")
+    print("You looked around and there's 2 shops waving their offers to you...")
     time.sleep(1.3)
-    print(f"{player.name}: 'There's a bunch of shops_stocks huh?'")
+    print(f"{player.name}: 'There's a bunch of shops huh?'")
     time.sleep(1.2)
     while True:
 
@@ -143,9 +143,12 @@ def return_to_ironwind_outpost(player):
     if player.faction == 'Ironwinders':
         print(f"Ironwind Guard: 'Welcome back, {player.name}.'")
         time.sleep(1.2)
+    elif player.current_chapter <= 3:
+        print("\n---------------------- Chapter 4: The Ironwind Outpost ----------------------")
     else:
         print("\n---------------- [Nexus Point] ------------------")
 
+    player.current_chapter = 4
     skip_choice = input("Do you want to skip the dialogue? (Y/N): ").lower().strip()
 
     match skip_choice:
@@ -210,8 +213,6 @@ def return_to_ironwind_outpost(player):
 
 def chapter4(player):
     audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
-    if player.current_chapter <= 3:
-        print("\n---------------------- Chapter 4: The Ironwind Outpost ----------------------")
     player = return_to_ironwind_outpost(player)
     return player
 

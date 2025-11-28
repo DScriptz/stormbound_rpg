@@ -41,9 +41,11 @@ def chapter1():
     while name == "":
         print("\nSo you there... Introduce yourself as you venture in this world: ")
         name = input("\n>> ").strip()
+    print("The greatest survivors of this world has specialized in one class...")
+    time.sleep(1)
+    print("What class do you specialize in...?")
+    time.sleep(1.3)
 
-    show_class_overview()
-    input("\n[Enter] - Continue:  \n")
     class_info()
 
     print("\nPick your class: ")
@@ -70,6 +72,18 @@ def chapter1():
         select_save_slot(player)
 
         player.introduce()
+        print("Do you want to read the Classes Info Overview?")
+
+        choice = input("\n>> ").lower().strip()
+
+        if choice == "n":
+            return player
+        else:
+            show_class_overview()
+            input("\n[Enter] - Continue: ")
+            return player
+
+
     else:
         print("\nInvalid class selection. Defaulting to Random Class ")
 
@@ -92,8 +106,16 @@ def chapter1():
         select_save_slot(player)
 
         player.introduce()
+        print("Do you want to read the Classes Info Overview?")
 
+        choice = input("\n>> ").lower().strip()
 
+        if choice == "n":
+            pass
+        else:
+            show_class_overview()
+            input("\n[Enter] - Continue: ")
+            return player
 
     return player
 

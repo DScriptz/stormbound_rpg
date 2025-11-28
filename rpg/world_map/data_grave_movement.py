@@ -19,7 +19,7 @@ def handle_player_ambushed(player):
             
         """
 
-        enemies_to_roll = ['Guard Drone', 'Wasteland Ghoul', 'Zero-Day Thief']
+        enemies_to_roll = ['Guard Drone', 'Wasteland Ghoul']
 
         enemy_name = random.choice(enemies_to_roll)
 
