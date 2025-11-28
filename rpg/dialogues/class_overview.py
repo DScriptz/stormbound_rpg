@@ -31,13 +31,13 @@ NOTE: {Fore.LIGHTGREEN_EX}Pick what you'll enjoy. Attack/Health can be increased
   > Description: Clad in cloaks woven with static fiber, they harness residual energy from corrupted Aetherial nodes for powerful effects.
   > Role: Skill & Support. Utilizes specialized knowledge for effects or minor healing.
   > Ability: {Fore.RED + Style.BRIGHT}Divine Blast{Style.RESET_ALL} - (A powerful Aetherial magic that electrocutes your foe to oblivion.)
-  > Difficulty: [{{difficulty_medium}}]
+  > Difficulty: [{difficulty_medium}]
   
 [Class 4] - Haven Scout (HP: 60 / ATK: 15)
   > Description: Wears minimal gear to maximize speed, relying purely on instinct and unnerving situational awareness to survive lethal blows.
   > Role: Glass Cannon. Very high damage output but low survivability.
   > Ability: {Fore.LIGHTMAGENTA_EX + Style.BRIGHT}Needle Threader{Style.RESET_ALL} - (Anticipate your enemy's next move and dodge accordingly.)
-  > Difficulty: [{{difficulty_hard}}]
+  > Difficulty: [{difficulty_hard}]
 
 [Class 5] - Ironbound Sentinel (HP: 85 / ATK: 9)
   > Description: Encased in repurposed industrial plating, their slow, deliberate movement is a trade-off for near-impenetrable fortification.

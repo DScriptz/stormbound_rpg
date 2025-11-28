@@ -196,8 +196,8 @@ class Player:
             self.stormmarks -= sacrifice_amount
 
             bonus_damage = int(sacrifice_amount * 1.6)
-            audio_manager.play_sound("data cultist", volume=0.8)
             print(f"You sacrifice {sacrifice_amount} Stormmarks to unleash {self.special_ability}!")
+            audio_manager.play_sound("data cultist", volume=0.8)
             time.sleep(1.5)
 
             enemy.take_damage(self.attack + bonus_damage)
@@ -301,9 +301,9 @@ class Player:
 
 
     def show_status(self):
-        print(f"\n                    --[ {self.name} - >{Style.BRIGHT + self.player_class.title() + Style.RESET_ALL}< |  Level: {self.level} |  SMK: {self.stormmarks} | "
+        print(f"\n                --[ {self.name} - >{Style.BRIGHT + self.player_class.title() + Style.RESET_ALL}< |  Level: {self.level} |  SMK: {self.stormmarks} | "
               f" Health: {self.health}/{self.max_health} |  Attack: {self.attack} |  Faction: {self.faction}"
-              f"  |  Current Chapter: {self.current_chapter} ]--")
+              f"  |  Current Chapter: {self.current_chapter} | Battles: {self.battles_completed}]--")
 
 
     def level_up(self):

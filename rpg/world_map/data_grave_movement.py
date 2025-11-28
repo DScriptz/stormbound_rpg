@@ -7,7 +7,7 @@ from rpg.tools.audio_manager import play_music, music_stop, music_fadeout, play_
 from rpg.dialogues import data_grave_walk_right, data_grave_walk_left
 from rpg.areas.salvage_cache_area import go_to_salvage_cache
 
-play_music("open world", volume=0.7, loop=True)
+
 
 """ DATA_GRAVE LOCATION'S MOVEMENT """
 

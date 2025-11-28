@@ -34,8 +34,10 @@ class Battle:
             """ THIS ENSURES THAT IF THE GAME RESTARTS THE PLAYER AND ENEMY'S HEALTH GOES BACK TO THEIR MAX HEALTH """
             self.player.health = self.player.max_health
             self.enemy.health = self.enemy.max_health
+
             while self.player.health > 0 and self.enemy.is_alive():
                 """ PLAYER'S TURN """
+
                 print(f"\n    --[{self.player.name}'s Health: {Fore.LIGHTRED_EX}"
                       f"{self.player.health}/{self.player.max_health}"
                       f"{Style.RESET_ALL} "
@@ -105,10 +107,16 @@ class Battle:
                     audio_manager.play_sound("run", volume=0.9)
                     print("You ran away like a coward! Dropping some of your SMK along the way...")
                     time.sleep(1.3)
+
                     if player.stormmarks <= 0:
                         player.stormmarks = 0
+
+                    elif player.location_steps <= 0:
+                        player.location_steps = 0
+
                     else:
                         player.stormmarks -= 20
+                        player.location_steps -= 1
                     break
                 elif action == "i":
                     player.show_inventory()
@@ -157,6 +165,7 @@ class Battle:
 
                         else:
                             final_damage = raw_damage
+                            audio_manager.play_sound("attack", volume=0.8)
                             print(f"\n{self.enemy.name} attacks you for {final_damage} damage!")
 
                         self.player.take_damage(final_damage)

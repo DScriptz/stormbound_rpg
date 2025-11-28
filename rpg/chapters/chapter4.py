@@ -104,6 +104,7 @@ def show_shop_choices(player):
 
         print("\n[1] - Rusty Apothecary: Meds & Safety")
         print(f"[2] - The Rusted Rifle: Weapon & Ammo Needs")
+        print("[C] - Save Game")
         print(f"[X] - Go back to the Nexus Point")
 
         choice = input("\n>> ").strip().lower()
@@ -120,6 +121,10 @@ def show_shop_choices(player):
                 time.sleep(1.7)
                 weapon_shop.open_shop(player)
 
+            case "c":
+                from rpg.tools.save_load_manager import select_save_slot
+                select_save_slot(player)
+
             case "x":
                 print(f"{player.name}: 'That was nice.'")
                 time.sleep(1.2)
@@ -134,6 +139,7 @@ def show_directions():
     print("\n[1] - North: 'Alley Of Remedies'")
     print("[2] - East: 'The Coil Bunks'")
     print("[3] - West: 'The Watchpost'")
+    print("[C] - Save Game")
     print("[X] - Exit Ironwind Outpost: Open World")
 
 """ THIS HANDLES THE CHAPTER 4 LOOP """
@@ -196,12 +202,17 @@ def return_to_ironwind_outpost(player):
                 print("You walked towards 'The Coil Bunks'...")
                 time.sleep(1.3)
                 player = coil_bunks.enter(player)
+
             case "3":
                 print(f"{player.name}: 'I should check the watch post. There might be opportunities there.'")
                 time.sleep(1.2)
                 print("You walked towards the Ironwind Watch Post")
                 time.sleep(1.3)
                 player = watch_post.enter(player)
+
+            case "c":
+                from rpg.tools.save_load_manager import select_save_slot
+                select_save_slot(player)
 
             case "x":
                 leave_ironwind_outpost(player)

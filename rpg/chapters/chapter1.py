@@ -115,7 +115,8 @@ def chapter1():
         else:
             show_class_overview()
             input("\n[Enter] - Continue: ")
-            pass
+            print("Loading...")
+            time.sleep(1)
 
     return player
 

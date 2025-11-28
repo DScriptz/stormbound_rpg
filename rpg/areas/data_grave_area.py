@@ -29,6 +29,7 @@ def rest(player):
 
 
 data_grave = Location(
+
     "The Data Grave",
     """\nThe Data Grave. A massive, sprawling landfill where every scrap has been scavenged a hundred times.
      The main danger is competition. Rival Scrapper crews patrol the perimeter and have rigged rudimentary,
