@@ -2,6 +2,7 @@
 import random
 import time
 import sys
+from rpg.game_modules.loot_handler import handle_loot
 from colorama import Fore, Style, init
 from rpg.tools import audio_manager
 
@@ -31,7 +32,8 @@ class Battle:
 
     """ MAIN BATTLE LOOP OF THE GAME """
 
-    def fight(self, player):
+    def fight(self, player, enemy):
+        player_run = False
         while True:
             """ THIS ENSURES THAT IF THE GAME RESTARTS THE PLAYER AND ENEMY'S HEALTH GOES BACK TO THEIR MAX HEALTH """
             self.player.health = self.player.max_health
@@ -107,6 +109,7 @@ class Battle:
                     player.use_item()
 
                 elif action == "r":
+                    player_run = True
                     audio_manager.play_sound("run", volume=0.9)
                     print("You ran away like a coward! Dropping some of your SMK along the way...")
                     time.sleep(1.3)
@@ -153,7 +156,6 @@ class Battle:
                         print(f"The enemy is stunned and cannot move! {self.enemy.name}'s turn is lost!")
                         self.enemy.stunned = False
 
-
                     else:
 
                         raw_damage = self.enemy.calculate_damage()
@@ -168,7 +170,7 @@ class Battle:
 
                         else:
                             final_damage = raw_damage
-                            audio_manager.play_sound("attack", volume=0.8)
+                            audio_manager.play_sound("player hit", volume=0.8)
                             print(f"\n{self.enemy.name} attacks you for {final_damage} damage!")
 
                         self.player.take_damage(final_damage)
@@ -198,12 +200,27 @@ class Battle:
 
 
             else:
-                print(f"\nYou defeated the {self.enemy.name}!")
-                audio_manager.play_sound("victory", volume=1.3)
-                time.sleep(1.1)
-                self.player.cooldown = 0
-                self.player.battles_completed += 1
-                return player
+                if not player_run:
+                    print(f"\nYou defeated the {self.enemy.name}!")
+                    audio_manager.play_sound("victory", volume=1.3)
+                    time.sleep(1.1)
+
+                    handle_loot(player, enemy)
+
+                    level_up_chance = 40
+                    roll = random.randint(1, 100)
+
+                    if roll <= level_up_chance:
+                        player.level_up()
+
+                    self.player.cooldown = 0
+                    self.player.battles_completed += 1
+                    return player
+                else:
+                    print("\nYou earned nothing for running away from a battle!")
+                    time.sleep(1.1)
+                    self.player.cooldown = 0
+                    return player
 
 
 

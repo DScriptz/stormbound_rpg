@@ -1,20 +1,22 @@
 import time
+import random
 
 def handle_loot(player, enemy):
 
     loot = enemy.get_loot()
 
     if isinstance(loot, int):
-        player.stormmarks += loot
+        player.stormmarks += random.randint(loot, loot + 10)
         print(f"\n[Loot]: You earned {loot} SMKs! Total SMK: {player.stormmarks}")
+        time.sleep(1.1)
 
     elif isinstance(loot, str):
         item_name = loot
-
-        player.inventory[item_name] = player.inventory.get(item_name, 0) + 1
+        loot_amount = random.randint(1, 2)
+        player.inventory[item_name] = player.inventory.get(item_name, 0) + loot_amount
 
         print(f"[Loot]: You found {item_name}! Quantity: {player.inventory[item_name]}")
-
+        time.sleep(1.1)
     else:
         print(f"{player.name}: 'Aww man, no loot.'")
         time.sleep(1.5)

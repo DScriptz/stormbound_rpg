@@ -18,7 +18,7 @@ class_stats = {
         "ability": f"{Fore.LIGHTBLUE_EX + Style.BRIGHT}Thunder Strike{Style.RESET_ALL}"
     },
     "2": {
-        "name": "Riftblade",
+        "name": "Flash Tracer",
         "health": 63,
         "max_health": 63,
         "attack": 13,

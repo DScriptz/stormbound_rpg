@@ -111,19 +111,24 @@ class Player:
             self.cooldown = 4
             return
 
-        elif self.player_class == "Riftblade":
+        elif self.player_class == "Flash Tracer":
+            audio_manager.play_sound("unsheathe sword", volume=0.9)
             print(f"You swing your blade 3 times, dealing multiple damage to the enemy!")
             time.sleep(1.5)
+
             if self.level <= 10:
                 for attack in range(3):
-                    audio_manager.play_sound("slash 1", volume=0.7)
-                    audio_manager.play_sound("slash 2", volume=0.7)
-                    audio_manager.play_sound("slash 3", volume=0.7)
                     enemy.take_damage(random.randint(5,8))
+                    sound_list = ['slash 1', 'slash 2', 'slash 3']
+                    audio_manager.play_sound(sound_list[attack - 1],  volume=0.7)
+
             elif self.level <= 20:
                 for attack in range (3):
-                    audio_manager.play_sound("fahh", volume=0.7)
                     enemy.take_damage(random.randint(10,13))
+                    sound_list = ['slash 1', 'slash 2', 'slash 3']
+                    audio_manager.play_sound(sound_list[attack - 1], volume=0.7)
+            print("You sheathe your sword back...")
+            time.sleep(0.5)
 
             if self.level <= 10:
                 self.cooldown = 3

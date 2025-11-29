@@ -28,22 +28,12 @@ def handle_player_ambushed(player):
 
 
     battle = Battle(player, enemy)
-    battle.fight(player)
-
-
-    handle_loot(player, enemy)
-
-    level_up_chance = 40
-    roll = random.randint(1, 100)
-    if roll <= level_up_chance:
-        player.level_up()
-
+    battle.fight(player, enemy)
 
     music_fadeout(2000)
     music_stop()
 
     return player
-
 
 def handle_data_grave_movement_forward(player):
     if random.random() < 0.50:

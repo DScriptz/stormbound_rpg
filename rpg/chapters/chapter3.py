@@ -40,7 +40,7 @@ def chapter3(player):
     """ SPAWNS THE ENEMY """
     enemy = spawn_enemy("Thief")
     battle = Battle(player, enemy)
-    battle.fight(player)
+    battle.fight(player, enemy)
 
     handle_loot(player, enemy)
 
@@ -49,8 +49,6 @@ def chapter3(player):
     audio_manager.music_fadeout(duration=2000)
     time.sleep(2)
     audio_manager.music_stop()
-
-    input("\nPress [Enter] to continue >> ")
 
 
     """ IF PLAYER WINS, THE CHAPTER CONTINUES """

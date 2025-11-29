@@ -26,10 +26,10 @@ NOTE: {Fore.LIGHTGREEN_EX}Pick what you'll enjoy. Attack/Health can be increased
   > Ability: {Fore.LIGHTBLUE_EX + Style.BRIGHT}Thunder Strike{Style.RESET_ALL} - (A reliable, mid-damage attack that has a 30% chance of stunning the enemy.)
   > Difficulty: [{difficulty_easy}]
   
-[Class 2] - Riftblade (HP: 63 / ATK: 13)
+[Class 2] - Flash Tracer (HP: 63 / ATK: 13)
   > Description: Their light armor and quick movements suggest extensive training, favoring evasion over heavy defense in the ruins.
   > Role: Agile Damage Dealer. Focuses on speed and quick, precise hits.
-  > Ability: {Fore.YELLOW + Style.BRIGHT}Blade Flurry{Style.RESET_ALL} - (High-risk, high-reward triple burst damage.)
+  > Ability: {Fore.YELLOW + Style.BRIGHT}Kinetic Burst{Style.RESET_ALL} - (High-risk, high-reward triple burst damage.)
   > Difficulty: [{difficulty_easy}]
   
 [Class 3] - Aethermancer (HP: 70 / ATK: 12)

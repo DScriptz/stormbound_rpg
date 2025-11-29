@@ -72,7 +72,7 @@ def chapter2(player):
 
     enemy = spawn_enemy("Ravager Wolf")
     battle = Battle(player, enemy)
-    battle.fight(player)
+    battle.fight(player, enemy)
 
     """ WHEN PLAYER KILLS WOLF """
     print("\nAs you defeat the wolf, Kael Rowan claps his hand and walks slowly towards you..")
@@ -84,10 +84,6 @@ def chapter2(player):
     print("Kael Rowan: 'As promised, come with me *signals for you to follow him to the hideout*'")
     time.sleep(1.5)
 
-    handle_loot(player, enemy)
-
-    player.level_up()
-    time.sleep(1)
     player.show_status()
     input("\nPress [Enter] to continue >> ")
     player.current_chapter = 3

@@ -85,8 +85,11 @@ def collect_bounty(player):
         player.remove_item(target_item, required_amount)
         player.stormmarks += bounty['prize']
 
-        print(f"Commander Thorne: 'Bounty {bounty_id} cleared. Reward granted: {bounty['prize']} SMK.'")
+        print(f"Commander Thorne: 'Bounty {bounty_id} cleared. Good job kid. +{bounty['prize']} SMK.'")
+        time.sleep(1.3)
         print(f"Items cleared from your inventory: {required_amount}x {target_item}")
+        time.sleep(1.3)
+        player.active_bounty = None
     else:
         print(f"Commander Thorne: 'Argh, I said don't waste my time! You only have {current_amount} {target_item}s. Go back and finish the job!'")
         time.sleep(1.3)

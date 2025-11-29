@@ -91,7 +91,7 @@ class Enemy:
             reduction_amount = damage_reduction * damage
             final_damage = damage - reduction_amount
 
-            print(f"\n{self.name} defends your attack! Reducing your attack by half!")
+            print(f"\n{self.name} defends against your attack! Reducing your attack by half!")
             time.sleep(1.3)
 
         self.health -= final_damage
