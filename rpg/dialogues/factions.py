@@ -1,4 +1,4 @@
-
+from rpg.tools.keyboard_input_manager import wait_for_key
 faction_overview = """
 ----------------------------------------------------------
            [MAJOR FACTIONS OF THE WASTELAND] 
@@ -41,3 +41,4 @@ Maybe YOU are the one who'll create the next big faction...
 
 def show_faction_overview():
     print(faction_overview)
+    wait_for_key()

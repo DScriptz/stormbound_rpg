@@ -1,10 +1,8 @@
-import getch
 
 
-def wait_for_key(prompt='Press [Enter] to Continue:'):
+def wait_for_key():
+    input("\n[Enter] - Continue")
 
-    print(prompt, end="", flush=True)
 
-    getch.getch()
 
-    print()
+

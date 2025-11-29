@@ -36,7 +36,7 @@ NOTE: {Fore.LIGHTGREEN_EX}Pick what you'll enjoy. Attack/Health can be increased
   > Description: Clad in cloaks woven with static fiber, they harness residual energy from corrupted Aetherial nodes for powerful effects.
   > Role: Skill & Support. Utilizes specialized knowledge for effects or minor healing.
   > Ability: {Fore.RED + Style.BRIGHT}Divine Blast{Style.RESET_ALL} - (A powerful Aetherial magic that electrocutes your foe to oblivion.)
-  > Difficulty: [{difficulty_medium}]
+  > Difficulty: [{difficulty_medium}    ]
   
 [Class 4] - Haven Scout (HP: 60 / ATK: 15)
   > Description: Wears minimal gear to maximize speed, relying purely on instinct and unnerving situational awareness to survive lethal blows.

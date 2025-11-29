@@ -1,5 +1,5 @@
 
-
+from rpg.tools.keyboard_input_manager import wait_for_key
 lore = """
 ----------------------------------------------------------
            <STORMBOUND HAVEN LORE TIMELINE> 
@@ -34,3 +34,4 @@ Five years after The Storm.
 """
 def show_stormbound_lore():
     print(lore)
+    wait_for_key()

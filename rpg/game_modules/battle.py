@@ -5,6 +5,8 @@ import sys
 from colorama import Fore, Style, init
 from rpg.tools import audio_manager
 
+
+
 init(autoreset=True)
 
 """ THIS HANDLES THE GAME'S BATTLE MECHANIC """
@@ -85,7 +87,16 @@ class Battle:
                 """
 
                 if action == "a":
-                    audio_manager.play_sound("attack", volume=0.8)
+                    if player.player_class == "Rivet-Eye":
+                        audio_manager.play_sound("gunshot", volume=0.6)
+
+                    if player.player_class == "Riftblade":
+                        sound_list = ['sword', 'sword 2']
+                        sound = random.choice(sound_list)
+                        audio_manager.play_sound(sound, volume=0.9)
+                    else:
+                        audio_manager.play_sound("attack", volume=0.8)
+
                     self.player.player_attack(self.enemy)
                     time.sleep(1.3)
 

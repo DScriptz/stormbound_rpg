@@ -116,7 +116,9 @@ class Player:
             time.sleep(1.5)
             if self.level <= 10:
                 for attack in range(3):
-                    audio_manager.play_sound("fahh", volume=0.7)
+                    audio_manager.play_sound("slash 1", volume=0.7)
+                    audio_manager.play_sound("slash 2", volume=0.7)
+                    audio_manager.play_sound("slash 3", volume=0.7)
                     enemy.take_damage(random.randint(5,8))
             elif self.level <= 20:
                 for attack in range (3):
