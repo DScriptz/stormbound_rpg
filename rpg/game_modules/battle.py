@@ -87,16 +87,8 @@ class Battle:
                 """
 
                 if action == "a":
-                    if player.player_class == "Rivet-Eye":
-                        audio_manager.play_sound("gunshot", volume=0.6)
-
-                    if player.player_class == "Riftblade":
-                        sound_list = ['sword', 'sword 2']
-                        sound = random.choice(sound_list)
-                        audio_manager.play_sound(sound, volume=0.9)
-                    else:
-                        audio_manager.play_sound("attack", volume=0.8)
-
+                    from rpg.class_data.class_attack_sound import attack_sound
+                    attack_sound(player)
                     self.player.player_attack(self.enemy)
                     time.sleep(1.3)
 
