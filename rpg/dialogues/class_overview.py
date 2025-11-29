@@ -1,8 +1,13 @@
+
+from rpg.tools.keyboard_input_manager import wait_for_key
 from colorama import Fore, Style
 
 difficulty_easy = f"{Fore.GREEN}EASY{Style.RESET_ALL}"
 difficulty_medium = f"{Fore.YELLOW}MEDIUM{Style.RESET_ALL}"
 difficulty_hard = f"{Fore.RED + Style.BRIGHT}HARD{Style.RESET_ALL}"
+
+
+
 
 
 CLASS_OVERVIEW_TEXT = f"""
@@ -65,7 +70,7 @@ NOTE: {Fore.LIGHTGREEN_EX}Pick what you'll enjoy. Attack/Health can be increased
   > Ability: {Fore.MAGENTA + Style.BRIGHT}Marked Sacrifice{Style.RESET_ALL} - (Corrupt a network Data and sacrifice 20 SMK for a bonus damage.)
   > Difficulty: [{difficulty_hard}]
 
-[Class 9] - Echo Runner (HP: 62 / ATK: 12)
+[Class 9] - Echo Runner (HP: 58 / ATK: 12)
   > Description: Equipped with sound-dampening boots and minimalist gear, their strikes are so fast they often leave a momentary sensory 'echo' of their presence.
   > Role: The Swift Striker. Uses speed and agility for rapid engagement.
   > Ability: {Fore.WHITE + Style.BRIGHT}Reposition Strike{Style.RESET_ALL} - (Use your speed to your advantage and attack the enemy in quick succession for 2 times in a turn.)
@@ -82,3 +87,4 @@ NOTE: {Fore.LIGHTGREEN_EX}Pick what you'll enjoy. Attack/Health can be increased
 
 def show_class_overview():
     print(CLASS_OVERVIEW_TEXT)
+    wait_for_key()

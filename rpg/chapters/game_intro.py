@@ -50,15 +50,15 @@ def game_intro():
 
                     if choice == "1":
                         show_stormbound_lore()
-                        input("\n--> Press [Enter] to Return:  ")
+                        input("\n--> Press [Enter] to Return:")
 
                     elif choice == "2":
                         show_faction_overview()
-                        input("\n--> Press [Enter] To Continue:  ")
+                        input("\n--> Press [Enter] To Continue:")
 
                     elif choice == "3":
                         show_class_overview()
-                        input("\n--> Press [Enter] To Continue:  ")
+
                         pass
                     elif choice == "x":
                         print("Returning to menu...")

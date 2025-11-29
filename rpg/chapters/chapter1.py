@@ -110,13 +110,14 @@ def chapter1():
 
         choice = input("\n>> ").lower().strip()
 
-        if choice == "n":
-            pass
-        else:
-            show_class_overview()
-            input("\n[Enter] - Continue: ")
-            print("Loading...")
-            time.sleep(1)
+        match choice:
+
+            case  "n":
+                print()
+            case _:
+                show_class_overview()
+                print("Loading...")
+                time.sleep(1)
 
     return player
 
