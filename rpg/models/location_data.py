@@ -14,7 +14,7 @@ class Location:
 
     def enter(self, player):
         """ DISPLAYS LOCATION AND STARTS THE INTERACTION WITH WHATEVER LOCATION THE PLAYER GOES"""
-        print(f"\n                                                         --- {self.name.upper()} ---")
+        print(f"\n                                                            --- {self.name.upper()} ---")
         print(self.description)
         time.sleep(0.8)
 
@@ -24,11 +24,12 @@ class Location:
             for key, (label, func) in self.options.items():
                 print(f"{Fore.LIGHTYELLOW_EX}[{key}]{Style.RESET_ALL} - {label}")
 
-            print(f"{Fore.LIGHTYELLOW_EX}[S]{Style.RESET_ALL} - Show Stats | "
-                  f"{Fore.LIGHTYELLOW_EX}[I]{Style.RESET_ALL} - Show Inventory")
+            print("\n====== OPTIONS ======")
+            print(f"{Fore.GREEN}[S]{Style.RESET_ALL} - Show Stats | "
+                  f"{Fore.GREEN}[I]{Style.RESET_ALL} - Show Inventory")
 
-            print(f"{Fore.LIGHTYELLOW_EX}[U]{Style.RESET_ALL} - Use an Item from Inventory | "
-                  f"{Fore.LIGHTYELLOW_EX}[C]{Style.RESET_ALL} - Save Game")
+            print(f"{Fore.GREEN}[U]{Style.RESET_ALL} - Use an Item from Inventory | "
+                  f"{Fore.GREEN}[C]{Style.RESET_ALL} - Save Game")
 
 
 

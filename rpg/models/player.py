@@ -308,9 +308,9 @@ class Player:
 
 
     def show_status(self):
-        print(f"\n                --[ {self.name} - >{Style.BRIGHT + self.player_class.title() + Style.RESET_ALL}< |  Level: {self.level} |  SMK: {self.stormmarks} | "
+        print(f"\n                --[ {self.name}: >{Style.BRIGHT + self.player_class.title() + Style.RESET_ALL}< |  Level: {self.level} |  SMK: {self.stormmarks} | "
               f" Health: {self.health}/{self.max_health} |  Attack: {self.attack} |  Faction: {self.faction}"
-              f"  |  Current Chapter: {self.current_chapter} | Battles: {self.battles_completed}]--")
+              f"  |  Current Chapter: {self.current_chapter} | Battles: {self.battles_completed} ]--")
 
 
     def level_up(self):

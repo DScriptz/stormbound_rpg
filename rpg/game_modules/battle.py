@@ -194,7 +194,7 @@ class Battle:
                 choice = input("\nTry again? (Y/N): ").lower().strip()
 
                 if choice =="y" or choice == "yes":
-                    return True
+                    continue
                 else:
                     print("Your fate leads to death...")
                     sys.exit()

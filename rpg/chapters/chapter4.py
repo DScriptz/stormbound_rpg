@@ -104,6 +104,7 @@ def show_shop_choices(player):
 
         print("\n[1] - Rusty Apothecary: Meds & Safety")
         print(f"[2] - The Rusted Rifle: Weapon & Ammo Needs")
+        print("[I] - Open Inventory")
         print("[C] - Save Game")
         print(f"[X] - Go back to the Nexus Point")
 
@@ -124,6 +125,9 @@ def show_shop_choices(player):
             case "c":
                 from rpg.tools.save_load_manager import select_save_slot
                 select_save_slot(player)
+
+            case "i":
+                player.show_inventory()
 
             case "x":
                 print(f"{player.name}: 'That was nice.'")

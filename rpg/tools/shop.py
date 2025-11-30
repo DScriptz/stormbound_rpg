@@ -30,7 +30,6 @@ class Shop:
                     player.inventory[item.name] = player.inventory.get(item.name, 0) + 1
                     print(f"\nYou bought {item.name} for {item.price} SMK!")
                     time.sleep(0.6)
-                    player.show_inventory()
 
                 else:
                     print(f"\n{player.name}: 'Ehh, I don't have enough SMK's *sighs*' ")
@@ -40,10 +39,9 @@ class Shop:
                 print(f"\nYou walked away from the shop")
                 time.sleep(0.7)
                 player.show_status()
-                input("Press [Enter] To Continue >> ")
                 break
             else:
                 print(f"\n{player.name}: 'Am I gonna buy something...? Or did I just forgot?'")
-                time.sleep(1.2)
+                time.sleep(1)
 
 
