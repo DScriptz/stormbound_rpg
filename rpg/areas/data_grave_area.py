@@ -1,7 +1,7 @@
 import time
 from rpg.tools.audio_manager import play_music
 from rpg.models.location_data import Location
-from rpg.world_map.data_grave_movement import (
+from rpg.world_movement.data_grave_movement import (
     handle_data_grave_movement_right,
     handle_data_grave_movement_forward, handle_data_grave_movement_left)
 

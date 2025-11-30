@@ -29,14 +29,14 @@ class_stats = {
         "health": 70,
         "max_health": 70,
         "attack": 12,
-        "ability": f"{Fore.RED + Style.BRIGHT}Divine Blast{Style.RESET_ALL}"
+        "ability": f"{Fore.MAGENTA + Style.BRIGHT}Divine Blast{Style.RESET_ALL}"
     },
     "4": {
         "name": "Haven Scout",
         "health": 60,
         "max_health": 60,
         "attack": 15,
-        "ability": f"{Fore.LIGHTMAGENTA_EX + Style.BRIGHT}Needle Threader{Style.RESET_ALL}"
+        "ability": f"{Fore.LIGHTBLACK_EX + Style.BRIGHT}Needle Threader{Style.RESET_ALL}"
     },
     "5": {
         "name": "Ironbound Sentinel",

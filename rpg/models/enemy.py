@@ -37,7 +37,7 @@ enemies = {
         "ability": "Electrocute",
         "prize": "Drone CPU"
     },
-    "Ironclad Beetle": {
+    "Ironclad Scavenger": {
         "health": 90,
         "max_health": 90,
         "attack": 15,

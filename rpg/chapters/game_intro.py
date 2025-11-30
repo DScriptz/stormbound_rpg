@@ -31,11 +31,9 @@ def game_intro():
                 print("\nStarting game...")
                 time.sleep(1.4)
                 audio_manager.music_fadeout(duration=2000)
-                print("Loading game...")
                 audio_manager.music_stop()
-                time.sleep(2)
-
                 current_player = None
+
                 break
 
             case "2":

@@ -2,7 +2,6 @@ import random
 import time
 from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
-from rpg.game_modules.loot_handler import handle_loot
 from rpg.tools.audio_manager import play_music, music_stop, music_fadeout, play_sound
 from rpg.dialogues import data_grave_walk_right, data_grave_walk_left
 from rpg.areas.salvage_cache_area import go_to_salvage_cache
@@ -39,11 +38,11 @@ def handle_data_grave_movement_forward(player):
     if random.random() < 0.50:
         handle_player_ambushed(player)
     else:
+        from rpg.dialogues.data_grave_walk_forward import show_random_movement_line
         player.location_steps += 2
         play_sound("footstep", volume=0.8)
-        print("\nYou walked forward, seeing nothing but dirt and abandoned buildings,")
-        print("And metal scraps flying because of the wind in the distance...")
-        print(f"\nYou walked for {player.location_steps} step(s) now.")
+        show_random_movement_line()
+        print(f"\nYou ran for {player.location_steps} step(s) now.")
         time.sleep(1.3)
 
         if player.health <= 20:

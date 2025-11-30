@@ -20,7 +20,7 @@ Maybe YOU are the one who'll create the next big faction...
 
 [3. The Reclamation Collective]
 > Philosophy: Pragmatic Survivalism. They value resources and wealth above all else.
-> Goal: To control and exploit resource-rich world_map (like the Data Grave) for scavenging and trade.
+> Goal: To control and exploit resource-rich world_movement (like the Data Grave) for scavenging and trade.
 > Area: Landfills, scrapyards, and neutral trading posts.
 > Danger: MEDIUM. They are ruthless in business and defense, often hiring mercenaries (Thieves).
 

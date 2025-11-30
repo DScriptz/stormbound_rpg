@@ -181,7 +181,7 @@ class Player:
             audio_manager.play_sound("slinger gun", volume=1)
             time.sleep(1.6)
             input(f"\n[Enter] - {Fore.LIGHTYELLOW_EX}Shoot{Style.RESET_ALL} \n >> ")
-            audio_manager.play_sound("slinger", volume=0.7)
+            audio_manager.play_sound("slinger", volume=1)
             print(f"\n{Fore.RED + Style.BRIGHT}BANG! A CRITICAL SHOT!!{Style.RESET_ALL}")
             time.sleep(0.5)
 
@@ -327,7 +327,7 @@ class Player:
             time.sleep(1.1)
             return
 
-        print(f"=== [{Fore.CYAN}ITEM USAGE MENU{Style.RESET_ALL} ===")
+        print(f"=== [{Fore.CYAN}INVENTORY: SECURE CACHE{Style.RESET_ALL} ===")
 
         item_menu = {}
         menu_index = 1

@@ -22,9 +22,9 @@ def view_bounty_board(player):
     """ SHOW AVAILABLE BOUNTIES """
     print(f"                             -- [ {Fore.RED + Style.BRIGHT}WATCH POST BOUNTY LIST{Style.RESET_ALL} ] --")
     player.show_status()
-    print("Commander Thorne: 'Well well, choose your work, fresh meat. Don't waste my time.'\n")
+    print("\nCommander Thorne: 'Well well, choose your work, fresh meat. Don't waste my time.'\n")
     time.sleep(1.4)
-    print(f"{player.name}: 'Bounties... let's see...'")
+    print(f"\n{player.name}: 'Bounties... let's see...'")
     time.sleep(1.3)
 
     print("======================== BOUNTY LIST ========================")
@@ -32,7 +32,7 @@ def view_bounty_board(player):
         print(f"\n[{i}]: {bounty['name']} - Collect {bounty['required']}x '{bounty['target_item']}' for {bounty['prize']} SMK")
     print("\n[X] - Exit Menu")
     print("=============================================================")
-    time.sleep(1.3)
+
 
 
 

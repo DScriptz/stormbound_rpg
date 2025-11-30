@@ -190,15 +190,14 @@ class Battle:
             """ PLAYER GETS DEFEATED BUT HAS A CHOICE TO RESTART """
             if self.player.health <= 0:
                 print("\nYou have been defeated...")
-                choice = input("Try again? (Y/N): ").lower().strip()
+
+                choice = input("\nTry again? (Y/N): ").lower().strip()
 
                 if choice =="y" or choice == "yes":
-                    continue
+                    return True
                 else:
                     print("Your fate leads to death...")
                     sys.exit()
-
-
             else:
                 if not player_run:
                     print(f"\nYou defeated the {self.enemy.name}!")
@@ -221,6 +220,8 @@ class Battle:
                     time.sleep(1.1)
                     self.player.cooldown = 0
                     return player
+
+
 
 
 
