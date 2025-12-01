@@ -16,7 +16,6 @@ def main():
         print("\nStarting a new game...\n")
         player = chapter1()
 
-
     chapter_flow(player)
 
 def chapter_flow(player):

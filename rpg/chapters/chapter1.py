@@ -8,7 +8,10 @@ from colorama import Fore, Style
 from rpg.tools.save_load_manager import select_save_slot
 from rpg.dialogues.class_overview import show_class_overview
 
-""" GAME INTRO, BASICALLY JUST A PARAGRAPH EXPLAINING THE GAME'S LORE """
+""" 
+    GAME INTRO, BASICALLY JUST A PARAGRAPH EXPLAINING HOW THE PLAYER ENDS UP IN THIS SITUATION 
+    
+"""
 
 def intro():
     audio_manager.play_music("chapter1&2", volume=1.1, loop=True)
@@ -30,7 +33,7 @@ def intro():
         case _:
             print("You skipped the dialogue!")
 
-""" HANDLES THE CHAPTER 1 OF THE GAME """
+""" INTRODUCES THE CHAPTER 1 OF THE GAME """
 
 def chapter1():
     intro()
@@ -85,7 +88,7 @@ def chapter1():
 
 
     else:
-        print("\nInvalid class selection. Defaulting to Random Class ")
+        print("\nInvalid class selection. Defaulting to random Class... ")
 
         random_class = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
         chosen_class = random.choice(random_class)
@@ -102,6 +105,9 @@ def chapter1():
         player.special_ability = default_stats.get('ability', 'None')
 
         player.current_chapter = 2
+
+        print(f"\nYour random class is {default_stats['name']}.")
+        time.sleep(0.5)
 
         select_save_slot(player)
 

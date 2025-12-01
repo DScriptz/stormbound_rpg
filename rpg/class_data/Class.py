@@ -70,7 +70,7 @@ class_stats = {
     },
     "9": {
         "name": "Echo Runner",
-        "health": 58,
+        "health": 62,
         "max_health": 62,
         "attack": 12,
         "ability": f"{Fore.WHITE + Style.BRIGHT}Dead Bolt{Style.RESET_ALL}"
