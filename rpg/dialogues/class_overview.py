@@ -36,7 +36,7 @@ NOTE: {Fore.LIGHTGREEN_EX}Pick what you'll enjoy. Attack/Health can be increased
   > Description: Clad in cloaks woven with static fiber, they harness residual energy from corrupted Aetherial nodes for powerful effects.
   > Role: Skill & Support. Utilizes specialized knowledge for effects or minor healing.
   > Ability: {Fore.RED + Style.BRIGHT}Divine Blast{Style.RESET_ALL} - (A powerful Aetherial magic that electrocutes your foe to oblivion.)
-  > Difficulty: [{difficulty_medium}    ]
+  > Difficulty: [{difficulty_medium}]
   
 [Class 4] - Haven Scout (HP: 60 / ATK: 15)
   > Description: Wears minimal gear to maximize speed, relying purely on instinct and unnerving situational awareness to survive lethal blows.
@@ -59,7 +59,8 @@ NOTE: {Fore.LIGHTGREEN_EX}Pick what you'll enjoy. Attack/Health can be increased
   > Difficulty: [{difficulty_medium}]
 
 [Class 7] - Rivet-Eye (HP: 65 / ATK: 14)
-  > Description: **A cybernetic scope is riveted directly over one eye.** This crude augmentation grants inhuman focus, allowing them to instantly identify and exploit critical hardware failure points.
+  > Description: **A cybernetic scope is riveted directly over one eye.** This crude augmentation grants inhuman focus, allowing them to instantly
+                   see weak points on their enemy.
   > Role: The Marksman. Prioritizes precision and devastating single-shot damage. 
   > Ability: {Fore.YELLOW + Style.BRIGHT}Final Caliber{Style.RESET_ALL} - (Aim precisely at the enemy and shoot them for a guaranteed crit)
   > Difficulty: [{difficulty_easy}]

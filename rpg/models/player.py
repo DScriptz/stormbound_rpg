@@ -15,14 +15,14 @@ init(autoreset=True)
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, location=None, battles_completed=0):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, location=None, battles_completed=0, rank="Scrap Initiate"):
         self.name = player_name
         self.player_class = player_class
         self.health = health
         self.max_health = max_health
         self.attack = attack
         self.cooldown = 0
-        self.level = 1
+        self.rank = rank
         self.inventory = {
             "Quick-Seal Strip": 3
         }
@@ -50,7 +50,7 @@ class Player:
     def introduce(self):
         print("=========[ PLAYER DATA ]=========")
         print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health}/{self.max_health}  | Attack: {self.attack}")
-        print(f"\nStormmarks (SMK): {self.stormmarks} | Level: {self.level} | Faction: '{self.faction}'")
+        print(f"\nStormmarks (SMK): {self.stormmarks} | Rank: {self.rank} | Faction: '{self.faction}'")
         print("=================================\n")
         self.show_inventory()
 
@@ -85,8 +85,8 @@ class Player:
 
         elif self.player_class == "Aethermancer":
             audio_manager.play_sound("aethermancer", volume=0.8)
-            extra_damage = random.randint(4, 6)
-            print(f"You unleash {self.special_ability}, stricking the enemy with arcane energy!")
+            extra_damage = random.randint(6, 10)
+            print(f"You unleash {self.special_ability}, striking the enemy with arcane energy!")
             time.sleep(1.5)
             enemy.take_damage(self.attack + extra_damage)
 
@@ -116,13 +116,13 @@ class Player:
             print(f"You swing your blade 3 times, dealing multiple damage to the enemy!")
             time.sleep(1.5)
 
-            if self.level <= 10:
+            if self.rank <= "Skinner":
                 for attack in range(3):
                     enemy.take_damage(random.randint(5,8))
                     sound_list = ['slash 1', 'slash 2', 'slash 3']
                     audio_manager.play_sound(sound_list[attack - 1],  volume=0.7)
 
-            elif self.level <= 20:
+            elif self.rank <= "Zero-Echo":
                 for attack in range (3):
                     enemy.take_damage(random.randint(10,13))
                     sound_list = ['slash 1', 'slash 2', 'slash 3']
@@ -130,9 +130,9 @@ class Player:
             print("You sheathe your sword back...")
             time.sleep(0.5)
 
-            if self.level <= 10:
+            if self.rank == "Skinner":
                 self.cooldown = 3
-            elif self.level <= 20:
+            elif self.rank == "Zero-Echo":
                 self.cooldown = 5
 
             return
@@ -304,21 +304,10 @@ class Player:
 
         return True
 
-
-
-
     def show_status(self):
-        print(f"\n                --[ {self.name}: >{Style.BRIGHT + self.player_class.title() + Style.RESET_ALL}< |  Level: {self.level} |  SMK: {self.stormmarks} | "
+        print(f"\n                --[ {self.name}: >{Style.BRIGHT + self.player_class.title() + Style.RESET_ALL}< |  Rank: {self.rank} |  SMK: {self.stormmarks} | "
               f" Health: {self.health}/{self.max_health} |  Attack: {self.attack} |  Faction: {self.faction}"
               f"  |  Current Chapter: {self.current_chapter} | Battles: {self.battles_completed} ]--")
-
-
-    def level_up(self):
-        self.level += 1
-        audio_manager.play_sound("level up", volume=0.6)
-        print(f"\nYou {Fore.LIGHTGREEN_EX + Style.BRIGHT}leveled up{Style.RESET_ALL}! Level is now {self.level}\n")
-        input("Press [Enter] To Continue >> ")
-
 
     def use_item(self):
 

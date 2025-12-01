@@ -1,11 +1,12 @@
 import time
 import sys
+from colorama import Fore, Style
 from rpg.tools.save_load_manager import select_load_slot
 from rpg.tools import audio_manager
 from rpg.dialogues.stormbound_lore import show_stormbound_lore
 from rpg.dialogues.factions import show_faction_overview
 from rpg.dialogues.class_overview import show_class_overview
-
+from rpg.dialogues.ranks_info import show_rank_info
 
 
 def game_intro():
@@ -14,6 +15,9 @@ def game_intro():
         print("\n[----------------------------------------------------------]")
         print("                    -{ STORMBOUND HAVEN }-                      ")
         print("[----------------------------------------------------------]\n")
+
+        print(f"{Fore.LIGHTGREEN_EX+ Style.BRIGHT}Tip: Consider reading the Overviews [2] first before playing"
+              f" for more enjoyable experience!{Style.RESET_ALL}\n")
 
         current_player = None
 
@@ -42,6 +46,7 @@ def game_intro():
                     print("[1] - Stormbound Lore")
                     print("[2] - Factions Overview")
                     print("[3] - Classes Overview")
+                    print("[4] - Stormbound Ranks Overview")
                     print("[X] - Exit Menu")
 
                     choice = input("\n>> ").strip().lower()
@@ -55,7 +60,9 @@ def game_intro():
                     elif choice == "3":
                         show_class_overview()
 
-                        pass
+                    elif choice == "4":
+                        show_rank_info()
+
                     elif choice == "x":
                         print("Returning to menu...")
                         break
@@ -86,8 +93,6 @@ def game_intro():
                 print("Thanks for playing my game! Hope you try it again!")
                 time.sleep(1.3)
                 sys.exit()
-
-
 
     return current_player
 

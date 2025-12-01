@@ -5,8 +5,7 @@ import sys
 from rpg.game_modules.loot_handler import handle_loot
 from colorama import Fore, Style, init
 from rpg.tools import audio_manager
-
-
+from rpg.game_modules.player_ranks_up import check_rank
 
 init(autoreset=True)
 
@@ -203,17 +202,11 @@ class Battle:
                     print(f"\nYou defeated the {self.enemy.name}!")
                     audio_manager.play_sound("victory", volume=1.3)
                     time.sleep(1.1)
-
                     handle_loot(player, enemy)
-
-                    level_up_chance = 40
-                    roll = random.randint(1, 100)
-
-                    if roll <= level_up_chance:
-                        player.level_up()
 
                     self.player.cooldown = 0
                     self.player.battles_completed += 1
+                    check_rank(player)
                     return player
                 else:
                     print("\nYou earned nothing for running away from a battle!")

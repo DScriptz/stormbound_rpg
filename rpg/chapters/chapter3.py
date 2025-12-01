@@ -77,7 +77,6 @@ def chapter3(player):
             print("You skipped the dialogue!")
 
     print(f"{player.name}: 'Appreciate it, I'll be sure to leave when needed. *nods*'")
-    player.level_up()
 
     select_save_slot(player)
 
