@@ -32,8 +32,8 @@ ranks = """
 |         |                      | system, and the definitive survivor of the Data Grave.         |
 ---------------------------------------------------------------------------------------------------
 
-[ Achieving a new Title grants a permanent stat boost upon achievement. ]
 [ Your rank is determined by how many Battles you have. That's how you prove you're worthy to survive in this world. ]
+[ If you have a high rank, some enemies might respect you, or even invite you to their Faction. ]
 """
 
 def show_rank_info():

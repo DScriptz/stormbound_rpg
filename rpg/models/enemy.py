@@ -5,7 +5,6 @@ import time
 
 """ LIST OF ENEMIES THE PLAYER CAN ENCOUNTER/FIGHT """
 enemies = {
-
     "Wasteland Ghoul": {
         "health": 65,
         "max_health": 65,

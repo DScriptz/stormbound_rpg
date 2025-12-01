@@ -31,8 +31,6 @@ class Location:
             print(f"{Fore.GREEN}[U]{Style.RESET_ALL} - Use an Item from Inventory | "
                   f"{Fore.GREEN}[C]{Style.RESET_ALL} - Save Game")
 
-
-
             choice = input("\n>> ").strip().lower()
 
             if choice == 's':

@@ -13,7 +13,7 @@ from rpg.areas.salvage_cache_area import go_to_salvage_cache
 
 def handle_player_ambushed(player):
 
-    enemies_to_roll = ['Guard Drone', 'Wasteland Ghoul']
+    enemies_to_roll = ['Guard Drone', 'Wasteland Ghoul', 'Zero-Day Thief']
     enemy_name = random.choice(enemies_to_roll)
     enemy = spawn_enemy(enemy_name)
 

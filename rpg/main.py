@@ -39,9 +39,5 @@ def chapter_flow(player):
 
 
 
-
-
-
-
 if __name__ == "__main__":
     main()

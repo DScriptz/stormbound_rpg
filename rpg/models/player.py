@@ -75,13 +75,11 @@ class Player:
         print(f"\n{self.name} attacks {enemy.name} for {damage} damage!")
         enemy.take_damage(damage)
 
-
     def use_ability(self, enemy):
         if self.cooldown > 0:
             print(f"{self.special_ability} is on cooldown for {self.cooldown} more turn(s)!")
             time.sleep(1.5)
             return
-
 
         elif self.player_class == "Aethermancer":
             audio_manager.play_sound("aethermancer", volume=0.8)
@@ -241,19 +239,44 @@ class Player:
 
         elif self.player_class == "Scrap Brawler":
             bleed_turns = 3
-            bleed_damage_per_turn = int(self.attack * 0.3)
+            bleed_damage_per_turn = 0
 
-            print(f"{self.name} unleashes {self.special_ability}, leaving sharp scrap wounds on {enemy.name}!")
-            time.sleep(1.5)
+            if self.battles_completed >= 21:
+                bleed_damage_per_turn = int(self.attack * 0.5)
+                audio_manager.play_sound("scrap brawler", volume=0.8)
+                print(f"{self.name} unleashes {self.special_ability}, leaving sharp scrap wounds on {enemy.name}!")
+                time.sleep(1.5)
+
+
+            elif self.battles_completed >= 11:
+
+                bleed_damage_per_turn = int(self.attack * 0.5)
+                audio_manager.play_sound("scrap brawler", volume=0.8)
+                print(f"{self.name} unleashes {self.special_ability}, leaving sharp scrap wounds on {enemy.name}!")
+                time.sleep(1.5)
+
+            elif self.battles_completed >= 1:
+                bleed_damage_per_turn = int(self.attack * 0.3)
+                audio_manager.play_sound("scrap brawler", volume=0.8)
+                print(f"{self.name} unleashes {self.special_ability}, leaving sharp scrap wounds on {enemy.name}!")
+                time.sleep(1.5)
+
+
+
+            if bleed_damage_per_turn > 0:
+                if random.random() < 0.40:
+                    enemy.is_bleeding = True
+                    enemy.bleed_damage = bleed_damage_per_turn
+                    enemy.bleed_turns = bleed_turns
+
+                    audio_manager.play_sound("bleeding", volume=0.8)
+                    print(f"\n{enemy.name} is Bleeding, taking {bleed_damage_per_turn} damage for {bleed_turns} turns.")
+                    time.sleep(1.3)
+                else:
+                    print(f"\nThe scraps failed to puncture {enemy.name}!!")
+                    time.sleep(1.3)
 
             enemy.take_damage(self.attack)
-
-            enemy.is_bleeding = True
-            enemy.bleed_damage = bleed_damage_per_turn
-            enemy.bleed_turns = bleed_turns
-
-            print(f"{enemy.name} is Bleeding, taking {bleed_damage_per_turn} damage for {bleed_turns} turns.")
-            time.sleep(1.3)
 
             self.cooldown = 5
             return
