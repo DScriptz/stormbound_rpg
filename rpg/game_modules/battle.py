@@ -23,13 +23,45 @@ class Battle:
         time.sleep(1.2)
         self.enemy.take_damage(damage)
 
-    def enemy_attack(self):
-        damage = random.randint(self.enemy.attack - 3, self.enemy.attack + 2)
-        print(f"\nThe {self.enemy.name} attacks {self.player.name} for {damage} damage!")
-        time.sleep(1.1)
+    def process_enemy_attack(self):
+        """
+        Calculates enemy damage, applies dodge/weakness factors,
+        applies damage to the player, and resets the player's dodge state.
+        """
+
+        # 1. Check for Dodge State (must be the first check)
+        if self.player.dodging:
+            damage = 0
+            print(f"\n{self.enemy.name} attacks, but {self.player.name} swiftly {Fore.GREEN}DODGES{Style.RESET_ALL}!")
+
+        else:
+            # 2. Calculate Damage with Weakness
+            raw_damage = self.enemy.calculate_damage()
+
+            if self.enemy.is_weakened:
+                final_damage = int(raw_damage * (1.0 - self.enemy.weakness_factor))
+                print(f"[{self.enemy.name}]'s attack is weakened! Deals {final_damage} damage!")
+                self.enemy.is_weakened = False
+                self.enemy.weakness_factor = 0.0
+            else:
+                final_damage = raw_damage
+                audio_manager.play_sound("player hit", volume=0.8)
+                print(f"\n{self.enemy.name} attacks you for {final_damage} damage!")
+
+            damage = final_damage
+
+        # 3. Apply Damage and Reset Dodge State
         self.player.take_damage(damage)
+        time.sleep(1.3)
+
+        # 4. Reset dodge state *only* after the attack is processed
+        if self.player.dodging:
+            self.player.dodging = False
+
+        return
 
     """ MAIN BATTLE LOOP OF THE GAME """
+
 
     def fight(self, player, enemy):
         player_run = False
@@ -128,7 +160,7 @@ class Battle:
                     continue
 
                 elif action == "s":
-                    self.player.use_ability(self.enemy)
+                    player.use_ability(enemy)
                 else:
                     print("\nYou stumbled and lost your turn!")
                     time.sleep(1)
@@ -156,25 +188,7 @@ class Battle:
                         self.enemy.stunned = False
 
                     else:
-
-                        raw_damage = self.enemy.calculate_damage()
-
-                        if self.enemy.is_weakened:
-                            final_damage = int(raw_damage * (1.0 - self.enemy.weakness_factor))
-
-                            print(f"[{self.enemy.name}]'s attack is weakened! Deals {final_damage} damage!")
-
-                            self.enemy.is_weakened = False
-                            self.enemy.weakness_factor = 0.0
-
-                        else:
-                            final_damage = raw_damage
-                            audio_manager.play_sound("player hit", volume=0.8)
-                            print(f"\n{self.enemy.name} attacks you for {final_damage} damage!")
-
-                        self.player.take_damage(final_damage)
-                        time.sleep(1.3)
-
+                        self.process_enemy_attack()
 
                 """ 
                     IF PLAYER USES THIER ABILITY, 

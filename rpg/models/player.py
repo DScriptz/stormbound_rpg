@@ -138,11 +138,13 @@ class Player:
             return
 
         elif self.player_class == "Haven Scout":
+            audio_manager.play_sound("haven scout", volume=0.9)
             print(f"\nYou analyzed your enemy {enemy.name} carefully... predicting his next move...")
             time.sleep(1.5)
             self.dodging = True
 
             self.cooldown = 5
+
             return
 
         elif self.player_class == "Ironbound Sentinel":

@@ -62,6 +62,8 @@ enemies = {
 
 
 
+
+
 class Enemy:
     def __init__(self, name, health, max_health, attack, ability=None, loot=0, is_weakened=False):
         self.name = name
@@ -117,7 +119,9 @@ class Enemy:
 
 
     def enemy_attack(self, player):
-        if player.dodging:
+        is_dodging = player.dodging
+
+        if is_dodging:
             damage = 0
             print(f"\n{player.name} dodged {self.name}'s attack!")
         else:
@@ -126,8 +130,7 @@ class Enemy:
 
         player.take_damage(damage)
 
-
-        if player.dodging:
+        if is_dodging:
             player.dodging = False
 
         return
