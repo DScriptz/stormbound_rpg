@@ -43,8 +43,7 @@ data_grave = Location(
         "1": ('Run Forward (High risk but faster)', handle_data_grave_movement_forward),
         "2": ('Move to the Right (Low risk but slower, may run into dead-ends...)', handle_data_grave_movement_right),
         "3": ('Move to the Left (Low risk but slower, may run into dead-ends...)', handle_data_grave_movement_left),
-        "4": ('Run back to the Hardpoint',  run_back_to_hardpoint_from_grave),
-        "5": ('Rest +30 Health', rest)
+        "4": ('Run back to the Hardpoint',  run_back_to_hardpoint_from_grave)
     },
     False
 )

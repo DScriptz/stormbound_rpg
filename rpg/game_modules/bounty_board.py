@@ -6,14 +6,19 @@ bounty_list = {
     "A": {
         "name": "Guard Drone CPU Retrieval",
         "target_item": "Drone CPU",
-        "required": 5
-        ,"prize": 500
+        "required": 8,
+        "prize": 560,
+        "description": 'A Drone found surveying in the Data Grave. It is believed to have been placed by the corrupt'
+                       ' Citadel Watch government...'
     },
     "B": {
         "name": "Wasteland Ghoul Hunting",
         "target_item": "Ghoul Fingers",
-        "required": 3,
-        "prize": 350
+        "required": 5,
+        "prize": 400,
+        "description": 'A mysterious Ghoul found wandering around The Hardpoint, just near the border of The Data Grave.'
+                       'They are dangerous, mythical and powerful.'
+
     }
 
 }
@@ -29,7 +34,8 @@ def view_bounty_board(player):
 
     print("======================== BOUNTY LIST ========================")
     for i, bounty in bounty_list.items():
-        print(f"\n[{i}]: {bounty['name']} - Collect {bounty['required']}x '{bounty['target_item']}' for {bounty['prize']} SMK")
+        print(f"""\n[{i}]: {bounty['name']} - Collect {bounty['required']}x '{bounty['target_item']}' for {bounty['prize']} SMK.  
+[{Fore.RED + Style.BRIGHT}INFO{Style.RESET_ALL}]: {bounty['description']}""")
     print("\n[X] - Exit Menu")
     print("=============================================================")
 

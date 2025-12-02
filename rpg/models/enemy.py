@@ -48,7 +48,7 @@ enemies = {
         "max_health": 60,
         "attack": 10,
         "ability": None,
-        "prize": 60
+        "prize": 80
     },
     "Zero-Day Thief": {
         "health": 72,

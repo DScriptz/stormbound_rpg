@@ -92,14 +92,16 @@ class Player:
             return
 
         elif self.player_class == "Storm Warden":
+            stun_chance = 40
+            chance = random.randint(1, 100)
+
             audio_manager.play_sound("stormwarden", volume=0.9)
             damage = random.randint(11, 15)
             print(f"{self.name} unleashed Thunder Strike!! Dealing {damage} damage!")
             time.sleep(1.5)
             enemy.take_damage(damage)
 
-            stun_chance = 40
-            chance = random.randint(1, 100)
+
 
             if chance <= stun_chance:
                 enemy.stunned = True
@@ -114,24 +116,24 @@ class Player:
             print(f"You swing your blade 3 times, dealing multiple damage to the enemy!")
             time.sleep(1.5)
 
-            if self.rank <= "Skinner":
+            if self.battles_completed >= 11:
                 for attack in range(3):
-                    enemy.take_damage(random.randint(5,8))
+                    enemy.take_damage(random.randint(10,13))
                     sound_list = ['slash 1', 'slash 2', 'slash 3']
                     audio_manager.play_sound(sound_list[attack - 1],  volume=0.7)
 
-            elif self.rank <= "Zero-Echo":
+            elif self.battles_completed >= 0:
                 for attack in range (3):
-                    enemy.take_damage(random.randint(10,13))
+                    enemy.take_damage(random.randint(5,8))
                     sound_list = ['slash 1', 'slash 2', 'slash 3']
                     audio_manager.play_sound(sound_list[attack - 1], volume=0.7)
-            print("You sheathe your sword back...")
+            print("\nYou sheathe your sword back...")
             time.sleep(0.5)
 
-            if self.rank == "Skinner":
-                self.cooldown = 3
-            elif self.rank == "Zero-Echo":
+            if self.battles_completed >= 11:
                 self.cooldown = 5
+            elif self.battles_completed >= 0:
+                self.cooldown = 3
 
             return
 
@@ -249,19 +251,16 @@ class Player:
 
 
             elif self.battles_completed >= 11:
-
                 bleed_damage_per_turn = int(self.attack * 0.5)
                 audio_manager.play_sound("scrap brawler", volume=0.8)
                 print(f"{self.name} unleashes {self.special_ability}, leaving sharp scrap wounds on {enemy.name}!")
                 time.sleep(1.5)
 
-            elif self.battles_completed >= 1:
+            elif self.battles_completed >= 0:
                 bleed_damage_per_turn = int(self.attack * 0.3)
                 audio_manager.play_sound("scrap brawler", volume=0.8)
                 print(f"{self.name} unleashes {self.special_ability}, leaving sharp scrap wounds on {enemy.name}!")
                 time.sleep(1.5)
-
-
 
             if bleed_damage_per_turn > 0:
                 if random.random() < 0.40:

@@ -42,8 +42,6 @@ def chapter3(player):
     battle = Battle(player, enemy)
     battle.fight(player, enemy)
 
-    handle_loot(player, enemy)
-
     player.show_status()
     print("\nLoading dialogues...")
     audio_manager.music_fadeout(duration=2000)

@@ -1,5 +1,7 @@
-
+import random
 import time
+from rpg.tools.audio_manager import play_sound
+
 
 class Shop:
     def __init__(self, name, stock):
@@ -18,7 +20,7 @@ class Shop:
             print("   ==========================================================================================================================================================")
 
             print(f"\n{player.name}: 'Hmm what should I buy...'")
-            time.sleep(1)
+
 
             choice = input("\n >>  ").lower().strip()
 
@@ -28,6 +30,10 @@ class Shop:
                 if player.stormmarks >= item.price:
                     player.stormmarks -= item.price
                     player.inventory[item.name] = player.inventory.get(item.name, 0) + 1
+                    sounds = ['purchase', 'purchase 2']
+                    random_sound = random.choice(sounds)
+                    play_sound(random_sound, volume=0.7)
+
                     print(f"\nYou bought {item.name} for {item.price} SMK!")
                     time.sleep(0.6)
 

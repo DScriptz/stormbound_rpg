@@ -126,6 +126,7 @@ class Battle:
                     time.sleep(1.3)
 
                 elif action == "d":
+                    audio_manager.play_sound("block attack", volume=0.9)
                     print(f"{self.player.name} defends themselves! Reducing {self.enemy.name}'s attack!")
                     damage = random.randint(self.enemy.attack - 3, self.enemy.attack + 3) // 2
                     print(f"{self.enemy.name} attacks you for {damage} damage!")
