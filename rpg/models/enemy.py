@@ -8,7 +8,7 @@ enemies = {
     "Wasteland Ghoul": {
         "health": 65,
         "max_health": 65,
-        "attack": 13,
+        "attack": 12,
         "ability": "Quick Strike",
         "prize": "Ghoul Fingers"
     },

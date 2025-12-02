@@ -48,7 +48,7 @@ class Player:
                 
     """
     def introduce(self):
-        print("=========[ PLAYER DATA ]=========")
+        print("\n=========[ PLAYER DATA ]=========")
         print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health}/{self.max_health}  | Attack: {self.attack}")
         print(f"\nStormmarks (SMK): {self.stormmarks} | Rank: {self.rank} | Faction: '{self.faction}'")
         print("=================================\n")
@@ -100,8 +100,6 @@ class Player:
             print(f"{self.name} unleashed Thunder Strike!! Dealing {damage} damage!")
             time.sleep(1.5)
             enemy.take_damage(damage)
-
-
 
             if chance <= stun_chance:
                 enemy.stunned = True
@@ -177,7 +175,7 @@ class Player:
             self.cooldown = 6
 
         elif self.player_class == "Rivet-Eye":
-            crit_damage = self.attack * 1.5
+            crit_damage = self.attack * 1.7
 
             print(f"\nYou aimed sharply at the enemy, loading your gun with the deadliest micro-bullet known to man...")
             audio_manager.play_sound("slinger gun", volume=1)
@@ -244,7 +242,7 @@ class Player:
             bleed_damage_per_turn = 0
 
             if self.battles_completed >= 21:
-                bleed_damage_per_turn = int(self.attack * 0.5)
+                bleed_damage_per_turn = int(self.attack * 0.7)
                 audio_manager.play_sound("scrap brawler", volume=0.8)
                 print(f"{self.name} unleashes {self.special_ability}, leaving sharp scrap wounds on {enemy.name}!")
                 time.sleep(1.5)

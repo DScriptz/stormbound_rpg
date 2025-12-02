@@ -112,7 +112,7 @@ def chapter1():
         select_save_slot(player)
 
         player.introduce()
-        print("Do you want to read the Classes Info Overview?")
+        print("Do you want to read the Classes Info Overview(Y/N)?")
 
         choice = input("\n>> ").lower().strip()
 
