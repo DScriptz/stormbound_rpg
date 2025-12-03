@@ -3,7 +3,7 @@ from rpg.tools.audio_manager import play_music
 from rpg.models.location_data import Location
 from rpg.areas.data_grave_area import go_to_data_grave
 from rpg.world_movement.ironwind_outpost import go_to_ironwind_outpost
-
+from rpg.game_modules.map import show_map, show_location_details
 
 
 
@@ -24,7 +24,9 @@ the_hardpoint = Location(
     Area Signal Tower Coverage: [HIGH - No Danger] \n""",
     {
         "1": ('Explore the Data Grave', go_to_data_grave),
-        "2": ('Radio Ironwinders and go back to Ironwind Outpost', go_to_ironwind_outpost)
+        "2": ('Radio Ironwinders and go back to Ironwind Outpost', go_to_ironwind_outpost),
+        "5": ('Show Current Location Info/Directions', show_location_details),
+        "M": ('Use Map', show_map)
     },
     True
 )

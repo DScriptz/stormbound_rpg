@@ -4,13 +4,14 @@ from rpg.models.location_data import Location
 from rpg.world_movement.data_grave_movement import (
     handle_data_grave_movement_right,
     handle_data_grave_movement_forward, handle_data_grave_movement_left)
-
+from rpg.game_modules.map import show_map, show_location_details
 
 def run_back_to_hardpoint_from_grave(player):
     """Handles the transition from Data Grave back to the Hardpoint menu."""
     from .the_hardpoint_area import go_to_the_hardpoint
 
     print("\nYou scramble out of the wreckage, following the main utility line back to The Hardpoint.")
+    player.location = "The Hardpoint"
     player.location_steps = 0
     return go_to_the_hardpoint(player)
 
@@ -43,13 +44,15 @@ data_grave = Location(
         "1": ('Run Forward (High risk but faster)', handle_data_grave_movement_forward),
         "2": ('Move to the Right (Low risk but slower, may run into dead-ends...)', handle_data_grave_movement_right),
         "3": ('Move to the Left (Low risk but slower, may run into dead-ends...)', handle_data_grave_movement_left),
-        "4": ('Run back to the Hardpoint',  run_back_to_hardpoint_from_grave)
+        "4": ('Run back to the Hardpoint',  run_back_to_hardpoint_from_grave),
+        "5": ('Show Current Location Info', show_location_details),
+        "M": ('Use Map', show_map)
     },
     False
 )
 
 def go_to_data_grave(player):
-    player.location = "Data Grave"
+    player.location = "The Data Grave"
     play_music("open world", volume=0.7, loop=True)
     print("You walked forward, to the Data Grave...")
     return data_grave.enter(player)

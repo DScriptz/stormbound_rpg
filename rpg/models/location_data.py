@@ -2,6 +2,8 @@ import time
 from colorama import Fore, Style, init
 from rpg.game_modules.bounty_board import view_bounty_board, collect_bounty, leave_watch_post
 from rpg.tools.save_load_manager import select_save_slot
+from rpg.game_modules.map import show_map
+
 init(autoreset=True)
 
 
@@ -33,23 +35,30 @@ class Location:
 
             choice = input("\n>> ").strip().lower()
 
-            if choice == 's':
-                player.show_status()
-                continue
+            match choice:
 
-            if choice == 'i':
-                player.show_inventory()
-                continue
+                case 's':
+                    player.show_status()
+                    continue
 
-            if choice == "c":
-                select_save_slot(player)
-                continue
+                case'i':
+                    player.show_inventory()
+                    continue
 
-            if choice == "x":
-                break
+                case "c":
+                    select_save_slot(player)
+                    continue
 
-            if choice == "u":
-                player.use_item()
+                case "x":
+                    break
+
+                case "u":
+                    player.use_item()
+
+                case "m":
+                    show_map()
+                    continue
+
 
             if choice in self.options:
                 destination = self.options[choice][1]
