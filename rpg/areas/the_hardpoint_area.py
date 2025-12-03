@@ -9,6 +9,7 @@ from rpg.game_modules.map import show_map, show_location_details
 
 
 def go_to_the_hardpoint(player):
+    player.location = "The Hardpoint"
     play_music("the hardpoint", volume=0.7, loop=True)
     print("You walked into this somewhat abandoned, spacious open area...")
     time.sleep(1.5)
