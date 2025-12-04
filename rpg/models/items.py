@@ -3,7 +3,7 @@ import time
 """ HANDLES THE FUNCTIONALITY OF THE ITEMS PLAYERS MAY USE """
 
 class Item:
-    def __init__(self, name, price, heal=0, damage=0, description="",armor=0):
+    def __init__(self, name, price, heal=0, damage=0, armor=0, description=""):
         self.name = name
         self.price = price
         self.heal = heal

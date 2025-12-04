@@ -3,6 +3,7 @@
 import time
 from rpg.shops_stocks import rusted_rifle_stock
 from rpg.shops_stocks.healing_shop import ironwind_apothecary
+from rpg.shops_stocks.armor_shop import ironclad_annex
 from rpg.tools.shop import Shop
 from rpg.dialogues.rusty_apothecary import show_silas_dialogue
 from rpg.dialogues.rusted_rifle import show_rhys_dialogue
@@ -16,7 +17,7 @@ from rpg.tools import audio_manager
 
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
-armor_shop = Shop("The Ironclad Annex", )
+armor_shop = Shop("The Ironclad Annex", ironclad_annex)
 
 """ THIS DEFINES THE LOCATION INSTANCE """
 coil_bunks = Location(
@@ -130,8 +131,7 @@ def show_shop_choices(player):
             case "3":
                 show_gauge_dialogue()
                 time.sleep(1.7)
-
-
+                armor_shop.open_shop(player)
 
             case "c":
                 from rpg.tools.save_load_manager import select_save_slot

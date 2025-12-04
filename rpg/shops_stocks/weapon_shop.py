@@ -7,6 +7,7 @@ rusted_rifle_stock = {
         75,
         0,
         3,
+        0,
         "A crudely assembled, single-shot firearm; cheap and common."
     ),
     "2": Item(
@@ -14,6 +15,7 @@ rusted_rifle_stock = {
         120,
         0,
         5,
+        0,
         "A heavy, weighted police baton wrapped in scavenged metal."
     ),
     "3": Item(
@@ -21,6 +23,7 @@ rusted_rifle_stock = {
         175,
         0,
         7,
+        0,
         "An unstable weapon using repurposed energy cells; risky but powerful."
     ),
     "4": Item(
@@ -28,6 +31,7 @@ rusted_rifle_stock = {
         190,
         0,
         10,
+        0,
         "Sharp, reliable, and easily concealed—standard fare for ground-level skirmishes."
     ),
     "5": Item(
@@ -35,6 +39,7 @@ rusted_rifle_stock = {
         250,
         0,
         12,
+        0,
         "A classic firearm known for its stopping power and surprisingly low noise signature."
 
     )
