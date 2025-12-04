@@ -27,7 +27,7 @@ bounty_list = {
         "required": 15,
         "prize": 750,
         "description": 'The Data says that the Foremans of this enemy Faction are said to be roaming around "The Foundry". '
-                       '\nGo out there and eliminate them. We need the Intels ASAP. '
+                       '\nGo out there and eliminate them. We need the Intels ASAP.'
     }
 
 }
@@ -41,7 +41,7 @@ def view_bounty_board(player):
     print(f"\n{player.name}: 'Bounties... let's see...'")
     time.sleep(1.3)
 
-    print("======================== BOUNTY LIST ========================")
+    print("======================== --[BOUNTY LIST]-- ========================")
     for i, bounty in bounty_list.items():
         print(f"""\n[{i}]: {bounty['name']} - Collect {bounty['required']}x '{bounty['target_item']}' for {bounty['prize']} SMK.  
 [{Fore.RED + Style.BRIGHT}INFO{Style.RESET_ALL}]: {bounty['description']}""")
