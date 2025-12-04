@@ -65,11 +65,10 @@ class Battle:
 
     def fight(self, player, enemy):
         player_run = False
-        while True:
-            """ THIS ENSURES THAT IF THE GAME RESTARTS THE PLAYER AND ENEMY'S HEALTH GOES BACK TO THEIR MAX HEALTH """
-            self.player.health = self.player.max_health
-            self.enemy.health = self.enemy.max_health
 
+        self.enemy.health = enemy.max_health
+
+        while True:
             while self.player.health > 0 and self.enemy.is_alive():
                 """ PLAYER'S TURN """
 
@@ -208,6 +207,9 @@ class Battle:
                 choice = input("\nTry again? (Y/N): ").lower().strip()
 
                 if choice =="y" or choice == "yes":
+                    """ THIS ENSURES THAT IF THE GAME RESTARTS THE PLAYER AND ENEMY'S HEALTH GOES BACK TO THEIR MAX HEALTH """
+                    self.player.health = self.player.max_health
+                    self.enemy.health = self.enemy.max_health
                     continue
                 else:
                     print("Your fate leads to death...")
