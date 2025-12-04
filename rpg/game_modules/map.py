@@ -13,7 +13,7 @@ map_info = {
         "direction": "\nAccessible via: [Ironwind Outpost] > [The Hardpoint] OR [Ride from other areas] > [The Hardpoint]",
         "lore": "In this central area of Stormbound, many places can be explored. \nIt is said to be the 'center'"
                 "of the Signal Tower that encrypts the corrupted data that are being used by the 'Storm'. Making this place"
-                "somewhat very safe and undetected by the Drones."
+                " somewhat very safe and undetected by the Drones."
     },
     "The Foundry": {
         "description": "The place used to be a factory for creating metallic machineries. \nNow after The 'Storm' happened, "

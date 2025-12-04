@@ -1,5 +1,6 @@
 import time
 from colorama import Fore, init, Style
+from rpg.tools.audio_manager import play_sound
 init(autoreset=True)
 
 bounty_list = {
@@ -57,6 +58,7 @@ def view_bounty_board(player):
 
             print(f"\nCommander Thorne: 'Now, your job is **{chosen_bounty['name']}**.")
             time.sleep(1.2)
+            play_sound("bounty accepted", volume=0.9)
             print(f"**Bounty Accepted!** You must collect {chosen_bounty['required']}x {chosen_bounty['target_item']}.")
             time.sleep(1.4)
         else:
@@ -103,7 +105,7 @@ def collect_bounty(player):
         player.active_bounty = None
 
     else:
-        print(f"\nCommander Thorne: 'Argh, I said don't waste my time! You only have {current_amount} {target_item}s. Go back and finish the job!'")
+        print(f"\nCommander Thorne: 'Argh, I said don't waste my time! You only have {current_amount} {target_item}. Go back and finish the job!'")
         time.sleep(1.3)
     return True
 

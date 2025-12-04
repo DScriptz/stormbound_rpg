@@ -15,7 +15,7 @@ def handle_loot(player, enemy):
         loot_amount = random.randint(1, 2)
         player.inventory[item_name] = player.inventory.get(item_name, 0) + loot_amount
 
-        random_prize_amount = random.randint(35, 50)
+        random_prize_amount = random.randint(10, 45)
         smk = random_prize_amount
         player.stormmarks += smk
 

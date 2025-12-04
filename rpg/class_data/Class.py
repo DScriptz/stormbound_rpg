@@ -22,7 +22,7 @@ class_stats = {
         "health": 63,
         "max_health": 63,
         "attack": 13,
-        "ability": f"{Fore.YELLOW + Style.BRIGHT}Blade Flurry{Style.RESET_ALL}"
+        "ability": f"{Fore.YELLOW + Style.BRIGHT}Kinetic Burst{Style.RESET_ALL}"
     },
     "3": {
         "name": "Aethermancer",

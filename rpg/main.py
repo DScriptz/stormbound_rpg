@@ -6,6 +6,8 @@ from chapters import (chapter1, chapter2, chapter3, chapter4,
 from rpg.areas.data_grave_area import go_to_data_grave
 from rpg.areas.salvage_cache_area import go_to_salvage_cache
 from rpg.areas.the_foundry_area import go_to_the_foundry
+from rpg.areas.the_hardpoint_area import go_to_the_hardpoint
+
 
 def main():
     loaded_player = game_intro()
@@ -43,6 +45,9 @@ def chapter_flow(player):
 
         elif player.location == "Ironwind Outpost":
             return_to_ironwind_outpost(player)
+
+        elif player.location == "The Hardpoint":
+            go_to_the_hardpoint(player)
 
         else:
             open_world(player)

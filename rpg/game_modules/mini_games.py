@@ -9,6 +9,12 @@ def play_relic_dice(player):
     while True:
         player.show_status()
         bet = input("\nHow many SMK's do you want to bet? >>  ")
+
+        if bet == "x":
+            print(f"{player.name}: 'Nevermind, betting can wait later. *shrugs*.'")
+            time.sleep(0.8)
+            return False
+
         try:
             bet_amount = int(bet)
             if bet_amount <= 0:

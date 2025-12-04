@@ -1,6 +1,7 @@
 
 """ IMPORTS """
 import time
+from rpg.areas.the_hardpoint_area import go_to_the_hardpoint
 from rpg.shops_stocks import rusted_rifle_stock
 from rpg.shops_stocks.healing_shop import ironwind_apothecary
 from rpg.shops_stocks.armor_shop import ironclad_annex
@@ -14,6 +15,7 @@ from rpg.game_modules.mini_games import play_relic_dice
 from rpg.models.location_data import watch_post
 from rpg.tools.save_load_manager import select_save_slot
 from rpg.tools import audio_manager
+
 
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
@@ -35,6 +37,7 @@ def leave_ironwind_outpost(player):
         print("You walked towards the exit of Ironwind Outpost...")
         time.sleep(1.5)
         select_save_slot(player)
+        go_to_the_hardpoint(player)
     else:
         print("\nAs you walk towards the exit, you hear a footstep coming fast at you,")
         time.sleep(1.5)
@@ -93,8 +96,10 @@ def leave_ironwind_outpost(player):
         print(f"\n{player.name}: '**sighs** This used to be Manila huh...'")
         time.sleep(1.5)
 
+        player.location = "The Hardpoint"
         player.current_chapter = 5
         select_save_slot(player)
+        go_to_the_hardpoint(player)
 
 """ SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 

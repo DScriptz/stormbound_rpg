@@ -125,6 +125,7 @@ class Player:
                     enemy.take_damage(random.randint(5,8))
                     sound_list = ['slash 1', 'slash 2', 'slash 3']
                     audio_manager.play_sound(sound_list[attack - 1], volume=0.7)
+
             print("\nYou sheathe your sword back...")
             time.sleep(0.5)
 
@@ -175,7 +176,7 @@ class Player:
             self.cooldown = 6
 
         elif self.player_class == "Rivet-Eye":
-            crit_damage = self.attack * 1.7
+            crit_damage = self.attack * 1.8
 
             print(f"\nYou aimed sharply at the enemy, loading your gun with the deadliest micro-bullet known to man...")
             audio_manager.play_sound("slinger gun", volume=1)

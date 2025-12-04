@@ -4,7 +4,7 @@ import time
 from colorama import Fore, Style
 
 save_folder = "save_data"
-slot_count = 10
+slot_count = 15
 
 # This function helps old save player data to have the attributes of new updates
 

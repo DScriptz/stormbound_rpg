@@ -14,17 +14,31 @@ def run_back_to_hardpoint_from_foundry(player):
     from .the_hardpoint_area import go_to_the_hardpoint
     print("You ran as fast as you can back to the Hardpoint...")
     time.sleep(1.2)
+
     player.location_steps = 0
+
     return go_to_the_hardpoint(player)
 
 
 def go_to_the_foundry(player):
-    print("You walked on the right, towards the bustling noise of clanking metals...")
-    time.sleep(1.3)
-    print("This place is what the people called, 'The Foundry'...")
-    time.sleep(1.1)
-    player.location = "The Foundry"
-    return the_foundry.enter(player)
+
+    if player.battles_completed >= 11:
+        print("You walked on the right, towards the bustling noise of clanking metals...")
+        time.sleep(1.3)
+        print("This place is what the people called, 'The Foundry'...")
+        time.sleep(1.1)
+        player.location = "The Foundry"
+
+        return the_foundry.enter(player)
+
+    elif player.battles_completed <= 10:
+        print(f"{player.name}: 'I'm not experienced enough to wander around this area...'")
+        time.sleep(1)
+        return None
+
+    return True
+
+
 
 
 
@@ -35,7 +49,7 @@ the_foundry = Location(
     molten slag, treating everything including you as raw material. The air vibrates with the deafening, rhythmic CLANG of dormant
     hammers and steam vents.
     
-    Area Signal Tower Coverage: [{Fore.RED + Style.BRIGHT}I - HIGH Danger{reset}]
+    Area Signal Tower Coverage: [{Fore.RED + Style.BRIGHT}II - HIGH Danger{reset}]
     """,
     {
         "1": ('Run Forward (High risk but faster)', handle_movement_forward),
