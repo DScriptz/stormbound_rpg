@@ -4,14 +4,13 @@ from rpg.models.items import Item
 ironwind_apothecary = {
     "1": Item(
         "Quick-Seal Strip",
-              10,
-              10,
-              0,
-              0,
-              "A flexible adhesive infused with clotting gel. Slap it on, hope it sticks, keep running"
+          10,
+          10,
+          0,
+          0,
+          "A flexible adhesive infused with clotting gel. Slap it on, hope it sticks, keep running"
     ),
-    "2": Item
-        (
+    "2": Item(
         "Fieldcare Pack MK-II",
         20,
         20,

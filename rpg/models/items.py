@@ -33,6 +33,12 @@ class Item:
             print(f"\nYou equipped {self.name}! Increasing your total damage to {player.attack}!")
             time.sleep(0.7)
 
+        if self.armor > 0:
+            player.max_health += self.armor
+            player.health = player.max_health
+            print(f"\nYou equipped {self.name}, Increasing your Max Health to {player.max_health}!")
+            time.sleep(0.7)
+
             return True
 
         return False

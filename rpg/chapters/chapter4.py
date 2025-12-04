@@ -100,7 +100,7 @@ def leave_ironwind_outpost(player):
 
 def show_shop_choices(player):
 
-    print("You looked around and there's 2 shops waving their offers to you...")
+    print("You looked around and there are shops waving their offers to you...")
     time.sleep(1.3)
     print(f"{player.name}: 'There's a bunch of shops huh?'")
     time.sleep(1.2)
@@ -163,7 +163,7 @@ def show_directions():
 """ THIS HANDLES THE CHAPTER 4 LOOP """
 def return_to_ironwind_outpost(player):
     audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
-
+    player.location = "Ironwind Outpost"
     if player.faction == 'Ironwinders':
         print(f"\nIronwind Guard: 'Welcome back, {player.name}.'")
         time.sleep(1.2)

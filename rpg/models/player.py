@@ -350,17 +350,23 @@ class Player:
             if not item_object:
                 continue
 
-            if item_object.heal > 0 or item_object.damage > 0:
+            if item_object.heal > 0 or item_object.damage > 0 or item_object.armor > 0:
                 key = str(menu_index)
                 item_menu[key] = name
 
                 display_text = ""
                 if item_object.heal > 0:
                     display_text += f"Heals {item_object.heal} HP"
+
                 if item_object.damage > 0:
                     if display_text:
                         display_text += " | "
                     display_text += f"Buffs +{item_object.damage} Total Attack"
+
+                if item_object.armor > 0:
+                    if display_text:
+                        display_text += " | "
+                    display_text += f"Increases Max HP +{item_object.armor} Total HP"
 
                 print(f"--> {Fore.YELLOW}[{key}]{Style.RESET_ALL}: {name} ({display_text}) | x{count}")
                 menu_index += 1

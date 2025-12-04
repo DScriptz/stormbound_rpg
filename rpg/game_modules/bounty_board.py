@@ -25,8 +25,8 @@ bounty_list = {
         "target_item": "S-7 Intel Chip",
         "required": 15,
         "prize": 750,
-        "description": 'The Data says that the Formans of this enemy Faction are said to be roaming around the Foundry. '
-                       '\nGo out there and eliminate them. We need the Intels ASAP.'
+        "description": 'The Data says that the Foremans of this enemy Faction are said to be roaming around "The Foundry". '
+                       '\nGo out there and eliminate them. We need the Intels ASAP. '
     }
 
 }
