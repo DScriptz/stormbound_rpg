@@ -1,10 +1,15 @@
 import time
+from colorama import Fore, Style, init
 from rpg.tools.audio_manager import play_music
 from rpg.models.location_data import Location
 from rpg.world_movement.data_grave_movement import (
     handle_data_grave_movement_right,
     handle_data_grave_movement_forward, handle_data_grave_movement_left)
 from rpg.game_modules.map import show_map, show_location_details
+
+init(autoreset=True)
+
+reset = Style.RESET_ALL
 
 def run_back_to_hardpoint_from_grave(player):
     """Handles the transition from Data Grave back to the Hardpoint menu."""
@@ -32,14 +37,14 @@ def rest(player):
 data_grave = Location(
 
     "The Data Grave",
-    """\nThe Data Grave. A massive, sprawling landfill where every scrap has been scavenged a hundred times.
+    f"""\nThe Data Grave. A massive, sprawling landfill where every scrap has been scavenged a hundred times.
      The main danger is competition. Rival Scrapper crews patrol the perimeter and have rigged rudimentary,
      physical traps to protect their claims. The air echoes with the desperate clang of metal.
 
      You step into this area not knowing what's out there...
 
 
-    Area Signal Tower Coverage: [LOW - Medium Danger] \n""",
+    Area Signal Tower Coverage: [{Fore.LIGHTYELLOW_EX}III - MEDIUM Danger{reset}] \n""",
     {
         "1": ('Run Forward (High risk but faster)', handle_data_grave_movement_forward),
         "2": ('Move to the Right (Low risk but slower, may run into dead-ends...)', handle_data_grave_movement_right),

@@ -3,13 +3,20 @@ import time
 map_info = {
     "The Data Grave": {
         "description": "The skeletal remains of a massive tech corporation. High risk of automated sentinels. The air is thick with ionized static.",
+        "direction": "Accessible through: [The Hardpoint] > [The Data Grave]",
         "lore": "Many people have died here, their data ghosts trapped in the ruins. "
                 "Some believe that if you walk/run 20 steps in all"
                 "directions, you'll see a hidden power vault.",
     },
     "The Hardpoint": {
         "description": "The central hub of the resistance. Always safe.",
+        "direction": "Accessible through: [Ironwind Outpost] > [The Hardpoint] OR [Ride from other areas] > [The Hardpoint]",
         "lore": "In this central area of Stormbound, many places can be explored.",
+    },
+    "The Foundry": {
+        "description": "",
+        "direction": "",
+        "lore": "",
     }
 }
 
@@ -20,7 +27,7 @@ def show_map():
     time.sleep(0.7)
     print(f"\nKnown locations around Stormbound:")
     for location_name, data in map_info.items():
-        print(f'-> {location_name}: {data["description"]}')
+        print(f'\n-> {location_name}: {data["description"]}\n {data["direction"]}')
     print("-" * 20)
     input("\nPress [Enter] to continue: ")
     return

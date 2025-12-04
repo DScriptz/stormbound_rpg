@@ -360,7 +360,7 @@ class Player:
                 if item_object.damage > 0:
                     if display_text:
                         display_text += " | "
-                    display_text += f"Buffs +{item_object.damage} Total ATK"
+                    display_text += f"Buffs +{item_object.damage} Total Attack"
 
                 print(f"--> {Fore.YELLOW}[{key}]{Style.RESET_ALL}: {name} ({display_text}) | x{count}")
                 menu_index += 1

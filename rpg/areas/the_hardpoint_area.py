@@ -1,11 +1,14 @@
 import time
+from colorama import Style, Fore, init
 from rpg.tools.audio_manager import play_music
 from rpg.models.location_data import Location
 from rpg.areas.data_grave_area import go_to_data_grave
 from rpg.world_movement.ironwind_outpost import go_to_ironwind_outpost
 from rpg.game_modules.map import show_map, show_location_details
 
+init(autoreset=True)
 
+reset = Style.RESET_ALL
 
 
 def go_to_the_hardpoint(player):
@@ -18,11 +21,11 @@ def go_to_the_hardpoint(player):
 
 the_hardpoint = Location(
     "The Hardpoint",
-    """\nThe Hardpoint, covered by the 'Signal Towers'. Not a single place, but a chaotic zone. Roads are buried under dead machinery,
+    f"""\nThe Hardpoint, covered by the 'Signal Towers'. Not a single place, but a chaotic zone. Roads are buried under dead machinery,
     and desperate life clings to skeletal skyscrapers. It's a loud, sprawling city of the desperate, 
-    defined by the distant rumble of the Dead Zone. The best loot is here, and so is the worst danger.
+    defined by the distant rumble of the Dead Zone. Other areas can be accessed through here
 
-    Area Signal Tower Coverage: [HIGH - No Danger] \n""",
+    Area Signal Tower Coverage: [{Fore.GREEN}IIIII - SAFE{reset}] \n""",
     {
         "1": ('Explore the Data Grave', go_to_data_grave),
         "2": ('Radio Ironwinders and go back to Ironwind Outpost', go_to_ironwind_outpost),
