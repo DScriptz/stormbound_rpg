@@ -52,22 +52,22 @@ item_database = {
             0,
             7,
             "An unstable weapon using repurposed energy cells; risky but powerful."
-        ),
-        "Makeshift Combat Knife": Item(
-            "Makeshift Combat Knife",
-            93,
-            0,
-            10,
-            "Sharp, reliable, and easily concealed—standard fare for ground-level skirmishes."
-        ),
-        "The 'Silent-Six' Revolver": Item(
-            "The 'Silent-Six' Revolver",
-            105,
-            0,
-            12,
-            "A classic firearm known for its stopping power and surprisingly low noise signature."
+    ),
+    "Makeshift Combat Knife": Item(
+        "Makeshift Combat Knife",
+        93,
+        0,
+        10,
+        "Sharp, reliable, and easily concealed—standard fare for ground-level skirmishes."
+    ),
+    "The 'Silent-Six' Revolver": Item(
+        "The 'Silent-Six' Revolver",
+        105,
+        0,
+        12,
+        "A classic firearm known for its stopping power and surprisingly low noise signature."
 
-        )
+    )
 
     
 }

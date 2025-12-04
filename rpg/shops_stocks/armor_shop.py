@@ -5,6 +5,8 @@ ironclad_annex = {
     "1": Item(
         "D-Grade Weld Patch",
         60,
-
+        0,
+        0,
+        "test"
     )
 }

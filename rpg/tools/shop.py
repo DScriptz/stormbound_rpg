@@ -15,7 +15,7 @@ class Shop:
             player.show_status()
             print()
             for key, item in self.stock.items():
-                print(f"    [{key}] {item.name} - Price: {item.price} SMK | Heal: {item.heal} | Damage: +{item.damage} | {item.description}")
+                print(f"    [{key}] {item.name} - Price: {item.price} SMK | Heal: {item.heal} | Damage: +{item.damage} | HP Increase (Armor): {item.armor} | {item.description}")
             print("    [X] - Exit menu")
             print("   ==========================================================================================================================================================")
 
@@ -33,7 +33,19 @@ class Shop:
                     sounds = ['purchase', 'purchase 2']
                     random_sound = random.choice(sounds)
                     play_sound(random_sound, volume=0.7)
+                    print(f"\nYou bought {item.name} for {item.price} SMK!")
+                    time.sleep(0.6)
 
+                if player.stormmarks >= item.price:
+                    player.stormmarks -= item.price
+                    player.max_health += item.armor
+                    player.health = player.max_health
+                    print(f"Your HP increased to {player.max_health} HP!")
+                    time.sleep(0.5)
+
+                    sounds = ['purchase', 'purchase 2']
+                    random_sound = random.choice(sounds)
+                    play_sound(random_sound, volume=0.7)
                     print(f"\nYou bought {item.name} for {item.price} SMK!")
                     time.sleep(0.6)
 
