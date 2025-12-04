@@ -104,13 +104,17 @@ def leave_ironwind_outpost(player):
 """ SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 
 def show_shop_choices(player):
+    if player.current_chapter >= 5:
+        print("You looked around and there are shops waving their offers to you...")
+        time.sleep(1)
 
-    print("You looked around and there are shops waving their offers to you...")
-    time.sleep(1.3)
-    print(f"{player.name}: 'There's a bunch of shops huh?'")
-    time.sleep(1.2)
+    else:
+        print("You looked around and there are shops waving their offers to you...")
+        time.sleep(1.2)
+        print(f"{player.name}: 'There's a bunch of shops huh?'")
+        time.sleep(1.2)
+
     while True:
-
         print("\n[1] - 'Rusty Apothecary': Meds & Safety")
         print("[2] - 'The Rusted Rifle': Weapon & Melee Needs")
         print("[3] - 'The Ironclad Annex': Armor Upgrade (Total Health/HP Increase) Facility")
@@ -170,8 +174,8 @@ def return_to_ironwind_outpost(player):
     audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
     player.location = "Ironwind Outpost"
     if player.faction == 'Ironwinders':
-        print(f"\nIronwind Guard: 'Welcome back, {player.name}.'")
-        time.sleep(1.2)
+        print(f"\nIronwind Guard: 'Welcome back, Ironwinder {player.name}.'")
+        time.sleep(1.1)
         print("\n---------------- [Nexus Point] ------------------")
 
     elif player.current_chapter <= 4:
@@ -198,11 +202,13 @@ def return_to_ironwind_outpost(player):
         case _:
             print("You skipped the dialogue!")
             time.sleep(0.3)
+    if player.current_chapter >= 5:
+        print("You are now in The Nexus Point (center)")
+        time.sleep(0.6)
+    else:
+        print(f"\n{player.name}: 'This is plenty... where should I go?'")
+        time.sleep(1)
 
-    print(f"\n{player.name}: 'This is plenty... where should I go?'")
-    time.sleep(1.2)
-    print("You are now in The Nexus Point (center)")
-    time.sleep(1.1)
 
     while True:
         player.show_status()
