@@ -7,9 +7,9 @@ bounty_list = {
         "name": "Guard Drone CPU Retrieval",
         "target_item": "Drone CPU",
         "required": 8,
-        "prize": 560,
-        "description": 'A Drone found surveying in the Data Grave. It is believed to have been placed by the corrupt'
-                       ' Citadel Watch government...'
+        "prize": 550,
+        "description": 'A Drone found surveying in the Data Grave. \nIt is believed to have been placed by the corrupt'
+                       ' Citadel Watch government. Banish all injustice from this forsaken world'
     },
     "B": {
         "name": "Wasteland Ghoul Hunting",
@@ -17,8 +17,16 @@ bounty_list = {
         "required": 5,
         "prize": 400,
         "description": 'A mysterious Ghoul found wandering around The Hardpoint, just near the border of The Data Grave.'
-                       'They are dangerous, mythical and powerful.'
+                       'They are dangerous, mythical and powerful. Watch your back and keep your guard up.'
 
+    },
+    "C": {
+        "name": "The Foreman's Echo",
+        "target_item": "S-7 Intel Chip",
+        "required": 15,
+        "prize": 750,
+        "description": 'The Data says that the Formans of this enemy Faction are said to be roaming around the Foundry. '
+                       '\nGo out there and eliminate them. We need the Intels ASAP.'
     }
 
 }

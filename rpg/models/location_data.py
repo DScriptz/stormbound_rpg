@@ -59,7 +59,6 @@ class Location:
                     show_map()
                     continue
 
-
             if choice in self.options:
                 destination = self.options[choice][1]
 

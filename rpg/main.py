@@ -5,6 +5,7 @@ from chapters import (chapter1, chapter2, chapter3, chapter4,
                       open_world)
 from rpg.areas.data_grave_area import go_to_data_grave
 from rpg.areas.salvage_cache_area import go_to_salvage_cache
+from rpg.areas.the_foundry_area import go_to_the_foundry
 
 def main():
     loaded_player = game_intro()
@@ -36,6 +37,9 @@ def chapter_flow(player):
 
         elif player.location == "Salvage Cache":
             go_to_salvage_cache(player)
+
+        elif player.location == "The Foundry":
+            go_to_the_foundry(player)
 
         else:
             open_world(player)

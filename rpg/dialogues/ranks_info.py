@@ -32,8 +32,10 @@ ranks = """
 |         |                      | system, and the definitive survivor of the Data Grave.         |
 ---------------------------------------------------------------------------------------------------
 
-[ Your rank is determined by how many Battles you have. That's how you prove you're worthy to survive in this world. ]
+[ Your rank is determined by how many Battles you won. That's how you prove you're worthy to survive in this world. ]
 [ If you have a high rank, some enemies might respect you, or even invite you to their Faction. ]
+[ And also some shops might give you discount on higher ranks. ]
+
 """
 
 def show_rank_info():

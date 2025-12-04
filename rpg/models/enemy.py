@@ -1,4 +1,3 @@
-
 import random
 import time
 
@@ -56,13 +55,31 @@ enemies = {
         "attack": 12,
         "ability": None,
         "prize": 65
+    },
+    "Slag-Eel": {
+        "health": 60,
+        "max_health": 60,
+        "attack": 16,
+        "ability": "Swarm",
+        "prize": 80
+    },
+    "Heat-Tempered Sentinel": {
+        "health": 95,
+        "max_health": 95,
+        "attack": 12,
+        "ability": "Disuptor",
+        "prize": "Lazer-Infused Blade"
+    },
+    "The Foreman's Echo": {
+        "health": 90,
+        "max_health": 90,
+        "attack": 11,
+        "ability": None,
+        "prize": "S-7 Intel Chip"
     }
 }
 
-
-
-
-
+# enemy Object
 class Enemy:
     def __init__(self, name, health, max_health, attack, ability=None, loot=0, is_weakened=False):
         self.name = name
@@ -148,6 +165,7 @@ class Enemy:
             
 """
 
+# creates stats of the enemy then spawns them in for the player to battle
 def spawn_enemy(name):
     stats = enemies[name]
     return Enemy(
