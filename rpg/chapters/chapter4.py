@@ -2,10 +2,11 @@
 """ IMPORTS """
 import time
 from rpg.shops_stocks import rusted_rifle_stock
-from rpg.tools.shop import Shop
 from rpg.shops_stocks.healing_shop import ironwind_apothecary
+from rpg.tools.shop import Shop
 from rpg.dialogues.rusty_apothecary import show_silas_dialogue
 from rpg.dialogues.rusted_rifle import show_rhys_dialogue
+from rpg.dialogues.ironclad_annex import show_gauge_dialogue
 from rpg.models import Location
 from rpg.game_modules.bunks import rent_room, leave_bunk
 from rpg.game_modules.mini_games import play_relic_dice
@@ -15,7 +16,7 @@ from rpg.tools import audio_manager
 
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
-
+armor_shop = Shop("The Ironclad Annex", )
 
 """ THIS DEFINES THE LOCATION INSTANCE """
 coil_bunks = Location(
@@ -104,9 +105,11 @@ def show_shop_choices(player):
     time.sleep(1.2)
     while True:
 
-        print("\n[1] - Rusty Apothecary: Meds & Safety")
-        print(f"[2] - The Rusted Rifle: Weapon & Ammo Needs")
+        print("\n[1] - 'Rusty Apothecary': Meds & Safety")
+        print("[2] - 'The Rusted Rifle': Weapon & Melee Needs")
+        print("[3] - 'The Ironclad Annex': Armor Upgrade (Total Health/HP Increase) Facility")
         print("[I] - Open Inventory")
+        print("[U] - Use Item from Inventory")
         print("[C] - Save Game")
         print(f"[X] - Go back to the Nexus Point")
 
@@ -124,9 +127,18 @@ def show_shop_choices(player):
                 time.sleep(1.7)
                 weapon_shop.open_shop(player)
 
+            case "3":
+                show_gauge_dialogue()
+                time.sleep(1.7)
+
+
+
             case "c":
                 from rpg.tools.save_load_manager import select_save_slot
                 select_save_slot(player)
+
+            case "u":
+                player.use_item()
 
             case "i":
                 player.show_inventory()

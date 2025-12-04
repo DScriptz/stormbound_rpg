@@ -3,7 +3,7 @@ import time
 from rpg.tools.audio_manager import play_music, music_fadeout, music_stop, play_sound
 from rpg.game_modules import Battle
 from rpg.models.enemy import spawn_enemy
-
+from rpg.dialogues.the_foundry_walk import show_forward_dialogue, show_right_dialogue, show_left_dialogue
 
 def handle_player_ambushed(player):
 
@@ -14,7 +14,7 @@ def handle_player_ambushed(player):
 
     music_choices = ['battle music 5', 'battle music 6']
     music = random.choice(music_choices)
-    play_music(music, volume=0.6, loop=True)
+    play_music(music, volume=0.5, loop=True)
 
     print(f"As you wander around, the {enemy.name} suddenly ambushes you!!!")
     time.sleep(1.3)
@@ -29,13 +29,13 @@ def handle_player_ambushed(player):
 
 
 def handle_movement_forward(player):
-    if random.random() < 0.50:
+    if random.random() < 0.60:
         handle_player_ambushed(player)
     else:
 
         player.location_steps += 2
         play_sound("footstep", volume=0.8)
-
+        show_forward_dialogue()
         print(f"\nYou ran for {player.location_steps} step(s) now.")
         time.sleep(1.3)
 
@@ -53,7 +53,7 @@ def handle_movement_right(player):
     if random.random() < 0.65:
         player.location_steps += 1
         play_sound("footstep", volume=0.8)
-
+        show_right_dialogue()
         print(f"\nYou walked for {player.location_steps} step(s) now.")
         time.sleep(1.3)
 
@@ -86,7 +86,7 @@ def handle_movement_left(player):
     if random.random() < 0.65:
         player.location_steps += 1
         play_sound("footstep", volume=0.8)
-
+        show_left_dialogue()
         print(f"\nYou walked for {player.location_steps} step(s) now.")
         time.sleep(1.3)
 

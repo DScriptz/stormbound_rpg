@@ -31,7 +31,7 @@ the_hardpoint = Location(
     {
         "1": ('Explore The Data Grave (Recommended Rank: "Green Tag or Higher >>")', go_to_data_grave),
         "2": ('Radio Ironwinders and go back to Ironwind Outpost', go_to_ironwind_outpost),
-        "3": ('Explore The Foundry (Recommended Rank: "Drone Hunter or Higher >>")', go_to_the_foundry),
+        "3": ('Explore The Foundry (Recommended Rank: "Drone Hunter or Higher >>" And equipments upgraded.)', go_to_the_foundry),
         "5": ('Show Current Location Info/Directions', show_location_details),
         "M": ('Use Map', show_map)
     },
