@@ -1,10 +1,13 @@
 import time
+import random
 from colorama import Fore, Style, init
 from rpg.game_modules.bounty_board import view_bounty_board, collect_bounty, leave_watch_post
+
 from rpg.tools.save_load_manager import select_save_slot
 from rpg.game_modules.map import show_map
 
 init(autoreset=True)
+
 
 
 class Location:

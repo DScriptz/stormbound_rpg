@@ -1,10 +1,11 @@
 import time
+import random
 from colorama import Fore, Style, init
 from rpg.tools.audio_manager import play_music
 from rpg.models.location_data import Location
 from rpg.world_movement.data_grave_movement import (
     handle_data_grave_movement_right,
-    handle_data_grave_movement_forward, handle_data_grave_movement_left)
+    handle_data_grave_movement_forward, handle_data_grave_movement_left, handle_player_ambushed)
 from rpg.game_modules.map import show_map, show_location_details
 
 init(autoreset=True)
@@ -22,16 +23,29 @@ def run_back_to_hardpoint_from_grave(player):
 
 
 def rest(player):
-    print("You found a place to rest for a while...")
-    time.sleep(1.2)
+    rest_heal = 0
+    if random.random() < 0.30:
+        print("While finding a place to rest, an enemy ambushed you!!")
+        handle_player_ambushed(player)
 
-    if player.health >= player.max_health:
-        player.health = player.max_health
+        return player
     else:
-        player.health += 30
+        print("You found a place to rest for a while...")
+        time.sleep(1.2)
 
-    print("You rested well and gained back +30 HP")
-    time.sleep(0.6)
+        if player.health >= player.max_health:
+            print("You rest well, but you're already at full health!")
+            player.health = player.max_health
+        else:
+            rest_heal = random.randint(30, 35)
+            player.health += rest_heal
+            if player.health >= player.max_health:
+                player.health = player.max_health
+
+        print(f"You rested well and gained back +{rest_heal} HP")
+        time.sleep(0.6)
+
+        return player
 
 
 data_grave = Location(
@@ -51,6 +65,7 @@ data_grave = Location(
         "3": ('Move to the Left (Low risk but slower, may run into dead-ends...)', handle_data_grave_movement_left),
         "4": ('Run back to the Hardpoint',  run_back_to_hardpoint_from_grave),
         "5": ('Show Current Location Info', show_location_details),
+        "6": ('Find a place to rest', rest),
         "M": ('Use Map', show_map)
     },
     False
