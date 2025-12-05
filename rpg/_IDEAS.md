@@ -29,8 +29,8 @@
 -   [x] Make an Open-World where the player can explore.
 -   [ ] Make a feature where the player can recruit people to make a function.
 -   [x] Give the player a 'map' for when they're in the open world.
--   [ ] Add a new area named "The Foundry".
--   [ ] Add a Roleplaying Effect where at the start the player chooses which weapon they choose (depends on their class).
+-   [x] Add a new area named "The Foundry".
+-   [x] Add a Roleplaying Effect where at the start the player chooses which weapon they choose (depends on their class).
 
 ### 4. More Classes
 -   [x] Unique types of classes.
@@ -43,6 +43,13 @@
 
 ### 6. Better Inventory Handling
 -   [ ] A feature where players can see the bounty they're currently doing.
+-   [x] Add a new feauture where player's can use an Item from their inventory
+### 7. Roleplaying & Immersion Features (New Section!)
+-   [x] Worn Weapon Wield: Implement player choice for primary tool name (RP-only).
+-   [ ] The Scavenger's Ledger: Implement a single player.scavenger_standing integer attribute to track player reputation, affecting NPC dialogue.
+-   [ ] The Wanderer's Burden: Add three player attributes (player.worn_item_1, 2, 3) for visible, non-weapon gear, chosen during character creation.
+-   [ ] The Personal Doctrine: Implement a player.doctrine string attribute (e.g., 'The Cynic', 'The Altruist') that gates special dialogue options in conversations.
+
 
 ## **Chapter 5: The Ruins of Old Haven**
 -   [ ] Start writing the lore/story of how the current Stormbound Haven gets destroyed/raided.
