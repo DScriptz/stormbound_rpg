@@ -2,7 +2,7 @@ import os
 import pygame
 import time
 
-AUDIO_DIR = "sounds"
+audio_file = "sounds"
 
 
 """ SOUND HELPERS WHEN PLAYING SOUNDS OR MUSIC """
@@ -19,7 +19,7 @@ def initialize_audio():
 
 def play_sound(sound_name, volume=0.6):
     try:
-        sound_path = os.path.join(AUDIO_DIR, f"{sound_name}.ogg")
+        sound_path = os.path.join(audio_file, f"{sound_name}.ogg")
         sound = pygame.mixer.Sound(sound_path)
         sound.set_volume(volume)
         sound.play()
@@ -31,7 +31,7 @@ def play_sound(sound_name, volume=0.6):
 
 def play_music(music_name, volume=0.5, loop=True):
     try:
-        music_path = os.path.join(AUDIO_DIR, f"{music_name}.ogg")
+        music_path = os.path.join(audio_file, f"{music_name}.ogg")
 
         if not os.path.exists(music_path):
             raise FileNotFoundError(f"File not found at: {music_path}")

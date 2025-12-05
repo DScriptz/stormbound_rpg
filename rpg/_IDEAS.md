@@ -17,6 +17,7 @@
 -   [x] **Add a healing mechanic** where the player can use the healing items they may have bought or picked up.
 -   [ ] **Add a mechanic** where the enemy for a 45% chance of using their special ability if not in cooldown.
 -   [ ] **New Enemy:** Design and create a new enemy with this stat: (Health: 80, Attack: 15, Special Ability: Still thinkin...).
+-   [ ] **Class Revamp** Revise the IronBound Sentinel's special Ability to 'Final Stand' where if their health reaches about 0.30% their damage increases.
 
 ### 2. UI/UX Improvements
 -   [ ] **Better Status Bar:** Use Colorama to make the health bar red and name blue for better readability.
