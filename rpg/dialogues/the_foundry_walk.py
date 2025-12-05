@@ -74,7 +74,7 @@ walk_left_lines = [
     "You pass beneath a network of thick, interlocking pipes that look ready to burst from internal pressure.",
     "You peer over a low barricade and see nothing but a slow river of polluted water running beneath the factory.",
     "The dense, particulate air makes your eyes sting; you blink rapidly to clear your vision.",
-    "You check your weapon's charge status; the low light makes every precaution feel necessary.",
+    "You check your weapon's status; the low light makes every precaution feel necessary.",
     "You move around a partially melted piece of machinery, the plastic shell still soft and tacky to the touch."
 ]
 
