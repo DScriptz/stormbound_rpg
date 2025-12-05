@@ -13,7 +13,9 @@ init(autoreset=True)
 class_stats = {
     "1": {
         "name": "Storm Warden",
-        "health": 75, "max_health": 75,
+        "health": 75,
+        "max_health": 75,
+        "weapon": "Lightning Hammer",
         "attack": 11,
         "ability": f"{Fore.LIGHTBLUE_EX + Style.BRIGHT}Thunder Strike{Style.RESET_ALL}"
     },
@@ -21,6 +23,7 @@ class_stats = {
         "name": "Flash Tracer",
         "health": 63,
         "max_health": 63,
+        "weapon": "Scrap Katana",
         "attack": 13,
         "ability": f"{Fore.YELLOW + Style.BRIGHT}Kinetic Burst{Style.RESET_ALL}"
     },
@@ -28,6 +31,7 @@ class_stats = {
         "name": "Aethermancer",
         "health": 70,
         "max_health": 70,
+        "weapon": "Simple Spell Book",
         "attack": 12,
         "ability": f"{Fore.MAGENTA + Style.BRIGHT}Divine Blast{Style.RESET_ALL}"
     },
@@ -35,6 +39,7 @@ class_stats = {
         "name": "Haven Scout",
         "health": 60,
         "max_health": 60,
+        "weapon": "Broken Dagger",
         "attack": 15,
         "ability": f"{Fore.LIGHTBLACK_EX + Style.BRIGHT}Needle Threader{Style.RESET_ALL}"
     },
@@ -42,6 +47,7 @@ class_stats = {
         "name": "Ironbound Sentinel",
         "health": 85,
         "max_health": 85,
+        "weapon": "Worn-Out Scrap Sword & Wooden Shield",
         "attack": 9,
         "ability": f"{Style.BRIGHT}Iron Guard{Style.RESET_ALL}"
     },
@@ -50,6 +56,7 @@ class_stats = {
         "name": "Zero-Pulser",
         "health": 78,
         "max_health": 78,
+        "weapon": "Kinetic Staff",
         "attack": 10,
         "ability": f"{Fore.CYAN + Style.BRIGHT}Static Field{Style.RESET_ALL}"
     },
@@ -58,6 +65,7 @@ class_stats = {
         "name": "Rivet-Eye",
         "health": 65,
         "max_health": 65,
+        "weapon": ".50 Deagle",
         "attack": 14,
         "ability": f"{Fore.YELLOW + Style.BRIGHT}Final Caliber{Style.RESET_ALL}"
     },
@@ -65,6 +73,7 @@ class_stats = {
         "name": "Data Cultist",
         "health": 68,
         "max_health": 68,
+        "weapon": "Data Shard",
         "attack": 10,
         "ability": f"{Fore.LIGHTGREEN_EX + Style.BRIGHT}Storm's Favor{Style.RESET_ALL}"
     },
@@ -72,6 +81,7 @@ class_stats = {
         "name": "Echo Runner",
         "health": 62,
         "max_health": 62,
+        "weapon": "Lightning Fist",
         "attack": 12,
         "ability": f"{Fore.WHITE + Style.BRIGHT}Dead Bolt{Style.RESET_ALL}"
     },
@@ -79,6 +89,7 @@ class_stats = {
         "name": "Scrap Brawler",
         "health": 73,
         "max_health": 73,
+        "weapon": "Glass Shards",
         "attack": 11,
 
         "ability": f"{Fore.LIGHTRED_EX + Style.DIM}Scrap Shrapnel{Style.RESET_ALL}"
@@ -87,6 +98,7 @@ class_stats = {
         "name": "dev",
         "health": 837,
         "max_health": 837,
+        "weapon": "Shadow Technique: DropDead",
         "attack": 999,
         "ability": f"{Style.DIM + Fore.RED}Domain Expansion: Barangay Tanod{Style.RESET_ALL}"
     }

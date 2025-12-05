@@ -65,7 +65,8 @@ def chapter1():
             class_name,
             stats['health'],
             stats['max_health'],
-            stats['attack']
+            stats['attack'],
+            stats['weapon']
         )
 
         player.special_ability = stats.get('ability', 'None')
@@ -99,7 +100,8 @@ def chapter1():
             default_stats['name'],
             default_stats['health'],
             default_stats['max_health'],
-            default_stats['attack']
+            default_stats['attack'],
+            default_stats['weapon']
         )
 
         player.special_ability = default_stats.get('ability', 'None')

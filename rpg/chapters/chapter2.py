@@ -6,7 +6,7 @@ from rpg.tools import audio_manager
 from rpg.models.enemy import spawn_enemy
 from rpg.game_modules import Battle
 from rpg.tools.save_load_manager import select_save_slot
-from rpg.game_modules.loot_handler import handle_loot
+from rpg.game_modules.weapon_choose import main
 from colorama import Style, Fore
 
 audio_manager.initialize_audio()
@@ -15,11 +15,12 @@ audio_manager.initialize_audio()
 
 def intro(player):
 
+    print("---------------------- Chapter 2: The Encounter... ----------------------")
+    time.sleep(0.8)
+    main(player)
     skip_choice = input("\nDo you want to skip the dialogue? (Y/N): ").lower().strip()
     match skip_choice:
         case "n":
-            print("---------------------- Chapter 2: The Encounter... ----------------------")
-            time.sleep(0.8)
             print(f"\n{player.name}: *prepares their bag* 'Hmm, this should be good.'")
             time.sleep(1.5)
             print("You walked out, the door creaks as you open, and you step out into this seemingly vast, broken world...")

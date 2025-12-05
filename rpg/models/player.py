@@ -15,12 +15,13 @@ init(autoreset=True)
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, location=None, battles_completed=0, rank="Scrap Initiate"):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, weapon="Barefist", location=None, battles_completed=0, rank="Scrap Initiate"):
         self.name = player_name
         self.player_class = player_class
         self.health = health
         self.max_health = max_health
         self.attack = attack
+        self.weapon = weapon
         self.cooldown = 0
         self.rank = rank
         self.inventory = {
@@ -49,7 +50,7 @@ class Player:
     """
     def introduce(self):
         print("\n=========[ PLAYER DATA ]=========")
-        print(f"\n{self.name}, the {self.player_class.title()} | Health: {self.health}/{self.max_health}  | Attack: {self.attack}")
+        print(f"\n{self.name}, the {self.player_class.title()} | Weapon: {self.weapon} | Health: {self.health}/{self.max_health} | Attack: {self.attack}")
         print(f"\nStormmarks (SMK): {self.stormmarks} | Rank: {self.rank} | Faction: '{self.faction}'")
         print("=================================\n")
         self.show_inventory()
@@ -329,7 +330,7 @@ class Player:
 
     def show_status(self):
         print(f"\n --[ {self.name}: >{Style.BRIGHT + self.player_class.title() + Style.RESET_ALL}< |  Rank: {self.rank} |  SMK: {self.stormmarks} | "
-              f" Health: {self.health}/{self.max_health} |  Attack: {self.attack} |  Faction: {self.faction}"
+              f" Health: {self.health}/{self.max_health} |  Attack: {self.attack} | Weapon: {self.weapon} | Faction: {self.faction}"
               f"  |  Current Chapter: {self.current_chapter} | Battles: {self.battles_completed} | "
               f"Current Location: {self.location} ]--")
 
