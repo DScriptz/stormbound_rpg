@@ -29,6 +29,7 @@
 -   [ ] Make a feature where the player can recruit people to make a function.
 -   [x] Give the player a 'map' for when they're in the open world.
 -   [ ] Add a new area named "The Foundry".
+-   [ ] Add a Roleplaying Effect where at the start the player chooses which weapon they choose (depends on their class).
 
 ### 4. More Classes
 -   [x] Unique types of classes.
