@@ -1,0 +1,23 @@
+# Byte-compiled files
+*.pyc
+__pycache__/
+
+# Python environment directories
+.venv/
+venv/
+env/
+# Database files, if applicable (e.g., SQLite)
+*.db
+*.sqlite3
+
+# --- PyCharm & IDE Files ---
+# PyCharm project files (local configuration)
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# --- OS-specific files ---
+# Thumbnails and hidden files on Windows/macOS
+Thumbs.db
+.DS_Store
