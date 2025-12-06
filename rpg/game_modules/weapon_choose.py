@@ -48,13 +48,16 @@ def choose_weapon(player):
     print("\nThese are ideas of weapons you might want to wield if you can't think of any!")
     time.sleep(0.5)
     weapon_choices(player)
+
     weapon = input("\n>> ").strip()
-    if weapon == "":
+
+    if not weapon:
         print(f"{player.name}: 'I don't like any of these, I'll just fight with my {player.weapon}.'")
         time.sleep(0.7)
+
     else:
         player.weapon = weapon
-        print(f"{player.name} Alright! I'm now wielding a {player.weapon}. This will do me good.")
+        print(f"{player.name}: 'Alright! I'm now wielding a {player.weapon}. This will do me good.'")
         time.sleep(0.6)
 
     return player
