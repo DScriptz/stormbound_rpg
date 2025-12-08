@@ -7,6 +7,7 @@ from rpg.world_movement.data_grave_movement import (
     handle_data_grave_movement_right,
     handle_data_grave_movement_forward, handle_data_grave_movement_left, handle_player_ambushed)
 from rpg.game_modules.map import show_map, show_location_details
+from rpg.game_modules.pause_menu import show_menu
 
 init(autoreset=True)
 
@@ -66,6 +67,7 @@ data_grave = Location(
         "4": ('Run back to the Hardpoint',  run_back_to_hardpoint_from_grave),
         "5": ('Show Current Location Info', show_location_details),
         "6": ('Find a place to rest', rest),
+        "0": ('Pause Game', show_menu),
         "M": ('Use Map', show_map)
     },
     False

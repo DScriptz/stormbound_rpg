@@ -6,7 +6,7 @@ from rpg.areas.data_grave_area import go_to_data_grave
 from rpg.areas.the_foundry_area import go_to_the_foundry
 from rpg.world_movement.ironwind_outpost import go_to_ironwind_outpost
 from rpg.game_modules.map import show_map, show_location_details
-
+from rpg.game_modules.pause_menu import show_menu
 
 init(autoreset=True)
 
@@ -33,6 +33,7 @@ the_hardpoint = Location(
         "2": ('Radio Ironwinders and go back to Ironwind Outpost', go_to_ironwind_outpost),
         "3": ('Explore The Foundry (Recommended Rank: "Drone Hunter [11 Battles] or Higher >>" & equipments upgraded.)', go_to_the_foundry),
         "5": ('Show Current Location Info/Directions', show_location_details),
+        "0": ('Pause Game', show_menu),
         "M": ('Use Map', show_map)
     },
     True
