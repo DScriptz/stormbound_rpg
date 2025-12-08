@@ -2,6 +2,7 @@ import time
 from colorama import Fore, Style, init
 from rpg.game_modules.bounty_board import view_bounty_board, collect_bounty, leave_watch_post
 from rpg.game_modules.map import show_map
+from rpg.dialogues.game_tips import show_tips
 
 init(autoreset=True)
 
@@ -21,6 +22,7 @@ class Location:
 
         while True:
             print(f"\n====== [{self.name}] ======")
+            show_tips()
 
             for key, (label, func) in self.options.items():
                 print(f"{Fore.LIGHTYELLOW_EX}[{key}]{Style.RESET_ALL} - {label}")
