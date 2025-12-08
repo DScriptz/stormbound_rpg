@@ -8,7 +8,7 @@ def play_relic_dice(player):
     roll = random.randint(1, 6)
     while True:
         player.show_status()
-        bet = input("\nHow many SMK's do you want to bet? >>  ")
+        bet = input("\nHow many SMK's do you want to bet? (X to Exit) >>  ").lower().strip()
 
         if bet == "x":
             print(f"{player.name}: 'Nevermind, betting can wait later. *shrugs*.'")
