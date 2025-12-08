@@ -33,7 +33,7 @@ def chapter_flow(player):
     if player.current_chapter <= 4:
         chapter4(player)
 
-    if player.current_chapter >= 5:
+    if player.current_chapter == "Open World":
         if player.location == "The Data Grave":
             go_to_data_grave(player)
 
