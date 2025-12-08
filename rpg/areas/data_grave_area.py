@@ -70,7 +70,7 @@ data_grave = Location(
         "2": ('Move to the Right (Low risk but slower, may run into dead-ends...)', handle_data_grave_movement_right),
         "3": ('Move to the Left (Low risk but slower, may run into dead-ends...)', handle_data_grave_movement_left),
         "4": ('Run back to the Hardpoint',  run_back_to_hardpoint_from_grave),
-        "5": ('Show Current Location Info', show_location_details),
+        "5": ('Show Current Location GPS', show_location_details),
         "6": ('Find a place to rest', rest),
         "0": ('Pause Game', show_menu),
         "M": ('Use Map', show_map)

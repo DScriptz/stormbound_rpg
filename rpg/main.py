@@ -1,13 +1,12 @@
 """ IMPORTS """
 
 from chapters import (chapter1, chapter2, chapter3, chapter4,
-                      game_intro,
                       open_world, return_to_ironwind_outpost)
 from rpg.areas.data_grave_area import go_to_data_grave
 from rpg.areas.salvage_cache_area import go_to_salvage_cache
 from rpg.areas.the_foundry_area import go_to_the_foundry
 from rpg.areas.the_hardpoint_area import go_to_the_hardpoint
-
+from game_modules.game_intro import game_intro
 
 def chapter_flow(player):
 

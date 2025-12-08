@@ -56,7 +56,7 @@ the_foundry = Location(
         "2": ('Walk to the Right (Low risk but slower, may run into dead-ends...)', handle_movement_right),
         "3": ('Walk to the Left (Low risk but slower, may run into dead-ends...)', handle_movement_left),
         "4": ('Run back to the Hardpoint',  run_back_to_hardpoint_from_foundry),
-        "5": ('Show Current Location Info', show_location_details),
+        "5": ('Show Current Location GPS', show_location_details),
         "M": ('Show Map', show_map)
      }
 
