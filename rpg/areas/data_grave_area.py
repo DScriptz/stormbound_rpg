@@ -13,6 +13,8 @@ init(autoreset=True)
 
 reset = Style.RESET_ALL
 
+play_music("open world", volume=0.7, loop=True)
+
 def run_back_to_hardpoint_from_grave(player):
     """Handles the transition from Data Grave back to the Hardpoint menu."""
     from .the_hardpoint_area import go_to_the_hardpoint
@@ -59,7 +61,10 @@ data_grave = Location(
      You step into this area not knowing what's out there...
 
 
-    Area Signal Tower Coverage: [{Fore.LIGHTYELLOW_EX}III - MEDIUM Danger{reset}] \n""",
+    Area Signal Tower Coverage: [{Fore.LIGHTYELLOW_EX}III - MEDIUM Danger{reset}]
+    
+{Fore.GREEN}Tip: Always check Current Location Info for guidance on a possible step(s) requirement for exploring.{reset}
+""",
     {
         "1": ('Run Forward (High risk but faster)', handle_data_grave_movement_forward),
         "2": ('Move to the Right (Low risk but slower, may run into dead-ends...)', handle_data_grave_movement_right),

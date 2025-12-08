@@ -332,8 +332,8 @@ class Player:
         return True
 
     def show_status(self):
-        print(f"\n{Fore.YELLOW}{Style.BRIGHT} {self.name}{Style.RESET_ALL}: "
-              f">{Fore.LIGHTWHITE_EX + Style.DIM}{Style.BRIGHT}{self.player_class}{Style.RESET_ALL}<")
+        print(f"\n{Fore.YELLOW}{Style.BRIGHT} {self.name}{Style.RESET_ALL} - "
+              f"> {Fore.LIGHTWHITE_EX + Style.DIM}{Style.BRIGHT}{self.player_class}{Style.RESET_ALL} <")
 
         print(f"{Fore.WHITE}{Style.DIM}------------------------------{Style.RESET_ALL}")
 
