@@ -333,7 +333,7 @@ class Player:
 
     def show_status(self):
         print(f"{Fore.YELLOW}{Style.BRIGHT} {self.name}{Style.RESET_ALL}: "
-              f">{Fore.LIGHTBLACK_EX}{Style.BRIGHT}{self.player_class}{Style.RESET_ALL}<")
+              f">{Fore.LIGHTWHITE_EX + Style.DIM}{Style.BRIGHT}{self.player_class}{Style.RESET_ALL}<")
 
         print(f"{Fore.WHITE}{Style.DIM}------------------------------{Style.RESET_ALL}")
 
@@ -352,7 +352,7 @@ class Player:
 
         print(f"{Fore.CYAN} Current Chapter:{Style.RESET_ALL} {self.current_chapter}")
         print(f"{Fore.MAGENTA} Battles:{Style.RESET_ALL} {self.battles_completed}")
-        print(f"{Fore.LIGHTBLACK_EX} Location:{Style.RESET_ALL} {Fore.LIGHTBLACK_EX}{self.location}{Style.RESET_ALL}")
+        print(f"{Fore.BLACK + Style.BRIGHT} Location:{Style.RESET_ALL} {Fore.LIGHTBLACK_EX+Style.BRIGHT}{self.location}{Style.RESET_ALL}")
 
         print(f"{Fore.WHITE}{Style.DIM}------------------------------{Style.RESET_ALL}\n")
 
