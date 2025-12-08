@@ -39,6 +39,8 @@ def chapter_flow(player):
         else:
             open_world(player)
 
+    return player
+
 
 def main():
     loaded_player = game_intro()
@@ -53,6 +55,7 @@ def main():
 
     chapter_flow(player)
 
+    return
 
 if __name__ == "__main__":
     main()
