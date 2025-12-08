@@ -43,7 +43,7 @@ def handle_movement_forward(player):
             return player
 
         if player.location_steps >= 15:
-            return # Add the location required [(go_to_location.enter(player)]!!!
+            return "Coming SOON!"# Add the location required [(go_to_location.enter(player)]!!!
 
     return player
 
@@ -76,7 +76,7 @@ def handle_movement_right(player):
         return player
 
     if player.location_steps >= 15:
-        return # Add the location required!!!
+        return  "Coming SOON!"# Add the location required!!!
 
     return player
 
@@ -107,6 +107,6 @@ def handle_movement_left(player):
         return player
 
     if player.location_steps >= 15:
-        return # Add the location required!!!
+        return "Coming SOON!"# Add the location required!!!
 
     return player
