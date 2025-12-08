@@ -1,13 +1,9 @@
 import time
-import random
 from colorama import Fore, Style, init
 from rpg.game_modules.bounty_board import view_bounty_board, collect_bounty, leave_watch_post
-
-from rpg.tools.save_load_manager import select_save_slot
 from rpg.game_modules.map import show_map
 
 init(autoreset=True)
-
 
 
 class Location:
@@ -32,9 +28,7 @@ class Location:
             print("\n====== OPTIONS ======")
             print(f"{Fore.GREEN}[S]{Style.RESET_ALL} - Show Stats | "
                   f"{Fore.GREEN}[I]{Style.RESET_ALL} - Show Inventory")
-
-            print(f"{Fore.GREEN}[U]{Style.RESET_ALL} - Use an Item from Inventory | "
-                  f"{Fore.GREEN}[C]{Style.RESET_ALL} - Save Game")
+            print(f"{Fore.GREEN}[U]{Style.RESET_ALL} - Use an Item from Inventory")
 
             choice = input("\n>> ").strip().lower()
 
@@ -46,10 +40,6 @@ class Location:
 
                 case'i':
                     player.show_inventory()
-                    continue
-
-                case "c":
-                    select_save_slot(player)
                     continue
 
                 case "x":
