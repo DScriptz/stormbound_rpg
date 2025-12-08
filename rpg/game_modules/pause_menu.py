@@ -60,7 +60,7 @@ def show_roleplaying_guide(player):
     while True:
         print(f"\n{Fore.CYAN + Style.BRIGHT}--- SURVIVAL GUIDE: ROLEPLAYING SYSTEMS ---{reset}")
         print(f"\nYour Faction: {player.faction}")
-        print(f"{Fore.YELLOW}{player.name}'s Respect:{reset} {player.faction_standing} Respect")
+        print(f"{Fore.YELLOW}{player.name}'s Faction Standing:{reset} {player.faction_standing} Respect")
         print("\nThis system tracks your reputation with local groups.")
         print("Positive respect (0 is neutral, but respected) opens up better deals and safer dialogue options.")
         print("Negative respect may result in hostile interactions or higher prices.")
