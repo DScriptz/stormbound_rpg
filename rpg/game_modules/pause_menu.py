@@ -3,6 +3,9 @@ import sys
 from colorama import Fore, Style, init
 from rpg.tools.save_load_manager import select_save_slot
 from rpg.dialogues.ranks_info import show_rank_info
+from rpg.game_modules.game_intro import show_overview
+from rpg.dialogues.game_tips import show_tips
+
 
 init(autoreset=True)
 reset = Style.RESET_ALL
@@ -122,13 +125,13 @@ def show_survival_guide(player):
 
 def show_menu(player):
     while True:
-        # Reminder to self: Create a function with a list of random game tips and add it here!!!
-
+        show_tips()
         print("\n           --- >GAME PAUSED< ---")
         print("[1] - Resume Game  |  [2] - Survival Guide (Game Guide)")
-        print("[3] - Save Game  |  [4] - Exit Game")
+        print("[3] - Save Game  |  [4] - Stormbound RPG Overview")
+        print("                         [X] - Quit Game")
 
-        choice = input("\n>> ")
+        choice = input("\n>> ").lower().strip()
 
         match choice:
 
@@ -142,6 +145,13 @@ def show_menu(player):
                 select_save_slot(player)
 
             case "4":
+                show_overview()
+
+            case "x":
+
                 handle_game_exit()
+
+            case _:
+                print(f"{Fore.RED + Style.BRIGHT}Invalid Choice!{reset}")
 
     return
