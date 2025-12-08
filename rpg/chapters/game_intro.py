@@ -8,6 +8,55 @@ from rpg.dialogues.factions import show_faction_overview
 from rpg.dialogues.class_overview import show_class_overview
 from rpg.dialogues.ranks_info import show_rank_info
 
+reset = Style.RESET_ALL
+
+def show_credits():
+    print("                   ---- CREDITS ----")
+    print("\nWriting and Story: [Github] - DScriptz / Dwayne Japor\n")
+    print("Sounds: [Pixabay] - https://pixabay.com,"
+          " [Myinstants]- https://www.myinstants.com/en/index/us,"
+          " [Tabletop Audio] - https://tabletopaudio.com\n")
+    print("Code: [Github] - DScriptz / Dwayne Japor\n")
+    time.sleep(1.5)
+    return
+
+def show_overview():
+    while True:
+        print("\n--- STORMBOUND OVERVIEW --- ")
+        print("[1] - Stormbound Lore  |  [2] Factions Overview")
+        print("[3] - Classes Overview |  [4] Player Ranks (Level) Info")
+        print("[X] - Exit Menu")
+        print("------------------------------")
+        choice = input("\n>> ").strip().lower()
+
+        match choice:
+
+            case "1":
+                show_stormbound_lore()
+                continue
+
+            case "2":
+                show_faction_overview()
+                continue
+
+            case  "3":
+                show_class_overview()
+                continue
+
+            case "4":
+                show_rank_info()
+                continue
+
+            case "x":
+                print("Returning to menu...")
+                break
+
+            case _:
+                print("Invalid choice, please pick a choice from the menu!")
+                time.sleep(0.8)
+
+    return
+
 
 def game_intro():
     audio_manager.play_music("stormbound menu", volume=0.6, loop=True)
@@ -17,7 +66,7 @@ def game_intro():
         print("[----------------------------------------------------------]\n")
 
         print(f"{Fore.LIGHTGREEN_EX+ Style.BRIGHT}Tip: Consider reading the Overviews [2] first before playing"
-              f" for more enjoyable experience!{Style.RESET_ALL}\n")
+              f" for more enjoyable experience!{reset}\n")
 
         current_player = None
 
@@ -41,35 +90,7 @@ def game_intro():
                 break
 
             case "2":
-                while True:
-                    print("\n--- STORMBOUND OVERVIEW --- ")
-                    print("[1] - Stormbound Lore")
-                    print("[2] - Factions Overview")
-                    print("[3] - Classes Overview")
-                    print("[4] - Stormbound Ranks Overview")
-                    print("[X] - Exit Menu")
-
-                    choice = input("\n>> ").strip().lower()
-
-                    if choice == "1":
-                        show_stormbound_lore()
-
-                    elif choice == "2":
-                        show_faction_overview()
-
-                    elif choice == "3":
-                        show_class_overview()
-
-                    elif choice == "4":
-                        show_rank_info()
-
-                    elif choice == "x":
-                        print("Returning to menu...")
-                        break
-
-                    else:
-                        print("Invalid choice, please pick a choice from the menu!")
-                        time.sleep(1)
+                show_overview()
 
             case "3":
                 loaded_player = select_load_slot()
@@ -81,16 +102,11 @@ def game_intro():
                 continue
 
             case "4":
-                print("                   ---- CREDITS ----")
-                print("\nWriting and Story: [Github] - DScriptz | Dwayne Japor\n")
-                print("Sounds: [Pixabay] - https://pixabay.com,"
-                      " [Myinstants]- https://www.myinstants.com/en/index/us,"
-                      " [Tabletop Audio] - https://tabletopaudio.com\n")
-                print("Code: [Github] - DScriptz | Dwayne Japor\n")
-                time.sleep(1.5)
+                show_credits()
+
 
             case "5":
-                print("Thanks for playing my game! Hope you try it again!")
+                print(f"{Fore.BLUE + Style.BRIGHT}Thank you for playing my game! Hope you try it again!{reset}")
                 time.sleep(1.3)
                 sys.exit()
 
