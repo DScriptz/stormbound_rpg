@@ -9,19 +9,6 @@ from rpg.areas.the_foundry_area import go_to_the_foundry
 from rpg.areas.the_hardpoint_area import go_to_the_hardpoint
 
 
-def main():
-    loaded_player = game_intro()
-
-    if loaded_player is not None:
-
-        player = loaded_player
-
-    else:
-        print("\nStarting a new game...\n")
-        player = chapter1()
-
-    chapter_flow(player)
-
 def chapter_flow(player):
 
     if player.current_chapter <= 2:
@@ -33,7 +20,7 @@ def chapter_flow(player):
     if player.current_chapter <= 4:
         chapter4(player)
 
-    if player.current_chapter == "Open World":
+    if player.current_chapter >= 5:
         if player.location == "The Data Grave":
             go_to_data_grave(player)
 
@@ -52,6 +39,19 @@ def chapter_flow(player):
         else:
             open_world(player)
 
+
+def main():
+    loaded_player = game_intro()
+
+    if loaded_player is not None:
+
+        player = loaded_player
+
+    else:
+        print("\nStarting a new game...\n")
+        player = chapter1()
+
+    chapter_flow(player)
 
 
 if __name__ == "__main__":
