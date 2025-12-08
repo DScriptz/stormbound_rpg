@@ -7,6 +7,8 @@ from rpg.data.item_database import item_database
 from colorama import Fore, Style, init
 init(autoreset=True)
 
+reset = Style.RESET_ALL
+
 """
    THIS HANDLES THE PLAYER'S DATA
 
@@ -15,7 +17,7 @@ init(autoreset=True)
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, weapon="Barefist", location=None, battles_completed=0, rank="Scrap Initiate"):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, weapon="Barefist", location=None, battles_completed=0, rank="Scrap Initiate", faction_standing=0):
         self.name = player_name
         self.player_class = player_class
         self.health = health
@@ -38,6 +40,7 @@ class Player:
         self.location = location
         self.location_steps = 0
         self.battles_completed = battles_completed
+        self.faction_standing = faction_standing
 
     """ 
         PLAYER'S STATS BEING SHOWN
@@ -329,10 +332,31 @@ class Player:
         return True
 
     def show_status(self):
-        print(f"\n --[ {self.name}: >{Style.BRIGHT + self.player_class.title() + Style.RESET_ALL}< |  Rank: {self.rank} |  SMK: {self.stormmarks} | "
-              f" Health: {self.health}/{self.max_health} |  Attack: {self.attack} | Weapon: {self.weapon} | Faction: {self.faction}"
-              f"  |  Current Chapter: {self.current_chapter} | Battles: {self.battles_completed} | "
-              f"Current Location: {self.location} ]--")
+        print(f"{Fore.YELLOW}{Style.BRIGHT} {self.name}{Style.RESET_ALL}: "
+              f">{Fore.LIGHTBLACK_EX}{Style.BRIGHT}{self.player_class}{Style.RESET_ALL}<")
+
+        print(f"{Fore.WHITE}{Style.DIM}------------------------------{Style.RESET_ALL}")
+
+        print(f"{Fore.CYAN} Rank:{Style.RESET_ALL} {self.rank}")
+        print(f"{Fore.GREEN} SMK:{Style.RESET_ALL} {Fore.GREEN}{self.stormmarks}{Style.RESET_ALL}")
+
+        print(f"{Fore.RED} Health:{Style.RESET_ALL} "
+              f"{Fore.RED}{Style.BRIGHT}{self.health}{Style.RESET_ALL} / "
+              f"{Fore.RED}{Style.BRIGHT}{self.max_health}{Style.RESET_ALL}")
+
+        print(f"{Fore.MAGENTA} Attack:{Style.RESET_ALL} {self.attack}")
+
+        print(f"{Fore.BLUE} Weapon:{Style.RESET_ALL} {Fore.BLUE}{self.weapon}{Style.RESET_ALL}")
+
+        print(f"{Fore.YELLOW} Faction:{Style.RESET_ALL} {self.faction}")
+
+        print(f"{Fore.CYAN} Current Chapter:{Style.RESET_ALL} {self.current_chapter}")
+        print(f"{Fore.MAGENTA} Battles:{Style.RESET_ALL} {self.battles_completed}")
+        print(f"{Fore.LIGHTBLACK_EX} Location:{Style.RESET_ALL} {Fore.LIGHTBLACK_EX}{self.location}{Style.RESET_ALL}")
+
+        print(f"{Fore.WHITE}{Style.DIM}------------------------------{Style.RESET_ALL}\n")
+
+        return
 
     def use_item(self):
 
