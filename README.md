@@ -25,8 +25,8 @@ To run Stormbound, Text-based RPG locally, you need Python 3.10.7+ on your syste
 
 1. **Clone the Repository**
     ```bash
-    git clone [https://github.com/DScriptz/stormbound_rpg.git](https://github.com/DScriptz/stormbound_rpg)
-    cd Stormbound
+    git clone https://github.com/DScriptz/stormbound_rpg
+    cd Users/path/to/file
     ```
     
 2. **Install Dependencies**
@@ -40,6 +40,7 @@ To start the game, simply run the main entry point file
 ```bash
 python main.py
 ```
+or if you use an IDE, you can just run the main.py from there!
 
 ### 3. Enjoy
 
