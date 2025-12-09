@@ -20,7 +20,7 @@
 -   [ ] **Class Revamp** Revise the Ironbound Sentinel's special Ability to 'Final Stand' where if their health reaches about 0.30% their damage increases.
 
 ### 2. UI/UX Improvements
--   [ ] **Better Status Bar:** Use Colorama to make the health bar red and name blue for better readability.
+-   [x] **Better Status Bar:** Use Colorama to make the health bar red and name blue for better readability.
 -   [ ] **Item Descriptions:** Add a function to display long descriptions when an item is selected in the shop.
 
 ### 3. World and Story
@@ -44,6 +44,7 @@
 ### 6. Better Inventory Handling
 -   [ ] A feature where players can see the bounty they're currently doing.
 -   [x] Add a new feauture where player's can use an Item from their inventory
+
 ### 7. Roleplaying & Immersion Features (New Section!)
 -   [x] Worn Weapon Wield: Implement player choice for primary tool name (RP-only).
 -   [ ] The Scavenger's Ledger: Implement a single player.scavenger_standing integer attribute to track player reputation, affecting NPC dialogue.
