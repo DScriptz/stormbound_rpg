@@ -3,7 +3,7 @@ import random
 import time
 import sys
 from game_modules.loot_handler import handle_loot
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 from tools import audio_manager
 from game_modules.player_ranks_up import check_rank
 
