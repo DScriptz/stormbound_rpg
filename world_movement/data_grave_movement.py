@@ -32,6 +32,7 @@ def handle_player_ambushed(player):
     music_fadeout(2000)
     music_stop()
 
+    play_music("open world", volume=0.7, loop=True)
     return player
 
 def handle_data_grave_movement_forward(player):
