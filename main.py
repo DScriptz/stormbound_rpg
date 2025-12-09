@@ -11,6 +11,7 @@ from tools.audio_manager import initialize_audio
 
 initialize_audio()
 
+
 def chapter_flow(player):
 
     if player.current_chapter <= 2:
@@ -58,6 +59,7 @@ def main():
     chapter_flow(player)
 
     return
+
 
 if __name__ == "__main__":
     main()
