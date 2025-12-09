@@ -13,7 +13,6 @@ initialize_audio()
 
 
 def chapter_flow(player):
-
     if player.current_chapter <= 2:
         chapter2(player)
 

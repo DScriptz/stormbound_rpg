@@ -1,12 +1,14 @@
 """ IMPORTS """
-import time
 import random
-from tools import audio_manager
-from models.player import Player
-from class_data import class_info, class_stats
+import time
+
 from colorama import Fore, Style
-from tools.save_load_manager import select_save_slot
+
+from class_data import class_info, class_stats
 from dialogues.class_overview import show_class_overview
+from models.player import Player
+from tools import audio_manager
+from tools.save_load_manager import select_save_slot
 
 """ 
     GAME INTRO, BASICALLY JUST A PARAGRAPH EXPLAINING HOW THE PLAYER ENDS UP IN THIS SITUATION 
