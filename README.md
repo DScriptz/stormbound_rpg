@@ -11,7 +11,7 @@ Stormbound is still in active development, expect bugs or missing features.
 
 ## --{ -FEATURES- }-
 * **Immersive storywriting:** Focuses on detailed and atmospheric storywriting to encourage imagination set in a near-future dystopian setting.
-* **Interactive choice:** Dialogue and narrative choices influence your path as a rogue survivor.
+* **Interactive choice:** Dialogue and narrative choices influence your path as a survivor.
 * **Class-based combat:** Tactical, turn based combat system utilizing the player's chosen class' ability.
 * **Modular Design:** Currently practicing Object Oriented Programming (OOP) for a clean code.
 
@@ -37,15 +37,19 @@ To run Stormbound, Text-based RPG locally, you need Python 3.10.7+ on your syste
 
 To start the game, simply run the main entry point file
 
+Windows:
 ```bash
 python main.py
+```
+Mac:
+```bash
+python3 main.py
 ```
 or if you use an IDE, you can just run the main.py from there!
 
 ### 3. Enjoy
 
 Enjoy the game! If you have any suggestions, ideas or more coding guidance for me, let me know! Thanks for playing!
-
 
 Developer: [DScriptz (Dwayne)]
 ---
