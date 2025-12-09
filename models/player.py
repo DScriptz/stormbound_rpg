@@ -75,7 +75,7 @@ class Player:
 
     def player_attack(self, enemy):
         damage = random.randint(self.attack - 5, self.attack + 5)
-        print(f"\n{self.name} attacks {enemy.name} for {damage} damage!")
+        print(f"\n{self.name} uses their {self.weapon} to attack {enemy.name} for {damage} damage!")
         enemy.take_damage(damage)
 
     def use_ability(self, enemy):
