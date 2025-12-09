@@ -2,20 +2,20 @@
 """ IMPORTS """
 import time
 from areas.the_hardpoint_area import go_to_the_hardpoint
-from shops_stocks import rusted_rifle_stock
-from shops_stocks.healing_shop import ironwind_apothecary
-from shops_stocks.armor_shop import ironclad_annex
-from tools.shop import Shop
-from dialogues.rusty_apothecary import show_silas_dialogue
-from dialogues.rusted_rifle import show_rhys_dialogue
 from dialogues.ironclad_annex import show_gauge_dialogue
-from models import Location
-from game_modules.mini_games import play_relic_dice
+from dialogues.rusted_rifle import show_rhys_dialogue
+from dialogues.rusty_apothecary import show_silas_dialogue
 from game_modules.bunks import rent_room, leave_bunk
+from game_modules.mini_games import play_relic_dice
+from game_modules.pause_menu import show_menu
+from models import Location
 from models.location_data import watch_post
-from tools.save_load_manager import select_save_slot
+from shops_stocks import rusted_rifle_stock
+from shops_stocks.armor_shop import ironclad_annex
+from shops_stocks.healing_shop import ironwind_apothecary
 from tools import audio_manager
-
+from tools.save_load_manager import select_save_slot
+from tools.shop import Shop
 
 healing_shop = Shop("Rusty Apothecary", ironwind_apothecary)
 weapon_shop = Shop("The Rusted Rifle", rusted_rifle_stock)
@@ -28,6 +28,7 @@ coil_bunks = Location(
     {
         '1': ("Rent a bunk:  30 SMK", rent_room),
         '2': ("Play 'The Relic Dice'", play_relic_dice),
+        '0': ("Pause Game", show_menu),
         'X': ("Exit The Coil Bunks", leave_bunk),
     }
 )
