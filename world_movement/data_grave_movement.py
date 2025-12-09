@@ -1,12 +1,11 @@
 import random
 import time
-from models.enemy import spawn_enemy
-from game_modules import Battle
-from tools.audio_manager import play_music, music_stop, music_fadeout, play_sound
-from dialogues import data_grave_walk_right, data_grave_walk_left
+
 from areas.salvage_cache_area import go_to_salvage_cache
-
-
+from dialogues import data_grave_walk_right, data_grave_walk_left
+from game_modules import Battle
+from models.enemy import spawn_enemy
+from tools.audio_manager import play_music, music_stop, music_fadeout, play_sound
 
 """ DATA_GRAVE LOCATION'S MOVEMENT """
 

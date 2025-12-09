@@ -21,7 +21,7 @@ def run_back_to_hardpoint_from_foundry(player):
 
 def go_to_the_foundry(player):
 
-    if player.battles_completed >= 11:
+    if player.battles_completed >= 6:
         play_music("the foundry", volume=0.7, loop=True)
         print("You walked on the right, towards the bustling noise of clanking metals...")
         time.sleep(1.3)
@@ -31,7 +31,7 @@ def go_to_the_foundry(player):
 
         return the_foundry.enter(player)
 
-    elif player.battles_completed <= 10:
+    elif player.battles_completed <= 5:
         print(f"{player.name}: 'I'm not experienced enough to wander around this area...'")
         time.sleep(1)
         return None
