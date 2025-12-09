@@ -1,6 +1,6 @@
 import time
 import sys
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 from tools.save_load_manager import select_save_slot
 from dialogues.ranks_info import show_rank_info
 from game_modules.game_intro import show_overview
@@ -128,8 +128,8 @@ def show_menu(player):
         show_tips()
         print("\n           --- >GAME PAUSED< ---")
         print("[1] - Resume Game  |  [2] - Survival Guide (Game Guide)")
-        print("[3] - Save Game  |  [4] - Stormbound RPG Overview")
-        print("                         [X] - Quit Game")
+        print(f"[3] - {Fore.LIGHTGREEN_EX + Style.BRIGHT}Save Game{reset}  |  [4] - Stormbound RPG Overview")
+        print(f"[X] - {Fore.RED + Style.BRIGHT}Quit Game{reset}")
 
         choice = input("\n>> ").lower().strip()
 
