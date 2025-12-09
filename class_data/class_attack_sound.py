@@ -17,5 +17,8 @@ def attack_sound(player):
 
     if player.player_class == "Scrap Brawler":
         play_sound("scrap brawler attack",  volume=0.9)
+
+    if player.player_class == "Data Cultist":
+        play_sound("data cultist attack", volume=0.9)
     else:
         play_sound("attack", volume=0.8)
