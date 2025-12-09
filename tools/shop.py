@@ -3,7 +3,6 @@ import time
 from tools.audio_manager import play_sound
 from colorama import Fore, Style, init
 
-init(autoreset=True)
 
 class Shop:
     def __init__(self, name, stock):

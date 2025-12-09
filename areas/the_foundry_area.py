@@ -5,7 +5,6 @@ from world_movement.the_foundry_movement import handle_movement_forward, handle_
 from game_modules.map import show_map, show_location_details
 
 
-init(autoreset=True)
 
 reset = Style.RESET_ALL
 

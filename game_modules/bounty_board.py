@@ -1,7 +1,6 @@
 import time
 from colorama import Fore, init, Style
 from tools.audio_manager import play_sound
-init(autoreset=True)
 
 bounty_list = {
     "A": {

@@ -7,7 +7,6 @@ from game_modules.game_intro import show_overview
 from dialogues.game_tips import show_tips
 
 
-init(autoreset=True)
 reset = Style.RESET_ALL
 
 

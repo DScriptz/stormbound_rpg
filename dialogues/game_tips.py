@@ -1,7 +1,6 @@
 import random
 from colorama import Fore, Style, init
 
-init(autoreset=True)
 
 tip = f"{Fore.GREEN + Style.BRIGHT}Tip:{Style.RESET_ALL}"
 reset = Style.RESET_ALL

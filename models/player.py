@@ -5,7 +5,6 @@ import time
 from tools import audio_manager
 from data.item_database import item_database
 from colorama import Fore, Style, init
-init(autoreset=True)
 
 reset = Style.RESET_ALL
 

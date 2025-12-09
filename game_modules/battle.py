@@ -7,7 +7,6 @@ from colorama import Fore, Style, init
 from tools import audio_manager
 from game_modules.player_ranks_up import check_rank
 
-init(autoreset=True)
 
 """ THIS HANDLES THE GAME'S BATTLE MECHANIC """
 

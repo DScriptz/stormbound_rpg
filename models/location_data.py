@@ -4,7 +4,6 @@ from game_modules.bounty_board import view_bounty_board, collect_bounty, leave_w
 from game_modules.map import show_map
 from dialogues.game_tips import show_tips
 
-init(autoreset=True)
 
 
 class Location:

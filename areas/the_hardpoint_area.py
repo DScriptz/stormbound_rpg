@@ -8,7 +8,6 @@ from world_movement.ironwind_outpost import go_to_ironwind_outpost
 from game_modules.map import show_map, show_location_details
 from game_modules.pause_menu import show_menu
 
-init(autoreset=True)
 
 reset = Style.RESET_ALL
 

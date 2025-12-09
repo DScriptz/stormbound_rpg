@@ -1,6 +1,5 @@
 import random
 from colorama import Fore, Style, init
-init(autoreset=True)
 
 npc_name = f"{Fore.YELLOW}Rhys 'Rivet' Vance:{Style.RESET_ALL} "
 

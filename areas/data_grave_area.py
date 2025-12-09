@@ -9,7 +9,6 @@ from world_movement.data_grave_movement import (
 from game_modules.map import show_map, show_location_details
 from game_modules.pause_menu import show_menu
 
-init(autoreset=True)
 
 reset = Style.RESET_ALL
 
