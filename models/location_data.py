@@ -1,9 +1,10 @@
 import time
-from colorama import Fore, Style, init
+
+from colorama import Fore, Style
+from dialogues.game_tips import show_tips
 from game_modules.bounty_board import view_bounty_board, collect_bounty, leave_watch_post
 from game_modules.map import show_map
-from dialogues.game_tips import show_tips
-
+from game_modules.pause_menu import show_menu
 
 
 class Location:
@@ -71,6 +72,7 @@ watch_post = Location(
     {
         "1": ('View the Bounty Board', view_bounty_board),
         "2": ('Collect Bounty', collect_bounty),
+        "0": ('Pause Game', show_menu),
         "X": ('Exit the Ironwind Watch Post', leave_watch_post)
     }
 )
