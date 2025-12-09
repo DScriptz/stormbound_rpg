@@ -28,13 +28,11 @@ class Battle:
         applies damage to the player, and resets the player's dodge state.
         """
 
-        # 1. Check for Dodge State (must be the first check)
         if self.player.dodging:
             damage = 0
             print(f"\n{self.enemy.name} attacks, but {self.player.name} swiftly {Fore.GREEN}DODGES{Style.RESET_ALL}!")
 
         else:
-            # 2. Calculate Damage with Weakness
             raw_damage = self.enemy.calculate_damage()
 
             if self.enemy.is_weakened:
@@ -49,11 +47,10 @@ class Battle:
 
             damage = final_damage
 
-        # 3. Apply Damage and Reset Dodge State
         self.player.take_damage(damage)
         time.sleep(1.3)
 
-        # 4. Reset dodge state *only* after the attack is processed
+
         if self.player.dodging:
             self.player.dodging = False
 
@@ -75,7 +72,7 @@ class Battle:
                       f"{self.player.health}/{self.player.max_health}"
                       f"{Style.RESET_ALL} "
                       f"| {self.enemy.name}'s Health: {Fore.LIGHTRED_EX}"
-                      f"{self.enemy.health}/{self.enemy.max_health}"
+                      f"{round(self.enemy.health)}/{round(self.enemy.max_health)}"
                       f"{Style.RESET_ALL}]-")
 
                 print("    [==============-BATTLE CHOICES-==============]")
@@ -91,7 +88,7 @@ class Battle:
                     print(f"   [S] - {Fore.YELLOW + Style.BRIGHT}Special Ability{Style.RESET_ALL}: '{self.player.special_ability}' |  [I] - Inventory")
 
                 else:
-                    print(f"   [S] - (Cooldown : {self.player.cooldown}) |  [I] - Inventory")
+                    print(f"   (Cooldown : {self.player.cooldown}) |  [I] - Inventory")
 
                 if player.stunned:
                     print(f"{player.name} got stunned and can't move!!!")
@@ -105,7 +102,7 @@ class Battle:
                     THIS HANDLES THE PLAYER'S CHOICES WITHIN THE GAME
                     
                     Example:
-                                     -[Your Health: 75/75 | Ravager Wolf's Health: 55/55]-
+                            -[Your Health: 75/75 | Ravager Wolf's Health: 55/55]-
                                 ==============-BATTLE CHOICES-==============
 
                                 [A] - Attack | [D] - Defend
@@ -118,6 +115,7 @@ class Battle:
                 """
 
                 if action == "a":
+
                     from class_data.class_attack_sound import attack_sound
                     attack_sound(player)
                     self.player.player_attack(self.enemy)
@@ -125,6 +123,7 @@ class Battle:
 
                 elif action == "d":
                     audio_manager.play_sound("block attack", volume=0.9)
+
                     print(f"{self.player.name} defends themselves! Reducing {self.enemy.name}'s attack!")
                     damage = random.randint(self.enemy.attack - 3, self.enemy.attack + 3) // 2
                     print(f"{self.enemy.name} attacks you for {damage} damage!")

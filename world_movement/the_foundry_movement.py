@@ -25,6 +25,7 @@ def handle_player_ambushed(player):
     music_fadeout(2000)
     music_stop()
 
+    play_music("the foundry)", volume=0.7, loop=True)
     return player
 
 

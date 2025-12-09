@@ -100,19 +100,22 @@ class Enemy:
 
     def take_damage(self, damage):
         defense_chance = 0.3
-        damage_reduction = 0.5
+        damage_reduction = random.uniform(0.2, 0.5)
 
-        final_damage = damage
+        final_damage = round(damage, 1)
 
         if random.random() < defense_chance:
 
             reduction_amount = damage_reduction * damage
-            final_damage = damage - reduction_amount
 
-            print(f"\n{self.name} defends against your attack! Reducing your attack by half!")
+            rounded_reduction_amount = round(reduction_amount, 1)
+
+            final_damage = damage - rounded_reduction_amount
+
+            print(f"\n{self.name} defends against your attack! Reducing your attack!!")
             time.sleep(1.3)
 
-        self.health -= final_damage
+        self.health -= round(final_damage, 1)
         print(f"\nThe {self.name} takes {final_damage} damage!")
         time.sleep(0.4)
 

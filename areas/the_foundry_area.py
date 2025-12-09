@@ -1,10 +1,10 @@
 import time
-from colorama import Style, Fore, init
+from colorama import Style, Fore
 from models import Location
+from tools.audio_manager import play_music
 from world_movement.the_foundry_movement import handle_movement_forward, handle_movement_right, handle_movement_left
 from game_modules.map import show_map, show_location_details
-
-
+from game_modules.pause_menu import show_menu
 
 reset = Style.RESET_ALL
 
@@ -22,6 +22,7 @@ def run_back_to_hardpoint_from_foundry(player):
 def go_to_the_foundry(player):
 
     if player.battles_completed >= 11:
+        play_music("the foundry", volume=0.7, loop=True)
         print("You walked on the right, towards the bustling noise of clanking metals...")
         time.sleep(1.3)
         print("This place is what the people called, 'The Foundry'...")
@@ -56,6 +57,7 @@ the_foundry = Location(
         "3": ('Walk to the Left (Low risk but slower, may run into dead-ends...)', handle_movement_left),
         "4": ('Run back to the Hardpoint',  run_back_to_hardpoint_from_foundry),
         "5": ('Show Current Location GPS', show_location_details),
+        "0": ('Pause Game', show_menu),
         "M": ('Show Map', show_map)
      }
 

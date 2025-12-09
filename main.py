@@ -8,6 +8,7 @@ from areas.the_foundry_area import go_to_the_foundry
 from areas.the_hardpoint_area import go_to_the_hardpoint
 from game_modules.game_intro import game_intro
 
+
 def chapter_flow(player):
 
     if player.current_chapter <= 2:

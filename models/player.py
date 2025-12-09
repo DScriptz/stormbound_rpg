@@ -28,7 +28,7 @@ class Player:
         self.inventory = {
             "Quick-Seal Strip": 3
         }
-        self.stormmarks = 0
+        self.stormmarks = 20
         self.special_ability = None
         self.dodging = False
         self.stunned = False
