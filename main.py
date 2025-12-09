@@ -7,7 +7,9 @@ from areas.salvage_cache_area import go_to_salvage_cache
 from areas.the_foundry_area import go_to_the_foundry
 from areas.the_hardpoint_area import go_to_the_hardpoint
 from game_modules.game_intro import game_intro
+from tools.audio_manager import initialize_audio
 
+initialize_audio()
 
 def chapter_flow(player):
 
