@@ -113,7 +113,7 @@ class Enemy:
             time.sleep(1.3)
 
         self.health -= final_damage
-        print(f"\nThe {self.name} takes {damage} damage!")
+        print(f"\nThe {self.name} takes {final_damage} damage!")
         time.sleep(0.4)
 
     def calculate_damage(self):
