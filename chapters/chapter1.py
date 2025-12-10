@@ -124,15 +124,10 @@ def chapter1():
 
             case  "n":
                 print()
+
             case _:
                 show_class_overview()
                 print("Loading...")
                 time.sleep(1)
 
     return player
-
-
-
-
-
-

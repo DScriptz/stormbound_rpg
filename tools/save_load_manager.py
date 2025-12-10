@@ -44,6 +44,7 @@ def select_save_slot(player):
     print("\n=== SELECT SAVE SLOT ===")
     print(f"{Fore.RED}NOTE{Style.RESET_ALL}: {Style.BRIGHT}Always remember your current save slot number to avoid"
           f" accidental overwrite{Style.RESET_ALL}!\n")
+    print(f"{Style.BRIGHT}Tip: When you already have a save file E.G '2', overwrite that slot if you your current progress from that save file to be saved!{Style.RESET_ALL}")
 
     for slot in range(1, slot_count + 1):
         status = f"{Fore.LIGHTCYAN_EX}IN USE{Style.DIM + Style.RESET_ALL}" if check_slot_status(slot) else f"{Style.BRIGHT}EMPTY{Style.RESET_ALL}"
@@ -61,6 +62,7 @@ def select_save_slot(player):
                 print("Save Cancelled")
                 time.sleep(1.4)
                 return False
+
             if 1<= slot_number <= slot_count:
                 break
             else:
