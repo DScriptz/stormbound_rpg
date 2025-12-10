@@ -1,11 +1,13 @@
-import time
 import sys
+import time
+
 from colorama import Fore, Style
-from tools.save_load_manager import select_save_slot
+
+from dialogues.game_tips import show_tips
 from dialogues.ranks_info import show_rank_info
 from game_modules.game_intro import show_overview
-from dialogues.game_tips import show_tips
-
+from tools.audio_manager import play_sound
+from tools.save_load_manager import select_save_slot
 
 reset = Style.RESET_ALL
 
@@ -19,9 +21,11 @@ def handle_game_exit():
 
         match choice:
             case "y":
+                play_sound("ui", 0.9)
                 print("Thanks for playing!")
                 sys.exit()
             case "n":
+                play_sound("ui", 0.9)
                 break
 
             case _:
@@ -42,10 +46,12 @@ def show_progression_guide(player):
         choice = input("\n>> ").lower().strip()
 
         if choice == 'v':
+            play_sound("ui", 0.9)
             show_rank_info()
             continue
 
         elif choice == 'x':
+            play_sound("ui", 0.9)
             break
         else:
             print(f"{Fore.RED}Invalid selection.{reset}")
@@ -77,10 +83,10 @@ def show_roleplaying_guide(player):
         choice = input("\n>> ").upper().strip()
 
         if choice == 'X':
+            play_sound("ui", 0.9)
             break
         else:
             print(f"{Fore.RED}Invalid selection.{reset}")
-
     return
 
 
@@ -103,18 +109,22 @@ def show_survival_guide(player):
         choice = input("\n>> ").lower().strip()
 
         if choice == '1':
+            play_sound("ui", 0.9)
             show_progression_guide(player)
             continue
 
         elif choice == '2':
+            play_sound("ui", 0.9)
             show_roleplaying_guide(player)
             continue
 
         elif choice == '3':
+            play_sound("ui", 0.9)
             print(f"{Fore.YELLOW}Coming SOON:{reset} Combat Reference not yet available.")
             time.sleep(1)
 
         elif choice == 'x':
+            play_sound("ui", 0.9)
             break
 
         else:
@@ -136,19 +146,23 @@ def show_menu(player):
         match choice:
 
             case "1":
+                play_sound("ui", 0.9)
                 break
 
             case "2":
+                play_sound("ui", 0.9)
                 show_survival_guide(player)
 
             case "3":
+                play_sound("ui", 0.9)
                 select_save_slot(player)
 
             case "4":
+                play_sound("ui", 0.9)
                 show_overview()
 
             case "x":
-
+                play_sound("ui", 0.9)
                 handle_game_exit()
 
             case _:

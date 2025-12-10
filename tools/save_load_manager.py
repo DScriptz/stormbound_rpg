@@ -2,6 +2,7 @@ import os
 import pickle
 import time
 from colorama import Fore, Style
+from tools.audio_manager import play_sound
 
 save_folder = "save_data"
 slot_count = 15
@@ -55,6 +56,7 @@ def select_save_slot(player):
         try:
             print(f"\nWhich save slot (1-{slot_count}) would you like to use? ([0] - Cancel): ")
             choice = input(f"\n>>  ")
+            play_sound("ui", 0.9)
             slot_number = int(choice)
 
             if slot_number == 0:
@@ -69,9 +71,12 @@ def select_save_slot(player):
             print("Invalid Input. Please Enter a number.")
 
         """ PLAYER OVERWRITE CONFIRMATION """
+
     if check_slot_status(slot_number):
         confirm = input(f"Slot {slot_number} is IN USE. Overwrite? (y/n): ")
+        play_sound("ui", 0.9)
         if confirm != "y":
+            play_sound("ui", 0.9)
             print("Overwrite cancelled")
             return False
 
@@ -91,6 +96,7 @@ def select_load_slot():
         try:
             print(f"\nWhich slot (1-{slot_count}) would you like to Load? ([0] - Cancel): ")
             choice = input(f"\n>>  ")
+            play_sound("ui", 0.9)
             slot_number = int(choice)
 
             if slot_number == 0:

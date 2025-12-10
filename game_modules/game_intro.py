@@ -1,12 +1,14 @@
-import time
 import sys
+import time
+
 from colorama import Fore, Style
-from tools.save_load_manager import select_load_slot
-from tools import audio_manager
-from dialogues.stormbound_lore import show_stormbound_lore
-from dialogues.factions import show_faction_overview
+
 from dialogues.class_overview import show_class_overview
+from dialogues.factions import show_faction_overview
 from dialogues.ranks_info import show_rank_info
+from dialogues.stormbound_lore import show_stormbound_lore
+from tools import audio_manager
+from tools.save_load_manager import select_load_slot
 
 reset = Style.RESET_ALL
 
@@ -32,22 +34,27 @@ def show_overview():
         match choice:
 
             case "1":
+                audio_manager.play_sound("ui", 0.9)
                 show_stormbound_lore()
                 continue
 
             case "2":
+                audio_manager.play_sound("ui", 0.9)
                 show_faction_overview()
                 continue
 
             case  "3":
+                audio_manager.play_sound("ui", 0.9)
                 show_class_overview()
                 continue
 
             case "4":
+                audio_manager.play_sound("ui", 0.9)
                 show_rank_info()
                 continue
 
             case "x":
+                audio_manager.play_sound("ui", 0.9)
                 print("Returning to menu...")
                 break
 
@@ -81,6 +88,7 @@ def game_intro():
         match choice:
 
             case "1":
+                audio_manager.play_sound("ui", 0.9)
                 print("\nStarting game...")
                 time.sleep(1.4)
                 audio_manager.music_fadeout(duration=2000)
@@ -90,9 +98,11 @@ def game_intro():
                 break
 
             case "2":
+                audio_manager.play_sound("ui", 0.9)
                 show_overview()
 
             case "3":
+                audio_manager.play_sound("ui", 0.9)
                 loaded_player = select_load_slot()
 
                 if loaded_player is not None:
@@ -102,10 +112,12 @@ def game_intro():
                 continue
 
             case "4":
+                audio_manager.play_sound("ui", 0.9)
                 show_credits()
 
 
             case "5":
+                audio_manager.play_sound("ui", 0.9)
                 print(f"{Fore.BLUE + Style.BRIGHT}Thank you for playing my game! Hope you try it again!{reset}")
                 time.sleep(1.3)
                 sys.exit()

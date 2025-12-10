@@ -5,7 +5,9 @@ from dialogues.game_tips import show_tips
 from game_modules.bounty_board import view_bounty_board, collect_bounty, leave_watch_post
 from game_modules.map import show_map
 from game_modules.pause_menu import show_menu
+from tools.audio_manager import play_sound, initialize_audio
 
+initialize_audio()
 
 class Location:
     def __init__(self, name, description, options, is_safe=True):
@@ -15,7 +17,7 @@ class Location:
         self.is_safe = is_safe
 
     def enter(self, player):
-        """ DISPLAYS LOCATION AND STARTS THE INTERACTION WITH WHATEVER LOCATION THE PLAYER GOES"""
+        """ DISPLAYS LOCATION NAME AND STARTS THE INTERACTION WITH WHATEVER LOCATION THE PLAYER GOES"""
         print(f"\n                                                            --- {self.name.upper()} ---")
         print(self.description)
         time.sleep(0.8)
@@ -37,24 +39,30 @@ class Location:
             match choice:
 
                 case 's':
+                    play_sound("ui", 0.9)
                     player.show_status()
                     continue
 
                 case'i':
+                    play_sound("ui", 0.9)
                     player.show_inventory()
                     continue
 
                 case "x":
+                    play_sound("ui", 0.9)
                     break
 
                 case "u":
+                    play_sound("ui", 0.9)
                     player.use_item()
 
                 case "m":
+                    play_sound("ui", 0.9)
                     show_map()
                     continue
 
             if choice in self.options:
+                play_sound("ui", 0.9)
                 destination = self.options[choice][1]
 
                 if destination(player) is False:
