@@ -1,6 +1,8 @@
 import random
 import time
+from colorama import Style, Fore
 
+reset = Style.RESET_ALL
 
 """ LIST OF ENEMIES THE PLAYER CAN ENCOUNTER/FIGHT """
 enemies = {
@@ -76,6 +78,13 @@ enemies = {
         "attack": 11,
         "ability": None,
         "prize": "S-7 Intel Chip"
+    },
+    "C.T Kane": {
+        "health": 100,
+        "max_health": 100,
+        "attack": 15,
+        "ability": 'Enrage',
+        "prize": 'D-HQ Keys'
     }
 }
 
@@ -121,6 +130,11 @@ class Enemy:
 
     def calculate_damage(self):
         base_damage = self.attack + random.randint(-2, 2)
+
+        if self.name == "C.T Kane" and self.health <= 50:
+            print(f"\nC.T Kane is now {Fore.RED}ENRAGED!{reset} His system is overclocked (+5 Total Damage)")
+            time.sleep(1.1)
+            base_damage += 5
 
         if self.is_weakened:
             final_damage = int(base_damage * (1.0 - self.weakness_factor))
