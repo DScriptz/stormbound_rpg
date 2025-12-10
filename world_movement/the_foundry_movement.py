@@ -32,10 +32,10 @@ def handle_player_ambushed(player):
 
 
 def handle_movement_forward(player):
+
     if random.random() < 0.60:
         handle_player_ambushed(player)
     else:
-
         player.location_steps += 2
         play_sound("footstep", volume=0.8)
         show_forward_dialogue()
@@ -45,7 +45,7 @@ def handle_movement_forward(player):
         if player.health <= 20:
             return player
 
-        if player.location_steps >= 15 or player.location_steps <= 17:
+        if player.location_steps >= 15 or player.location_steps >= 17:
             return go_to_molten_spill(player)
 
     return player
