@@ -1,9 +1,11 @@
 import random
 import time
-from tools.audio_manager import play_music, music_fadeout, music_stop, play_sound
+
+from dialogues.the_foundry_walk import show_forward_dialogue, show_right_dialogue, show_left_dialogue
 from game_modules import Battle
 from models.enemy import spawn_enemy
-from dialogues.the_foundry_walk import show_forward_dialogue, show_right_dialogue, show_left_dialogue
+from tools.audio_manager import play_music, music_fadeout, music_stop, play_sound
+from areas.the_molten_spill_area import go_to_molten_spill
 
 def handle_player_ambushed(player):
 
@@ -25,7 +27,7 @@ def handle_player_ambushed(player):
     music_fadeout(2000)
     music_stop()
 
-    play_music("the foundry)", volume=0.7, loop=True)
+    play_music("the foundry", volume=0.7, loop=True)
     return player
 
 
@@ -43,8 +45,8 @@ def handle_movement_forward(player):
         if player.health <= 20:
             return player
 
-        if player.location_steps >= 15:
-            return "Coming SOON!"# Add the location required [(go_to_location.enter(player)]!!!
+        if player.location_steps >= 15 or player.location_steps <= 17:
+            return go_to_molten_spill(player)
 
     return player
 
@@ -76,8 +78,8 @@ def handle_movement_right(player):
     if player.health <= 0:
         return player
 
-    if player.location_steps >= 15:
-        return  "Coming SOON!"# Add the location required!!!
+    if player.location_steps >= 15 or player.location_steps >= 17:
+        return go_to_molten_spill(player)
 
     return player
 
@@ -107,7 +109,7 @@ def handle_movement_left(player):
     if player.health <= 0:
         return player
 
-    if player.location_steps >= 15:
-        return "Coming SOON!"# Add the location required!!!
+    if player.location_steps >= 15 or player.location_steps >= 17:
+        return go_to_molten_spill(player)
 
     return player
