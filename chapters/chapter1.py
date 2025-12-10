@@ -7,7 +7,7 @@ from colorama import Fore, Style
 from class_data import class_info, class_stats
 from dialogues.class_overview import show_class_overview
 from models.player import Player
-from tools import audio_manager
+from tools.audio_manager import play_music, play_sound
 from tools.save_load_manager import select_save_slot
 
 """ 
@@ -16,12 +16,14 @@ from tools.save_load_manager import select_save_slot
 """
 
 def intro():
-    audio_manager.play_music("chapter1&2", volume=1.1, loop=True)
+    play_music("chapter1&2", volume=1.1, loop=True)
 
     skip_choice = input("Do you want to skip the intro? (Y/N): ").lower().strip()
 
     match skip_choice:
+
         case "n":
+            play_sound("ui", 0.9)
             print("\nThe winds blow outside and the rain pelted the rooftops...")
             time.sleep(0.6)
             print("You woke up in a cold wooden floor, your head hurting, and smoke still lingers in the air..")
@@ -42,10 +44,13 @@ def chapter1():
     print("\n---------------------- Chapter 1: Awakening ----------------------")
     print("\nSo you there... Introduce yourself as you venture in this world: ")
     name = input("\n>>  ").strip()
+    play_sound("ui", 0.9)
 
     while name == "":
         print("\nSo you there... Introduce yourself as you venture in this world: ")
         name = input("\n>> ").strip()
+        play_sound("ui", 0.9)
+
     print("The greatest survivors of this world has specialized in one class...")
     time.sleep(1)
     print("What class do you specialize in...?")
@@ -56,6 +61,7 @@ def chapter1():
     print("\nPick your class: ")
 
     class_choice = input("\n>> ").strip().lower()
+    play_sound("ui", 0.9)
 
     stats = class_stats.get(class_choice)
 
@@ -83,14 +89,17 @@ def chapter1():
         choice = input("\n>> ").lower().strip()
 
         if choice == "n":
+            play_sound("ui", 0.9)
             return player
         else:
+            play_sound("ui", 0.9)
             show_class_overview()
             input("\n[Enter] - Continue: ")
             return player
 
 
     else:
+        play_sound("ui", 0.9)
         print("\nInvalid class selection. Defaulting to random Class... ")
 
         random_class = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
@@ -123,8 +132,10 @@ def chapter1():
         match choice:
 
             case  "n":
+                play_sound("ui", 0.9)
                 print()
             case _:
+                play_sound("ui", 0.9)
                 show_class_overview()
                 print("Loading...")
                 time.sleep(1)

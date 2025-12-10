@@ -1,7 +1,7 @@
 """ IMPORTS """
 import time
-# import random
-from tools import audio_manager
+
+from tools.audio_manager import play_music, play_sound, music_stop, music_fadeout
 from models.enemy import spawn_enemy
 from game_modules import Battle
 from tools.save_load_manager import select_save_slot
@@ -24,13 +24,11 @@ def chapter3(player):
     print("Suddenly, a thief jumped out from the shadows stabbing Kael!")
     time.sleep(1.3)
     print(f"Kael Rowan: '*grunts* {player.name}, I can't fight it's up to you!'")
-    audio_manager.music_fadeout(duration=1500)
-    audio_manager.music_stop()
+    music_fadeout(duration=1500)
+    music_stop()
     print("\nLoading...")
     time.sleep(1.5)
-    audio_manager.play_music("thief_fight", volume=0.4)
-
-
+    play_music("thief_fight", volume=0.4)
 
 
     """ RESETS THE PLAYER'S HEALTH """
@@ -43,9 +41,9 @@ def chapter3(player):
 
     player.show_status()
     print("\nLoading dialogues...")
-    audio_manager.music_fadeout(duration=2000)
+    music_fadeout(duration=2000)
     time.sleep(2)
-    audio_manager.music_stop()
+    music_stop()
 
 
     """ IF PLAYER WINS, THE CHAPTER CONTINUES """
@@ -54,7 +52,7 @@ def chapter3(player):
 
     match skip_choice:
         case "n":
-
+            play_sound("ui", 0.9)
             print("\nKael Rowan: 'Gahh, come help me-'")
             time.sleep(1.2)
             print("\nYou walked towards Kael, put his arms over your shoulders and helped him")
@@ -71,6 +69,7 @@ def chapter3(player):
             time.sleep(2)
 
         case _:
+            play_sound("ui", 0.9)
             print("You skipped the dialogue!")
 
     print(f"{player.name}: 'Appreciate it, I'll be sure to leave when needed. *nods*'")

@@ -1,15 +1,14 @@
 
 """ IMPORTS """
 import time
-# import random
-from tools import audio_manager
+from tools.audio_manager import play_music, play_sound, initialize_audio, music_fadeout
 from models.enemy import spawn_enemy
 from game_modules import Battle
 from tools.save_load_manager import select_save_slot
 from game_modules.weapon_choose import main
 from colorama import Style, Fore
 
-audio_manager.initialize_audio()
+initialize_audio()
 
 """ HANDLES CHAPTER 2 INTRO OF THE GAME """
 
@@ -21,6 +20,7 @@ def intro(player):
     skip_choice = input("\nDo you want to skip the dialogue? (Y/N): ").lower().strip()
     match skip_choice:
         case "n":
+            play_sound("ui", 0.9)
             print(f"\n{player.name}: *prepares their bag* 'Hmm, this should be good.'")
             time.sleep(1.5)
             print("You walked out, the door creaks as you open, and you step out into this seemingly vast, broken world...")
@@ -36,6 +36,7 @@ def intro(player):
             print(f"\n{player.name}: 'My name is {player.name}, I wish to just seek supplies for survival...'")
             time.sleep(1.6)
         case _:
+            play_sound("ui", 0.9)
             print("\nYou skipped the dialogue!")
 
     return player
@@ -63,12 +64,12 @@ def chapter2(player):
     time.sleep(1.3)
     print("Suddenly a Wolf jumps out from the car, growling at you!")
     time.sleep(1.3)
-    audio_manager.music_fadeout(2000)
+    music_fadeout(2000)
     print(f"\n{Fore.GREEN}Loading battle...{Style.RESET_ALL}")
     time.sleep(2.3)
 
 
-    audio_manager.play_music("battle music", volume=0.3)
+    play_music("battle music", volume=0.3)
     """ CREATES THE UPDATED ENEMY OBJECT FROM ENEMY DICTIONARY """
 
     enemy = spawn_enemy("Ravager Wolf")
@@ -87,6 +88,8 @@ def chapter2(player):
 
     player.show_status()
     input("\nPress [Enter] to continue >> ")
+    play_sound("ui", 0.9)
+
     player.current_chapter = 3
     select_save_slot(player)
 

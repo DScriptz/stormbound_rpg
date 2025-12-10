@@ -13,7 +13,7 @@ from models.location_data import watch_post
 from shops_stocks import rusted_rifle_stock
 from shops_stocks.armor_shop import ironclad_annex
 from shops_stocks.healing_shop import ironwind_apothecary
-from tools import audio_manager
+from tools.audio_manager import play_sound, play_music, music_stop, music_fadeout
 from tools.save_load_manager import select_save_slot
 from tools.shop import Shop
 
@@ -58,6 +58,7 @@ def leave_ironwind_outpost(player):
 
             match choice:
                 case "y":
+                    play_sound("ui", 0.9)
                     print(f"{player.name}: 'Alright **shakes hands**, we got a deal'")
                     time.sleep(1.5)
                     player.faction = "Ironwinders"
@@ -67,10 +68,12 @@ def leave_ironwind_outpost(player):
                     input("Press [Enter] to continue: ")
                     break
                 case "n":
+                    play_sound("ui", 0.9)
                     print(f"{player.name}: 'I think I can handle myself, thanks for the offer tho.'")
                     print("Kael Rowan: 'Got it, you can always come back here.'")
                     break
                 case _:
+                    play_sound("ui", 0.9)
                     print(f"{player.name}: 'Uhh...'")
                     continue
 
@@ -129,36 +132,44 @@ def show_shop_choices(player):
         match choice:
 
             case "1":
+                play_sound("ui", 0.9)
                 show_silas_dialogue()
                 time.sleep(1.7)
                 healing_shop.open_shop(player)
 
             case "2":
+                play_sound("ui", 0.9)
                 show_rhys_dialogue()
                 time.sleep(1.7)
                 weapon_shop.open_shop(player)
 
             case "3":
+                play_sound("ui", 0.9)
                 show_gauge_dialogue()
                 time.sleep(1.7)
                 armor_shop.open_shop(player)
 
             case "c":
+                play_sound("ui", 0.9)
                 from tools.save_load_manager import select_save_slot
                 select_save_slot(player)
 
             case "u":
+                play_sound("ui", 0.9)
                 player.use_item()
 
             case "i":
+                play_sound("ui", 0.9)
                 player.show_inventory()
 
             case "x":
+                play_sound("ui", 0.9)
                 print(f"{player.name}: 'That was nice.'")
                 time.sleep(1.2)
                 break
 
             case _:
+                play_sound("ui", 0.9)
                 print(f"\n{player.name}: 'Gahh, can't decide...'")
 
 """ THIS HANDLES THE DIRECTION THE PLAYER CAN GO """
@@ -172,7 +183,7 @@ def show_directions():
 
 """ THIS HANDLES THE CHAPTER 4 LOOP """
 def return_to_ironwind_outpost(player):
-    audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
+    play_music("ironwind outpost", volume=0.7, loop=True)
     player.location = "Ironwind Outpost"
     if player.faction == 'Ironwinders':
         print(f"\nIronwind Guard: 'Welcome back, Ironwinder {player.name}.'")
@@ -190,6 +201,7 @@ def return_to_ironwind_outpost(player):
 
     match skip_choice:
         case "n":
+            play_sound("ui", 0.9)
             print("Dust swirls around the crumbling concrete walls, catching the faint orange glow of the hanging lamps.")
             time.sleep(1.5)
             print("So you walked around the outpost, seeing busy people talking, ")
@@ -201,8 +213,10 @@ def return_to_ironwind_outpost(player):
             print("You catch a glimpse of a scavenger kid darting past, holding a bundle of scrap almost bigger than themselves.")
             time.sleep(1.6)
         case _:
+            play_sound("ui", 0.9)
             print("You skipped the dialogue!")
             time.sleep(0.3)
+
     if player.current_chapter >= 5:
         print("You are now in The Nexus Point (center)")
         time.sleep(0.6)
@@ -220,6 +234,7 @@ def return_to_ironwind_outpost(player):
         match choice:
 
             case "1":
+                play_sound("ui", 0.9)
                 print(f"{player.name}: 'Alley of... Remedies? What could be here?'")
                 time.sleep(1.2)
                 print("You walk north, to the Alley of Remedies...")
@@ -227,6 +242,7 @@ def return_to_ironwind_outpost(player):
                 show_shop_choices(player)
 
             case "2":
+                play_sound("ui", 0.9)
                 print(f"{player.name}: 'Huh, maybe a place to sleep?'")
                 time.sleep(1.2)
                 print("You walked towards 'The Coil Bunks'...")
@@ -234,6 +250,7 @@ def return_to_ironwind_outpost(player):
                 player = coil_bunks.enter(player)
 
             case "3":
+                play_sound("ui", 0.9)
                 print(f"{player.name}: 'I should check the watch post. There might be opportunities there.'")
                 time.sleep(1.2)
                 print("You walked towards the Ironwind Watch Post")
@@ -241,23 +258,26 @@ def return_to_ironwind_outpost(player):
                 player = watch_post.enter(player)
 
             case "c":
+                play_sound("ui", 0.9)
                 from tools.save_load_manager import select_save_slot
                 select_save_slot(player)
 
             case "x":
+                play_sound("ui", 0.9)
                 leave_ironwind_outpost(player)
-                audio_manager.music_fadeout(duration=2000)
-                audio_manager.music_stop()
+                music_fadeout(duration=2000)
+                music_stop()
                 break
 
             case _:
+                play_sound("ui", 0.9)
                 print(f"{player.name}: 'Hmm, can't decide..'")
                 time.sleep(0.5)
     return player
 
 def chapter4(player):
     player.current_chapter = 4
-    audio_manager.play_music("ironwind outpost", volume=0.7, loop=True)
+    play_music("ironwind outpost", volume=0.7, loop=True)
     player = return_to_ironwind_outpost(player)
     return player
 
