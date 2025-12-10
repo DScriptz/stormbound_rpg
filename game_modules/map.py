@@ -1,16 +1,21 @@
 import time
+from colorama import Style
+
+bright = Style.BRIGHT
+reset = Style.RESET_ALL
+
 
 map_info = {
     "The Data Grave": {
         "description": "The skeletal remains of a massive tech corporation. \nHigh risk of automated sentinels. The air is thick with ionized static.",
-        "direction": "\nAccessible via: [The Hardpoint] > [The Data Grave]",
+        "direction": f"\n{bright}Accessible via: [The Hardpoint] > [The Data Grave]{reset}",
         "lore": "Many people have died here, their data ghosts trapped in the ruins. "
                 "Some said that if you walk/run 20 steps in all"
                 "directions, you'll see a hidden power vault."
     },
     "The Hardpoint": {
         "description": "The central hub of the resistance. Always safe.",
-        "direction": "\nAccessible via: [Ironwind Outpost] > [The Hardpoint] OR [Ride from other areas] > [The Hardpoint]",
+        "direction": f"\n{bright}Accessible via: [Ironwind Outpost] > [The Hardpoint] OR [Open World/Other Locations] > [The Hardpoint]{reset}",
         "lore": "In this central area of Stormbound, many places can be explored. \nIt is said to be the 'center'"
                 "of the Signal Tower that encrypts the corrupted data that are being used by the 'Storm'. \nMaking this place"
                 " somewhat very safe and undetected by the Drones."
@@ -18,15 +23,16 @@ map_info = {
     "The Foundry": {
         "description": "The place used to be a factory for creating metallic machineries. \nNow after The 'Storm' happened, "
                        "It got abandoned and the remains inside were left to decay...",
-        "direction": "\nAccessible via: [The Hardpoint] > [The Foundry]",
+        "direction": f"\n{bright}Accessible via: [The Hardpoint] > [The Foundry]{reset}",
         "lore": "It was a newly built factory 1-2 years before 'The Storm' invasion (2022-2023). "
                 "\nThe operations in this was just getting started but then halted by the invasion."
                 "\n15 steps in all directions may lead you to a new area..."
     },
     "Ironwind Outpost": {
-        "description": "",
-        "direction": "",
-        "lore": ""
+        "description": "A hidden, spacious, and somewhat populated outpost 3 miles East of The Hardpoint. ",
+        "direction": f"\n{bright}Accessible via: [The Hardpoint] > [Ironwind Outpost] OR [The Open World] > [Ironwind Outpost]{reset}",
+        "lore": "A group of rogue Ex-Militants has bonded together after 'The Storm' and gathered scraps and sheets of "
+                "metals to create a base, and soon after found more Ex-Militants to recruit, creating the Faction 'The Ironwinders'."
     }
 }
 
