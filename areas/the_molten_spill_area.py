@@ -7,7 +7,6 @@ from world_movement.molten_spill_movement import handle_jump_over, handle_wait
 reset = Style.RESET_ALL
 
 def go_to_molten_spill(player):
-
     print("\nAs you venture, you see a big, wide, fallen pipe spitting out very hot molten!")
     time.sleep(1)
     print(f"{player.name}: 'This is blocking my way... What should I do?'")
@@ -24,7 +23,7 @@ the_molten_spill = Location(
     Area Signal Tower Coverage: [{Fore.RED + Style.BRIGHT}II - HIGH Danger{reset}]   
     """,
     {
-        "1": ('Wait - Step back and wait for the metal to cool (slow but safe + 1 step)', handle_wait),
-        "2": ('Jump Over - Attempt to jump over the Hot Molten (Risky but faster + 5 steps if success)', handle_jump_over)
+        "1": ('Wait -> Step back and wait for the metal to cool (Slower but safer + 1 step)', handle_wait),
+        "2": ('Jump Over -> Attempt to jump over the Hot Molten (Risky but faster + 5 steps if success)', handle_jump_over)
     }
 )
