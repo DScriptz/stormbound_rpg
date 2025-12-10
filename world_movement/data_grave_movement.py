@@ -39,6 +39,7 @@ def handle_data_grave_movement_forward(player):
         handle_player_ambushed(player)
     else:
         from dialogues.data_grave_walk_forward import show_random_movement_line
+
         player.location_steps += 2
         play_sound("footstep", volume=0.8)
         show_random_movement_line()
