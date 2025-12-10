@@ -1,5 +1,28 @@
 import random
 import time
+from tools.audio_manager import play_music, music_stop, music_fadeout
+from game_modules import Battle
+from colorama import Fore, Style
+
+reset = Style.RESET_ALL
+
+def handle_player_boss_fight(player):
+    print("You trek this open area, it seems to be so quiet... Unnervingly quiet.")
+    time.sleep(1)
+    print("*THUD*- You hear a loud noise from around the corner...")
+    time.sleep(0.8)
+    print("You peeked, *BEEP* the tall, slim, and the weird human/robot infused figure looked at you...")
+    time.sleep(1.1)
+    print("Unknown: 'Hmm? An unidentified asset eh? You must be perfect for a test subject!! I'm C.T Kane as they call me'")
+    time.sleep(1.2)
+    print("C.T Kane: 'Once I defeat you, you'll be a test subject for D-Corp MUWAHAHAHAH!!'")
+    time.sleep(1.1)
+
+
+    print(f"\n{Fore.RED + Style.BRIGHT}=== BOSS BATTLE ==={reset}")
+    time.sleep(1.3)
+
+
 
 
 def handle_jump_over(player):
