@@ -1,6 +1,7 @@
 import random
 import time
 from colorama import Style, Fore
+from tools.audio_manager import play_sound
 
 reset = Style.RESET_ALL
 
@@ -82,7 +83,7 @@ enemies = {
     "C.T Kane": {
         "health": 100,
         "max_health": 100,
-        "attack": 15,
+        "attack": 14,
         "ability": 'Enrage',
         "prize": 'D-HQ Keys'
     }
@@ -132,6 +133,7 @@ class Enemy:
         base_damage = self.attack + random.randint(-2, 2)
 
         if self.name == "C.T Kane" and self.health <= 50:
+            play_sound('rage', 0.8)
             print(f"\nC.T Kane is now {Fore.RED}ENRAGED!{reset} His system is overclocked (+5 Total Damage)")
             time.sleep(1.1)
             base_damage += 5
@@ -178,7 +180,7 @@ class Enemy:
     Example:
             stats = spawn_enemy("Thief") <--  or any enemy you want
             battle = Battle(player, enemy)
-            battle.fight() <--  call the fight() function in the battle.py
+            battle.fight(player, enemy) <--  call the fight() function in the battle.py
             
 """
 
