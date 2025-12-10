@@ -1,7 +1,8 @@
 import random
 import time
 from tools.audio_manager import play_music, music_stop, music_fadeout
-from game_modules import Battle
+from game_modules.battle import Battle
+from models.enemy import spawn_enemy
 from colorama import Fore, Style
 
 reset = Style.RESET_ALL
@@ -18,10 +19,12 @@ def handle_player_boss_fight(player):
     print("C.T Kane: 'Once I defeat you, you'll be a test subject for D-Corp MUWAHAHAHAH!!'")
     time.sleep(1.1)
 
-
     print(f"\n{Fore.RED + Style.BRIGHT}=== BOSS BATTLE ==={reset}")
     time.sleep(1.3)
 
+    enemy = spawn_enemy('C.T Kane')
+    battle = Battle(player, enemy)
+    battle.fight(player, enemy)
 
 
 
@@ -42,6 +45,7 @@ def handle_jump_over(player):
         print(f"\nYou got burned for: {molten_damage}! Health is now: {player.health}/{player.max_health}")
         player.location_steps += 1
         print(f"You reached {player.location_steps} step(s) now.")
+        handle_player_boss_fight(player)
 
     else:
         player.location_steps += 5
@@ -50,18 +54,20 @@ def handle_jump_over(player):
         print(f"{player.name}: 'Phew, that was close...'")
         time.sleep(1)
         print(f"You reached {player.location_steps} step(s) now.")
-
+        handle_player_boss_fight(player)
     return player
 
 def handle_wait(player):
     player.location_steps += 1
     print("You took a step back and waiting for the Molten Lava to cool down a bit..")
-    time.sleep(1.1)
+    time.sleep(1.5)
     print(f"{player.name}: 'Whew, okay this might be smart...'")
     time.sleep(0.7)
     print("As the Molten sort of cools down, you got a thick metal sheet and placed it over the molten and walked on "
           "top of it cautiously")
     time.sleep(1.2)
     print(f"You reached {player.location_steps} step(s) now.")
+
+    handle_player_boss_fight(player)
 
     return player
