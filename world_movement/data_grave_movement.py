@@ -35,7 +35,7 @@ def handle_player_ambushed(player):
     return player
 
 def handle_data_grave_movement_forward(player):
-    if random.random() < 0.50:
+    if random.random() < 0.45:
         handle_player_ambushed(player)
     else:
         from dialogues.data_grave_walk_forward import show_random_movement_line
