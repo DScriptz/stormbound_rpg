@@ -1,5 +1,4 @@
 """ IMPORTS """
-
 from chapters import (chapter1, chapter2, chapter3, chapter4,
                       open_world, return_to_ironwind_outpost)
 from areas.data_grave_area import go_to_data_grave
@@ -66,3 +65,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# SemVer self reminders: Use 'Major, Minor, Patch' (E.G "v0[Major].1[Minor].0[Patch]) when naming versions.
