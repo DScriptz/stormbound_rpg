@@ -1,5 +1,5 @@
 """ IMPORTS """
-from chapters import (chapter1, chapter2, chapter3, chapter4,
+from chapters import (chapter1, chapter2, chapter3, chapter4, chapter5,
                       open_world, return_to_ironwind_outpost)
 from areas.data_grave_area import go_to_data_grave
 from areas.salvage_cache_area import go_to_salvage_cache
@@ -13,16 +13,20 @@ initialize_audio()
 
 
 def chapter_flow(player):
-    if player.current_chapter <= 2:
-        chapter2(player)
 
-    if player.current_chapter <= 3:
-        chapter3(player)
+    if player.current_chapter >= 5:
+        chapter5(player)
 
-    if player.current_chapter <= 4:
+    elif player.current_chapter <= 4:
         chapter4(player)
 
-    if player.current_chapter >= 5 or player.location:
+    elif player.current_chapter <= 3:
+        chapter3(player)
+
+    elif player.current_chapter <= 2:
+        chapter2(player)
+
+    elif player.location:
         if player.location == "The Data Grave":
             go_to_data_grave(player)
 

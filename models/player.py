@@ -431,7 +431,7 @@ class Player:
     def show_active_bounty(self):
 
         if not self.active_bounty:
-            print("\nYou have NO active bounty.")
+            print(f"\n{Fore.RED}You currently have no active bounty.{reset}")
             time.sleep(1)
             return
 
