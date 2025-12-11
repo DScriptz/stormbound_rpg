@@ -133,10 +133,11 @@ class Enemy:
         base_damage = self.attack + random.randint(-2, 2)
 
         if self.name == "C.T Kane" and self.health <= 50:
-            play_sound('rage', 0.8)
-            print(f"\nC.T Kane is now {Fore.RED}ENRAGED!{reset} His system is overclocked (+5 Total Damage)")
+            play_sound('rage', 0.5)
+            base_damage += 13
+            print(f"\nC.T Kane is now {Fore.RED}ENRAGED!{reset} His system is overclocked (+13 Total Damage)")
             time.sleep(1.1)
-            base_damage += 5
+
 
         if self.is_weakened:
             final_damage = int(base_damage * (1.0 - self.weakness_factor))
