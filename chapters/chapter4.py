@@ -33,6 +33,7 @@ coil_bunks = Location(
     }
 )
 
+
 def leave_ironwind_outpost(player):
     if player.current_chapter >= 5:
         print("You walked towards the exit of Ironwind Outpost...")
@@ -280,8 +281,3 @@ def chapter4(player):
     play_music("ironwind outpost", volume=0.7, loop=True)
     player = return_to_ironwind_outpost(player)
     return player
-
-
-
-
-
