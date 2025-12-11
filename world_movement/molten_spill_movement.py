@@ -1,5 +1,6 @@
 import random
 import time
+from chapters.chapter5 import chapter5
 from tools.audio_manager import play_music, music_stop, music_fadeout
 from game_modules.battle import Battle
 from models.enemy import spawn_enemy
@@ -39,13 +40,18 @@ def show_dialogue(player):
 
 def after_battle(player):
     """Handles the transition from The Molten spill back to the Hardpoint menu."""
-    from areas.the_hardpoint_area import go_to_the_hardpoint
+    if not player.faction:
+        from areas.the_hardpoint_area import go_to_the_hardpoint
 
-    show_dialogue(player)
-    player.location = "The Hardpoint"
-    player.location_steps = 0
+        show_dialogue(player)
+        player.location = "The Hardpoint"
+        player.location_steps = 0
 
-    return go_to_the_hardpoint(player)
+        return go_to_the_hardpoint(player)
+    else:
+        chapter5(player)
+
+    return player
 
 
 def handle_player_boss_fight(player):
