@@ -6,6 +6,7 @@ from areas.data_grave_area import go_to_data_grave
 from areas.salvage_cache_area import go_to_salvage_cache
 from areas.the_foundry_area import go_to_the_foundry
 from areas.the_hardpoint_area import go_to_the_hardpoint
+from areas.the_molten_spill_area import go_to_molten_spill
 from game_modules.game_intro import game_intro
 from tools.audio_manager import initialize_audio
 
@@ -22,7 +23,7 @@ def chapter_flow(player):
     if player.current_chapter <= 4:
         chapter4(player)
 
-    if player.current_chapter >= 5:
+    if player.current_chapter > 4:
         if player.location == "The Data Grave":
             go_to_data_grave(player)
 
@@ -31,6 +32,9 @@ def chapter_flow(player):
 
         elif player.location == "The Foundry":
             go_to_the_foundry(player)
+
+        elif player.location == "The Molten Spill":
+            go_to_molten_spill(player)
 
         elif player.location == "Ironwind Outpost":
             return_to_ironwind_outpost(player)
