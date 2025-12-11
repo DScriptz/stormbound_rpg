@@ -1,6 +1,8 @@
 import time
-from models.location_data import Location
+
 from game_modules.salvage_cache import handle_cache_loot
+from models.location_data import Location
+
 
 def go_to_salvage_cache(player):
     player.location = "Salvage Cache"

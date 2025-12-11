@@ -134,6 +134,7 @@ def chapter1():
             case  "n":
                 play_sound("ui", 0.9)
                 print()
+
             case _:
                 play_sound("ui", 0.9)
                 show_class_overview()
@@ -141,9 +142,3 @@ def chapter1():
                 time.sleep(1)
 
     return player
-
-
-
-
-
-

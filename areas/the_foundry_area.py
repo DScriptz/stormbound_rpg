@@ -1,10 +1,12 @@
 import time
+
 from colorama import Style, Fore
+
+from game_modules.map import show_map, show_location_details
+from game_modules.pause_menu import show_menu
 from models import Location
 from tools.audio_manager import play_music
 from world_movement.the_foundry_movement import handle_movement_forward, handle_movement_right, handle_movement_left
-from game_modules.map import show_map, show_location_details
-from game_modules.pause_menu import show_menu
 
 reset = Style.RESET_ALL
 
@@ -37,9 +39,6 @@ def go_to_the_foundry(player):
         return None
 
     return True
-
-
-
 
 
 the_foundry = Location(

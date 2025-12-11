@@ -1,14 +1,15 @@
-import time
 import random
-from colorama import Fore, Style, init
-from tools.audio_manager import play_music
+import time
+
+from colorama import Fore, Style
+
+from game_modules.map import show_map, show_location_details
+from game_modules.pause_menu import show_menu
 from models.location_data import Location
+from tools.audio_manager import play_music
 from world_movement.data_grave_movement import (
     handle_data_grave_movement_right,
     handle_data_grave_movement_forward, handle_data_grave_movement_left, handle_player_ambushed)
-from game_modules.map import show_map, show_location_details
-from game_modules.pause_menu import show_menu
-
 
 reset = Style.RESET_ALL
 

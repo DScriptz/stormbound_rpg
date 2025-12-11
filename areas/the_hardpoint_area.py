@@ -1,5 +1,5 @@
 import time
-from colorama import Style, Fore
+from colorama import Style, Fore, init
 from tools.audio_manager import play_music
 from models.location_data import Location
 from areas.data_grave_area import go_to_data_grave
