@@ -7,6 +7,7 @@ from game_modules.map import show_map
 from game_modules.pause_menu import show_menu
 from tools.audio_manager import play_sound, initialize_audio
 
+reset = Style.RESET_ALL
 initialize_audio()
 
 class Location:
@@ -27,12 +28,12 @@ class Location:
             show_tips()
 
             for key, (label, func) in self.options.items():
-                print(f"{Fore.LIGHTYELLOW_EX}[{key}]{Style.RESET_ALL} - {label}")
+                print(f"{Fore.LIGHTYELLOW_EX}[{key}]{reset} - {label}")
 
             print("\n====== OPTIONS ======")
-            print(f"{Fore.GREEN}[S]{Style.RESET_ALL} - Show Stats | "
-                  f"{Fore.GREEN}[I]{Style.RESET_ALL} - Show Inventory")
-            print(f"{Fore.GREEN}[U]{Style.RESET_ALL} - Use an Item from Inventory")
+            print(f"{Fore.GREEN}[S]{reset} - [Show Stats] | "
+                  f"{Fore.GREEN}[I]{reset} - [Show Inventory]")
+            print(f"{Fore.GREEN}[U]{reset} - [Use an Item from Inventory] | {Fore.GREEN}[B]{reset} - [Show Active Bounty]")
 
             choice = input("\n>> ").strip().lower()
 
@@ -51,6 +52,11 @@ class Location:
                 case "x":
                     play_sound("ui", 0.9)
                     break
+
+                case "b":
+                    play_sound("ui", 0.9)
+                    player.show_active_bounty()
+                    continue
 
                 case "u":
                     play_sound("ui", 0.9)
