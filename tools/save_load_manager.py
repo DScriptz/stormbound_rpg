@@ -19,7 +19,8 @@ def migrate_player_attributes(player):
         'bleed_turns': 0,
         'is_weakened': False,
         'weakness_factor': 0.0,
-        'faction_standing': 0
+        'faction_standing': 0,
+        'boss_defeated': 0
     }
 
     migrated_count = 0
