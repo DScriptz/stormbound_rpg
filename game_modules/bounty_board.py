@@ -1,5 +1,5 @@
 import time
-from colorama import Fore, init, Style
+from colorama import Fore, Style
 from tools.audio_manager import play_sound
 
 bounty_list = {
@@ -60,6 +60,7 @@ def view_bounty_board(player):
             play_sound("bounty accepted", volume=0.9)
             print(f"**Bounty Accepted!** You must collect {chosen_bounty['required']}x {chosen_bounty['target_item']}.")
             time.sleep(1.4)
+
         else:
             print(f"\nCommander Thorne: 'You still have a bounty, {player.name}. Finish it first!'")
             time.sleep(1.5)
