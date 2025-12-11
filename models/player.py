@@ -427,3 +427,22 @@ class Player:
             else:
                 print("Invalid selection")
                 time.sleep(0.5)
+
+    def show_active_bounty(self):
+
+        if not self.active_bounty:
+            print("\nYou have NO active bounty.")
+            time.sleep(1)
+            return
+
+        print("\n=== [BOUNTIES] ===")
+        print(f"{Style.BRIGHT}[{self.active_bounty['name']}]{reset}")
+        print(f"{Style.DIM + Fore.LIGHTWHITE_EX}Info: {self.active_bounty['description']}")
+        print(f"{Fore.LIGHTYELLOW_EX}Target Loot: {self.active_bounty['target_item']} x{self.active_bounty['required']}")
+        print(f"{Fore.BLUE + Style.BRIGHT}Reward: {self.active_bounty['prize']}")
+
+        input("\n[Enter] to exit menu >> ")
+        print()
+        return
+
+
