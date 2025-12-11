@@ -4,7 +4,7 @@ import random
 import time
 from tools import audio_manager
 from data.item_database import item_database
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 
 reset = Style.RESET_ALL
 
@@ -39,6 +39,7 @@ class Player:
         self.location = location
         self.location_steps = 0
         self.battles_completed = battles_completed
+        self.boss_defeated = 0
         self.faction_standing = faction_standing
 
     """ 
@@ -284,9 +285,15 @@ class Player:
 
         elif self.player_class == "dev":
             audio_manager.play_sound("megumi_domain", volume=0.6)
-            damage = self.attack + 837
+            damage = random.randint(35, 50)
             print(f"{enemy.name} got trapped in your Domain Expansion.")
-            time.sleep(9.5)
+            time.sleep(1)
+            print("Shadows coming from the ground grabs your enemy")
+            time.sleep(2)
+            print("Electric shadows struck you enemy")
+            time.sleep(2)
+            print("You teleport and twitch fast around your enemy damaging them!!")
+            time.sleep(4.5)
             audio_manager.play_sound("fahh", volume=1)
             enemy.take_damage(damage)
 
