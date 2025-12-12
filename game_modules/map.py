@@ -33,6 +33,11 @@ map_info = {
         "direction": f"\n{bright}Accessible via: [The Hardpoint] > [Ironwind Outpost] OR [The Open World] > [Ironwind Outpost]{reset}",
         "lore": "A group of rogue Ex-Militants has bonded together after 'The Storm' and gathered scraps and sheets of "
                 "metals to create a base, and soon after found more Ex-Militants to recruit, creating the Faction 'The Ironwinders'."
+    },
+    "Unknown": {
+        ""
+        ""
+        ""
     }
 }
 
