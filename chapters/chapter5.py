@@ -61,6 +61,20 @@ def handle_choice(player):
             return player
 
 
+def show_dialogue(player):
+    print("You and the guards now stole the car of the assailants, and drove away...")
+    time.sleep(1.3)
+    print(f"30 minutes later: *Radio beeps* '{player.name}, Guards you alright? I saw on the GPS that the vehicle is out of signal.'")
+    time.sleep(1.7)
+    print(f"You picked up the radio, Kael Rowan: {player.name}: 'We... are fine, we were ambushed. Probably D-Corp men...'")
+    time.sleep(1.7)
+    print(f"*Explosion over the radio*, Kael Rowan: 'GET OVER HERE ASAP, WE ARE BEING AMBUSHED I REPEAT WE ARE BEING AMBUSHED_ *cuts off*'")
+    time.sleep(1.7)
+    print("You and the guards were alerted and stepped on the gas and hurried to the Ironwind Outpost...")
+    time.sleep(1.7)
+    return player
+
+
 def chapter5(player):
     play_music("chapter5", volume=0.7, loop=True)
     print("---------------------- Chapter 5: Make... or break ----------------------")
@@ -77,3 +91,5 @@ def chapter5(player):
     time.sleep(1.5)
     print("\nWhat do you do?")
     handle_choice(player)
+    show_dialogue(player)
+
