@@ -14,19 +14,19 @@ initialize_audio()
 
 def chapter_flow(player):
 
-    if player.current_chapter >= 5:
-        chapter5(player)
-
-    elif player.current_chapter <= 4:
-        chapter4(player)
-
-    elif player.current_chapter <= 3:
-        chapter3(player)
-
-    elif player.current_chapter <= 2:
+    if player.current_chapter <= 2:
         chapter2(player)
 
-    elif player.location:
+    if player.current_chapter <= 3:
+        chapter3(player)
+
+    if player.current_chapter <= 4:
+        chapter4(player)
+
+    if player.current_chapter >=5:
+        chapter5(player)
+
+    if player.location:
         if player.location == "The Data Grave":
             go_to_data_grave(player)
 
