@@ -77,7 +77,7 @@ def show_dialogue(player):
 
 def chapter5(player):
     play_music("chapter5", volume=0.7, loop=True)
-    print("---------------------- Chapter 5: Make... or break ----------------------")
+    print("\n---------------------- Chapter 5: Make... or break ----------------------")
 
     print("\nYou signaled the Ironwinders' Guards to come pick you up,")
     time.sleep(1.2)
