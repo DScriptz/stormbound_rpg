@@ -1,11 +1,11 @@
 """ IMPORTS """
-from chapters import (chapter1, chapter2, chapter3, chapter4, chapter5,
-                      open_world, return_to_ironwind_outpost)
 from areas.data_grave_area import go_to_data_grave
 from areas.salvage_cache_area import go_to_salvage_cache
 from areas.the_foundry_area import go_to_the_foundry
 from areas.the_hardpoint_area import go_to_the_hardpoint
 from areas.the_molten_spill_area import go_to_molten_spill
+from chapters import (chapter1, chapter2, chapter3, chapter4, chapter5,
+                      open_world, return_to_ironwind_outpost)
 from game_modules.game_intro import game_intro
 from tools.audio_manager import initialize_audio
 
@@ -13,7 +13,6 @@ initialize_audio()
 
 
 def chapter_flow(player):
-
     if player.current_chapter <= 2:
         chapter2(player)
 
@@ -23,7 +22,7 @@ def chapter_flow(player):
     if player.current_chapter <= 4:
         chapter4(player)
 
-    if player.current_chapter >=5:
+    if player.current_chapter >= 5:
         chapter5(player)
 
     if player.location:

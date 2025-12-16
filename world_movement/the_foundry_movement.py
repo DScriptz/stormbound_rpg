@@ -1,11 +1,12 @@
 import random
 import time
 
+from areas.the_molten_spill_area import go_to_molten_spill
 from dialogues.the_foundry_walk import show_forward_dialogue, show_right_dialogue, show_left_dialogue
 from game_modules import Battle
 from models.enemy import spawn_enemy
 from tools.audio_manager import play_music, music_fadeout, music_stop, play_sound
-from areas.the_molten_spill_area import go_to_molten_spill
+
 
 def handle_player_ambushed(player):
 

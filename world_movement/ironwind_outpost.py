@@ -1,7 +1,6 @@
 import time
+
 from tools.audio_manager import music_stop, music_fadeout
-
-
 
 
 def go_to_ironwind_outpost(player):

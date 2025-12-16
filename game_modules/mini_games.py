@@ -1,7 +1,7 @@
 import random
 import time
-from tools import audio_manager
 
+from tools import audio_manager
 
 
 def play_relic_dice(player):

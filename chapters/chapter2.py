@@ -1,12 +1,14 @@
 
 """ IMPORTS """
 import time
-from tools.audio_manager import play_music, play_sound, initialize_audio, music_fadeout
-from models.enemy import spawn_enemy
-from game_modules import Battle
-from tools.save_load_manager import select_save_slot
-from game_modules.weapon_choose import main
+
 from colorama import Style, Fore
+
+from game_modules import Battle
+from game_modules.weapon_choose import main
+from models.enemy import spawn_enemy
+from tools.audio_manager import play_music, play_sound, initialize_audio, music_fadeout
+from tools.save_load_manager import select_save_slot
 
 initialize_audio()
 

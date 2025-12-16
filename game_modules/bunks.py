@@ -1,5 +1,7 @@
 import time
-from colorama import Fore, init, Style
+
+from colorama import Fore, Style
+
 
 def rent_room(player):
     cost = 30

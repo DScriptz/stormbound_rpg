@@ -1,5 +1,6 @@
-import time
 import random
+import time
+
 
 def handle_loot(player, enemy):
 

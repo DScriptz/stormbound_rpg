@@ -1,5 +1,7 @@
 import time
+
 from colorama import Fore, Style
+
 from tools.audio_manager import play_sound
 
 bounty_list = {

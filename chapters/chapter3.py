@@ -1,9 +1,9 @@
 """ IMPORTS """
 import time
 
-from tools.audio_manager import play_music, play_sound, music_stop, music_fadeout
-from models.enemy import spawn_enemy
 from game_modules import Battle
+from models.enemy import spawn_enemy
+from tools.audio_manager import play_music, play_sound, music_stop, music_fadeout
 from tools.save_load_manager import select_save_slot
 
 """ HANDLES CHAPTER 3 OF THE GAME """

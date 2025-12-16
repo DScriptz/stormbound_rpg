@@ -2,9 +2,11 @@
 """ IMPORTS """
 import random
 import time
-from tools import audio_manager
-from data.item_database import item_database
+
 from colorama import Fore, Style
+
+from data.item_database import item_database
+from tools import audio_manager
 
 reset = Style.RESET_ALL
 

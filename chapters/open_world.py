@@ -1,6 +1,6 @@
 # import time
-from tools.audio_manager import play_music
 from areas.the_hardpoint_area import go_to_the_hardpoint
+from tools.audio_manager import play_music
 
 
 def open_world(player):

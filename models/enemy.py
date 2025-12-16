@@ -1,6 +1,8 @@
 import random
 import time
+
 from colorama import Style, Fore
+
 from tools.audio_manager import play_sound
 
 reset = Style.RESET_ALL

@@ -1,6 +1,7 @@
 import time
 
 from colorama import Fore, Style
+
 from dialogues.game_tips import show_tips
 from game_modules.bounty_board import view_bounty_board, collect_bounty, leave_watch_post
 from game_modules.map import show_map
