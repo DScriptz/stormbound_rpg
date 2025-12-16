@@ -79,7 +79,7 @@ def chapter1():
 
         player.special_ability = stats.get('ability', 'None')
 
-        player.current_chapter = 2
+        player.current_chapter = "2"
 
         select_save_slot(player)
 
@@ -117,7 +117,7 @@ def chapter1():
 
         player.special_ability = default_stats.get('ability', 'None')
 
-        player.current_chapter = 2
+        player.current_chapter = "2"
 
         print(f"\nYour random class is {default_stats['name']}.")
         time.sleep(0.5)

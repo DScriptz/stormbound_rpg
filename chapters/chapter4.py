@@ -35,7 +35,7 @@ coil_bunks = Location(
 
 
 def leave_ironwind_outpost(player):
-    if player.current_chapter >= 5:
+    if player.current_chapter >= "Open World":
         print("You walked towards the exit of Ironwind Outpost...")
         time.sleep(1.5)
         select_save_slot(player)
@@ -102,7 +102,7 @@ def leave_ironwind_outpost(player):
         time.sleep(1.5)
 
         player.location = "The Hardpoint"
-        player.current_chapter = 5
+        player.current_chapter = "Open World"
         select_save_slot(player)
         go_to_the_hardpoint(player)
 
@@ -218,7 +218,7 @@ def return_to_ironwind_outpost(player):
             print("You skipped the dialogue!")
             time.sleep(0.3)
 
-    if player.current_chapter >= 5:
+    if player.current_chapter == "Open World":
         print("You are now in The Nexus Point (center)")
         time.sleep(0.6)
     else:
@@ -277,7 +277,7 @@ def return_to_ironwind_outpost(player):
     return player
 
 def chapter4(player):
-    player.current_chapter = 4
+    player.current_chapter = "4"
     play_music("ironwind outpost", volume=0.7, loop=True)
     player = return_to_ironwind_outpost(player)
     return player

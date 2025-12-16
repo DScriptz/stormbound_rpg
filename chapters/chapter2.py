@@ -44,11 +44,11 @@ def intro(player):
 """ CHAPTER 2 OF THE GAME """
 
 def chapter2(player):
-    if player.current_chapter > 2:
+    if player.current_chapter != "2":
         return player
 
-    if player.current_chapter < 2:
-        player.current_chapter = 2
+    if player.current_chapter == "2":
+        player.current_chapter = "2"
 
     intro(player)
 
@@ -90,7 +90,7 @@ def chapter2(player):
     input("\nPress [Enter] to continue >> ")
     play_sound("ui", 0.9)
 
-    player.current_chapter = 3
+    player.current_chapter = "3"
     select_save_slot(player)
 
     return player

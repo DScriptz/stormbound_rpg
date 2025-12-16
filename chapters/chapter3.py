@@ -9,11 +9,11 @@ from tools.save_load_manager import select_save_slot
 """ HANDLES CHAPTER 3 OF THE GAME """
 
 def chapter3(player):
-    if player.current_chapter > 3:
+    if player.current_chapter != "3":
         return player
 
-    if player.current_chapter < 3:
-        player.current_chapter = 3
+    if player.current_chapter == "3":
+        player.current_chapter = "3"
 
     print("\n---------------------- Chapter 3: Shadows of the Ironwind. ----------------------")
     time.sleep(0.6)
