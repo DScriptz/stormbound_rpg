@@ -191,7 +191,7 @@ def return_to_ironwind_outpost(player):
         time.sleep(1.1)
         print("\n---------------- [Nexus Point] ------------------")
 
-    elif player.current_chapter <= 4:
+    elif player.current_chapter == "4":
         print("\n---------------------- Chapter 4: The Ironwind Outpost ----------------------")
 
     else:
