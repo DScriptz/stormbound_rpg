@@ -9,6 +9,7 @@ slot_count = 15
 
 # This function helps old save player data to have the attributes of new updates
 
+
 def migrate_player_attributes(player):
     missing_attributes = {
         'location': None,
@@ -20,7 +21,8 @@ def migrate_player_attributes(player):
         'is_weakened': False,
         'weakness_factor': 0.0,
         'faction_standing': 0,
-        'boss_defeated': 0
+        'boss_defeated': 0,
+        'faction': None
     }
 
     migrated_count = 0
@@ -34,8 +36,6 @@ def migrate_player_attributes(player):
         print(f"MIGRATION: Added {migrated_count} new attributes to old save file.")
 
     return player
-
-
 
 
 def check_slot_status(slot_number):
@@ -146,7 +146,6 @@ def save_game(player, slot_number):
         return False
 
 
-
 def load_game(slot_number):
     """
     Loads and reconstructs the Player object from a specific save slot.
@@ -172,6 +171,3 @@ def load_game(slot_number):
         # Catches any file reading or corrupted data errors
         print(f"\nAn unexpected error occurred while loading Slot {slot_number}. Save file may be corrupted: {e}")
         return None
-
-
-
