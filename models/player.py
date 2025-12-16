@@ -16,7 +16,7 @@ reset = Style.RESET_ALL
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, weapon="Barefist", location=None, battles_completed=0, rank="Scrap Initiate", faction_standing=0):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, weapon="Barefist", location=None, battles_completed=0, rank="Scrap Initiate", faction_standing=0, current_chapter="1"):
         self.name = player_name
         self.player_class = player_class
         self.health = health
@@ -33,7 +33,7 @@ class Player:
         self.dodging = False
         self.stunned = False
         self.active_bounty = None
-        self.current_chapter = 1
+        self.current_chapter = current_chapter
         self.bounty_completed = 0
         self.faction = None
         self.location = location
@@ -437,9 +437,9 @@ class Player:
 
         print("\n=== [BOUNTIES] ===")
         print(f"{Style.BRIGHT}[{self.active_bounty['name']}]{reset}")
-        print(f"{Style.DIM + Fore.LIGHTWHITE_EX}Info: {self.active_bounty['description']}")
-        print(f"{Fore.LIGHTYELLOW_EX}Target Loot: {self.active_bounty['target_item']} x{self.active_bounty['required']}")
-        print(f"{Fore.BLUE + Style.BRIGHT}Reward: {self.active_bounty['prize']}")
+        print(f"{Style.DIM + Fore.LIGHTWHITE_EX}Info: {self.active_bounty['description']}{reset}")
+        print(f"{Fore.LIGHTYELLOW_EX}Target Loot: {self.active_bounty['target_item']} x{self.active_bounty['required']}{reset}")
+        print(f"{Fore.BLUE + Style.BRIGHT}Reward: {self.active_bounty['prize']}{reset}")
 
         input("\n[Enter] to exit menu >> ")
         print()

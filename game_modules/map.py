@@ -34,11 +34,7 @@ map_info = {
         "lore": "A group of rogue Ex-Militants has bonded together after 'The Storm' and gathered scraps and sheets of "
                 "metals to create a base, and soon after found more Ex-Militants to recruit, creating the Faction 'The Ironwinders'."
     },
-    "Unknown": {
-        ""
-        ""
-        ""
-    }
+
 }
 
 
