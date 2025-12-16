@@ -74,6 +74,8 @@ def chapter3(player):
 
     print(f"{player.name}: 'Appreciate it, I'll be sure to leave when needed. *nods*'")
 
+    player.current_chapter = "4"
+
     select_save_slot(player)
 
     return player
