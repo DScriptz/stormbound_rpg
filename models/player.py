@@ -16,7 +16,7 @@ reset = Style.RESET_ALL
 """
 
 class Player:
-    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, weapon="Barefist", location=None, battles_completed=0, rank="Scrap Initiate", faction_standing=0, current_chapter="1"):
+    def __init__(self, player_name, player_class, health=50, max_health=50, attack=10, weapon="Barefist", location=None, battles_completed=0, rank="Scrap Initiate", faction=None, faction_standing=0, current_chapter="1"):
         self.name = player_name
         self.player_class = player_class
         self.health = health
@@ -35,7 +35,7 @@ class Player:
         self.active_bounty = None
         self.current_chapter = current_chapter
         self.bounty_completed = 0
-        self.faction = None
+        self.faction = faction
         self.location = location
         self.location_steps = 0
         self.battles_completed = battles_completed
