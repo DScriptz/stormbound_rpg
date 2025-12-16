@@ -1,8 +1,10 @@
 # --- Temporary test code ---
-from shops_stocks.healing_shop import ironwind_apothecary
-from shops_stocks.weapon_shop import rusted_rifle_stock
-from tools import Shop
-
+from rpg.shops_stocks import rusted_rifle_stock
+from rpg.tools import Shop
+from rpg.models.items import Item
+from rpg.shops_stocks.healing_shop import ironwind_apothecary
+from rpg.shops_stocks.weapon_shop import rusted_rifle_stock
+from rpg.models.player import Player
 
 # Create a fake player for testing
 class FakePlayer:

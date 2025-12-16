@@ -1,9 +1,7 @@
 import os
 import pickle
 import time
-
 from colorama import Fore, Style
-
 from tools.audio_manager import play_sound
 
 save_folder = "save_data"

@@ -1,7 +1,5 @@
 import time
-
 from colorama import Fore, Style
-
 from class_data import class_weapons
 
 reset = Style.RESET_ALL

@@ -1,7 +1,6 @@
 import os
-import time
-
 import pygame
+import time
 
 audio_file = "sounds"
 

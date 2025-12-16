@@ -1,7 +1,6 @@
 
-from colorama import Fore, Style
-
 from tools.keyboard_input_manager import wait_for_key
+from colorama import Fore, Style
 
 difficulty_easy = f"{Fore.GREEN}EASY{Style.RESET_ALL}"
 difficulty_medium = f"{Fore.YELLOW}MEDIUM{Style.RESET_ALL}"

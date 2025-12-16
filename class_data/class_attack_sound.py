@@ -1,6 +1,6 @@
 import random
-
 from tools.audio_manager import play_sound
+
 
 
 def attack_sound(player):

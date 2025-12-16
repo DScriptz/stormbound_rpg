@@ -1,5 +1,4 @@
 import random
-
 from colorama import Style, Fore
 
 gauge = f"{Fore.RED + Style.BRIGHT}Gauge{Style.RESET_ALL}"

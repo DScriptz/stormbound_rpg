@@ -1,10 +1,8 @@
 import time
-
 from colorama import Style, Fore
-
-from game_modules.pause_menu import show_menu
 from models import Location
 from world_movement.molten_spill_movement import handle_jump_over, handle_wait
+from game_modules.pause_menu import show_menu
 
 reset = Style.RESET_ALL
 

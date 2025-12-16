@@ -1,12 +1,10 @@
 import random
 import time
-
-from colorama import Fore, Style
-
 from chapters.chapter5 import chapter5
+from tools.audio_manager import play_music, music_stop, music_fadeout
 from game_modules.battle import Battle
 from models.enemy import spawn_enemy
-from tools.audio_manager import play_music, music_stop, music_fadeout
+from colorama import Fore, Style
 
 reset = Style.RESET_ALL
 

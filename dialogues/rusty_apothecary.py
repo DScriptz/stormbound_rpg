@@ -1,6 +1,5 @@
 import random
-
-from colorama import Fore, Style
+from colorama import Fore, Style, init
 
 npc_name = f"{Fore.LIGHTGREEN_EX}Silas 'Synth' Vane: {Style.RESET_ALL}"
 

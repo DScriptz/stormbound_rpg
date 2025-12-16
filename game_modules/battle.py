@@ -1,13 +1,12 @@
 """ IMPORTS """
 import random
-import sys
 import time
-
-from colorama import Fore, Style
-
+import sys
 from game_modules.loot_handler import handle_loot
-from game_modules.player_ranks_up import check_rank
+from colorama import Fore, Style
 from tools import audio_manager
+from game_modules.player_ranks_up import check_rank
+
 
 """ THIS HANDLES THE GAME'S BATTLE MECHANIC """
 

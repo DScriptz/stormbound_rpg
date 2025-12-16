@@ -1,9 +1,7 @@
 import time
-
 from colorama import Fore, Style
-
-from tools import audio_manager
 from tools.rank_up import get_rank
+from tools import audio_manager
 
 
 def check_rank(player):

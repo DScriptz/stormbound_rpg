@@ -1,7 +1,6 @@
 
 """ IMPORTS """
 import time
-
 from areas.the_hardpoint_area import go_to_the_hardpoint
 from dialogues.ironclad_annex import show_gauge_dialogue
 from dialogues.rusted_rifle import show_rhys_dialogue

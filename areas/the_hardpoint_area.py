@@ -1,14 +1,13 @@
 import time
-
 from colorama import Style, Fore
-
+from tools.audio_manager import play_music
+from models.location_data import Location
 from areas.data_grave_area import go_to_data_grave
 from areas.the_foundry_area import go_to_the_foundry
+from world_movement.ironwind_outpost import go_to_ironwind_outpost
 from game_modules.map import show_map, show_location_details
 from game_modules.pause_menu import show_menu
-from models.location_data import Location
-from tools.audio_manager import play_music
-from world_movement.ironwind_outpost import go_to_ironwind_outpost
+
 
 reset = Style.RESET_ALL
 

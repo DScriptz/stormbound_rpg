@@ -1,5 +1,4 @@
 import time
-
 from colorama import Style
 
 bright = Style.BRIGHT
