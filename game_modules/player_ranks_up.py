@@ -1,4 +1,5 @@
 import time
+from tools.audio_manager import play_sound
 from colorama import Fore, Style
 from tools.rank_up import get_rank
 from tools import audio_manager
@@ -18,12 +19,14 @@ def handle_levelup_stats(player):
 
         match choice:
             case "1":
+                play_sound("ui", volume=0.9)
                 player.attack += attack_upgrade
                 print(f"\nYour total Attack power increased to {player.attack}!")
                 time.sleep(1)
                 break
 
             case "2":
+                play_sound("ui", volume=0.9)
                 player.max_health += health_upgrade
                 player.health += health_upgrade
                 print(f"\nYour total Health increased to {player.max_health}!")
@@ -31,6 +34,7 @@ def handle_levelup_stats(player):
                 break
 
             case _:
+                play_sound("ui", volume=0.9)
                 print(f"{player.name}: 'Which one does benefit me more...'")
                 time.sleep(0.5)
 
@@ -47,7 +51,7 @@ def check_rank(player):
         player.rank = new_rank
 
         print(f'\nYou {Fore.GREEN}RANKED UP{reset}! New Player Rank: "{player.rank}"')
-        audio_manager.play_sound("level up", volume=0.9)
+        audio_manager.play_sound("level up", volume=1)
         time.sleep(1)
         handle_levelup_stats(player)
 
