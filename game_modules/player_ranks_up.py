@@ -7,23 +7,25 @@ reset = Style.RESET_ALL
 
 
 def handle_levelup_stats(player):
+    attack_upgrade = 3
+    health_upgrade = 5
 
     while True:
         print("Which one of your stats would you like to upgrade: ")
-        print(f"[1] - [{Fore.RED}Attack{reset}] + 5 | [2] - [{Fore.GREEN}Max Health{reset}] + 3")
+        print(f"[1] - [{Fore.RED}Attack{reset}] + {attack_upgrade} | [2] - [{Fore.GREEN}Max Health{reset}] + {health_upgrade}")
 
         choice = input("\n>> ").strip()
 
         match choice:
             case "1":
-                player.attack += 5
+                player.attack += attack_upgrade
                 print(f"\nYour total Attack power increased to {player.attack}!")
                 time.sleep(1)
                 break
 
             case "2":
-                player.max_health += 3
-                player.health += 3
+                player.max_health += health_upgrade
+                player.health += health_upgrade
                 print(f"\nYour total Health increased to {player.max_health}!")
                 time.sleep(1)
                 break
