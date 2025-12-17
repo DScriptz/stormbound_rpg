@@ -1,7 +1,7 @@
 import random
 import time
 from tools.audio_manager import play_sound
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 
 
 class Shop:
@@ -37,6 +37,7 @@ class Shop:
                     play_sound(random_sound, volume=0.7)
                     print(f"\nYou bought {item.name} for {item.price} SMK!")
                     time.sleep(0.6)
+                    add_faction_respect(player)
 
                 else:
                     print(f"\n{player.name}: 'Ehh, I don't have enough SMK's *sighs*' ")
@@ -47,8 +48,23 @@ class Shop:
                 time.sleep(0.7)
                 player.show_status()
                 break
+
             else:
                 print(f"\n{player.name}: 'Am I gonna buy something...? Or did I just forgot?'")
                 time.sleep(1)
 
+def add_faction_respect(player):
+    respect = random.randint(1, 2)
 
+    if not player.faction:
+        print("\nYou have no Faction. No faction respected earned")
+        time.sleep(1)
+
+    if random.random() <= 0.60:
+        player.faction_standing += respect
+        print(f"\nYou earned some respect from your Faction +{respect}")
+        time.sleep(0.8)
+        print(f"\nYour faction standing is now {player.faction_standing}")
+        time.sleep(0.9)
+
+    return player
