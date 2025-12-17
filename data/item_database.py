@@ -5,7 +5,7 @@ item_database = {
     "Quick-Seal Strip": Item(
         name="Quick-Seal Strip",
         price=10,
-        heal=10,
+        heal=12,
         damage=0,
         armor=0,
         description="A flexible adhesive infused with clotting gel. Slap it on, hope it sticks, keep running."
@@ -14,7 +14,7 @@ item_database = {
     "Fieldcare Pack MK-II": Item(
         name="Fieldcare Pack MK-II",
         price=20,
-        heal=20,
+        heal=22,
         damage=0,
         armor=0,
         description="A compact paramedic pouch with pressurized antiseptic spray, fiber stitches, and a mild pain suppressant."
@@ -23,7 +23,7 @@ item_database = {
     "RegenStim Injector": Item(
         name="RegenStim Injector",
         price=35,
-        heal=35,
+        heal=37,
         damage=0,
         armor=0,
         description="A single-use auto-injector containing synthetic growth factors. Burns like fire, works like magic."
