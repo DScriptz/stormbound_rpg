@@ -240,27 +240,43 @@ def return_to_ironwind_outpost(player):
         match choice:
 
             case "1":
-                play_sound("ui", 0.9)
-                print(f"{player.name}: 'Alley of... Remedies? What could be here?'")
-                time.sleep(1.2)
-                print("You walk north, to the Alley of Remedies...")
-                time.sleep(1.1)
+                if player.current_chapter == "Open World" or player.current_chapter == "5":
+                    play_sound("ui", 0.9)
+                    print("You walk north, to the Alley of Remedies...")
+                    time.sleep(1)
+                else:
+                    play_sound("ui", 0.9)
+                    print(f"{player.name}: 'Alley of... Remedies? What could be here?'")
+                    time.sleep(1.2)
+                    print("You walk north, to the Alley of Remedies...")
+                    time.sleep(1.1)
+
                 show_shop_choices(player)
 
             case "2":
-                play_sound("ui", 0.9)
-                print(f"{player.name}: 'Huh, maybe a place to sleep?'")
-                time.sleep(1.2)
-                print("You walked towards 'The Coil Bunks'...")
-                time.sleep(1.3)
+                if player.current_chapter == "Open World" or player.current_chapter == "5":
+                    play_sound("ui", 0.9)
+                    print("You walked South to the 'Coil Bunks'...")
+
+                else:
+                    play_sound("ui", 0.9)
+                    print(f"{player.name}: 'Huh, maybe a place to sleep?'")
+                    time.sleep(1.2)
+                    print("You walked towards 'The Coil Bunks'...")
+                    time.sleep(1.3)
                 player = coil_bunks.enter(player)
 
             case "3":
-                play_sound("ui", 0.9)
-                print(f"{player.name}: 'I should check the watch post. There might be opportunities there.'")
-                time.sleep(1.2)
-                print("You walked towards the Ironwind Watch Post")
-                time.sleep(1.3)
+                if player.current_chapter == "Open World" or player.current_chapter == "5":
+                    play_sound("ui", 0.9)
+                    print("You walked East to the Ironwind Outpost, seeing its tall figure...")
+                    time.sleep(1.2)
+                else:
+                    play_sound("ui", 0.9)
+                    print(f"{player.name}: 'I should check the watch post. There might be opportunities there.'")
+                    time.sleep(1.2)
+                    print("You walked towards the Ironwind Watch Post")
+                    time.sleep(1.3)
                 player = watch_post.enter(player)
 
             case "c":
