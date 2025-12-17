@@ -35,11 +35,14 @@ coil_bunks = Location(
 
 
 def leave_ironwind_outpost(player):
-    if player.current_chapter >= "Open World":
+    if player.current_chapter == "Open World" or player.current_chapter == "5" or player.current_chapter == 5:
         print("You walked towards the exit of Ironwind Outpost...")
         time.sleep(1.5)
+        player.location = "The Hardpoint"
+        player.current_chapter = "Open World"
         select_save_slot(player)
         go_to_the_hardpoint(player)
+
     else:
         print("\nAs you walk towards the exit, you hear a footstep coming fast at you,")
         time.sleep(1.5)
@@ -103,13 +106,14 @@ def leave_ironwind_outpost(player):
 
         player.location = "The Hardpoint"
         player.current_chapter = "Open World"
+
         select_save_slot(player)
         go_to_the_hardpoint(player)
 
 """ SHOWS THE PLAYER THE SHOPS THEY CAN GO TO """
 
 def show_shop_choices(player):
-    if player.current_chapter == "Open World":
+    if player.current_chapter == "Open World" or player.current_chapter == "5":
         print("You looked around and there are shops waving their offers to you...")
         time.sleep(1)
 
