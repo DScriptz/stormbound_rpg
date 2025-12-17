@@ -39,8 +39,8 @@ map_info = {
 
 
 def show_map():
-    print("\n--- [WORLD MAP] ---")
-    print("[DIGITAL MAP INITIALIZING...]\n")
+    print("\n     --- [WORLD MAP] ---")
+    print("    [DIGITAL MAP INITIALIZING...]\n")
     time.sleep(0.7)
     print(f"\nKnown locations around Stormbound:")
     for location_name, data in map_info.items():
