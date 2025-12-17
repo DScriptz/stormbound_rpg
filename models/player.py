@@ -354,7 +354,7 @@ class Player:
 
         print(f"{Fore.BLUE} Weapon:{Style.RESET_ALL} {Fore.BLUE}'{self.weapon}'{Style.RESET_ALL}")
 
-        print(f"{Fore.YELLOW} Faction:{Style.RESET_ALL} {Style.BRIGHT}{self.faction}{reset}")
+        print(f"{Fore.YELLOW} Faction:{Style.RESET_ALL} {Style.BRIGHT}{self.faction}{reset} - Faction Respect: {self.faction_standing}")
 
         print(f"{Fore.CYAN} Current Chapter:{Style.RESET_ALL} {self.current_chapter}")
         print(f"{Fore.MAGENTA} Battles:{Style.RESET_ALL} {self.battles_completed}")
