@@ -2,6 +2,7 @@
 """ IMPORTS """
 import time
 from areas.the_hardpoint_area import go_to_the_hardpoint
+from colorama import Style
 from dialogues.ironclad_annex import show_gauge_dialogue
 from dialogues.rusted_rifle import show_rhys_dialogue
 from dialogues.rusty_apothecary import show_silas_dialogue
@@ -50,7 +51,7 @@ def leave_ironwind_outpost(player):
         time.sleep(1.7)
         print(f"Kael Rowan: 'I've got something for ya, here.'")
         time.sleep(1.5)
-        print("Kael shows you a Faction Badge: Ironwinders")
+        print(f"Kael shows you a Faction Badge: {Style.BRIGHT}Ironwinders{Style.RESET_ALL}")
         time.sleep(1.5)
         print("Kael Rowan: 'If you want, you can be one of us.'")
         time.sleep(1.5)
