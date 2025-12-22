@@ -9,6 +9,7 @@ from dialogues.ranks_info import show_rank_info
 from dialogues.stormbound_lore import show_stormbound_lore
 from tools import audio_manager
 from tools.save_load_manager import select_load_slot
+from tools.type_writer import type_writer
 
 reset = Style.RESET_ALL
 
@@ -24,7 +25,7 @@ def show_credits():
 
 def show_overview():
     while True:
-        print("\n--- STORMBOUND OVERVIEW --- ")
+        type_writer("\n--- STORMBOUND OVERVIEW --- ")
         print("[1] - Stormbound Lore  |  [2] Factions Overview")
         print("[3] - Classes Overview |  [4] Player Ranks (Level) Info")
         print("[X] - Exit Menu")
@@ -69,7 +70,7 @@ def game_intro():
     audio_manager.play_music("stormbound menu", volume=0.6, loop=True)
     while True:
         print("\n[----------------------------------------------------------]")
-        print("                    -{ STORMBOUND HAVEN }-                      ")
+        type_writer("                   -{ STORMBOUND HAVEN }-                      ")
         print("[----------------------------------------------------------]\n")
 
         print(f"{Fore.LIGHTGREEN_EX+ Style.BRIGHT}Tip: Consider reading the Overviews [2] first before playing"
