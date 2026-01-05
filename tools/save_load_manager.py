@@ -76,7 +76,7 @@ def select_save_slot(player):
         """ PLAYER OVERWRITE CONFIRMATION """
 
     if check_slot_status(slot_number):
-        confirm = input(f"Slot {slot_number} is IN USE. Overwrite? (y/n): ")
+        confirm = input(f"Do you want to overwrite Save Slot {slot_number}? (y/n): ")
         play_sound("ui", 0.9)
         if confirm != "y":
             play_sound("ui", 0.9)
@@ -105,6 +105,7 @@ def select_load_slot():
             if slot_number == 0:
                 print("Load Cancelled")
                 return None  # Returns None if cancelled
+
             if 1 <= slot_number <= slot_count:
 
                 if not check_slot_status(slot_number):
