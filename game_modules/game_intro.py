@@ -7,7 +7,7 @@ from dialogues.class_overview import show_class_overview
 from dialogues.factions import show_faction_overview
 from dialogues.ranks_info import show_rank_info
 from dialogues.stormbound_lore import show_stormbound_lore
-from tools import audio_manager
+from tools import audio_manager, type_writer
 from tools.save_load_manager import select_load_slot
 
 reset = Style.RESET_ALL
@@ -69,8 +69,8 @@ def game_intro():
     audio_manager.play_music("stormbound menu", volume=0.6, loop=True)
     while True:
         print("\n[----------------------------------------------------------]")
-        print("                    -{ STORMBOUND HAVEN }-                      ")
-        print("[----------------------------------------------------------]\n")
+        type_writer("                    -{ STORMBOUND HAVEN }-                      ")
+        print("\n[----------------------------------------------------------]")
 
         print(f"{Fore.LIGHTGREEN_EX+ Style.BRIGHT}Tip: Consider reading the Overviews [2] first before playing"
               f" for more enjoyable experience!{reset}\n")
