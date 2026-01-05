@@ -28,10 +28,18 @@ class Shop:
             choice = input("\n >>  ").lower().strip()
 
             if choice in self.stock:
+                price_increase = random.randint(5, 10)
                 item = self.stock[choice]
 
                 if player.stormmarks >= item.price:
-                    player.stormmarks -= item.price
+
+                    if player.faction_standing >= 5:
+                        player.stormmarks -= int(item.price // 1.5)
+                    elif player.faction_standing < 0:
+                        player.stormmarks -= int(item.price + price_increase)
+                    else:
+                        player.stormmarks -= item.price
+
                     player.inventory[item.name] = player.inventory.get(item.name, 0) + 1
                     sounds = ['purchase', 'purchase 2']
                     random_sound = random.choice(sounds)
