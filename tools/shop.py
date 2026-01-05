@@ -9,6 +9,7 @@ class Shop:
         self.name = name
         self.stock = stock
 
+
     def open_shop(self, player):
         while True:
             print("   ==========================================================================================================================================================")
@@ -52,6 +53,7 @@ class Shop:
             else:
                 print(f"\n{player.name}: 'Am I gonna buy something...? Or did I just forgot?'")
                 time.sleep(1)
+
 
 def add_faction_respect(player):
     respect = random.randint(1, 2)
