@@ -61,6 +61,7 @@ def add_faction_respect(player):
     if not player.faction:
         print("\nYou have no Faction. No faction respected earned")
         time.sleep(1)
+        return player
 
     if random.random() <= 0.60:
         player.faction_standing += respect
