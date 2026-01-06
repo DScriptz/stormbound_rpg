@@ -32,19 +32,20 @@ class Shop:
                 item = self.stock[choice]
 
                 if player.stormmarks >= item.price:
-
+                    total_price = item.price
                     if player.faction_standing >= 5:
-                        player.stormmarks -= int(item.price // 1.5)
-                    elif player.faction_standing < 0:
-                        player.stormmarks -= int(item.price + price_increase)
-                    else:
-                        player.stormmarks -= item.price
+                        player.stormmarks -= int(total_price // 1.5)
 
+                    elif player.faction_standing < 0:
+                        player.stormmarks -= int(total_price + price_increase)
+
+                    else:
+                        player.stormmarks -= total_price
                     player.inventory[item.name] = player.inventory.get(item.name, 0) + 1
                     sounds = ['purchase', 'purchase 2']
                     random_sound = random.choice(sounds)
                     play_sound(random_sound, volume=0.7)
-                    print(f"\nYou bought {item.name} for {item.price} SMK!")
+                    print(f"\nYou bought {item.name} for {total_price} SMK!")
                     time.sleep(0.6)
                     add_faction_respect(player)
 
@@ -73,9 +74,23 @@ def add_faction_respect(player):
 
     if random.random() <= 0.60:
         player.faction_standing += respect
-        print(f"\nYou earned some respect from your Faction +{respect}")
+        print(f"\nYou earned some respect from your Faction '{player.faction}' +{respect}")
         time.sleep(0.8)
-        print(f"\nYour faction standing is now {player.faction_standing}")
+        if player.faction_standing >= 5:
+            player.faction_standing = 5
+            print(
+                f"\nYou reached the maximum Faction Respect of 5! You got the uttermost Respect from your Faction '{player.faction}'.")
+            time.sleep(1.2)
+
+        elif player.faction_standing <= -5:
+            player.faction_standing = -5
+            print(
+                f"Better be careful, your Faction doesn't Respect you! Player Faction Respect: {player.faction_standing}.")
+            time.sleep(1.2)
+        print(f"\nYour Faction Respect is now {player.faction_standing}")
         time.sleep(0.9)
+
+
+
 
     return player
