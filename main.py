@@ -1,4 +1,4 @@
-""" IMPORTS """
+from colorama  import Fore, Style
 from chapters import (chapter1, chapter2, chapter3, chapter4, chapter5,
                       open_world, return_to_ironwind_outpost)
 from areas.data_grave_area import go_to_data_grave
@@ -8,6 +8,8 @@ from areas.the_hardpoint_area import go_to_the_hardpoint
 from areas.the_molten_spill_area import go_to_molten_spill
 from game_modules.game_intro import game_intro
 from tools.audio_manager import initialize_audio
+
+reset = Style.RESET_ALL
 
 initialize_audio()
 
@@ -59,7 +61,7 @@ def main():
         player = loaded_player
 
     else:
-        print("\nStarting a new game...\n")
+        print(f"\n{Fore.GREEN + Style.BRIGHT}Starting a new game...{reset}\n")
         player = chapter1()
 
     chapter_flow(player)
