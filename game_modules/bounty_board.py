@@ -17,7 +17,7 @@ bounty_list = {
         "required": 5,
         "prize": 400,
         "description": 'A mysterious Ghoul found wandering around The Hardpoint, just near the border of The Data Grave.'
-                       'They are dangerous, mythical and powerful. Watch your back and keep your guard up.'
+                       ' They are dangerous, mythical and powerful. Watch your back and keep your guard up.'
 
     },
     "C": {
@@ -25,11 +25,12 @@ bounty_list = {
         "target_item": "S-7 Intel Chip",
         "required": 15,
         "prize": 750,
-        "description": 'The Data says that the Foremans of this enemy Faction are said to be roaming around "The Foundry". '
-                       '\nGo out there and eliminate them. We need the Intels ASAP.'
+        "description": 'The Data says that the Foremen of this enemy Faction are said to be roaming around "The Foundry". '
+                       '\nGo out there and eliminate them. We need the Intel ASAP.'
     }
 
 }
+
 
 def view_bounty_board(player):
     """ SHOW AVAILABLE BOUNTIES """
@@ -79,8 +80,12 @@ def collect_bounty(player):
     """ CHECKS INVENTORY AND GIVES THE REWARDS """
     print("\nCommander Thorne: 'Hand me the proof, I don't care about your stories.'")
     time.sleep(1.2)
+    print("=== BOUNTIES ==="
+          "\n[A] -> Drone CPU Interval"
+          "\n[B] -> Wasteland Ghoul Finger Hunting"
+          "\n[C] -> The Forman's Echo")
 
-    bounty_id = input("Which bounty ID (A, B, C...) do you want to submit? >> ").strip().upper()
+    bounty_id = input("Which bounty ID do you want to submit? >> ").strip().upper()
 
     if bounty_id not in bounty_list:
         print("\nCommander Thorne: 'That Bounty ID isn't on the board, get serious!'")
@@ -109,10 +114,11 @@ def collect_bounty(player):
         time.sleep(1.3)
     return True
 
+
 """ SIGNALS TO THE LOCATION CLASS TO EXIT THE LOOP """
 def leave_watch_post(player):
     if player.bounty_completed >= 1:
-        print(f"{player.name}: 'That was rough, but worth it...'")
+        print(f"{player.name}: 'That was rough, but worth it.'")
         time.sleep(1.3)
     else:
         print(f"{player.name}: 'Well, that was something-'")
