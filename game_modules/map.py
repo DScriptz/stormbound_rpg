@@ -10,8 +10,8 @@ map_info = {
         "description": "The skeletal remains of a massive tech corporation. \nHigh risk of automated sentinels. The air is thick with ionized static.",
         "direction": f"\n{bright}Accessible via: [The Hardpoint] > [The Data Grave]{reset}",
         "lore": "Many people have died here, their data ghosts trapped in the ruins. "
-                "Some said that if you walk/run 20 steps in all"
-                "directions, you'll see a hidden power vault."
+                "Some said that if you walk/run 20 steps in all "
+                "directions, you'll see a hidden power vault..."
     },
     "The Hardpoint": {
         "description": "The central hub of the resistance. Always safe.",
