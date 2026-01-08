@@ -1,15 +1,20 @@
 import time
+import random
+from tools.audio_manager import play_sound, music_stop
+from colorama import Fore, Style
 
-
+reset = Style.RESET_ALL
 
 
 def handle_cache_loot(player):
-    print("\n[ PROCESSING SALVAGE ] Accessing the console...")
-    time.sleep(1.3)
-    print("The vault's inventory data transfers to your HUD. You collect the key items and SMK.")
+    music_stop()
+    play_sound("data processing", 1.5)
+    print(f"\n{Fore.LIGHTGREEN_EX}[ PROCESSING SALVAGE ]{reset} Accessing the console...")
+    time.sleep(2.5)
+    print("\nThe vault's inventory data transfers to your HUD. You collect the key items and SMK.")
     time.sleep(1.2)
 
-    smk_reward = 150
+    smk_reward = random.randint(130, 150)
     item_reward = "Fieldcare Pack MK-II"
 
     player.stormmarks += smk_reward
