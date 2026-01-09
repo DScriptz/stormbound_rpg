@@ -21,7 +21,7 @@ def handle_player_ambushed(player):
     music = random.choice(music_choices)
     play_music(music, volume=0.6, loop=True)
 
-    print(f"As you walk, the {enemy.name} suddenly ambushes you!!!")
+    print(f"As you were walking, the {enemy.name} suddenly ambushes you!!!")
     time.sleep(1.3)
 
 
@@ -75,7 +75,7 @@ def handle_data_grave_movement_right(player):
         time.sleep(1.3)
 
         if random.random() < 0.20:
-            print("\nAMBUSH!! You attracted unwanted attention while backtracking.")
+            print("\nAMBUSH!! You attracted unwanted attention while backtracking!")
             handle_player_ambushed(player)
 
     if player.health <= 0:
