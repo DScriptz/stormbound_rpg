@@ -11,7 +11,7 @@ def handle_cache_loot(player):
     play_sound("data processing", 1.5)
     print(f"\n{Fore.LIGHTGREEN_EX}[ PROCESSING SALVAGE ]{reset} Accessing the console...")
     time.sleep(2.5)
-    print("\nThe vault's inventory data transfers to your HUD. You collect the key items and SMK.")
+    print("\nThe vault's inventory data transfers to your Cache. You collect the key items and SMK.")
     time.sleep(1.2)
 
     smk_reward = random.randint(130, 150)
@@ -21,7 +21,7 @@ def handle_cache_loot(player):
     player.inventory[item_reward] = player.inventory.get(item_reward, 0) + 2
 
     print(f"\n[ REWARD RECEIVED ]")
-    print(f"  + {smk_reward} Stormmarks (New Total: {player.stormmarks})")
+    print(f"  + {smk_reward} Stormmarks (New SMK total: {player.stormmarks})")
     print(f"  + 2x {item_reward}")
 
     player.location = "The Hardpoint"
@@ -29,6 +29,7 @@ def handle_cache_loot(player):
 
     print("\nYou secured the loot and are headed back to The Hardpoint...")
     time.sleep(1.2)
+
     from areas.the_hardpoint_area import go_to_the_hardpoint
 
     player.location_steps = 0
