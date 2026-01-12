@@ -13,19 +13,24 @@ reset = Style.RESET_ALL
 
 initialize_audio()
 
+""" 
+
+HANDLES THE FLOW OF THE GAME'S CHAPTERS. IT CHECKS THEIR CURRENT_CHAPTER AND THEIR CURRENT LOCATION
+
+"""
 
 def chapter_flow(player):
 
     if player.current_chapter == "2":
         chapter2(player)
 
-    if player.current_chapter == "3":
+    elif player.current_chapter == "3":
         chapter3(player)
 
-    if player.current_chapter == "4":
+    elif player.current_chapter == "4":
         chapter4(player)
 
-    if player.current_chapter == "5":
+    elif player.current_chapter == "5":
         chapter5(player)
 
     if player.location:
