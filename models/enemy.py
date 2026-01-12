@@ -86,10 +86,17 @@ enemies = {
         "attack": 14,
         "ability": 'Enrage',
         "prize": 'D-HQ Keys'
+    },
+    "D-Corp D7 Flying Drone": {
+        "health": 94,
+        "max_health": 94,
+        "attack": 13,
+        "ability": None,
+        "prize": 55
     }
 }
 
-# enemy Object
+
 class Enemy:
     def __init__(self, name, health, max_health, attack, ability=None, loot=0, is_weakened=False):
         self.name = name
@@ -185,7 +192,10 @@ class Enemy:
             
 """
 
-# creates stats of the enemy then spawns them in for the player to battle
+""" 
+    creates stats of the enemy then spawns them in for the player to battle
+"""
+
 def spawn_enemy(name):
     stats = enemies[name]
     return Enemy(
