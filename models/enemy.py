@@ -93,7 +93,15 @@ enemies = {
         "attack": 13,
         "ability": None,
         "prize": 55
+    },
+    "D-Corp Rogue Assassin": {
+        "health": 75,
+        "max_health": 75,
+        "attack": 19,
+        "ability": None,
+        "prize": 70
     }
+
 }
 
 
