@@ -9,7 +9,7 @@ reset = Style.RESET_ALL
 
 def enter_ambushed_outpost(player):
     print(f"\n{Fore.RED}=================================================={reset}")
-    print(f"{Fore.RED}                                 Ironwind Outpost{reset}")
+    print(f"{Fore.RED}              [Ironwind Outpost]{reset}")
     print(f"{Fore.RED}=================================================={reset}")
     time.sleep(2)
 
@@ -22,9 +22,9 @@ def enter_ambushed_outpost(player):
     print("\nSuddenly, a squad of D-Corp drones descends from the sky!")
     time.sleep(1.5)
 
-    # Battle 1
+
     print(f"\n{Fore.RED}Enemy Encounter!{reset}")
-    enemy = spawn_enemy("Guard Drone")
+    enemy = spawn_enemy("D-Corp D7 Flying Drone")
     enemy.name = "D-Corp Assault Drone"
     battle = Battle(player, enemy)
     battle.fight(player, enemy)
@@ -82,7 +82,9 @@ def command_center_path(player):
     print("Kael is there, wounded, firing at intruders.")
     time.sleep(1.5)
     print(f"Kael Rowan: '{player.name}! Good timing. Help me clear these bastards!'")
-    # Could add another battle or end the sequence here for now
+
+    # Reminder to self: add a new battle and enemy
+
     time.sleep(1.5)
     print("Together, you and Kael secure the command room.")
 
@@ -94,6 +96,11 @@ def market_path(player):
 
     print(f"\n{Fore.RED}Enemy Encounter!{reset}")
     enemy = spawn_enemy("Ravager Wolf")
+
+    """ 
+    JUST TEMPORARILY USED THE STATS OF THE RAVAGER WOLF TO MAKE THE CYBER HOUND
+    """
+
     enemy.name = "D-Corp Cyber-Hound"
     battle = Battle(player, enemy)
     battle.fight(player, enemy)
@@ -106,5 +113,4 @@ def market_path(player):
     print("You head towards the Command Center to regroup with Kael.")
     time.sleep(1.5)
     print("You arrive at the Command Center, seeing Kael finishing off an intruder.")
-
 
