@@ -104,6 +104,18 @@ enemies = {
 
 }
 
+""" 
+
+  HANDLES THE FUNCTIONS OF THE ENEMY'S ABILITIES 
+  
+"""
+
+def enemy_ability(self, base_damage):
+    if self.name == "C.T Kane" and self.health <= 50:
+        play_sound('rage', 0.5)
+        base_damage += 13
+        print(f"\nC.T Kane is now {Fore.RED}ENRAGED!{reset} His system is overclocked (+13 Total Damage)")
+        time.sleep(1.1)
 
 class Enemy:
     def __init__(self, name, health, max_health, attack, ability=None, loot=0, is_weakened=False):
@@ -147,12 +159,7 @@ class Enemy:
     def calculate_damage(self):
         base_damage = self.attack + random.randint(-2, 2)
 
-        if self.name == "C.T Kane" and self.health <= 50:
-            play_sound('rage', 0.5)
-            base_damage += 13
-            print(f"\nC.T Kane is now {Fore.RED}ENRAGED!{reset} His system is overclocked (+13 Total Damage)")
-            time.sleep(1.1)
-
+        enemy_ability(self, base_damage)
 
         if self.is_weakened:
             final_damage = int(base_damage * (1.0 - self.weakness_factor))
