@@ -25,7 +25,6 @@ def enter_ambushed_outpost(player):
 
     print(f"\n{Fore.RED}Enemy Encounter!{reset}")
     enemy = spawn_enemy("D-Corp D7 Flying Drone")
-    enemy.name = "D-Corp Assault Drone"
     battle = Battle(player, enemy)
     battle.fight(player, enemy)
 
@@ -69,6 +68,7 @@ def command_center_path(player):
 
     print(f"\n{Fore.RED}Enemy Encounter!{reset}")
     print("A heavy trooper blocks your path!")
+
     enemy = spawn_enemy("Ironclad Scavenger")
     enemy.name = "D-Corp Heavy Trooper"
     battle = Battle(player, enemy)
@@ -82,9 +82,6 @@ def command_center_path(player):
     print("Kael is there, wounded, firing at intruders.")
     time.sleep(1.5)
     print(f"Kael Rowan: '{player.name}! Good timing. Help me clear these bastards!'")
-
-    # Reminder to self: add a new battle and enemy
-
     time.sleep(1.5)
     print("Together, you and Kael secure the command room.")
 
@@ -99,6 +96,7 @@ def market_path(player):
 
     """ 
     JUST TEMPORARILY USED THE STATS OF THE RAVAGER WOLF TO MAKE THE CYBER HOUND
+    
     """
 
     enemy.name = "D-Corp Cyber-Hound"
