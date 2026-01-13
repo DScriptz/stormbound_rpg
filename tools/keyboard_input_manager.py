@@ -9,6 +9,3 @@ def wait_for_key():
             break
     return
 
-
-
-
