@@ -23,6 +23,7 @@ def handle_choice(player):
             player.max_health += 10
             player.faction_standing -= 20
             print(f"Your max HP increased to {player.max_health} and Faction Respect is now: {player.faction_standing}")
+            return player
 
         elif choice == "2":
             if random.random() <= 0.50:
