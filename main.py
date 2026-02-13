@@ -24,13 +24,13 @@ def chapter_flow(player):
     if player.current_chapter == "2":
         chapter2(player)
 
-    elif player.current_chapter == "3":
+    if player.current_chapter == "3":
         chapter3(player)
 
-    elif player.current_chapter == "4":
+    if player.current_chapter == "4":
         chapter4(player)
 
-    elif player.current_chapter == "5":
+    if player.current_chapter == "5":
         chapter5(player)
 
     if player.location:
