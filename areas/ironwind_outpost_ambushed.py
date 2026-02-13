@@ -52,7 +52,7 @@ def enter_ambushed_outpost(player):
             break
         elif choice == "2":
             play_sound("ui", 0.9)
-            print("\nYou veer off towards the market stalls, weapon ready...")
+            print("\nYou hurry towards the market stalls, weapon ready...")
             time.sleep(1.5)
             market_path(player)
             break
@@ -84,6 +84,18 @@ def command_center_path(player):
     print(f"Kael Rowan: '{player.name}! Good timing. Help me clear these bastards!'")
     time.sleep(1.5)
     print("Together, you and Kael secure the command room.")
+    time.sleep(1.5)
+    print("Kael Rowan: 'Gahh, another one of those pricks!'")
+
+    print(f"\n{Fore.RED}Enemy Encounter!{reset}")
+
+    enemy.name = 'D-Corp Brogue Assassin'
+
+    enemy = spawn_enemy("D-Corp Rogue Assassin")
+    battle = Battle(player, enemy)
+    battle.fight(player, enemy)
+
+
 
 
 def market_path(player):
