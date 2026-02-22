@@ -14,7 +14,7 @@ initialize_audio()
 
 def intro(player):
 
-    print("---------------------- Chapter 2: The Encounter... ----------------------")
+    print("---------------------- Chapter 2: The Encounter. ----------------------")
     time.sleep(0.8)
     main(player)
     skip_choice = input("\nDo you want to skip the dialogue? (Y/N): ").lower().strip()
@@ -41,7 +41,9 @@ def intro(player):
 
     return player
 
-""" CHAPTER 2 OF THE GAME """
+""" 
+    CHAPTER 2 OF THE GAME 
+"""
 
 def chapter2(player):
     if player.current_chapter != "2":
@@ -76,7 +78,10 @@ def chapter2(player):
     battle = Battle(player, enemy)
     battle.fight(player, enemy)
 
-    """ WHEN PLAYER KILLS WOLF """
+    """ 
+        WHEN PLAYER KILLS WOLF
+    """
+
     print("\nAs you defeat the wolf, Kael Rowan claps his hand and walks slowly towards you..")
     time.sleep(1.5)
     print("\nKael Rowan: 'Well well, you got some guts huh?'")
