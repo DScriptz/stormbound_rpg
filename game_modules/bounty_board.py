@@ -110,7 +110,8 @@ def collect_bounty(player):
         player.active_bounty = None
 
     else:
-        print(f"\nCommander Thorne: 'Argh, I said don't waste my time! You only have {current_amount} {target_item}. Go back and finish the job!'")
+        print(f"\nCommander Thorne: 'Argh, I said don't waste my time! You only have {current_amount} of the {target_item}"
+              f". Go back and finish the job!'")
         time.sleep(1.3)
     return True
 
