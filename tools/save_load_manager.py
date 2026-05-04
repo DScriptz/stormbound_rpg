@@ -42,6 +42,7 @@ def check_slot_status(slot_number):
     filename = os.path.join(save_folder, f"stormbound_save_{slot_number}.dat")
     return os.path.exists(filename)
 
+
 def select_save_slot(player):
     print("\n=== SELECT SAVE SLOT ===")
     print(f"{Fore.RED}NOTE{Style.RESET_ALL}: {Style.BRIGHT}Always remember your current save slot number to avoid"
@@ -88,7 +89,10 @@ def select_save_slot(player):
 
 
 def select_load_slot():
-    """Handles the menu and input validation for loading the game"""
+    """
+        Handles the menu and input validation for loading the game
+    """
+
     print("\n=== SELECT LOAD SLOT ===")
 
     for slot in range(1, slot_count + 1):
@@ -104,8 +108,7 @@ def select_load_slot():
 
             if slot_number == 0:
                 print("Load Cancelled")
-                return None  # Returns None if cancelled
-
+                return None
             if 1 <= slot_number <= slot_count:
 
                 if not check_slot_status(slot_number):
@@ -126,7 +129,7 @@ def save_game(player, slot_number):
     Saves the entire player object to a specific save slot using the pickle module.
 
     Args:
-        player (Player): The instance of your Player class to be saved.
+        player (Player): The save instance  of your Player to be saved.
         slot_number (int): The number of the save slot (e.g., 1, 2, or 3).
     """
 
@@ -169,6 +172,6 @@ def load_game(slot_number):
         return loaded_player
 
     except Exception as e:
-        # Catches any file reading or corrupted data errors
+
         print(f"\nAn unexpected error occurred while loading Slot {slot_number}. Save file may be corrupted: {e}")
         return None
