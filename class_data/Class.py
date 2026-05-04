@@ -1,7 +1,7 @@
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 
 """
-    CLASS CHOICES
+    THESE SHOWS THE CLASS CHOICES
 
     Example:
         - Warrior | Attack 100 | Special Ability: Uproar
@@ -28,8 +28,8 @@ class_stats = {
     },
     "3": {
         "name": "Aethermancer",
-        "health": 70,
-        "max_health": 70,
+        "health": 60,
+        "max_health": 60,
         "weapon": "Simple Spell Book",
         "attack": 12,
         "ability": f"{Fore.MAGENTA + Style.BRIGHT}Divine Blast{Style.RESET_ALL}"
