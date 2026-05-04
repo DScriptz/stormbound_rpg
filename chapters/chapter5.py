@@ -74,6 +74,7 @@ def show_dialogue(player):
     time.sleep(1.7)
     print("You and the guards were alerted and stepped on the gas and hurried to the Ironwind Outpost...")
     time.sleep(1.7)
+
     return player
 
 
@@ -94,6 +95,7 @@ def chapter5(player):
     print("The 2 guards were struggling to get a hold of the assailants... One of them got shot-")
     time.sleep(1.5)
     print("\nWhat would you do?")
+
     player = handle_choice(player)
     player = show_dialogue(player)
 
