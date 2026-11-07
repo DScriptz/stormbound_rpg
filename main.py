@@ -77,4 +77,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-# SemVer self reminders: Use 'Major, Minor, Patch' (E.G "v0[Major].1[Minor].0[Patch]) when naming versions.
