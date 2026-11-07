@@ -14,7 +14,7 @@ tips = [
     f"{tip} Don't know where to go in a Location you went? Check out the {Style.BRIGHT}Current Location GPS{reset}",
     f"{tip} Check out the Stormbound Overview in your pause menu for the Ranks Info!",
     f"{tip} Found a bug? Make sure to put up an Issue request on the 'stormbound_rpg' Github Repository!",
-    f"{tip} Bring you mental A game up! Strategize on how you will approach each battle!"
+    f"{tip} Bring your mental A game up! Strategize on how you will approach each battle!"
 
 ]
 
