@@ -14,7 +14,7 @@ class_stats = {
         "name": "Storm Warden",
         "health": 75,
         "max_health": 75,
-        "weapon": "Lightning Hammer",
+        "weapon": "Electric Hammer",
         "attack": 11,
         "ability": f"{Fore.LIGHTBLUE_EX + Style.BRIGHT}Thunder Strike{Style.RESET_ALL}"
     },
@@ -30,7 +30,7 @@ class_stats = {
         "name": "Aethermancer",
         "health": 70,
         "max_health": 70,
-        "weapon": "Simple Spell Book",
+        "weapon": "Simple Magic Book",
         "attack": 12,
         "ability": f"{Fore.MAGENTA + Style.BRIGHT}Divine Blast{Style.RESET_ALL}"
     },
@@ -80,7 +80,7 @@ class_stats = {
         "name": "Echo Runner",
         "health": 62,
         "max_health": 62,
-        "weapon": "Lightning Fist",
+        "weapon": "Lightning Fists",
         "attack": 12,
         "ability": f"{Fore.WHITE + Style.BRIGHT}Dead Bolt{Style.RESET_ALL}"
     },
@@ -97,7 +97,7 @@ class_stats = {
         "name": "dev",
         "health": 837,
         "max_health": 837,
-        "weapon": "Shadow Technique: DropDead",
+        "weapon": "Shadow Technique: Harbringer's Wrath",
         "attack": 999,
         "ability": f"{Style.DIM + Fore.RED}Domain Expansion: Barangay Tanod{Style.RESET_ALL}"
     }
