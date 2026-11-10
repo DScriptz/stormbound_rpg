@@ -16,11 +16,12 @@ Stormbound is still in active development, expect bugs or missing features.
 
 More features yet to come!
 
+The Early Beginnings (Chapter 1-5) is available to play now! (Chapter 5 has lots of WIP but playable)
 ---
 
-## How to play
+## How to install
 
-To run Stormbound, Text-based RPG locally, you need Python 3.10.7+ on your system (Windows or Mac).
+To run Stormbound Text-based RPG locally, you need Python 3.10.7+ on your system (Windows or Mac).
 
 ### 1. Installation
 
@@ -55,3 +56,15 @@ Enjoy the game! If you have any suggestions, ideas or more coding guidance for m
 Developer: [DScriptz (Dwayne)]
 ---
 Report bugs: If there's a bug, please open an issue on this GitHub repository.
+
+
+
+## How to play
+
+### 1. Read carefully
+
+When the game starts, you are constantly met with choices. Kindly read & follow the instructions carefully (E.G: "What's your name?: [Type in the blank]").
+
+### 2. Strategize & think about your choices
+
+The world of Stormbound (Dystopian Philippines) contains lots of choices ingame especially in combat. Prepare & strategize your ways of attack in battle and emerge victorious! Have a moral compass. Why's that? Well this world either rewards you or punishes you for your choices.
